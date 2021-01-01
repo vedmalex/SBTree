@@ -23,9 +23,13 @@ const start = async function () {
   });
 
   // Duplicate do not get added
-  await tree.insertDocuments({
-    age: 43, country: 'United States', email: 'bob@valjean.fr', _id: '5d6dc94e3c7734812f051d7b',
-  });
+  try {
+    await tree.insertDocuments({
+      age: 43, country: 'United States', email: 'bob@valjean.fr', _id: '5d6dc94e3c7734812f051d7b',
+    });
+  } catch (e) {
+    console.log(e);
+  }
 
   await tree.insertDocuments({
     age: 29, country: 'Belgium', email: 'patrick@valjean.fr', _id: '5d6dc94e3c7734812f051bel',
@@ -96,7 +100,8 @@ const start = async function () {
   console.log(await tree.replaceDocuments(lisa));
 
   // console.log('-- Update {country:{$in:["Greenland"]}');
-  // console.log(await tree.updateDocuments({country:{$in:['Greenland']}},{$set:{canDeliver:false}}));
+  // console.log(await
+  // tree.updateDocuments({country:{$in:['Greenland']}},{$set:{canDeliver:false}}));
 
   console.log('-- Find : {country:{$in:[\'Greenland\']}}');
   console.log(await tree.findDocuments({ country: { $in: ['Greenland'] } }));
