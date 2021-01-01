@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.remove = void 0;
 const query_1 = require("./query");
 const RemoveCommand_1 = require("./RemoveCommand");
 async function remove(_query) {
@@ -64,5 +65,5 @@ async function remove(_query) {
     }
     return results;
 }
-module.exports = remove;
+exports.remove = remove;
 //# sourceMappingURL=remove.js.map

@@ -37,7 +37,7 @@ function findDeletedFields(object, base) {
 
 // FIXME : Major improvements in perf to be made here.
 // Did naive implementation to bootstrap it.
-async function replace(currentDocument, newDocument) {
+export async function replace(currentDocument, newDocument) {
   const self = this;
 
   if (!newDocument._id) {
@@ -143,4 +143,3 @@ async function replace(currentDocument, newDocument) {
   await this.adapter.replaceDocument(newDocument);
   return newDocument;
 }
-module.exports = replace;

@@ -349,7 +349,6 @@ async replace(identifier, value) {
 }
 
 async  split() {
-  const SBFLeaf = require('../SBFLeaf');
 
   const parent = this.getParent();
   const adapter = parent.getAdapter();

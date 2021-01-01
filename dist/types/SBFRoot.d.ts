@@ -18,7 +18,7 @@ export declare class SBFRoot {
         keys: Array<string>;
     }>;
     get(identifier: any): Promise<any>;
-    getAdapter(): import("../adapters").FsAdapter | import("../adapters").MemoryAdapter;
+    getAdapter(): import("../adapters").MemoryAdapter | import("../adapters").FsAdapter;
     getFillStatus(): Promise<{
         fillFactor: number;
         order: number;

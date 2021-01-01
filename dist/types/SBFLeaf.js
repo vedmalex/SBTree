@@ -278,7 +278,6 @@ class SBFLeaf {
         }
     }
     async split() {
-        const SBFLeaf = require('../SBFLeaf');
         const parent = this.getParent();
         const adapter = parent.getAdapter();
         const newLeaf = new SBFLeaf({ parent });

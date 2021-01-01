@@ -2,15 +2,15 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SBFNode = void 0;
 const SBFLeaf_1 = require("./SBFLeaf");
-const { insertSorted } = require('../../utils/array');
-const { generateNodeId } = require('../../utils/crypto');
+const array_1 = require("../utils/array");
+const crypto_1 = require("../utils/crypto");
 class SBFNode {
     constructor(props) {
         if (!props.parent) {
             throw new Error(`SBFNode initialized without parent reference`);
         }
         this.parent = props.parent;
-        this.id = (props.id) ? props.id : generateNodeId();
+        this.id = (props.id) ? props.id : crypto_1.generateNodeId();
         this.fieldName = (props.parent.fieldName) ? props.parent.fieldName : null;
         this.keys = (props.keys) ? props.keys : [];
         this.children = [];
@@ -218,7 +218,7 @@ class SBFNode {
         if (this.isFull()) {
             await this.split();
         }
-        const index = insertSorted(this.keys, value);
+        const index = array_1.insertSorted(this.keys, value);
         return index;
     }
     ;

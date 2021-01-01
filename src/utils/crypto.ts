@@ -7,6 +7,7 @@ export function insecureRandomBytes(size) {
 function getRandomBytes() {
   let randomBytes = null;
   try {
+    // to have browser support
     randomBytes = require('crypto').randomBytes;
   } catch (e) {
     // keep the fallback
@@ -22,7 +23,7 @@ function browserRandomBytes() {
   return randomBytes;
 }
 
-const isWindowContext = !!window?.crypto?.getRandomValues;
+const isWindowContext = globalThis.window?.crypto?.getRandomValues;
 
 const randomBytes = (isWindowContext) ? browserRandomBytes : getRandomBytes()
 export const generateRandId = (prefix = '') => prefix + (Date.now().toString(16) + randomBytes(4).toString('hex'));

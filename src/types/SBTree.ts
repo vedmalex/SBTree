@@ -7,11 +7,11 @@ import cloneDeep from 'lodash.clonedeep';
 
 import ObjectId from 'mongo-objectid';
 
-const insert = require('../ops/insert');
-const remove = require('../ops/remove');
-const query = require('../ops/query');
-const get = require('../ops/get');
-const replace = require('../ops/replace');
+import {insert}  from './ops/insert';
+import {remove}  from './ops/remove';
+import {query}  from './ops/query';
+import {get}  from './ops/get';
+import {replace}  from './ops/replace';
 
 const parseAdapter = (_adapterOpts) =>{
   if(!Adapters[_adapterOpts.name]){

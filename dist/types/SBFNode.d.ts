@@ -29,7 +29,7 @@ export declare class SBFNode {
     getFillStatus(): any;
     getTreeOptions(): any;
     insert(identifier: any, value: any): Promise<void>;
-    insertReferenceKey(value: any): Promise<any>;
+    insertReferenceKey(value: any): Promise<number>;
     isFull(): boolean;
     mergeUp(): Promise<void>;
     remove(remCmd: any): Promise<void>;

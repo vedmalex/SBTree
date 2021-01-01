@@ -2,7 +2,7 @@ import {query} from './query';
 
 import {RemoveCommand} from './RemoveCommand';
 
-async function remove(_query) {
+export async function remove(_query) {
   const self = this;
   const removeNestedProp = async function (_fieldName, _fieldValue, _remCmd) {
     const _fieldValueType = typeof _fieldValue;
@@ -68,4 +68,3 @@ async function remove(_query) {
 
   return results;
 }
-module.exports = remove;

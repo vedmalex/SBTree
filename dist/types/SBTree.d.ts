@@ -43,7 +43,7 @@ export declare class SBTree {
     setFieldTree(_fieldTreeOpts: any): void;
     deleteDocuments(query: any): Promise<any>;
     findDocuments(params: any): Promise<any>;
-    getAdapter(): FsAdapter | MemoryAdapter;
+    getAdapter(): MemoryAdapter | FsAdapter;
     getDocument(identifier: any): Promise<any>;
     getFieldTree(fieldName: any): SBFTree;
     insertDocuments(documents: any): Promise<any[]>;

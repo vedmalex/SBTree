@@ -30,11 +30,11 @@ const lodash_foreach_1 = __importDefault(require("lodash.foreach"));
 const SBFTree_1 = require("./SBFTree");
 const lodash_clonedeep_1 = __importDefault(require("lodash.clonedeep"));
 const mongo_objectid_1 = __importDefault(require("mongo-objectid"));
-const insert = require('../ops/insert');
-const remove = require('../ops/remove');
-const query = require('../ops/query');
-const get = require('../ops/get');
-const replace = require('../ops/replace');
+const insert_1 = require("./ops/insert");
+const remove_1 = require("./ops/remove");
+const query_1 = require("./ops/query");
+const get_1 = require("./ops/get");
+const replace_1 = require("./ops/replace");
 const parseAdapter = (_adapterOpts) => {
     if (!adapters_1.default[_adapterOpts.name]) {
         throw new Error(`Unknown adapter ${_adapterOpts.name}`);
@@ -143,13 +143,13 @@ class SBTree {
         if (!this.state.isReady) {
             await this.isReady();
         }
-        return (await remove.call(this, query));
+        return (await remove_1.remove.call(this, query));
     }
     async findDocuments(params) {
         if (!this.state.isReady) {
             await this.isReady();
         }
-        return (await query.call(this, params));
+        return (await query_1.query.call(this, params));
     }
     getAdapter() {
         return this.adapter;
@@ -159,7 +159,7 @@ class SBTree {
         if (!this.state.isReady) {
             await this.isReady();
         }
-        return (await get.call(this, identifier));
+        return (await get_1.get.call(this, identifier));
     }
     getFieldTree(fieldName) {
         let isExcluded = this.exclude.includes(fieldName);
@@ -186,7 +186,7 @@ class SBTree {
         if (!document._id) {
             document._id = new mongo_objectid_1.default().toString();
         }
-        await insert.call(this, document);
+        await insert_1.insert.call(this, document);
         this.size += 1;
         return [document];
     }
@@ -201,7 +201,7 @@ class SBTree {
             return documents;
         }
         const currentDocument = await this.getDocument(documents._id);
-        return ([await replace.call(this, currentDocument, documents)]);
+        return ([await replace_1.replace.call(this, currentDocument, documents)]);
     }
     loadState(state) {
         this.order = state.order;

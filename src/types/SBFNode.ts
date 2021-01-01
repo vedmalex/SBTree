@@ -1,6 +1,6 @@
 import { SBFLeaf } from './SBFLeaf';
-const {insertSorted} = require('../../utils/array');
-const {generateNodeId} = require('../../utils/crypto');
+import {insertSorted} from '../utils/array';
+import {generateNodeId} from '../utils/crypto';
 
 /**
  * SBFTree

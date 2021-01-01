@@ -12,9 +12,6 @@ const defaultOpts = {
 class SBFTree {
     constructor(props) {
         this.id = (props?.id) ? props?.id : crypto_1.generateFieldTreeId();
-        Object.assign(SBFTree.prototype, {
-            createRoot: require('./methods/createRoot')
-        });
         this.order = (props.order) ? props.order : defaultOpts.order;
         this.verbose = (props.verbose) ? props.verbose : defaultOpts.verbose;
         this.fillFactor = (props.fillFactor) ? props.fillFactor : defaultOpts.fillFactor;

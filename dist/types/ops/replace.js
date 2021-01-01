@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.replace = void 0;
 const lodash_isequal_1 = __importDefault(require("lodash.isequal"));
 const lodash_get_1 = __importDefault(require("lodash.get"));
 const lodash_set_1 = __importDefault(require("lodash.set"));
@@ -122,5 +123,5 @@ async function replace(currentDocument, newDocument) {
     await this.adapter.replaceDocument(newDocument);
     return newDocument;
 }
-module.exports = replace;
+exports.replace = replace;
 //# sourceMappingURL=replace.js.map

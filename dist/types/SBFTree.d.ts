@@ -21,7 +21,7 @@ export declare class SBFTree {
     isUnique: boolean;
     root: SBFRoot;
     constructor(props: SBFTreeOptions);
-    getAdapter(): FsAdapter | MemoryAdapter;
+    getAdapter(): MemoryAdapter | FsAdapter;
     getOptions(): {
         order: number;
         fillFactor: number;
