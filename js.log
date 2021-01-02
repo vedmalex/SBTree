@@ -44,7 +44,7 @@ Error: Identifier 5d6dc94e3c7734812f051d7b already exist
   {
     age: 42,
     email: 'jean.paul@valjean.fr',
-    _id: '5ff073da1dbfff4feacbdb0d'
+    _id: '5ff074786852019edba82811'
   }
 ]
 -- Find : {age:{$gte:44}}
@@ -75,7 +75,7 @@ Error: Identifier 5d6dc94e3c7734812f051d7b already exist
     country: 'Greenland',
     email: 'lisa@lesmund.gl',
     canDeliver: true,
-    _id: '5ff073da1dbfff4feaa90af2'
+    _id: '5ff074776852019edb29c0ec'
   },
   {
     age: 22,
@@ -116,7 +116,7 @@ Error: Identifier 5d6dc94e3c7734812f051d7b already exist
   country: 'Greenland',
   email: 'lisa@lesmund.gl',
   canDeliver: true,
-  _id: '5ff073da1dbfff4feaa90af2'
+  _id: '5ff074776852019edb29c0ec'
 }
 -- Replace lisa
 [
@@ -124,8 +124,30 @@ Error: Identifier 5d6dc94e3c7734812f051d7b already exist
     age: 27,
     country: 'Greenland',
     email: 'lisa@lesmund.gl',
-    _id: '5ff073da1dbfff4feaa90af2',
+    _id: '5ff074776852019edb29c0ec',
     isPending: true
   }
 ]
 -- Find : {isPending:true}
+[
+  {
+    age: 27,
+    country: 'Greenland',
+    email: 'lisa@lesmund.gl',
+    _id: '5ff074776852019edb29c0ec',
+    isPending: true
+  }
+]
+-- Find : {canDeliver:true}
+[]
+-- Find : {country:{$in:['Greenland']}}
+[
+  {
+    age: 27,
+    country: 'Greenland',
+    email: 'lisa@lesmund.gl',
+    _id: '5ff074776852019edb29c0ec',
+    isPending: true
+  }
+]
+5.744424057 seconds
