@@ -1,7 +1,7 @@
 import FsAdapter from '../FsAdapter';
 import autosave from './ops/autosave';
 
-export default async function attachParent(this:FsAdapter,parent) {
+export default async function attachParent(this:FsAdapter, parent) {
   this.setParent(parent);
 
   if (this.autoLoad) {

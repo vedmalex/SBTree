@@ -35,5 +35,6 @@ export declare class SBFNode {
     remove(remCmd: any): Promise<void>;
     replace(identifier: any, value: any): Promise<void>;
     split(): Promise<void>;
+    toJSON(): any;
 }
 //# sourceMappingURL=SBFNode.d.ts.map

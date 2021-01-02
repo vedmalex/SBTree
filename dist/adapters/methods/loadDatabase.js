@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const lodash_foreach_1 = __importDefault(require("lodash.foreach"));
 const LeafMeta_1 = __importDefault(require("../LeafMeta"));
 async function loadDatabase() {
-    const job = await this.queue.add('File.read', `${this.path}/sbtree.meta`);
+    const job = await this.queue.add('File.read', `${this.path}/sbtree.meta.json`);
     await job.execution();
     const db = job.result;
     if (db) {

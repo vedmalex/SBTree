@@ -22,5 +22,10 @@ export declare class SBFLeaf {
     remove(remCmd: any): Promise<boolean>;
     replace(identifier: any, value: any): Promise<void>;
     split(): Promise<void>;
+    toJSON(): {
+        fieldName: string;
+        id: string;
+        type: string;
+    };
 }
 //# sourceMappingURL=SBFLeaf.d.ts.map

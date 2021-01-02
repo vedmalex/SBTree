@@ -1,7 +1,7 @@
 import FsAdapter from '../FsAdapter';
 
 export default async function saveLeafData(this:FsAdapter, leafName, data) {
-  const job = await this.queue.add('File.create', `${this.path}/l/${leafName}.dat`, data).execution();
+  const job = await this.queue.add('File.create', `${this.path}/l/${leafName}.json`, data).execution();
   let res = {};
   if (!job.result) {
   }

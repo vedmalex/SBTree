@@ -13,6 +13,7 @@ import {query}  from './ops/query';
 import {get}  from './ops/get';
 import {replace}  from './ops/replace';
 import FsAdapter from '../adapters/FsAdapter';
+import { rootCertificates } from 'tls';
 
 export type Document = {
   _id: string;
@@ -143,7 +144,7 @@ export class SBTree {
  * @param fieldTreeOpts.root -
  * @param fieldTreeOpts.* -
  */
-setFieldTree(_fieldTreeOpts) {
+setFieldTree(_fieldTreeOpts:{fieldName, id?, root?}) {
   const { fieldName } = _fieldTreeOpts;
   if (!fieldName) {
     throw new Error('Expected a fieldName to set a fieldTree');
@@ -291,23 +292,26 @@ toJSON() {
     fillFactor,
     verbose,
     id,
-    fieldTrees,
+    size,
     uniques,
     exclude,
-    size,
-    adapter,
+    fieldTrees,
   } = this;
+
+  const f = Object.keys(fieldTrees).reduce((res,cur)=>{
+    res[cur] = fieldTrees[cur].toJSON()
+    return res;
+  },{})
 
   return JSON.parse(JSON.stringify({
     order,
     fillFactor,
     verbose,
     id,
-    fieldTrees,
+    size,
     uniques,
     exclude,
-    size,
-    adapter,
+    fieldTrees:f,
   }));
 }
 

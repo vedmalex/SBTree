@@ -126,7 +126,7 @@ async  findLowerThan(value, includeKey = false) {
 
 async findGreaterThan(value, includeKey = false) {
   const result = { identifiers: [], keys: [] };
-  const { children, identifiers, keys } = this;
+  const { children,identifiers, keys } = this;
 
   let leafIndex = 0;
   const p = [];
@@ -380,6 +380,25 @@ async split() {
   await parent.insertReferenceKey(midKey);
 };
 
+toJSON(){
+  const {
+    fieldName,
+    children,
+    type,
+    id,
+    // identifiers,
+    keys,
+
+  } = this;
+  return {
+    id,
+    type,
+    fieldName,
+    // identifiers:[...identifiers],
+    keys: [...keys],
+    children: children.map(c=>c.toJSON())
+  }
+}
 
 }
 

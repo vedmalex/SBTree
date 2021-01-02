@@ -5,6 +5,6 @@ export default async function removeDocument(this:FsAdapter, identifier) {
     console.error(identifier);
     throw new Error('Cannot remove document, expected id');
   }
-  const job = await this.queue.add('File.remove', `${this.path}/d/${identifier}.dat`);
+  const job = await this.queue.add('File.remove', `${this.path}/d/${identifier}.json`);
   await job.execution();
 }

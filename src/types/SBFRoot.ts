@@ -192,6 +192,9 @@ export class SBFRoot {
   public id: string;
   public fieldName: string;
   public keys: Array<string>
+  /**
+   * Used when SBFRoot holds value (when size = 0)
+   *  */
   public identifiers: Array<string>
   public children: Array<SBFLeaf|SBFNode>
   constructor(props) {
@@ -487,5 +490,26 @@ async split() {
     this.children = [left, right];
   }
 }
+
+toJSON(){
+  const {
+    type,
+    id,
+    fieldName,
+    identifiers,
+    keys,
+    children,
+  } = this;
+
+  return {
+    type,
+    id,
+    fieldName,
+    identifiers: [...identifiers],
+    keys: [...keys],
+    children: children.map(c=>c.toJSON())
+  }
+}
+
 };
 

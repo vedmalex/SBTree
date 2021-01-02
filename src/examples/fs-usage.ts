@@ -2,7 +2,7 @@ import { FsAdapter } from '../adapters';
 import { SBTree } from '../types/SBTree';
 import Timer from '../utils/time';
 
-const tree = new SBTree({ adapter:new FsAdapter({ path: '.db', autoSave: false }), order: 3 });
+const tree = new SBTree({ adapter:new FsAdapter({ path: '.db', autoSave: true }), order: 3 });
 const timer = new Timer();
 
 export const start = async function () {

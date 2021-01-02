@@ -219,17 +219,20 @@ class SBTree {
         return true;
     }
     toJSON() {
-        const { order, fillFactor, verbose, id, fieldTrees, uniques, exclude, size, adapter, } = this;
+        const { order, fillFactor, verbose, id, size, uniques, exclude, fieldTrees, } = this;
+        const f = Object.keys(fieldTrees).reduce((res, cur) => {
+            res[cur] = fieldTrees[cur].toJSON();
+            return res;
+        }, {});
         return JSON.parse(JSON.stringify({
             order,
             fillFactor,
             verbose,
             id,
-            fieldTrees,
+            size,
             uniques,
             exclude,
-            size,
-            adapter,
+            fieldTrees: f,
         }));
     }
 }

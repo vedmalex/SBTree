@@ -363,4 +363,17 @@ async  split() {
   await parent.attachLeaf(index + 1, newLeaf);
 }
 
+toJSON(){
+  const {
+    fieldName,
+    id,
+    type,
+  } = this;
+  return {
+    fieldName,
+    id,
+    type,
+  }
+}
+
 };

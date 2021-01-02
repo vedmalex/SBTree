@@ -45,7 +45,11 @@ export declare class SBTree {
         verbose: boolean;
     };
     isReady(): Promise<unknown>;
-    setFieldTree(_fieldTreeOpts: any): void;
+    setFieldTree(_fieldTreeOpts: {
+        fieldName: any;
+        id?: any;
+        root?: any;
+    }): void;
     deleteDocuments(query: any): Promise<any>;
     findDocuments(params: any): Promise<any>;
     getAdapter(): MemoryAdapter | FsAdapter;

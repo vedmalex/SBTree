@@ -11,7 +11,7 @@ async function saveDatabase() {
         leafs,
         tree,
     };
-    const job = await this.queue.add('File.create', `${this.path}/sbtree.meta`, db);
+    const job = await this.queue.add('File.create', `${this.path}/sbtree.meta.json`, db);
     await job.execution();
     this.lastSave = Date.now();
 }

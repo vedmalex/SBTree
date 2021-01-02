@@ -36,5 +36,13 @@ export declare class SBFRoot {
     insertReferenceKey(value: any): Promise<number>;
     isFull(): boolean;
     split(): Promise<void>;
+    toJSON(): {
+        type: string;
+        id: string;
+        fieldName: string;
+        identifiers: string[];
+        keys: string[];
+        children: any[];
+    };
 }
 //# sourceMappingURL=SBFRoot.d.ts.map

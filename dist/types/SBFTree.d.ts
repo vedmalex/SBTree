@@ -33,5 +33,21 @@ export declare class SBFTree {
     insert(identifier: any, value: any): Promise<boolean>;
     remove(remCmd: any): Promise<void>;
     replace(identifier: any, value: any): Promise<boolean>;
+    toJSON(): {
+        fieldName: string;
+        id: string;
+        fillFactor: number;
+        isUnique: boolean;
+        verbose: boolean;
+        order: number;
+        root: {
+            type: string;
+            id: string;
+            fieldName: string;
+            identifiers: string[];
+            keys: string[];
+            children: any[];
+        };
+    };
 }
 //# sourceMappingURL=SBFTree.d.ts.map

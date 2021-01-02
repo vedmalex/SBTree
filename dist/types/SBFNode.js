@@ -304,6 +304,16 @@ class SBFNode {
         await parent.insertReferenceKey(midKey);
     }
     ;
+    toJSON() {
+        const { fieldName, children, type, id, keys, } = this;
+        return {
+            id,
+            type,
+            fieldName,
+            keys: [...keys],
+            children: children.map(c => c.toJSON())
+        };
+    }
 }
 exports.SBFNode = SBFNode;
 //# sourceMappingURL=SBFNode.js.map

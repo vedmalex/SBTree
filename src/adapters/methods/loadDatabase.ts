@@ -3,7 +3,7 @@ import FsAdapter from '../FsAdapter';
 import LeafMeta from '../LeafMeta';
 
 export default async function loadDatabase(this:FsAdapter) {
-  const job = await this.queue.add('File.read', `${this.path}/sbtree.meta`);
+  const job = await this.queue.add('File.read', `${this.path}/sbtree.meta.json`);
   await job.execution();
   const db = job.result;
   if (db) {

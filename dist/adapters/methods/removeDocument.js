@@ -5,7 +5,7 @@ async function removeDocument(identifier) {
         console.error(identifier);
         throw new Error('Cannot remove document, expected id');
     }
-    const job = await this.queue.add('File.remove', `${this.path}/d/${identifier}.dat`);
+    const job = await this.queue.add('File.remove', `${this.path}/d/${identifier}.json`);
     await job.execution();
 }
 exports.default = removeDocument;

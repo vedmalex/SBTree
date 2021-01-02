@@ -417,6 +417,17 @@ class SBFRoot {
             this.children = [left, right];
         }
     }
+    toJSON() {
+        const { type, id, fieldName, identifiers, keys, children, } = this;
+        return {
+            type,
+            id,
+            fieldName,
+            identifiers: [...identifiers],
+            keys: [...keys],
+            children: children.map(c => c.toJSON())
+        };
+    }
 }
 exports.SBFRoot = SBFRoot;
 ;
