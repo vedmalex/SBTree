@@ -47,7 +47,7 @@ const fakeSelf = {
   id: '16d72f309846d',
   fieldName:'age',
   keys:[33],
-  childrens:[
+  children:[
     new SFBLeaf({ id: 'l16da4db23936c37368a', type: 'leaf' , parent:fakeAgeTreeParent}),
     new SFBLeaf({ id: 'l16da4db23930ae17477', type: 'leaf' , parent:fakeAgeTreeParent}),
   ],

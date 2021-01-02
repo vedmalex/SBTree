@@ -14,7 +14,7 @@ const self = {
 
       getParent: function () {
         return {
-          childrens:[
+          children:[
             {}
           ],
           getAdapter: () => {

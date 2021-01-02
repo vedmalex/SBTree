@@ -1,5 +1,5 @@
 import {EventEmitter} from 'events';
-import Adapters, { FsAdapter, MemoryAdapter } from '../adapters';
+import Adapters, { MemoryAdapter } from '../adapters';
 import {generateTreeId} from '../utils/crypto';
 import each from 'lodash.foreach';
 import { SBFTree, SBFTreeOptions } from './SBFTree';
@@ -12,6 +12,12 @@ import {remove}  from './ops/remove';
 import {query}  from './ops/query';
 import {get}  from './ops/get';
 import {replace}  from './ops/replace';
+import FsAdapter from '../adapters/FsAdapter';
+
+export type Document = {
+  _id: string;
+  [key:string]: any
+}
 
 const parseAdapter = (_adapterOpts) =>{
   if(!Adapters[_adapterOpts.name]){
@@ -65,7 +71,7 @@ export class SBTree {
   public id: string;
   public fieldTrees: {[key:string]:SBFTree}
 
-  constructor(props:SBTreeOptions) {
+  constructor(props: Partial<SBTreeOptions>) {
     const self = this;
     this.state = {
       isReady: true
@@ -213,14 +219,13 @@ async getDocument(identifier) {
   return this.fieldTrees[fieldName];
 }
 
-
 /**
  * Allow to insert of or multiple documents
  *
  * @param documents
  * @returns {Promise<[{documents}]>} - copy of the inserted (mutated with _id) document.
  */
-async insertDocuments(documents) {
+async insertDocuments(documents: Partial<Document> | Partial<Document>[]): Promise<Document[]>{
   // This will wait for SBTree to have isReady = true.
   // When so, it will then perform the insertion.
   if (!this.state.isReady) {
@@ -233,18 +238,18 @@ async insertDocuments(documents) {
       insertedDocumentsResultats.push(...await this.insertDocuments(document));
     }
     return insertedDocumentsResultats;
+  } else {
+    const document = cloneDeep(documents);
+
+    if (!document._id) {
+      document._id = new ObjectId().toString();
+    }
+    await insert.call(this, document);
+
+    this.size += 1;
+
+    return [document];
   }
-
-  const document = cloneDeep(documents);
-
-  if (!document._id) {
-    document._id = new ObjectId().toString();
-  }
-  await insert.call(this, document);
-
-  this.size += 1;
-
-  return [document];
 }
 
 async replaceDocuments(documents) {

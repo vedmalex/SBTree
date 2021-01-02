@@ -18,14 +18,14 @@
           3
         ],
         "identifiers": [],
-        "childrens": [
+        "children": [
           {
             "id": "n16da442735afb3656f3",
             "fieldName": "age",
             "keys": [
               2
             ],
-            "childrens": [
+            "children": [
               {
                 "id": "l16da44273580f5aae0c",
                 "fieldName": "age",
@@ -45,7 +45,7 @@
             "keys": [
               4
             ],
-            "childrens": [
+            "children": [
               {
                 "id": "l16da4427359f3ffde8b",
                 "fieldName": "age",

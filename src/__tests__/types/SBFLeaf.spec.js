@@ -9,12 +9,12 @@ const fakeTree = {
   root:{
     keys:[],
     identifiers:[],
-    childrens:[]
+    children:[]
   }
 }
 const fakeParent = {
   fieldName: 'name',
-  childrens:[],
+  children:[],
   keys:[]
 };
 fakeParent.getAdapter = () => {
@@ -30,7 +30,7 @@ fakeParent.insertReferenceKey = (key) => {
   fakeTree.root.keys.push(key)
 }
 fakeParent.attachLeaf = (index, leaf) => {
-  fakeTree.root.childrens.splice(index,0,leaf);
+  fakeTree.root.children.splice(index,0,leaf);
 }
 
 
@@ -115,7 +115,7 @@ describe('SBFLeaf', () => {
 
     await sharedLeaf.insert('507c7f79bcf86cd7994f6l0l','Lola');
     // A split happened here
-    const anotherLeaf = sharedLeaf.getParent().getTree().root.childrens[0];
+    const anotherLeaf = sharedLeaf.getParent().getTree().root.children[0];
 
     const find0fail = await sharedLeaf.find('Patricia');
     expect(find0fail).to.deep.equal({identifiers:[], keys:[]});
@@ -133,7 +133,7 @@ describe('SBFLeaf', () => {
     expect(find2).to.deep.equal({identifiers:['507c7f79bcf86cd7994f6l0l'], keys:['Lola']});
   });
   it('should remove', async function () {
-    const anotherLeaf = sharedLeaf.getParent().getTree().root.childrens[0];
+    const anotherLeaf = sharedLeaf.getParent().getTree().root.children[0];
 
     const find = await anotherLeaf.find('Patricia');
     expect(find).to.deep.equal({identifiers:['507c7f79bcf86cd7994f6p4t'], keys:['Patricia']})

@@ -6,39 +6,27 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.defaultFsProps = void 0;
 const fslockjs_1 = require("fslockjs");
 const events_1 = require("events");
-const lodash_clonedeep_1 = __importDefault(require("lodash.clonedeep"));
-const lodash_foreach_1 = __importDefault(require("lodash.foreach"));
-const LeafMeta_1 = __importDefault(require("./LeafMeta"));
-const LeafData_1 = __importDefault(require("./LeafData"));
-const array_1 = require("../utils/array");
-async function autosave(self) {
-    const next = async (self) => {
-        if ((self.lastChange !== null && self.lastSave === null) || (self.lastChange > self.lastSave)) {
-            await self.saveDatabase();
-        }
-        setTimeout(async () => {
-            if (self.autoSave) {
-                await next(self);
-            }
-        }, self.autoSaveInterval);
-    };
-    await next(self);
-}
-;
-function getStrictMatchingKeys(arr, val) {
-    const indexes = [];
-    let i = -1;
-    while ((i = arr.indexOf(val, i + 1)) !== -1) {
-        indexes.push(i);
-    }
-    return indexes;
-}
-function lowerThanKeys(arr, val) {
-    return arr.filter((el) => el < val);
-}
-function greaterThanKeys(arr, val) {
-    return arr.filter((el) => el > val);
-}
+const attachParent_1 = __importDefault(require("./methods/attachParent"));
+const addInLeaf_1 = __importDefault(require("./methods/addInLeaf"));
+const createLeaf_1 = __importDefault(require("./methods/createLeaf"));
+const findInLeaf_1 = __importDefault(require("./methods/findInLeaf"));
+const getAllInLeaf_1 = __importDefault(require("./methods/getAllInLeaf"));
+const getLeftInLeaf_1 = __importDefault(require("./methods/getLeftInLeaf"));
+const getRightInLeaf_1 = __importDefault(require("./methods/getRightInLeaf"));
+const getDocument_1 = __importDefault(require("./methods/getDocument"));
+const insertSortedInLeaf_1 = __importDefault(require("./methods/insertSortedInLeaf"));
+const loadDatabase_1 = __importDefault(require("./methods/loadDatabase"));
+const openDocument_1 = __importDefault(require("./methods/openDocument"));
+const openLeaf_1 = __importDefault(require("./methods/openLeaf"));
+const removeDocument_1 = __importDefault(require("./methods/removeDocument"));
+const openLeafData_1 = __importDefault(require("./methods/openLeafData"));
+const replaceDocument_1 = __importDefault(require("./methods/replaceDocument"));
+const replaceInLeaf_1 = __importDefault(require("./methods/replaceInLeaf"));
+const saveDatabase_1 = __importDefault(require("./methods/saveDatabase"));
+const saveDocument_1 = __importDefault(require("./methods/saveDocument"));
+const saveLeafData_1 = __importDefault(require("./methods/saveLeafData"));
+const splitLeaf_1 = __importDefault(require("./methods/splitLeaf"));
+const updateDocument_1 = __importDefault(require("./methods/updateDocument"));
 exports.defaultFsProps = {
     path: '.db',
     autoSave: true,
@@ -52,7 +40,7 @@ class FsAdapter {
         if (props?.parent) {
             this.setParent(props.parent);
         }
-        this.leafs = (props.leafs) ? props.leafs : {};
+        this.leafs = (props?.leafs) ? props.leafs : {};
         this.path = (props.path) ? (props.path) : exports.defaultFsProps.path;
         this.autoSave = (props.autoSave !== undefined) ? (props.autoSave) : exports.defaultFsProps.autoSave;
         this.autoSaveInterval = (props.autoSaveInterval !== undefined) ? (props.autoSaveInterval) : exports.defaultFsProps.autoSaveInterval;
@@ -86,286 +74,85 @@ class FsAdapter {
     emit(event, ...args) {
         return this.emitter.emit(event, ...args);
     }
-    async addInLeaf(leafName, identifier, value) {
-        if (!this.leafs[leafName]) {
-            await this.createLeaf(leafName);
-        }
-        if (this.leafs[leafName].meta.identifiers.includes(identifier)) {
-            throw new Error(`Identifier ${identifier} already exist`);
-        }
-        const index = await this.insertSortedInLeaf(leafName, value);
-        this.leafs[leafName].meta.size += 1;
-        this.leafs[leafName].meta.identifiers.splice(index, 0, identifier);
-    }
     async attachParent(parent) {
-        this.setParent(parent);
-        if (this.autoLoad) {
-            try {
-                await this.loadDatabase();
-                if (this.autoLoadCallback && typeof this.autoLoadCallback === 'function') {
-                    await this.autoLoadCallback();
-                }
-            }
-            catch (e) {
-                console.error(e);
-                process.exit(1);
-            }
-        }
-        if (this.autoSave === true) {
-            autosave(this);
-        }
-        this.emit('ready');
+        return attachParent_1.default.call(this, parent);
+    }
+    async addInLeaf(leafName, identifier, value) {
+        return addInLeaf_1.default.call(this, leafName, identifier, value);
     }
     async createLeaf(leafId) {
-        this.leafs[leafId] = {
-            id: leafId,
-            meta: new LeafMeta_1.default(),
-        };
-        const data = new LeafData_1.default();
-        await this.saveLeafData(leafId, data);
+        return createLeaf_1.default.call(this, leafId);
     }
     async findInLeaf(leafId, value, op = '$eq') {
-        const result = {
-            identifiers: [],
-            keys: [],
-        };
-        const { keys } = await this.openLeafData(leafId);
-        if (!keys) {
-            console.error(`leafId ${leafId} was not present, had to recreate`);
-            await this.createLeaf(leafId);
-            return this.findInLeaf(leafId, value, op);
-        }
-        const strictMatchingKeys = getStrictMatchingKeys(keys, value);
-        switch (op) {
-            case '$eq':
-                if (!strictMatchingKeys.length) {
-                    return [];
-                }
-                const start = strictMatchingKeys[0];
-                const end = strictMatchingKeys[0] + strictMatchingKeys.length;
-                result.identifiers.push(...this.leafs[leafId].meta.identifiers.slice(start, end));
-                result.keys.push(...keys.slice(start, end));
-                return result;
-            case '$lte':
-                let resLte = [];
-                resLte = resLte.concat(await this.findInLeaf(leafId, value, '$lt'));
-                resLte = resLte.concat(await this.findInLeaf(leafId, value, '$eq'));
-                throw new Error('Modification to new format');
-                return resLte;
-            case '$gte':
-                let resGte = [];
-                resGte = resGte.concat(await this.findInLeaf(leafId, value, '$eq'));
-                resGte = resGte.concat(await this.findInLeaf(leafId, value, '$gt'));
-                throw new Error('Modification to new format');
-                return resGte;
-            case '$lt':
-                if (strictMatchingKeys.length) {
-                    const localIndex = keys.indexOf(value);
-                    if (localIndex !== 0) {
-                        result.identifiers.push(...this.leafs[leafId].meta.identifiers.slice(0, localIndex));
-                        result.keys.push(...keys.slice(0, localIndex));
-                    }
-                }
-                else {
-                    const ltKeys = lowerThanKeys(keys, value);
-                    result.identifiers.push(...this.leafs[leafId].meta.identifiers.slice(0, ltKeys.length));
-                    result.keys.push(...keys.slice(0, ltKeys.length));
-                }
-                return result;
-            case '$gt':
-                if (strictMatchingKeys.length) {
-                    const localIndex = keys.indexOf(value);
-                    if (localIndex !== -1) {
-                        result.identifiers.push(...this.leafs[leafId].meta.identifiers.slice(localIndex + strictMatchingKeys.length));
-                        result.keys.push(...keys.slice(localIndex + strictMatchingKeys.length));
-                    }
-                }
-                else {
-                    const _keys = greaterThanKeys(keys, value);
-                    const len = (_keys.length <= 0) ? 0 : _keys.length;
-                    if (leafId !== 0) {
-                        result.identifiers.push(...this.leafs[leafId].meta.identifiers.slice(-len));
-                        result.keys.push(...keys.slice(-len));
-                    }
-                }
-                return result;
-            default:
-                throw new Error(`Unsupported operator ${op}`);
-        }
+        return findInLeaf_1.default.call(this, leafId, value, op);
     }
     async getAllInLeaf(leafId) {
-        const { keys } = await this.openLeafData(leafId);
-        if (!keys) {
-            console.error(`leafId ${leafId} was not present, had to recreate`);
-            await this.createLeaf(leafId);
-            return this.getAllInLeaf(leafId);
-        }
-        return lodash_clonedeep_1.default({ identifiers: this.leafs[leafId].meta.identifiers, keys });
+        return getAllInLeaf_1.default.call(this, leafId);
     }
     async getLeftInLeaf(leafId) {
-        const { keys } = await this.openLeafData(leafId);
-        if (!keys) {
-            console.error(`leafId ${leafId} was not present, had to recreate`);
-            await this.createLeaf(leafId);
-            return this.getLeftInLeaf(leafId);
-        }
-        const leaf = this.leafs[leafId];
-        const identifier = leaf.meta.identifiers[0];
-        const key = leaf.data.keys[0];
-        return lodash_clonedeep_1.default({ identifier, key });
+        return getLeftInLeaf_1.default.call(this, leafId);
     }
-    async getRightInLeaf(leafId) {
-        const { keys } = await this.openLeafData(leafId);
-        if (!keys) {
-            console.error(`leafId ${leafId} was not present, had to recreate`);
-            await this.createLeaf(leafId);
-            return this.getLeftInLeaf(leafId);
-        }
-        const leaf = this.leafs[leafId];
-        const len = leaf.meta.identifiers.length;
-        const identifier = leaf.meta.identifiers[len - 1];
-        const key = leaf.data.keys[len - 1];
-        return lodash_clonedeep_1.default({ identifier, key });
+    async getRightInLeaf(leadId) {
+        return getRightInLeaf_1.default.call(this, leadId);
     }
     async getDocument(identifier) {
-        return lodash_clonedeep_1.default(await this.openDocument(identifier));
+        return getDocument_1.default.call(this, identifier);
     }
     async insertSortedInLeaf(leafId, value) {
-        const data = await this.openLeafData(leafId);
-        if (!data || !data.keys) {
-            console.error(`leafId ${leafId} was not present, had to recreate`);
-            await this.createLeaf(leafId);
-            return this.insertSortedInLeaf(leafId, value);
-        }
-        const index = array_1.insertSorted(data.keys, value);
-        await this.saveLeafData(leafId, data);
-        return index;
+        return insertSortedInLeaf_1.default.call(this, leafId, value);
     }
     async loadDatabase() {
-        const job = await this.queue.add('File.read', `${this.path}/sbtree.meta`);
-        await job.execution();
-        const db = job.result;
-        if (db) {
-            const { leafs, tree, } = db;
-            if (tree) {
-                lodash_foreach_1.default(leafs, (leaf, leafName) => {
-                    this.leafs[leafName] = { name: leafName, meta: new LeafMeta_1.default(leaf.meta) };
-                });
-                await this.getParent().loadState(tree);
-            }
-        }
-        this.isReady = true;
+        return loadDatabase_1.default.call(this);
     }
     async openDocument(identifer) {
-        const job = await this.queue.add('File.read', `${this.path}/d/${identifer}.dat`).execution();
-        let data = {};
-        if (job.result instanceof Error) {
-            data = job.result;
-        }
-        return data;
+        return openDocument_1.default.call(this, identifer);
     }
     async openLeaf(leafName) {
-        if (!this.leafs[leafName]) {
-            throw new Error('Leaf do not exist');
-        }
-        return this.leafs[leafName];
+        return openLeaf_1.default.call(this, leafName);
     }
     async removeDocument(identifier) {
-        if (!identifier) {
-            console.error(identifier);
-            throw new Error('Cannot remove document, expected id');
-        }
-        const job = await this.queue.add('File.remove', `${this.path}/d/${identifier}.dat`);
-        await job.execution();
+        return removeDocument_1.default.call(this, identifier);
     }
     async openLeafData(leafName) {
-        const job = await this.queue.add('File.read', `${this.path}/l/${leafName}.dat`).execution();
-        let data;
-        if (job.result instanceof Error) {
-            data = job.result;
-        }
-        this.lastChange = Date.now();
-        return data;
+        return openLeafData_1.default.call(this, leafName);
     }
     async replaceDocument(doc) {
-        if (!doc || !doc._id) {
-            console.error(doc);
-            throw new Error('Cannot replace document, expected id');
-        }
-        const job = await this.queue.add('File.create', `${this.path}/d/${doc._id}.dat`, doc);
-        await job.execution();
+        return replaceDocument_1.default.call(this, doc);
     }
     async replaceInLeaf(leafId, identifier, value) {
-        if (!this.leafs[leafId].meta.identifiers.includes(identifier)) {
-            throw new Error(`Identifier ${identifier} do not exist`);
-        }
-        const index = this.leafs[leafId].meta.identifiers.indexOf(identifier);
-        const data = await this.openLeafData(leafId);
-        data.keys[index] = value;
-        await this.saveLeafData(leafId, data);
-        return index;
+        return replaceInLeaf_1.default.call(this, leafId, identifier, value);
     }
     async saveDatabase() {
-        const leafs = lodash_clonedeep_1.default(this.leafs);
-        const tree = this.getParent().toJSON();
-        const db = {
-            leafs,
-            tree,
-        };
-        const job = await this.queue.add('File.create', `${this.path}/sbtree.meta`, db);
-        await job.execution();
-        this.lastSave = Date.now();
+        return saveDatabase_1.default.call(this);
     }
     async saveDocument(doc) {
-        if (!doc || !doc._id) {
-            console.error(doc);
-            throw new Error('Cannot save document, expected id');
-        }
-        const job = await this.queue.add('File.create', `${this.path}/d/${doc._id}.dat`, doc);
-        await job.execution();
+        return saveDocument_1.default.call(this, doc);
     }
     async saveLeafData(leafName, data) {
-        const job = await this.queue.add('File.create', `${this.path}/l/${leafName}.dat`, data).execution();
-        let res = {};
-        if (!job.result) {
-        }
-        if (job.result instanceof Error) {
-            res = job.result;
-        }
-        this.lastChange = Date.now();
-        return res;
+        return saveLeafData_1.default.call(this, leafName, data);
     }
     async splitLeaf(sourceLeaf, siblingLeaf) {
-        if (!this.leafs[sourceLeaf.id]) {
-            throw new Error('Source leaf do not exist');
-        }
-        const source = this.leafs[sourceLeaf.id];
-        const leaf = this.leafs[siblingLeaf.id];
-        if (!this.leafs[siblingLeaf.id]) {
-            throw new Error('Sibbling leaf do not exist');
-        }
-        const sibling = await this.openLeafData(siblingLeaf.id);
-        const leafData = await this.openLeafData(sourceLeaf.id);
-        const midIndex = ~~(leafData.keys.length / 2);
-        const rightKeys = leafData.keys.splice(midIndex);
-        const rightIdentifiers = source.meta.identifiers.splice(midIndex);
-        const midKey = rightKeys.slice(0, 1)[0];
-        sibling.keys = rightKeys;
-        leaf.meta.size = rightIdentifiers.length;
-        leaf.meta.identifiers = rightIdentifiers;
-        source.meta.size = source.meta.identifiers.length;
-        await this.saveLeafData(sourceLeaf.id, leafData);
-        await this.saveLeafData(siblingLeaf.id, sibling);
-        return midKey;
+        return splitLeaf_1.default.call(this, sourceLeaf, siblingLeaf);
     }
     async updateDocument(_doc) {
-        const job = await this.queue.add('File.appendJSON', `${this.path}/d/${_doc._id}.dat`, _doc).execution();
-        let data = {};
-        if (job.result instanceof Error) {
-            data = job.result;
+        return updateDocument_1.default.call(this, _doc);
+    }
+    async removeInLeaf(leafId, identifier) {
+        const identifiers = [];
+        if (!this.leafs[leafId]) {
+            throw new Error('Trying to remove in unknown leaf id');
         }
-        this.lastChange = Date.now();
-        return data;
+        const { meta } = this.leafs[leafId];
+        const data = await this.openLeafData(leafId);
+        const index = this.leafs[leafId].meta.identifiers.indexOf(identifier);
+        if (index >= 0) {
+            meta.size -= 1;
+            meta.identifiers.splice(index, 1);
+            data.keys.splice(index, 1);
+            await this.saveLeafData(leafId, data);
+            identifiers.push({ identifier, index });
+        }
+        return identifiers;
     }
 }
 exports.default = FsAdapter;

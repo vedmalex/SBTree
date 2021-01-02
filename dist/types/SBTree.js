@@ -182,13 +182,15 @@ class SBTree {
             }
             return insertedDocumentsResultats;
         }
-        const document = lodash_clonedeep_1.default(documents);
-        if (!document._id) {
-            document._id = new mongo_objectid_1.default().toString();
+        else {
+            const document = lodash_clonedeep_1.default(documents);
+            if (!document._id) {
+                document._id = new mongo_objectid_1.default().toString();
+            }
+            await insert_1.insert.call(this, document);
+            this.size += 1;
+            return [document];
         }
-        await insert_1.insert.call(this, document);
-        this.size += 1;
-        return [document];
     }
     async replaceDocuments(documents) {
         if (!this.state.isReady) {

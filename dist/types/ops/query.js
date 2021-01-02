@@ -7,10 +7,10 @@ exports.query = void 0;
 const lodash_intersection_1 = __importDefault(require("lodash.intersection"));
 const getFieldNamesFromQuery_1 = require("../utils/getFieldNamesFromQuery");
 const get_1 = require("./get");
-async function resolveDocuments(self, objectIds) {
+async function resolveDocuments(objectIds) {
     const documents = [];
     for (const oid of objectIds) {
-        const doc = await self.getDocument(oid);
+        const doc = await this.getDocument(oid);
         documents.push(doc);
     }
     return documents;
@@ -23,13 +23,12 @@ const findIntersectingIdentifiers = (listOfListOfIdentifiers) => {
     return lodash_intersection_1.default(...identifiers);
 };
 async function query(query) {
-    const self = this;
-    const findNested = async function (_promises, _queryFieldName, _queryFieldValue) {
+    const findNested = async (_promises, _queryFieldName, _queryFieldValue) => {
         for (const nestedQueryFieldName in _queryFieldValue) {
             const nestedQueryFieldValue = _queryFieldValue[nestedQueryFieldName];
             const nestedQueryFieldType = typeof nestedQueryFieldValue;
             if (['number', 'string', 'boolean', 'object'].includes(nestedQueryFieldType)) {
-                const fTree = self.getFieldTree(`${_queryFieldName}.${nestedQueryFieldName}`);
+                const fTree = this.getFieldTree(`${_queryFieldName}.${nestedQueryFieldName}`);
                 if (fTree) {
                     _promises.push(fTree.find(nestedQueryFieldValue, '$eq'));
                 }
@@ -102,7 +101,7 @@ async function query(query) {
         }
     });
     const matchingObjectIds = findIntersectingIdentifiers(intermediateIdentifiers);
-    return resolveDocuments(this, matchingObjectIds);
+    return resolveDocuments.call(this, matchingObjectIds);
 }
 exports.query = query;
 //# sourceMappingURL=query.js.map

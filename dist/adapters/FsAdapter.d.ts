@@ -5,21 +5,19 @@ import { SBTree } from '../types/SBTree';
 export declare type FsAdapterOptionAutoLoadCallback = () => void;
 export declare type FsAdaptepOptions = {
     path: string;
-    autoSave: boolean;
-    autoSaveInterval: number;
-    autoLoad: boolean;
+    autoSave?: boolean;
+    autoSaveInterval?: number;
+    autoLoad?: boolean;
     autoLoadCallback?: FsAdapterOptionAutoLoadCallback;
     parent?: unknown;
-    leafs?: AdapterLeafs;
+    leafs?: FsAdapterLeafs;
 };
 export declare const defaultFsProps: FsAdaptepOptions;
 export declare type LeafId = string;
-export declare type AdapterLeafs = {
+export declare type FsAdapterLeafs = {
     [leafId: string]: {
-        id?: LeafId;
-        name?: string;
+        id: LeafId;
         meta: LeafMeta;
-        data?: LeafData;
     };
 };
 export declare type FsAdapterLastChange = number;
@@ -28,7 +26,7 @@ export default class FsAdapter {
     private emitter;
     private parent;
     queue: FSLock;
-    leafs: AdapterLeafs;
+    leafs: FsAdapterLeafs;
     path: string;
     autoSave: boolean;
     autoSaveInterval: number;
@@ -45,31 +43,30 @@ export default class FsAdapter {
     on(event: string | symbol, listener: (...args: any[]) => void): void;
     once(event: string | symbol, listener: (...args: any[]) => void): void;
     emit(event: string | symbol, ...args: any[]): boolean;
-    addInLeaf(leafName: any, identifier: any, value: any): Promise<void>;
-    attachParent(parent: SBTree): Promise<void>;
-    createLeaf(leafId: any): Promise<void>;
-    findInLeaf(leafId: any, value: any, op?: string): any;
-    getAllInLeaf(leafId: any): any;
-    getLeftInLeaf(leafId: any): any;
-    getRightInLeaf(leafId: any): Promise<any>;
-    getDocument(identifier: any): Promise<any>;
-    insertSortedInLeaf(leafId: any, value: any): any;
-    loadDatabase(): Promise<void>;
-    openDocument(identifer: any): Promise<{}>;
-    openLeaf(leafName: any): Promise<{
-        id?: string;
-        name?: string;
-        meta: LeafMeta;
-        data?: LeafData;
+    attachParent(parent: SBTree): Promise<any>;
+    addInLeaf(leafName: any, identifier: any, value: any): Promise<any>;
+    createLeaf(leafId: any): Promise<any>;
+    findInLeaf(leafId: any, value: any, op?: string): Promise<{
+        identifiers: Array<any>;
+        keys: Array<any>;
     }>;
-    removeDocument(identifier: any): Promise<void>;
-    openLeafData(leafName: any): Promise<LeafData>;
-    replaceDocument(doc: any): Promise<void>;
-    replaceInLeaf(leafId: any, identifier: any, value: any): Promise<number>;
-    saveDatabase(): Promise<void>;
-    saveDocument(doc: any): Promise<void>;
-    saveLeafData(leafName: any, data: LeafData): Promise<{}>;
-    splitLeaf(sourceLeaf: any, siblingLeaf: any): Promise<string>;
-    updateDocument(_doc: any): Promise<{}>;
+    getAllInLeaf(leafId: any): Promise<any>;
+    getLeftInLeaf(leafId: any): Promise<any>;
+    getRightInLeaf(leadId: any): Promise<any>;
+    getDocument(identifier: any): Promise<any>;
+    insertSortedInLeaf(leafId: any, value: any): Promise<any>;
+    loadDatabase(): Promise<any>;
+    openDocument(identifer: any): Promise<any>;
+    openLeaf(leafName: any): Promise<any>;
+    removeDocument(identifier: any): Promise<any>;
+    openLeafData(leafName: any): Promise<any>;
+    replaceDocument(doc: any): Promise<any>;
+    replaceInLeaf(leafId: any, identifier: any, value: any): Promise<any>;
+    saveDatabase(): Promise<any>;
+    saveDocument(doc: any): Promise<any>;
+    saveLeafData(leafName: string, data: LeafData): Promise<any>;
+    splitLeaf(sourceLeaf: any, siblingLeaf: any): Promise<any>;
+    updateDocument(_doc: any): Promise<any>;
+    removeInLeaf(leafId: any, identifier: any): Promise<any[]>;
 }
 //# sourceMappingURL=FsAdapter.d.ts.map

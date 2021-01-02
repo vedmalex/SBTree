@@ -37,7 +37,7 @@ describe('SBFLeaf', () => {
   it('should initialize', function () {
     sharedNode = new SBFNode({parent: fakeParent})
     expect(sharedNode.keys).to.deep.equal([])
-    expect(sharedNode.childrens).to.deep.equal([])
+    expect(sharedNode.children).to.deep.equal([])
   });
   it('should get parent', function () {
     const leaf = new SBFNode({parent: fakeParent2})
@@ -50,10 +50,10 @@ describe('SBFLeaf', () => {
   });
   it('should insert', async function () {
     // const node = new SBFNode({parent:sharedNode})
-    // Hack because of Error: SBFNode cannot insert with no childrens
+    // Hack because of Error: SBFNode cannot insert with no children
     await sharedNode.insert('507f191e810c19729de860ea','Jean')
     await sharedNode.insert('507f1f77bcf86cd799439011','Alex')
-    // sharedNode.childrens = [leaf];
+    // sharedNode.children = [leaf];
     expect(Object.keys(fakeTree.adapter.leafs).length).to.equal(1);
 
     //FIXME : here, we have a split, so further tests should be done to ensure it.

@@ -1,8 +1,9 @@
+import { SBTree } from '../SBTree';
 import {query} from './query';
 
 import {RemoveCommand} from './RemoveCommand';
 
-export async function remove(_query) {
+export async function remove(this: SBTree, _query) {
   const self = this;
   const removeNestedProp = async function (_fieldName, _fieldValue, _remCmd) {
     const _fieldValueType = typeof _fieldValue;

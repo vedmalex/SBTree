@@ -1,4 +1,4 @@
-const {expect} = require('chai');
+export {expect} = require('chai');
 const indexSpec = require('./index');
 
 describe('SBTree', () => {

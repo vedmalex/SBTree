@@ -1,6 +1,7 @@
 import { validTypes } from '../../constants';
+import { SBTree } from '../SBTree';
 
-export async function insert(document) {
+export async function insert(this: SBTree, document) {
   if (!document) {
     throw new Error('Cannot insert empty document');
   }
@@ -21,7 +22,7 @@ export async function insert(document) {
         // Then we create a nested field tree for each field of the nested object
 
         const self = this;
-        const insertNested = async function (_fieldName, _fieldValue) {
+        const insertNested = async  (_fieldName, _fieldValue) => {
           for (const _propName in _fieldValue) {
             if (!self.getFieldTree(`${_fieldName}.${_propName}`)) {
               self.setFieldTree({ fieldName: `${_fieldName}.${_propName}` });

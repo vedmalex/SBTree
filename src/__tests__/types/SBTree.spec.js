@@ -45,7 +45,7 @@ describe('SBTree', () => {
 
     expect(tree.fieldTrees['age'].root.keys).to.deep.equal([27]);
     expect(Object.keys(tree.fieldTrees['age'].root.identifiers)).to.deep.equal(['0']);
-    expect(Object.keys(tree.fieldTrees['age'].root.childrens).length).to.deep.equal(0);
+    expect(Object.keys(tree.fieldTrees['age'].root.children).length).to.deep.equal(0);
   })
   it('should insert and split', async function () {
     await tree.insertDocuments(fixtures.documents[1]);

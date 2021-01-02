@@ -5,6 +5,7 @@ import isObject from 'lodash.isobject';
 import transform from 'lodash.transform';
 import {RemoveCommand} from './RemoveCommand';
 import { validTypes } from '../../constants';
+import { SBTree } from '../SBTree';
 
 // Returns difference between object. Do not return addition/deletion between object, only diff when existing in both
 function findChangedFields(object, base) {
@@ -37,9 +38,7 @@ function findDeletedFields(object, base) {
 
 // FIXME : Major improvements in perf to be made here.
 // Did naive implementation to bootstrap it.
-export async function replace(currentDocument, newDocument) {
-  const self = this;
-
+export async function replace(this: SBTree, currentDocument, newDocument) {
   if (!newDocument._id) {
     throw new Error('Expecting document to have an _id');
   }
@@ -97,13 +96,13 @@ export async function replace(currentDocument, newDocument) {
   }
   // Sorry. But was the easiest and quickiest way to do nested things.
   // Will refactor, hopefully.
-  const replaceProp = async function (_fieldName, _fieldValue) {
+  const replaceProp = async (_fieldName, _fieldValue) => {
     const _fieldType = typeof _fieldValue;
     if (['number', 'string', 'boolean'].includes(_fieldType)) {
-      if (!self.getFieldTree(_fieldName)) {
-        self.setFieldTree({ fieldName: _fieldName });
+      if (!this.getFieldTree(_fieldName)) {
+        this.setFieldTree({ fieldName: _fieldName });
       }
-      const fieldTree = self.getFieldTree(_fieldName);
+      const fieldTree = this.getFieldTree(_fieldName);
 
       if (!fieldTree) {
         throw new Error(`Missing fieldTree for ${_fieldName}`);

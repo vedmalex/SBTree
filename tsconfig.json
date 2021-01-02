@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "composite": true,
+    "allowJs": true,
     "module": "commonjs",
     "esModuleInterop": true,
     "sourceMap": true,
@@ -10,6 +11,7 @@
     "strict": false,
     "noImplicitAny": false,
     "noImplicitReturns": false,
+    "noImplicitThis": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedParameters": false,
     "noUnusedLocals": false,

@@ -1,14 +1,19 @@
 import LeafData from './LeafData';
 import LeafMeta from './LeafMeta';
-import { AdapterLeafs } from './FsAdapter';
+export declare type MemoryAdapterLeafs = {
+    [leafId: string]: {
+        meta: LeafMeta;
+        data: LeafData;
+    };
+};
 export declare type MemoryAdapterOptions = {
-    leafs: AdapterLeafs;
+    leafs: MemoryAdapterLeafs;
     documents: MemoryAdapterDocuments;
 };
 export declare type MemoryAdapterDocuments = unknown;
 export declare class MemoryAdapter {
     private emitter;
-    leafs: AdapterLeafs;
+    leafs: MemoryAdapterLeafs;
     documents: MemoryAdapterDocuments;
     isReady: boolean;
     get name(): string;
@@ -17,21 +22,16 @@ export declare class MemoryAdapter {
     on(event: string | symbol, listener: (...args: any[]) => void): void;
     once(event: string | symbol, listener: (...args: any[]) => void): void;
     emit(event: string | symbol, ...args: any[]): boolean;
-    addInLeaf(leafName: any, identifier: any, value: any): Promise<boolean>;
+    addInLeaf(leafName: any, identifier: any, value: any): Promise<void>;
     createLeaf(leafName: any): Promise<void>;
     getAllInLeaf(leafId: any): Promise<any>;
     getLeftInLeaf(leafId: any): Promise<any>;
     getRightInLeaf(leafId: any): Promise<any>;
-    findInLeaf(leafId: any, value: any, op?: string): Promise<{
-        identifiers: any[];
-        keys: any[];
-    }>;
+    findInLeaf(leafId: any, value: any, op?: string): any;
     getDocument(identifier: any): Promise<any>;
     openLeaf(leafName: any): Promise<{
-        id?: string;
-        name?: string;
         meta: LeafMeta;
-        data?: LeafData;
+        data: LeafData;
     }>;
     removeDocument(identifier: any): void;
     removeInLeaf(leafId: any, identifier: any): any[];

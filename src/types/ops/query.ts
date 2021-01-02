@@ -1,12 +1,13 @@
 import intersection from 'lodash.intersection';
+import { SBTree } from '../SBTree';
 import {getFieldNamesFromQuery} from '../utils/getFieldNamesFromQuery';
 
 import { get } from './get';
 
-async function resolveDocuments(self, objectIds) {
+async function resolveDocuments(this:SBTree, objectIds) {
   const documents = [];
   for (const oid of objectIds) {
-    const doc = await self.getDocument(oid);
+    const doc = await this.getDocument(oid);
     documents.push(doc);
   }
   return documents;
@@ -27,15 +28,14 @@ const findIntersectingIdentifiers = (listOfListOfIdentifiers) => {
  * @param query
  * @returns {Promise<[]>}
  */
-export async function query(query) {
-  const self = this;
-  const findNested = async function (_promises, _queryFieldName, _queryFieldValue) {
+export async function query(this: SBTree, query) {
+  const findNested = async (_promises, _queryFieldName, _queryFieldValue)=> {
     for (const nestedQueryFieldName in _queryFieldValue) {
       const nestedQueryFieldValue = _queryFieldValue[nestedQueryFieldName];
       const nestedQueryFieldType = typeof nestedQueryFieldValue;
 
       if (['number', 'string', 'boolean', 'object'].includes(nestedQueryFieldType)) {
-        const fTree = self.getFieldTree(`${_queryFieldName}.${nestedQueryFieldName}`);
+        const fTree = this.getFieldTree(`${_queryFieldName}.${nestedQueryFieldName}`);
         // Sometimes, like when excluded, this can not resolve.
         if (fTree) {
           _promises.push(fTree.find(nestedQueryFieldValue, '$eq'));
@@ -120,6 +120,6 @@ export async function query(query) {
       });
 
   const matchingObjectIds = findIntersectingIdentifiers(intermediateIdentifiers);
-  return resolveDocuments(this, matchingObjectIds);
+  return resolveDocuments.call(this, matchingObjectIds);
 }
 

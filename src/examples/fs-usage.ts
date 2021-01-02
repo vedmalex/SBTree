@@ -1,15 +1,11 @@
-const { SBTree, adapters } = require('../index');
+import { FsAdapter } from '../adapters';
+import { SBTree } from '../types/SBTree';
+import Timer from '../utils/time';
 
-const { FsAdapter } = adapters;
-const adapter = new FsAdapter({ path: '.db', autoSave: false });
-
-const tree = new SBTree({ adapter, order: 3 });
-
-const { Timer } = require('../src/utils/time');
-
+const tree = new SBTree({ adapter:new FsAdapter({ path: '.db', autoSave: false }), order: 3 });
 const timer = new Timer();
 
-const start = async function () {
+export const start = async function () {
   timer.start();
   console.log('-- Inserting...');
   await tree.insertDocuments({
@@ -60,9 +56,8 @@ const start = async function () {
     },
   ]);
 
-  await tree.insertDocuments({ age: 26, country: 'Greenland', email: 'lisa@lesmund.gl' });
-
-  // // If you don't have any _id attach, it will create one for you
+  await tree.insertDocuments({ age: 26, country: 'Greenland', email: 'lisa@lesmund.gl', canDeliver: true });
+  // // If you don't have any _i attach, it will create one for you
   const inserted = await tree.insertDocuments({ age: 42, email: 'jean.paul@valjean.fr' });
 
   console.log('-- Get doc _id : 5d6dc94e3c7734812f051d7b');
@@ -74,7 +69,7 @@ const start = async function () {
 
   console.log(await tree.findDocuments({ email: 'goptnik@dourak.ru' }));
   console.log('-- Find : {_id:inserted._id}');
-  console.log(await tree.findDocuments({ _id: inserted._id }));
+  console.log(await tree.findDocuments({ _id: inserted[0]._id }));
   //
   console.log('-- Find : {age:{$gte:44}}');
 
@@ -91,17 +86,21 @@ const start = async function () {
   console.log('-- Find : {country:{$in:[\'Belgium\']}}');
   console.log(await tree.findDocuments({ country: { $in: ['Belgium'] } }));
 
-  console.log('-- Find : {country:{$in:[\'Greenland\']}}');
-  const [lisa] = await tree.findDocuments({ country: { $in: ['Greenland'] } });
+  console.log('-- Find : {canDeliver:true}');
+  const [lisa] = await tree.findDocuments({canDeliver:true});
   console.log(lisa);
   lisa.age = 27;
+  delete lisa.canDeliver;
+  lisa.isPending = true;
 
   console.log('-- Replace lisa');
   console.log(await tree.replaceDocuments(lisa));
 
-  // console.log('-- Update {country:{$in:["Greenland"]}');
-  // console.log(await
-  // tree.updateDocuments({country:{$in:['Greenland']}},{$set:{canDeliver:false}}));
+  console.log('-- Find : {isPending:true}');
+  console.log(await tree.findDocuments({ isPending: true }));
+
+  console.log('-- Find : {canDeliver:true}');
+  console.log(await tree.findDocuments({ canDeliver: true }));
 
   console.log('-- Find : {country:{$in:[\'Greenland\']}}');
   console.log(await tree.findDocuments({ country: { $in: ['Greenland'] } }));

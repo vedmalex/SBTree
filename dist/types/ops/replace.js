@@ -35,7 +35,6 @@ function findDeletedFields(object, base) {
     return findAddedFields(base, object);
 }
 async function replace(currentDocument, newDocument) {
-    const self = this;
     if (!newDocument._id) {
         throw new Error('Expecting document to have an _id');
     }
@@ -84,13 +83,13 @@ async function replace(currentDocument, newDocument) {
             this.verbose && console.log(`No index for ${_deletedFieldName} : Typeof ${_deletedFieldType} : ${JSON.stringify(_deletedFieldValue)}`);
         }
     }
-    const replaceProp = async function (_fieldName, _fieldValue) {
+    const replaceProp = async (_fieldName, _fieldValue) => {
         const _fieldType = typeof _fieldValue;
         if (['number', 'string', 'boolean'].includes(_fieldType)) {
-            if (!self.getFieldTree(_fieldName)) {
-                self.setFieldTree({ fieldName: _fieldName });
+            if (!this.getFieldTree(_fieldName)) {
+                this.setFieldTree({ fieldName: _fieldName });
             }
-            const fieldTree = self.getFieldTree(_fieldName);
+            const fieldTree = this.getFieldTree(_fieldName);
             if (!fieldTree) {
                 throw new Error(`Missing fieldTree for ${_fieldName}`);
             }

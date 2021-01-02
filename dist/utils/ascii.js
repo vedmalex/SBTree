@@ -23,25 +23,25 @@ async function draw(fieldNode, preventConsole = false) {
     !preventConsole && console.log(`=== Field :  ${fieldNode.fieldName}`);
     const { root } = fieldNode;
     const rows = [];
-    const processChildrenToRows = async (_childrens) => {
+    const processChildrenToRows = async (_children) => {
         let childToProcess = [];
-        const childrens = [];
-        await array_1.forEach(_childrens, async (child) => {
+        const children = [];
+        await array_1.forEach(_children, async (child) => {
             if (child.type === 'leaf') {
-                childrens.push((await child.getAll()).keys);
+                children.push((await child.getAll()).keys);
             }
             else if (child.type === 'node') {
-                childrens.push(child.keys);
-                childToProcess = childToProcess.concat(child.childrens);
+                children.push(child.keys);
+                childToProcess = childToProcess.concat(child.children);
             }
             else {
                 throw new Error(`Received invalid type ${child.type}`);
             }
         });
-        rows.push(childrens);
+        rows.push(children);
         return childToProcess;
     };
-    const processRootChildrens = async (_childrens) => await processChildrenToRows(_childrens);
+    const processRootchildren = async (_children) => await processChildrenToRows(_children);
     const processLeafs = async (_leafs) => {
         const toProcessChildren = await processChildrenToRows(_leafs);
         if (toProcessChildren.length > 0) {
@@ -50,10 +50,10 @@ async function draw(fieldNode, preventConsole = false) {
     };
     const processFromRoot = async (_root) => {
         rows.push(_root.keys);
-        if (_root.childrens.length > 0) {
-            const childrensToProcess = await processRootChildrens(_root.childrens);
-            if (childrensToProcess.length) {
-                await processLeafs(childrensToProcess);
+        if (_root.children.length > 0) {
+            const childrenToProcess = await processRootchildren(_root.children);
+            if (childrenToProcess.length) {
+                await processLeafs(childrenToProcess);
             }
         }
     };

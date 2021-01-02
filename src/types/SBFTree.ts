@@ -85,12 +85,12 @@ export class SBFTree {
   // this.root = new SBFRoot({tree:this, keys,fieldName});
   //
   // if(root){
-  //   root.root.childrens.forEach((child)=>{
+  //   root.root.children.forEach((child)=>{
   //     if(child.type==='leaf'){
-  //       this.root.childrens.push(new SBFLeaf({fieldName,parent:this.root,...child}))
+  //       this.root.children.push(new SBFLeaf({fieldName,parent:this.root,...child}))
   //     }
   //     if(child.type==='node'){
-  //       this.root.childrens.push(new SBFNode({fieldName,parent:this.root,...child}))
+  //       this.root.children.push(new SBFNode({fieldName,parent:this.root,...child}))
   //     }
   //   })
   // }

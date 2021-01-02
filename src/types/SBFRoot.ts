@@ -5,8 +5,9 @@ import  each from 'lodash.foreach';
 import { SBFLeaf } from './SBFLeaf';
 import  { SBFNode } from './SBFNode';
 import { SBFTree } from './SBFTree';
+import { SBTree } from './SBTree';
 
-async function findEquals(value) {
+async function findEquals(this: SBFRoot, value) {
   const result = { identifiers: [], keys: [] };
   const { children, identifiers, keys } = this;
 
@@ -51,7 +52,7 @@ async function findEquals(value) {
   return result;
 };
 
-async function findGreaterThan(key, includeKey = false) {
+async function findGreaterThan(this: SBFRoot, key, includeKey = false) {
   const result = { identifiers: [], keys: [] };
   const { children, identifiers, keys } = this;
   // We first see where our key is located;
@@ -106,7 +107,7 @@ async function findGreaterThan(key, includeKey = false) {
   return result;
 }
 
-async function findLowerThan(key, includeKey = false) {
+async function findLowerThan(this: SBFRoot,key, includeKey = false) {
   const result = { identifiers: [], keys: [] };
   const { children, identifiers, keys } = this;
 

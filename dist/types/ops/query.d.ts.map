@@ -1,1 +1,1 @@
-{"version":3,"file":"query.d.ts","sourceRoot":"","sources":["../../../src/types/ops/query.ts"],"names":[],"mappings":"AA6BA,wBAAsB,KAAK,CAAC,KAAK,KAAA,kBA8FhC"}
+{"version":3,"file":"query.d.ts","sourceRoot":"","sources":["../../../src/types/ops/query.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,MAAM,EAAE,MAAM,WAAW,CAAC;AA6BnC,wBAAsB,KAAK,CAAC,IAAI,EAAE,MAAM,EAAE,KAAK,KAAA,gBA6F9C"}

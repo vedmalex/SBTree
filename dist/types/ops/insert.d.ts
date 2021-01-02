@@ -1,2 +1,3 @@
-export declare function insert(document: any): Promise<void>;
+import { SBTree } from '../SBTree';
+export declare function insert(this: SBTree, document: any): Promise<void>;
 //# sourceMappingURL=insert.d.ts.map

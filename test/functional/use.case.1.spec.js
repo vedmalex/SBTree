@@ -54,7 +54,7 @@ describe('E2E - Classic UseCase', function suite() {
         const root = fieldTree.root;
         // Root First Children is not used anymore as we moved it directly in it.
 
-        // const rootFirstChildren = root.childrens[0];
+        // const rootFirstChildren = root.children[0];
         // expect(rootFirstChildren.id[0]).to.equal('l');
         // expect(rootFirstChildren.fieldName).to.equal(root.fieldName);
         // expect(rootFirstChildren.type).to.equal('leaf');
@@ -75,12 +75,12 @@ describe('E2E - Classic UseCase', function suite() {
       await customTree.insertDocuments(doc3);
 
       expect(customTree.fieldTrees['age'].root.keys).to.deep.equal([30]);
-      expect(customTree.fieldTrees['age'].root.childrens.length).to.deep.equal(2);
-      expect(await customTree.fieldTrees['age'].root.childrens[0].getAll()).to.deep.equal({
+      expect(customTree.fieldTrees['age'].root.children.length).to.deep.equal(2);
+      expect(await customTree.fieldTrees['age'].root.children[0].getAll()).to.deep.equal({
         identifiers: ['5d73d1e14f24b21368a42631'],
         keys: [24]
       });
-      expect(await customTree.fieldTrees['age'].root.childrens[1].getAll()).to.deep.equal({
+      expect(await customTree.fieldTrees['age'].root.children[1].getAll()).to.deep.equal({
         identifiers: ['5d73d1e14f24b21368185bb6', '5d73d1e14f24b213686f48a6'
         ],
         keys: [30, 31]

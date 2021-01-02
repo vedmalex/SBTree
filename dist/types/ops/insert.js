@@ -16,7 +16,7 @@ async function insert(document) {
         if (constants_1.validTypes.includes(_fieldType)) {
             if (_fieldType === 'object' && !Array.isArray(_fieldValue)) {
                 const self = this;
-                const insertNested = async function (_fieldName, _fieldValue) {
+                const insertNested = async (_fieldName, _fieldValue) => {
                     for (const _propName in _fieldValue) {
                         if (!self.getFieldTree(`${_fieldName}.${_propName}`)) {
                             self.setFieldTree({ fieldName: `${_fieldName}.${_propName}` });

@@ -1,5 +1,10 @@
-import { FsAdapter, MemoryAdapter } from '../adapters';
+import { MemoryAdapter } from '../adapters';
 import { SBFTree } from './SBFTree';
+import FsAdapter from '../adapters/FsAdapter';
+export declare type Document = {
+    _id: string;
+    [key: string]: any;
+};
 export declare type SBTreeState = {
     isReady: boolean;
 };
@@ -30,7 +35,7 @@ export declare class SBTree {
     fieldTrees: {
         [key: string]: SBFTree;
     };
-    constructor(props: SBTreeOptions);
+    constructor(props: Partial<SBTreeOptions>);
     on(event: string | symbol, listener: (...args: any[]) => void): void;
     once(event: string | symbol, listener: (...args: any[]) => void): void;
     emit(event: string | symbol, ...args: any[]): boolean;
@@ -46,7 +51,7 @@ export declare class SBTree {
     getAdapter(): MemoryAdapter | FsAdapter;
     getDocument(identifier: any): Promise<any>;
     getFieldTree(fieldName: any): SBFTree;
-    insertDocuments(documents: any): Promise<any[]>;
+    insertDocuments(documents: Partial<Document> | Partial<Document>[]): Promise<Document[]>;
     replaceDocuments(documents: any): Promise<any[]>;
     loadState(state: any): boolean;
     toJSON(): any;

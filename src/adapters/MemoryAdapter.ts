@@ -3,9 +3,14 @@ import cloneDeep from 'lodash.clonedeep';
 
 import LeafData from './LeafData';
 import LeafMeta from './LeafMeta';
-import { AdapterLeafs } from './FsAdapter';
 import { insertSorted } from '../utils/array';
 import {EventEmitter} from 'events';
+import { LeafId } from './FsAdapter';
+
+export type MemoryAdapterLeafs = {[leafId: string]: {
+    meta: LeafMeta;
+    data: LeafData;
+}}
 
 function greaterThanKeys(arr, val) {
   return arr.filter((el) => el > val);
@@ -27,7 +32,7 @@ const parseLeafs = (_leafs) => {
 };
 
 export type MemoryAdapterOptions = {
-  leafs: AdapterLeafs;
+  leafs: MemoryAdapterLeafs;
   documents:MemoryAdapterDocuments
 }
 
@@ -36,17 +41,17 @@ export type MemoryAdapterDocuments = unknown
 
 export class MemoryAdapter {
   private emitter: EventEmitter = new EventEmitter()
-  public leafs:AdapterLeafs;
+  public leafs:MemoryAdapterLeafs;
   public documents: MemoryAdapterDocuments
   public isReady: boolean = true;
-  public get name() { return 'FsAdapter';};
+  public get name() { return 'MemoryAdapter';};
 
   // TODO: fix when will user interfaces for
   public attachParent: false
 
   constructor(props?: MemoryAdapterOptions) {
-    this.leafs = (props.leafs) ? parseLeafs(props.leafs) : {};
-    this.documents = (props.documents) ? props.documents : {};
+    this.leafs = (props?.leafs) ? parseLeafs(props.leafs) : {};
+    this.documents = (props?.documents) ? props?.documents : {};
   }
 
     on(event: string | symbol, listener: (...args: any[]) => void){
@@ -67,8 +72,9 @@ export class MemoryAdapter {
   const { meta, data } = this.leafs[leafName];
 
   if (meta.identifiers.includes(identifier)) {
-    // TODO : except unique:false?
-    return false;
+    // TODO: except unique:false?
+    throw new Error(`Identifier ${identifier} already exist`);
+    // return false;
   }
 
   const index = insertSorted(data.keys, value);
@@ -151,18 +157,20 @@ async findInLeaf(leafId, value, op = '$eq') {
       result.keys.push(...keys.slice(firstIdx, lastIdx + 1));
       return result;
       // return this.leafs[leafId].meta.identifiers.slice(start, end);
-      break;
-    case '$lte':
-      let resLte = [];
-      resLte = resLte.concat(cloneDeep(await this.findInLeaf(leafId, value, '$lt')));
-      resLte = resLte.concat(cloneDeep(await this.findInLeaf(leafId, value, '$eq')));
-      resLte.forEach((res) => {
-        result.identifiers.push(...res.identifiers);
-        result.keys.push(...res.keys);
-      });
-      // throw new Error('Modification to new format')
-      // return resLte;
-      return result;
+    case '$lte':{
+      const lt = await this.findInLeaf(leafId, value, '$lt');
+      const eq = await this.findInLeaf(leafId, value, '$eq');
+      return {
+        identifiers: lt.identifiers.concat(eq.identifiers),
+        keys: lt.keys.concat(eq.keys)
+      }}
+    case '$gte':{
+      const gt = await this.findInLeaf(leafId, value, '$gt');
+      const eq = await this.findInLeaf(leafId, value, '$eq');
+      return {
+        identifiers: gt.identifiers.concat(eq.identifiers),
+        keys: gt.keys.concat(eq.keys)
+      }}
     case '$lt':
       if (firstIdx > -1) {
         const localIndex = keys.indexOf(value);
@@ -193,17 +201,6 @@ async findInLeaf(leafId, value, op = '$eq') {
           result.keys.push(...keys.slice(-len));
         }
       }
-      return result;
-    case '$gte':
-      let resGte = [];
-      resGte = resGte.concat(cloneDeep(await this.findInLeaf(leafId, value, '$eq')));
-      resGte = resGte.concat(cloneDeep(await this.findInLeaf(leafId, value, '$gt')));
-      resGte.forEach((res) => {
-        result.identifiers.push(...res.identifiers);
-        result.keys.push(...res.keys);
-      });
-      // throw new Error('Modification to new format')
-      // return resGte;
       return result;
     default:
       throw new Error(`Not supported op ${op}`);

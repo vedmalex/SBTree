@@ -30,10 +30,10 @@ class MemoryAdapter {
     constructor(props) {
         this.emitter = new events_1.EventEmitter();
         this.isReady = true;
-        this.leafs = (props.leafs) ? parseLeafs(props.leafs) : {};
-        this.documents = (props.documents) ? props.documents : {};
+        this.leafs = (props?.leafs) ? parseLeafs(props.leafs) : {};
+        this.documents = (props?.documents) ? props?.documents : {};
     }
-    get name() { return 'FsAdapter'; }
+    get name() { return 'MemoryAdapter'; }
     ;
     on(event, listener) {
         this.emitter.on(event, listener);
@@ -50,7 +50,7 @@ class MemoryAdapter {
         }
         const { meta, data } = this.leafs[leafName];
         if (meta.identifiers.includes(identifier)) {
-            return false;
+            throw new Error(`Identifier ${identifier} already exist`);
         }
         const index = array_1.insertSorted(data.keys, value);
         meta.size += 1;
@@ -110,16 +110,22 @@ class MemoryAdapter {
                 result.identifiers.push(...identifiers.slice(firstIdx, lastIdx + 1));
                 result.keys.push(...keys.slice(firstIdx, lastIdx + 1));
                 return result;
-                break;
-            case '$lte':
-                let resLte = [];
-                resLte = resLte.concat(lodash_clonedeep_1.default(await this.findInLeaf(leafId, value, '$lt')));
-                resLte = resLte.concat(lodash_clonedeep_1.default(await this.findInLeaf(leafId, value, '$eq')));
-                resLte.forEach((res) => {
-                    result.identifiers.push(...res.identifiers);
-                    result.keys.push(...res.keys);
-                });
-                return result;
+            case '$lte': {
+                const lt = await this.findInLeaf(leafId, value, '$lt');
+                const eq = await this.findInLeaf(leafId, value, '$eq');
+                return {
+                    identifiers: lt.identifiers.concat(eq.identifiers),
+                    keys: lt.keys.concat(eq.keys)
+                };
+            }
+            case '$gte': {
+                const gt = await this.findInLeaf(leafId, value, '$gt');
+                const eq = await this.findInLeaf(leafId, value, '$eq');
+                return {
+                    identifiers: gt.identifiers.concat(eq.identifiers),
+                    keys: gt.keys.concat(eq.keys)
+                };
+            }
             case '$lt':
                 if (firstIdx > -1) {
                     const localIndex = keys.indexOf(value);
@@ -150,15 +156,6 @@ class MemoryAdapter {
                         result.keys.push(...keys.slice(-len));
                     }
                 }
-                return result;
-            case '$gte':
-                let resGte = [];
-                resGte = resGte.concat(lodash_clonedeep_1.default(await this.findInLeaf(leafId, value, '$eq')));
-                resGte = resGte.concat(lodash_clonedeep_1.default(await this.findInLeaf(leafId, value, '$gt')));
-                resGte.forEach((res) => {
-                    result.identifiers.push(...res.identifiers);
-                    result.keys.push(...res.keys);
-                });
                 return result;
             default:
                 throw new Error(`Not supported op ${op}`);
