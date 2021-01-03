@@ -2,14 +2,17 @@
 import { SBTree } from '../types/SBTree';
 import Timer from '../utils/time';
 
-const tree = new SBTree({ order: 3 });
+const tree = new SBTree({ order: 3, uniques:["email"]});
 const timer = new Timer();
 
 export const start = async function () {
   timer.start();
   console.log('-- Inserting...');
   await tree.insertDocuments({
-    age: 43, country: 'United States', email: 'bob@valjean.fr', _id: '5d6dc94e3c7734812f051d7b',
+    age: 43, country: 'United States', email: 'bob@valjean.fr', _id: '5d6dc94e3c7734812f051d7a',
+  });
+    await tree.insertDocuments({
+    age: 43, country: 'United States', email: 'ben@valjean.fr', _id: '5d6dc94e3c7734812f051d7b',
   });
   await tree.insertDocuments({
     age: 21, country: 'Russia', email: 'julia@valjean.fr', _id: '5d6dc94e3c7734812f051d7c',
@@ -19,13 +22,9 @@ export const start = async function () {
   });
 
   // Duplicate do not get added
-  try {
-    await tree.insertDocuments({
-      age: 43, country: 'United States', email: 'bob@valjean.fr', _id: '5d6dc94e3c7734812f051d7b',
-    });
-  } catch (e) {
-    console.log(e);
-  }
+  await tree.insertDocuments({
+    age: 43, country: 'United States', email: 'bob@valjean.fr', _id: '5d6dc94e3c7734812f051d7b',
+  });
 
   await tree.insertDocuments({
     age: 29, country: 'Belgium', email: 'patrick@valjean.fr', _id: '5d6dc94e3c7734812f051bel',
@@ -109,4 +108,4 @@ export const start = async function () {
   console.log(timer.duration.s, 'seconds');
 };
 
-tree.on('ready', start);
+tree.once('ready', start);

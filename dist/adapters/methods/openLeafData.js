@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 async function openLeafData(leafName) {
-    const job = await this.queue.add('File.read', `${this.path}/l/${leafName}.json`).execution();
+    const job = await this.queue.add('File.read', `${this.path}/l/${leafName}.json`, {}).execution();
     let data = {};
-    if (job.result.constructor.name !== Error.name) {
+    if (!(job.result instanceof Error)) {
         data = job.result;
     }
     this.lastChange = Date.now();

@@ -109,7 +109,7 @@ async  get(identifier) {
   return await this.root.get(identifier);
 };
 
-async  insert(identifier, value) {
+async insert(identifier, value) {
   let { root } = this;
   if (!root) {
     this.createRoot();
@@ -118,7 +118,7 @@ async  insert(identifier, value) {
   if (this.isUnique) {
     const get = await this.find(value, '$eq');
     if (get.identifiers.length > 0) {
-      return false;
+      throw new Error(`field ${this.fieldName} value ${value} identifier ${identifier} already exist`);
     }
   }
   await root.insert(identifier, value);

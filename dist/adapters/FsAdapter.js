@@ -37,6 +37,7 @@ exports.defaultFsProps = {
 class FsAdapter {
     constructor(props) {
         this.emitter = new events_1.EventEmitter();
+        this.listeners = [];
         if (props?.parent) {
             this.setParent(props.parent);
         }
@@ -67,9 +68,25 @@ class FsAdapter {
     }
     on(event, listener) {
         this.emitter.on(event, listener);
+        this.listeners.push({
+            event,
+            listener,
+            type: 'on'
+        });
     }
     once(event, listener) {
         this.emitter.once(event, listener);
+        this.listeners.push({
+            event,
+            listener,
+            type: 'once'
+        });
+    }
+    close() {
+        this.emit('close');
+        setTimeout(() => {
+            this.emitter.removeAllListeners();
+        }, 10);
     }
     emit(event, ...args) {
         return this.emitter.emit(event, ...args);

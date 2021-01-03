@@ -1,13 +1,15 @@
 import { SBFLeaf } from './SBFLeaf';
 import {insertSorted} from '../utils/array';
 import {generateNodeId} from '../utils/crypto';
+import { SBFRoot } from './SBFRoot';
+import { SBFTree } from './SBFTree';
 
 /**
  * SBFTree
  *
  */
 export class SBFNode {
-  private parent
+  private parent: SBFRoot | SBFNode
   public id: string;
   public fieldName: string;
   public keys:Array<string>;
@@ -44,8 +46,8 @@ export class SBFNode {
   setParent(parent){
     this.parent = parent
   }
-  getTree(){
-    return this.parent.getTree() || this.parent.getParent().getTree();
+  getTree(): SBFTree {
+    return (this.parent as SBFRoot).getTree() || (this.parent as SBFNode).getParent().getTree();
   }
 
   async  attachLeaf(index, leaf) {
@@ -252,6 +254,7 @@ async insert(identifier, value) {
     leafIndex++;
   });
   const leaf = children[leafIndex];
+
   await leaf.insert(identifier, value);
 
   if (this.isFull()) {
@@ -296,8 +299,8 @@ async mergeUp  () {
     const sibling = parent.children[siblingPos];
 
     // We bump up keys of our siblings.
-    parent.keys.splice(siblingPos, 0, ...sibling.keys);
-    parent.children = [...sibling.children, ...children];
+    parent.keys.splice(siblingPos, 0, ...(sibling as SBFNode).keys);
+    parent.children = [...(sibling as SBFNode).children, ...children];
   } else {
     // parent.children.splice(selfPos, 1, children[0]);
     // console.log(selfPos);

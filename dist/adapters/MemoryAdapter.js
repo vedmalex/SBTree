@@ -29,6 +29,7 @@ const parseLeafs = (_leafs) => {
 class MemoryAdapter {
     constructor(props) {
         this.emitter = new events_1.EventEmitter();
+        this.listeners = [];
         this.isReady = true;
         this.leafs = (props?.leafs) ? parseLeafs(props.leafs) : {};
         this.documents = (props?.documents) ? props?.documents : {};
@@ -37,9 +38,25 @@ class MemoryAdapter {
     ;
     on(event, listener) {
         this.emitter.on(event, listener);
+        this.listeners.push({
+            event,
+            listener,
+            type: 'on'
+        });
     }
     once(event, listener) {
         this.emitter.once(event, listener);
+        this.listeners.push({
+            event,
+            listener,
+            type: 'once'
+        });
+    }
+    close() {
+        this.emit('close');
+        setTimeout(() => {
+            this.emitter.removeAllListeners();
+        }, 10);
     }
     emit(event, ...args) {
         return this.emitter.emit(event, ...args);

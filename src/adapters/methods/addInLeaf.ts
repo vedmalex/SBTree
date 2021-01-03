@@ -6,7 +6,7 @@ export default async function addInLeaf(this:FsAdapter, leafName, identifier, va
   }
   if (this.leafs[leafName].meta.identifiers.includes(identifier)) {
     // TODO: except unique:false?
-    throw new Error(`Identifier ${identifier} already exist`);
+      throw new Error(`Identifier ${identifier} already exist`);
   }
   const index = await this.insertSortedInLeaf(leafName, value);
   this.leafs[leafName].meta.size += 1;

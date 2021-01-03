@@ -30,7 +30,7 @@ export declare class SBFTree {
     createRoot(root?: any): void;
     find(value: any, operator: any): Promise<any>;
     get(identifier: any): Promise<any>;
-    insert(identifier: any, value: any): Promise<boolean>;
+    insert(identifier: any, value: any): Promise<void>;
     remove(remCmd: any): Promise<void>;
     replace(identifier: any, value: any): Promise<boolean>;
     toJSON(): {

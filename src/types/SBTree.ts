@@ -12,7 +12,7 @@ import {remove}  from './ops/remove';
 import {query}  from './ops/query';
 import {get}  from './ops/get';
 import {replace}  from './ops/replace';
-import FsAdapter from '../adapters/FsAdapter';
+import FsAdapter, { EventListeners } from '../adapters/FsAdapter';
 import { rootCertificates } from 'tls';
 
 export type Document = {
@@ -60,6 +60,7 @@ export type SBTreeOptions = {
  */
 export class SBTree {
   private emitter = new EventEmitter();
+  private listeners: Array<EventListeners> = [];
 
   public state: SBTreeState;
   public adapter: MemoryAdapter | FsAdapter;
@@ -82,7 +83,7 @@ export class SBTree {
     if(this.adapter.name !== 'MemoryAdapter'){
       // We will need to sync up first
       this.state.isReady = false;
-      self.adapter.on('ready', ()=> self.state.isReady = true);
+      self.adapter.once('ready', ()=> self.state.isReady = true);
     }
 
     this.order= (props.order) ? props.order : defaultProps.order;
@@ -114,10 +115,28 @@ export class SBTree {
   }
   on(event: string | symbol, listener: (...args: any[]) => void){
     this.emitter.on(event, listener)
+    this.listeners.push({
+      event,
+      listener,
+      type: 'on'
+    })
   }
   once(event: string | symbol, listener: (...args: any[]) => void){
     this.emitter.once(event, listener)
+    this.listeners.push({
+      event,
+      listener,
+      type: 'once'
+    })
   }
+  close(){
+    this.emit('close');
+    this.adapter.close();
+    setTimeout(()=>{
+      this.emitter.removeAllListeners()
+    },10)
+  }
+
   emit(event: string | symbol, ...args: any[]){
     return this.emitter.emit(event, ...args)
   }
@@ -144,7 +163,8 @@ export class SBTree {
  * @param fieldTreeOpts.root -
  * @param fieldTreeOpts.* -
  */
-setFieldTree(_fieldTreeOpts:{fieldName, id?, root?}) {
+
+ setFieldTree(_fieldTreeOpts:{fieldName, id?, root?}) {
   const { fieldName } = _fieldTreeOpts;
   if (!fieldName) {
     throw new Error('Expected a fieldName to set a fieldTree');

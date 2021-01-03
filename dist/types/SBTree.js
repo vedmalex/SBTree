@@ -53,6 +53,7 @@ const defaultProps = {
 class SBTree {
     constructor(props) {
         this.emitter = new events_1.EventEmitter();
+        this.listeners = [];
         const self = this;
         this.state = {
             isReady: true
@@ -60,7 +61,7 @@ class SBTree {
         this.adapter = (props?.adapter) ? parseAdapter(props?.adapter) : new adapters_1.MemoryAdapter();
         if (this.adapter.name !== 'MemoryAdapter') {
             this.state.isReady = false;
-            self.adapter.on('ready', () => self.state.isReady = true);
+            self.adapter.once('ready', () => self.state.isReady = true);
         }
         this.order = (props.order) ? props.order : defaultProps.order;
         this.fillFactor = (props.fillFactor) ? props.fillFactor : defaultProps.fillFactor;
@@ -88,9 +89,26 @@ class SBTree {
     }
     on(event, listener) {
         this.emitter.on(event, listener);
+        this.listeners.push({
+            event,
+            listener,
+            type: 'on'
+        });
     }
     once(event, listener) {
         this.emitter.once(event, listener);
+        this.listeners.push({
+            event,
+            listener,
+            type: 'once'
+        });
+    }
+    close() {
+        this.emit('close');
+        this.adapter.close();
+        setTimeout(() => {
+            this.emitter.removeAllListeners();
+        }, 10);
     }
     emit(event, ...args) {
         return this.emitter.emit(event, ...args);

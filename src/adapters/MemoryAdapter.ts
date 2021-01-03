@@ -5,7 +5,7 @@ import LeafData from './LeafData';
 import LeafMeta from './LeafMeta';
 import { insertSorted } from '../utils/array';
 import {EventEmitter} from 'events';
-import { LeafId } from './FsAdapter';
+import { EventListeners, LeafId } from './FsAdapter';
 
 export type MemoryAdapterLeafs = {[leafId: string]: {
     meta: LeafMeta;
@@ -41,6 +41,7 @@ export type MemoryAdapterDocuments = unknown
 
 export class MemoryAdapter {
   private emitter: EventEmitter = new EventEmitter()
+  private listeners: Array<EventListeners> = [];
   public leafs:MemoryAdapterLeafs;
   public documents: MemoryAdapterDocuments
   public isReady: boolean = true;
@@ -54,12 +55,30 @@ export class MemoryAdapter {
     this.documents = (props?.documents) ? props?.documents : {};
   }
 
-    on(event: string | symbol, listener: (...args: any[]) => void){
+  on(event: string | symbol, listener: (...args: any[]) => void){
     this.emitter.on(event, listener)
+    this.listeners.push({
+      event,
+      listener,
+      type: 'on'
+    })
   }
   once(event: string | symbol, listener: (...args: any[]) => void){
     this.emitter.once(event, listener)
+    this.listeners.push({
+      event,
+      listener,
+      type: 'once'
+    })
   }
+
+  close(){
+    this.emit('close');
+    setTimeout(()=>{
+      this.emitter.removeAllListeners()
+    },10)
+  }
+
   emit(event: string | symbol, ...args: any[]){
     return this.emitter.emit(event, ...args)
   }
@@ -73,8 +92,7 @@ export class MemoryAdapter {
 
   if (meta.identifiers.includes(identifier)) {
     // TODO: except unique:false?
-    throw new Error(`Identifier ${identifier} already exist`);
-    // return false;
+      throw new Error(`Identifier ${identifier} already exist`);
   }
 
   const index = insertSorted(data.keys, value);
@@ -228,7 +246,7 @@ removeDocument(identifier) {
   }
 }
 
- removeInLeaf(leafId, identifier) {
+removeInLeaf(leafId, identifier) {
   const identifiers = [];
   if (!this.leafs[leafId]) {
     throw new Error('Trying to remove in unknown leaf id');

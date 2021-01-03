@@ -175,6 +175,7 @@ class SBFRoot {
     }
     async attachLeaf(index, leaf) {
         this.children.splice(index, 0, leaf);
+        leaf.setParent(this);
     }
     async find(value, operator = '$eq') {
         const self = this;

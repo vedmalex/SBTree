@@ -8,7 +8,6 @@ export default async function saveDatabase(this:FsAdapter) {
     leafs,
     tree,
   };
-  const job = await this.queue.add('File.create', `${this.path}/sbtree.meta.json`, db);
-  await job.execution();
+  await this.queue.add('File.create', `${this.path}/sbtree.meta.json`, db).execution();
   this.lastSave = Date.now();
 };

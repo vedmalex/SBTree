@@ -23,6 +23,7 @@ export declare type SBTreeOptions = {
 };
 export declare class SBTree {
     private emitter;
+    private listeners;
     state: SBTreeState;
     adapter: MemoryAdapter | FsAdapter;
     order: number;
@@ -38,6 +39,7 @@ export declare class SBTree {
     constructor(props: Partial<SBTreeOptions>);
     on(event: string | symbol, listener: (...args: any[]) => void): void;
     once(event: string | symbol, listener: (...args: any[]) => void): void;
+    close(): void;
     emit(event: string | symbol, ...args: any[]): boolean;
     getOptions(): {
         order: number;

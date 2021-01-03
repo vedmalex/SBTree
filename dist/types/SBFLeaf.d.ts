@@ -1,11 +1,12 @@
 import { SBFNode } from './SBFNode';
+import { SBFRoot } from './SBFRoot';
 export declare class SBFLeaf {
     private parent;
     id: string;
     fieldName: string;
     get type(): string;
     constructor(props: any);
-    getParent(): SBFNode;
+    getParent(): SBFRoot | SBFNode;
     setParent(parent: any): void;
     insert(identifier: any, value: any): Promise<void>;
     find(value: any): Promise<any>;

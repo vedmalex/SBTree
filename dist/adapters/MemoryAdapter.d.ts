@@ -13,6 +13,7 @@ export declare type MemoryAdapterOptions = {
 export declare type MemoryAdapterDocuments = unknown;
 export declare class MemoryAdapter {
     private emitter;
+    private listeners;
     leafs: MemoryAdapterLeafs;
     documents: MemoryAdapterDocuments;
     isReady: boolean;
@@ -21,6 +22,7 @@ export declare class MemoryAdapter {
     constructor(props?: MemoryAdapterOptions);
     on(event: string | symbol, listener: (...args: any[]) => void): void;
     once(event: string | symbol, listener: (...args: any[]) => void): void;
+    close(): void;
     emit(event: string | symbol, ...args: any[]): boolean;
     addInLeaf(leafName: any, identifier: any, value: any): Promise<void>;
     createLeaf(leafName: any): Promise<void>;

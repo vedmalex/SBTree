@@ -22,6 +22,11 @@ export declare type FsAdapterLeafs = {
 };
 export declare type FsAdapterLastChange = number;
 export declare type FsAdapterLastSave = number;
+export declare type EventListeners = {
+    event: string | symbol;
+    listener: (...args: any[]) => void;
+    type: 'on' | 'once';
+};
 export default class FsAdapter {
     private emitter;
     private parent;
@@ -36,12 +41,14 @@ export default class FsAdapter {
     isReady: boolean;
     lastChange: FsAdapterLastChange;
     lastSave: FsAdapterLastSave;
+    private listeners;
     get name(): string;
     constructor(props?: FsAdaptepOptions);
     setParent(parent: any): void;
     getParent(): SBTree;
     on(event: string | symbol, listener: (...args: any[]) => void): void;
     once(event: string | symbol, listener: (...args: any[]) => void): void;
+    close(): void;
     emit(event: string | symbol, ...args: any[]): boolean;
     attachParent(parent: SBTree): Promise<any>;
     addInLeaf(leafName: any, identifier: any, value: any): Promise<any>;

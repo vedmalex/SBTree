@@ -78,7 +78,7 @@ class SBFTree {
         if (this.isUnique) {
             const get = await this.find(value, '$eq');
             if (get.identifiers.length > 0) {
-                return false;
+                throw new Error(`field ${this.fieldName} value ${value} identifier ${identifier} already exist`);
             }
         }
         await root.insert(identifier, value);

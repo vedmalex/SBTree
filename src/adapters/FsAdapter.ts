@@ -53,12 +53,17 @@ export type LeafId = string
 // TODO: loadDatabase
 export type FsAdapterLeafs = {[leafId: string]: {
     id: LeafId;
-    // name: string;
     meta: LeafMeta;
 }}
 
 export type FsAdapterLastChange = number;
-export type FsAdapterLastSave= number;
+export type FsAdapterLastSave = number;
+
+export type EventListeners = {
+  event: string | symbol;
+  listener: (...args: any[]) => void;
+  type: 'on'|'once'
+}
 
 export default class FsAdapter {
   private emitter: EventEmitter = new EventEmitter()
@@ -74,6 +79,8 @@ export default class FsAdapter {
   public isReady: boolean;
   public lastChange:FsAdapterLastChange;
   public lastSave:FsAdapterLastSave;
+  private listeners: Array<EventListeners> = [];
+
   public get name() { return 'FsAdapter';};
 
   constructor(props?:FsAdaptepOptions) {
@@ -101,16 +108,35 @@ export default class FsAdapter {
   setParent(parent){
     this.parent = parent;
   }
+
   getParent(){
     return this.parent;
   }
 
   on(event: string | symbol, listener: (...args: any[]) => void){
     this.emitter.on(event, listener)
+    this.listeners.push({
+      event,
+      listener,
+      type: 'on'
+    })
   }
   once(event: string | symbol, listener: (...args: any[]) => void){
     this.emitter.once(event, listener)
+    this.listeners.push({
+      event,
+      listener,
+      type: 'once'
+    })
   }
+
+  close(){
+    this.emit('close');
+    setTimeout(()=>{
+      this.emitter.removeAllListeners()
+    },10)
+  }
+
   emit(event: string | symbol, ...args: any[]){
     return this.emitter.emit(event, ...args)
   }
@@ -184,7 +210,7 @@ async updateDocument(_doc){
 return updateDocument.call(this,_doc)
 }
 
- async removeInLeaf(leafId, identifier) {
+async removeInLeaf(leafId, identifier) {
   const identifiers = [];
   if (!this.leafs[leafId]) {
     throw new Error('Trying to remove in unknown leaf id');

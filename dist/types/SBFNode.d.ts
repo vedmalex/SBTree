@@ -1,4 +1,6 @@
 import { SBFLeaf } from './SBFLeaf';
+import { SBFRoot } from './SBFRoot';
+import { SBFTree } from './SBFTree';
 export declare class SBFNode {
     private parent;
     id: string;
@@ -8,9 +10,9 @@ export declare class SBFNode {
     identifiers: Array<string>;
     get type(): string;
     constructor(props: any);
-    getParent(): any;
+    getParent(): SBFRoot | SBFNode;
     setParent(parent: any): void;
-    getTree(): any;
+    getTree(): SBFTree;
     attachLeaf(index: any, leaf: any): Promise<void>;
     find(value: any): Promise<{
         identifiers: any[];
@@ -24,10 +26,14 @@ export declare class SBFNode {
         identifiers: any[];
         keys: any[];
     }>;
-    getAdapter(): any;
+    getAdapter(): import("../adapters").MemoryAdapter | import("../adapters").FsAdapter;
     getAll(): Promise<unknown>;
     getFillStatus(): any;
-    getTreeOptions(): any;
+    getTreeOptions(): {
+        order: number;
+        fillFactor: number;
+        verbose: boolean;
+    };
     insert(identifier: any, value: any): Promise<void>;
     insertReferenceKey(value: any): Promise<number>;
     isFull(): boolean;

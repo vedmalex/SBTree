@@ -1,12 +1,14 @@
 import { generateLeafId } from '../utils/crypto';
 import { SBFNode } from './SBFNode';
+import { SBFTree } from './SBFTree';
+import { SBFRoot } from './SBFRoot';
 
 /**
  * SFBLeaf
  *
  */
 export class SBFLeaf {
-  private parent: SBFNode
+  private parent: SBFRoot | SBFNode
   public id: string
   public fieldName: string;
   public get type(){return 'leaf';}
@@ -17,6 +19,7 @@ export class SBFLeaf {
     }
 
     this.parent = props.parent;
+
     this.id = (props.id) ? props.id : generateLeafId();
     this.fieldName = (props.parent.fieldName) ? props.parent.fieldName : null;
   }
@@ -187,14 +190,14 @@ async  mergeWithSiblings() {
     // Remove the undefined corpse from the array
     parent.children.splice(rightSibPos, 1);
 
-    // Repair parent keys TODO FIXME
+    //TODO: Repair parent keys FIXME
     const parentKeys = parent.keys;
 
     // We remove the children reference in keys
     parent.keys.splice(Math.trunc(selfPos / 2), 1);
     if (parent.keys.length === 0) {
     //   We have no keys, let's merge up.
-      await parent.mergeUp();
+      await (parent as SBFNode).mergeUp();
     }
 
     hasMerged = true;
@@ -226,7 +229,7 @@ async  mergeWithSiblings() {
       // console.log(parent)
       // throw new Error('Not implemented. Looking for case.')
       // We have no keys, let's merge up.
-      await parent.mergeUp();
+      await (parent as SBFNode).mergeUp();
       // }
     }
     hasMerged = true;
