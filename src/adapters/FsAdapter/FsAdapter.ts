@@ -1,8 +1,8 @@
 import  { FSLock } from 'fslockjs';
 import {EventEmitter} from 'events';
 
-import LeafData from '../LeafData';
-import { SBTree } from '../../types/SBTree';
+import LeafData from '../common/LeafData';
+import { SBTree } from '../../types/SBTree/SBTree';
 
 import attachParent from './methods/attachParent';
 import addInLeaf from './methods/addInLeaf';

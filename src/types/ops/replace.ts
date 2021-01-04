@@ -5,7 +5,7 @@ import isObject from 'lodash.isobject';
 import transform from 'lodash.transform';
 import {RemoveCommand} from './RemoveCommand';
 import { validTypes } from '../../constants';
-import { SBTree } from '../SBTree';
+import { SBTree } from '../SBTree/SBTree';
 
 // Returns difference between object. Do not return addition/deletion between object, only diff when existing in both
 function findChangedFields(object, base) {

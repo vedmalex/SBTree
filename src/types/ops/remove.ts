@@ -1,4 +1,4 @@
-import { SBTree } from '../SBTree';
+import { SBTree } from '../SBTree/SBTree';
 import {query} from './query';
 
 import {RemoveCommand} from './RemoveCommand';

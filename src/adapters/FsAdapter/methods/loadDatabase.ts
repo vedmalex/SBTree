@@ -1,6 +1,6 @@
 import each from 'lodash.foreach';
 import FsAdapter from '../FsAdapter';
-import LeafMeta from '../../LeafMeta';
+import LeafMeta from '../../common/LeafMeta';
 
 export default async function loadDatabase(this:FsAdapter) {
   const job = await this.queue.add('File.read', `${this.path}/sbtree.meta.json`).execution();

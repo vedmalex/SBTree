@@ -5,8 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.parseLeafs = void 0;
 const lodash_foreach_1 = __importDefault(require("lodash.foreach"));
-const LeafData_1 = __importDefault(require("../../LeafData"));
-const LeafMeta_1 = __importDefault(require("../../LeafMeta"));
+const LeafData_1 = __importDefault(require("../../common/LeafData"));
+const LeafMeta_1 = __importDefault(require("../../common/LeafMeta"));
 function parseLeafs(_leafs) {
     const leafs = {};
     lodash_foreach_1.default(_leafs, (_leaf, _leafId) => {

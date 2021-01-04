@@ -23,7 +23,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongo_objectid_1 = __importDefault(require("mongo-objectid"));
-const SBTree_1 = require("./types/SBTree");
+const SBTree_1 = require("./types/SBTree/SBTree");
 const index_1 = __importDefault(require("./adapters/index"));
 const utils = __importStar(require("./utils/index"));
 module.exports = {

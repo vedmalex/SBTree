@@ -1,5 +1,5 @@
 import intersection from 'lodash.intersection';
-import { SBTree } from '../SBTree';
+import { SBTree } from '../SBTree/SBTree';
 import {getFieldNamesFromQuery} from '../utils/getFieldNamesFromQuery';
 
 import { get } from './get';

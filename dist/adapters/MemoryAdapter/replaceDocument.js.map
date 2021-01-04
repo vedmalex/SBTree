@@ -1,1 +1,0 @@
-{"version":3,"file":"replaceDocument.js","sourceRoot":"","sources":["../../../src/adapters/MemoryAdapter/replaceDocument.ts"],"names":[],"mappings":";;;AAEA,SAAgB,eAAe,CAAsB,GAAG;IACtD,IAAI,CAAC,IAAI,CAAC,SAAS,CAAC,GAAG,CAAC,GAAG,CAAC,EAAE;QAC5B,IAAI,CAAC,YAAY,CAAC,GAAG,CAAC,CAAC;KACxB;IACD,IAAI,CAAC,SAAS,CAAC,GAAG,CAAC,GAAG,CAAC,GAAG,GAAG,CAAC;AAChC,CAAC;AALD,0CAKC"}

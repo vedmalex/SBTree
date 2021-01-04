@@ -1,6 +1,6 @@
 import each from 'lodash.foreach';
-import LeafData from '../../LeafData';
-import LeafMeta from '../../LeafMeta';
+import LeafData from '../../common/LeafData';
+import LeafMeta from '../../common/LeafMeta';
 
 export function parseLeafs(_leafs) {
   const leafs = {};

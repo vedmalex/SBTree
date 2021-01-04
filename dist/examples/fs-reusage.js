@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.start = void 0;
 const adapters_1 = require("../adapters");
-const SBTree_1 = require("../types/SBTree");
+const SBTree_1 = require("../types/SBTree/SBTree");
 const time_1 = __importDefault(require("../utils/time"));
 const tree = new SBTree_1.SBTree({ adapter: new adapters_1.FsAdapter({ path: '.db', autoSave: false }), order: 3, uniques: ["email"] });
 const timer = new time_1.default();

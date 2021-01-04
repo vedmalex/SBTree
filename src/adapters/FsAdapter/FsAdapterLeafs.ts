@@ -1,4 +1,4 @@
-import LeafMeta from '../LeafMeta';
+import LeafMeta from '../common/LeafMeta';
 import { LeafId } from './FsAdapter';
 
 

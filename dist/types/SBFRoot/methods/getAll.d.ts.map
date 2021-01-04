@@ -1,0 +1,1 @@
+{"version":3,"file":"getAll.d.ts","sourceRoot":"","sources":["../../../../src/types/SBFRoot/methods/getAll.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,MAAM,YAAY,CAAC;AAErC,wBAAsB,MAAM,CAAC,IAAI,EAAE,OAAO,GAAG,OAAO,CAAC;IAAE,WAAW,EAAE,KAAK,CAAC,MAAM,CAAC,CAAC;IAAC,IAAI,EAAE,KAAK,CAAC,MAAM,CAAC,CAAC;CAAE,CAAC,CA4BzG"}

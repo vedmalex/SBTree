@@ -3,8 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const LeafData_1 = __importDefault(require("../../LeafData"));
-const LeafMeta_1 = __importDefault(require("../../LeafMeta"));
+const LeafData_1 = __importDefault(require("../../common/LeafData"));
+const LeafMeta_1 = __importDefault(require("../../common/LeafMeta"));
 async function createLeaf(leafId) {
     this.leafs[leafId] = {
         id: leafId,

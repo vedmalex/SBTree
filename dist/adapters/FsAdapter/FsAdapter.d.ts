@@ -1,6 +1,6 @@
 import { FSLock } from 'fslockjs';
-import LeafData from '../LeafData';
-import { SBTree } from '../../types/SBTree';
+import LeafData from '../common/LeafData';
+import { SBTree } from '../../types/SBTree/SBTree';
 import { FsAdaptepOptions } from './FsAdaptepOptions';
 import { FsAdapterOptionAutoLoadCallback } from './FsAdapterOptionAutoLoadCallback';
 import { FsAdapterLeafs } from './FsAdapterLeafs';

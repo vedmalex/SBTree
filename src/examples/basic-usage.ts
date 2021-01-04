@@ -1,5 +1,5 @@
 
-import { SBTree } from '../types/SBTree';
+import { SBTree } from '../types/SBTree/SBTree';
 import Timer from '../utils/time';
 
 const tree = new SBTree({ order: 3, uniques:["email"]});

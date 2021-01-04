@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.start = void 0;
-const SBTree_1 = require("../types/SBTree");
+const SBTree_1 = require("../types/SBTree/SBTree");
 const time_1 = __importDefault(require("../utils/time"));
 const tree = new SBTree_1.SBTree({ order: 3, uniques: ["email"] });
 const timer = new time_1.default();

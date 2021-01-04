@@ -1,0 +1,1 @@
+{"version":3,"file":"getDocument.js","sourceRoot":"","sources":["../../../../src/types/SBTree/methods/getDocument.ts"],"names":[],"mappings":";;;AAAA,uCAAoC;AAG7B,KAAK,UAAU,WAAW,CAAe,UAAU;IACxD,IAAI,CAAC,IAAI,CAAC,KAAK,CAAC,OAAO,EAAE;QACvB,MAAM,IAAI,CAAC,OAAO,EAAE,CAAC;KACtB;IAED,OAAO,CAAC,MAAM,SAAG,CAAC,IAAI,CAAC,IAAI,EAAE,UAAU,CAAC,CAAC,CAAC;AAC5C,CAAC;AAND,kCAMC"}

@@ -1,6 +1,6 @@
 import FsAdapter from '../FsAdapter';
-import LeafData from '../../LeafData';
-import LeafMeta from '../../LeafMeta';
+import LeafData from '../../common/LeafData';
+import LeafMeta from '../../common/LeafMeta';
 
 export default async function createLeaf(this:FsAdapter,leafId) {
   this.leafs[leafId] = {

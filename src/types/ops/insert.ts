@@ -1,5 +1,5 @@
 import { validTypes } from '../../constants';
-import { SBTree } from '../SBTree';
+import { SBTree } from '../SBTree/SBTree';
 
 export async function insert(this: SBTree, document) {
   if (!document) {

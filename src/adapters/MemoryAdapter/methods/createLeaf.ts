@@ -1,5 +1,5 @@
-import LeafData from '../../LeafData';
-import LeafMeta from '../../LeafMeta';
+import LeafData from '../../common/LeafData';
+import LeafMeta from '../../common/LeafMeta';
 import { MemoryAdapter } from '../MemoryAdapter';
 
 export async function createLeaf(this: MemoryAdapter, leafName) {
