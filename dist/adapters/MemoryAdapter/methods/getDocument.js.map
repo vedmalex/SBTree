@@ -1,0 +1,1 @@
+{"version":3,"file":"getDocument.js","sourceRoot":"","sources":["../../../../src/adapters/MemoryAdapter/methods/getDocument.ts"],"names":[],"mappings":";;;;;;AAAA,wEAAyC;AAGlC,KAAK,UAAU,WAAW,CAAsB,UAAU;IAC/D,MAAM,GAAG,GAAG,IAAI,CAAC,SAAS,CAAC,UAAU,CAAC,CAAC;IACvC,IAAI,CAAC,GAAG,EAAE;QACR,OAAO,IAAI,CAAC;KACb;IACD,OAAO,0BAAS,CAAC,GAAG,CAAC,CAAC;AACxB,CAAC;AAND,kCAMC"}

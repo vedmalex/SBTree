@@ -1,6 +1,6 @@
 import { MemoryAdapter } from '../adapters';
 import { SBFTree } from './SBFTree';
-import FsAdapter from '../adapters/FsAdapter';
+import FsAdapter from '../adapters/FsAdapter/FsAdapter';
 export declare type Document = {
     _id: string;
     [key: string]: any;

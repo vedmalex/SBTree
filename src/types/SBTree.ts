@@ -12,7 +12,8 @@ import {remove}  from './ops/remove';
 import {query}  from './ops/query';
 import {get}  from './ops/get';
 import {replace}  from './ops/replace';
-import FsAdapter, { EventListeners } from '../adapters/FsAdapter';
+import FsAdapter from '../adapters/FsAdapter/FsAdapter';
+import { EventListeners } from "../adapters/common/EventListeners";
 import { rootCertificates } from 'tls';
 
 export type Document = {

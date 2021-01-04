@@ -1,0 +1,1 @@
+{"version":3,"file":"EventListeners.d.ts","sourceRoot":"","sources":["../../../src/adapters/common/EventListeners.ts"],"names":[],"mappings":"AACA,oBAAY,cAAc,GAAG;IAC3B,KAAK,EAAE,MAAM,GAAG,MAAM,CAAC;IACvB,QAAQ,EAAE,CAAC,GAAG,IAAI,EAAE,GAAG,EAAE,KAAK,IAAI,CAAC;IACnC,IAAI,EAAE,IAAI,GAAG,MAAM,CAAC;CACrB,CAAC"}

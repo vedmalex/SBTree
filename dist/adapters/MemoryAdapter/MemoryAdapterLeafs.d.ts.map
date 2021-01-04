@@ -1,0 +1,1 @@
+{"version":3,"file":"MemoryAdapterLeafs.d.ts","sourceRoot":"","sources":["../../../src/adapters/MemoryAdapter/MemoryAdapterLeafs.ts"],"names":[],"mappings":"AAAA,OAAO,QAAQ,MAAM,aAAa,CAAC;AACnC,OAAO,QAAQ,MAAM,aAAa,CAAC;AAGnC,oBAAY,kBAAkB,GAAG;IAC/B,CAAC,MAAM,EAAE,MAAM,GAAG;QAChB,IAAI,EAAE,QAAQ,CAAC;QACf,IAAI,EAAE,QAAQ,CAAC;KAChB,CAAC;CACH,CAAC"}

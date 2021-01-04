@@ -1,0 +1,1 @@
+{"version":3,"file":"saveDocument.js","sourceRoot":"","sources":["../../../src/adapters/MemoryAdapter/saveDocument.ts"],"names":[],"mappings":";;;AAEA,SAAgB,YAAY,CAAsB,GAAG;IACnD,IAAI,CAAC,IAAI,CAAC,SAAS,CAAC,GAAG,CAAC,GAAG,CAAC,EAAE;QAC5B,IAAI,CAAC,SAAS,CAAC,GAAG,CAAC,GAAG,CAAC,GAAG,GAAG,CAAC;KAC/B;AACH,CAAC;AAJD,oCAIC"}

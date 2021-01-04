@@ -1,0 +1,1 @@
+{"version":3,"file":"openLeaf.js","sourceRoot":"","sources":["../../../../src/adapters/MemoryAdapter/methods/openLeaf.ts"],"names":[],"mappings":";;;AAEO,KAAK,UAAU,QAAQ,CAAsB,QAAQ;IAC1D,IAAI,CAAC,IAAI,CAAC,KAAK,CAAC,QAAQ,CAAC,EAAE;QACzB,MAAM,IAAI,KAAK,CAAC,mBAAmB,CAAC,CAAC;KACtC;IACD,OAAO,IAAI,CAAC,KAAK,CAAC,QAAQ,CAAC,CAAC;AAC9B,CAAC;AALD,4BAKC"}

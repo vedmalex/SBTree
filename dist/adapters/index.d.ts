@@ -1,5 +1,5 @@
-import FsAdapter from './FsAdapter';
-import { MemoryAdapter } from './MemoryAdapter';
+import FsAdapter from './FsAdapter/FsAdapter';
+import { MemoryAdapter } from './MemoryAdapter/MemoryAdapter';
 export { FsAdapter, MemoryAdapter };
 declare const _default: {
     FsAdapter: typeof FsAdapter;

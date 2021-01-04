@@ -1,7 +1,7 @@
 import {generateFieldTreeId} from '../utils/crypto';
 import { SBFRoot } from './SBFRoot';
-import { MemoryAdapter } from '../adapters/MemoryAdapter';
-import FsAdapter from '../adapters/FsAdapter';
+import { MemoryAdapter } from '../adapters/MemoryAdapter/MemoryAdapter';
+import FsAdapter from '../adapters/FsAdapter/FsAdapter';
 
 export type SBFTreeOptions = {
   id: string;
