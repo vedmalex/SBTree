@@ -12,13 +12,13 @@ export declare class SBFRoot {
     children: Array<SBFLeaf | SBFNode>;
     constructor(props: any);
     getTree(): SBFTree;
-    getAdapter(): import("../../adapters").FsAdapter | import("../../adapters").MemoryAdapter;
+    getAdapter(): import("../../adapters").MemoryAdapter | import("../../adapters").FsAdapter;
     getTreeOptions(): {
         order: number;
         fillFactor: number;
         verbose: boolean;
     };
-    attachLeaf(index: any, leaf: any): Promise<any>;
+    attachLeaf(index: any, leaf: any): Promise<void>;
     find(value: any, operator?: string): Promise<any>;
     getAll(): Promise<{
         identifiers: Array<string>;
@@ -26,12 +26,19 @@ export declare class SBFRoot {
     }>;
     get(identifier: any): Promise<any>;
     getFillStatus(): Promise<FillStatus>;
-    remove(remCmd: any): Promise<any>;
-    replace(identifier: any, value: any): Promise<any>;
-    insert(identifier: any, value?: any): Promise<any>;
-    insertReferenceKey(value: any): Promise<any>;
-    isFull(): any;
-    split(): Promise<any>;
-    toJSON(): any;
+    remove(remCmd: any): Promise<void>;
+    replace(identifier: any, value: any): Promise<void>;
+    insert(identifier: any, value: any): Promise<void>;
+    insertReferenceKey(value: any): Promise<number>;
+    isFull(): boolean;
+    split(): Promise<void>;
+    toJSON(): {
+        type: string;
+        id: string;
+        fieldName: string;
+        identifiers: string[];
+        keys: string[];
+        children: any[];
+    };
 }
 //# sourceMappingURL=SBFRoot.d.ts.map

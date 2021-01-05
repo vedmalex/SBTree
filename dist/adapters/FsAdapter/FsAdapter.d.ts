@@ -26,30 +26,33 @@ export default class FsAdapter extends Emittable {
     constructor(props?: FsAdaptepOptions);
     setParent(parent: any): void;
     getParent(): SBTree;
-    attachParent(parent: SBTree): Promise<any>;
-    addInLeaf(leafName: any, identifier: any, value: any): Promise<any>;
-    createLeaf(leafId: any): Promise<any>;
+    attachParent(parent: SBTree): Promise<void>;
+    addInLeaf(leafName: any, identifier: any, value: any): Promise<void>;
+    createLeaf(leafId: any): Promise<void>;
     findInLeaf(leafId: any, value: any, op?: string): Promise<{
         identifiers: Array<any>;
         keys: Array<any>;
     }>;
-    getAllInLeaf(leafId: any): Promise<any>;
-    getLeftInLeaf(leafId: any): Promise<any>;
+    getAllInLeaf(leafId: any): any;
+    getLeftInLeaf(leafId: any): any;
     getRightInLeaf(leadId: any): Promise<any>;
     getDocument(identifier: any): Promise<any>;
-    insertSortedInLeaf(leafId: any, value: any): Promise<any>;
-    loadDatabase(): Promise<any>;
-    openDocument(identifer: any): Promise<any>;
-    openLeaf(leafName: any): Promise<any>;
-    removeDocument(identifier: any): Promise<any>;
-    openLeafData(leafName: any): Promise<any>;
-    replaceDocument(doc: any): Promise<any>;
-    replaceInLeaf(leafId: any, identifier: any, value: any): Promise<any>;
-    saveDatabase(): Promise<any>;
-    saveDocument(doc: any): Promise<any>;
-    saveLeafData(leafName: string, data: LeafData): Promise<any>;
-    splitLeaf(sourceLeaf: any, siblingLeaf: any): Promise<any>;
-    updateDocument(_doc: any): Promise<any>;
+    insertSortedInLeaf(leafId: any, value: any): any;
+    loadDatabase(): Promise<void>;
+    openDocument(identifer: any): Promise<{}>;
+    openLeaf(leafName: any): Promise<{
+        id: string;
+        meta: import("../common/LeafMeta").default;
+    }>;
+    removeDocument(identifier: any): Promise<void>;
+    openLeafData(leafName: any): Promise<import("../common/LeafData").LeafDataProps>;
+    replaceDocument(doc: any): Promise<void>;
+    replaceInLeaf(leafId: any, identifier: any, value: any): Promise<number>;
+    saveDatabase(): Promise<void>;
+    saveDocument(doc: any): Promise<void>;
+    saveLeafData(leafName: string, data: LeafData): Promise<{}>;
+    splitLeaf(sourceLeaf: any, siblingLeaf: any): Promise<string | number | boolean>;
+    updateDocument(_doc: any): Promise<{}>;
     removeInLeaf(leafId: any, identifier: any): Promise<any[]>;
 }
 //# sourceMappingURL=FsAdapter.d.ts.map

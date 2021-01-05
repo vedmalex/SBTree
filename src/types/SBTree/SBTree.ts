@@ -3,7 +3,6 @@ import {generateTreeId} from '../../utils/crypto';
 import each from 'lodash.foreach';
 import { SBFTree } from '../SBFTree/SBFTree';
 
-
 import FsAdapter from '../../adapters/FsAdapter/FsAdapter';
 import { Emittable } from '../../adapters/common/Emittable';
 import { parseAdapter } from './methods/parseAdapter';
@@ -18,6 +17,9 @@ import { insertDocuments } from './methods/insertDocuments';
 import { replaceDocuments } from './methods/replaceDocuments';
 import { loadState } from './methods/loadState';
 import { toJSON } from './methods/toJSON';
+import { Document } from '../common/Document';
+
+type toJSONReturn = ReturnType<typeof findDocuments>
 
 const defaultProps = {
   order: 511,
@@ -109,31 +111,31 @@ async isReady() {
   }
 
  setFieldTree(_fieldTreeOpts:{fieldName, id?, root?}){
-   return setFieldTree.call(this,_fieldTreeOpts)
+   return (setFieldTree.call(this,_fieldTreeOpts) as ReturnType<typeof setFieldTree>)
  }
 async  deleteDocuments(query){
-  return deleteDocuments.call(this,query)
+  return (deleteDocuments.call(this,query) as ReturnType<typeof deleteDocuments>)
 }
 async findDocuments(params){
-  return findDocuments.call(this,params)
+  return (findDocuments.call(this,params) as ReturnType<typeof findDocuments>)
 }
 async getDocument(identifier){
-  return getDocument.call(this,identifier)
+  return (getDocument.call(this,identifier) as ReturnType<typeof getDocument>)
 }
- getFieldTree(fieldName){
-   return getFieldTree.call(this,fieldName)
+ getFieldTree(fieldName) {
+   return (getFieldTree.call(this,fieldName) as ReturnType<typeof getFieldTree>)
  }
 async insertDocuments(documents){
-  return insertDocuments.call(this,documents)
+  return (insertDocuments.call(this,documents) as ReturnType<typeof insertDocuments>)
 }
 async replaceDocuments(documents){
-  return replaceDocuments.call(this,documents)
+  return (replaceDocuments.call(this,documents) as ReturnType<typeof replaceDocuments>)
 }
 loadState(state){
-  return loadState.call(this,state)
+  return (loadState.call(this,state) as ReturnType<typeof loadState>)
 }
 toJSON(){
-  return toJSON.call(this)
+  return (toJSON.call(this) as ReturnType<typeof toJSON>)
 }
 
 }

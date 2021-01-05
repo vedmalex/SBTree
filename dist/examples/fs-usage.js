@@ -24,9 +24,14 @@ const start = async function () {
     await tree.insertDocuments({
         age: 22, country: 'United Kingdom', email: 'zack@valjean.fr', _id: '5d6dc94e3c7734812f051duk',
     });
-    await tree.insertDocuments({
-        age: 43, country: 'United States', email: 'bob@valjean.fr', _id: '5d6dc94e3c7734812f051d7b',
-    });
+    try {
+        await tree.insertDocuments({
+            age: 43, country: 'United States', email: 'bob@valjean.fr', _id: '5d6dc94e3c7734812f051d7c',
+        });
+    }
+    catch (e) {
+        console.log(e.message);
+    }
     await tree.insertDocuments({
         age: 29, country: 'Belgium', email: 'patrick@valjean.fr', _id: '5d6dc94e3c7734812f051bel',
     });

@@ -1,6 +1,9 @@
+export type LeafDataProps = {
+  keys:Array<number|string|boolean>
+}
 export default class LeafData {
-  public keys:Array<string>
-  constructor(props?:{keys:Array<string>}) {
+  public keys:Array<number|string|boolean>
+  constructor(props?:LeafDataProps) {
     this.keys = props?.keys ?? [];
   }
 }

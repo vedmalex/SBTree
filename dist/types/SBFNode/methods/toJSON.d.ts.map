@@ -1,1 +1,1 @@
-{"version":3,"file":"toJSON.d.ts","sourceRoot":"","sources":["../../../../src/types/SBFNode/methods/toJSON.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,MAAM,YAAY,CAAC;AAErC,wBAAgB,MAAM,CAAC,IAAI,EAAE,OAAO;;;;;;EAkBnC"}
+{"version":3,"file":"toJSON.d.ts","sourceRoot":"","sources":["../../../../src/types/SBFNode/methods/toJSON.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,MAAM,YAAY,CAAC;AAErC,wBAAgB,MAAM,CAAC,IAAI,EAAE,OAAO,OAkBnC"}

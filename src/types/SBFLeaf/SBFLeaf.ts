@@ -47,67 +47,67 @@ export class SBFLeaf {
   }
 
 async insert(identifier, value) {
-  return insert.call(this,identifier, value)
+  return (insert.call(this,identifier, value) as ReturnType<typeof insert>)
 }
 
 async find(value) {
-  return find.call(this, value)
+  return (find.call(this, value) as ReturnType<typeof find>)
 };
 
 async  getAll() {
-  return getAll.call(this)
+  return (getAll.call(this) as ReturnType<typeof getAll>)
 };
 
 async getFillStatus():Promise<FillStatus>{
-  return getFillStatus.call(this)
+  return (getFillStatus.call(this) as ReturnType<typeof getFillStatus>)
 }
 
 async  getLeft() {
-return getLeft.call(this)
+return (getLeft.call(this) as ReturnType<typeof getLeft>)
 };
 
 async  getRight() {
-return getRight.call(this)
+return (getRight.call(this) as ReturnType<typeof getRight>)
 };
 
 async  findLowerThan(value, includeKey = false) {
-return findLowerThan.call(this, value, includeKey)
+return (findLowerThan.call(this, value, includeKey) as ReturnType<typeof findLowerThan>)
 };
 
 async findGreaterThan(value, includeKey = false) {
-return findGreaterThan.call(this, value, includeKey)
+return (findGreaterThan.call(this, value, includeKey) as ReturnType<typeof findGreaterThan>)
 };
 
 async isFillFactorFilled() {
-  return isFillFactorFilled.call(this)
+  return (isFillFactorFilled.call(this) as ReturnType<typeof isFillFactorFilled>)
 }
 
 async isFull() {
-return isFull.call(this)
+return (isFull.call(this) as ReturnType<typeof isFull>)
 }
 
 async  mergeWithSiblings() {
-  return mergeWithSiblings.call(this)
+  return (mergeWithSiblings.call(this) as ReturnType<typeof mergeWithSiblings>)
 }
 
 async redistribute() {
-  return redistribute.call(this)
+  return (redistribute.call(this) as ReturnType<typeof redistribute>)
 }
 
 async remove(remCmd) {
-  return remove.call(this, remCmd)
+  return (remove.call(this, remCmd) as ReturnType<typeof remove>)
 }
 
 async replace(identifier, value) {
-return replace.call(this,identifier, value)
+return (replace.call(this,identifier, value) as ReturnType<typeof replace>)
 }
 
 async  split() {
-return split.call(this)
+return (split.call(this) as ReturnType<typeof split>)
 }
 
 toJSON(){
-  return toJSON.call(this);
+  return (toJSON.call(this) as ReturnType<typeof toJSON>);
 }
 
 };

@@ -10,14 +10,14 @@ export async function find(this: SBFRoot, value, operator = '$eq') {
 
   const valueKeys = Object.keys(value);
   if (valueKeys.includes('$in')) {
-    return this.find.call(this, value.$in, '$in');
+    return (this.find.call(this, value.$in, '$in') as ReturnType<typeof find>);
   }
   switch (operator) {
     case '$eq':
-      return findEquals.call(this, value);
+      return (findEquals.call(this, value) as ReturnType<typeof findEquals>);
     case '$ne':
       const getAllIdentifier = await this.getAll();
-      const excludedIdentifiers = await findEquals.call(this, value);
+      const excludedIdentifiers = await (findEquals.call(this, value) as ReturnType<typeof findEquals>);
 
       excludedIdentifiers.identifiers.forEach((id) => {
         const idOf = getAllIdentifier.identifiers.indexOf(id);
@@ -28,13 +28,13 @@ export async function find(this: SBFRoot, value, operator = '$eq') {
       });
       return getAllIdentifier;
     case '$lte':
-      return findLowerThan.call(this, value, true);
+      return (findLowerThan.call(this, value, true) as ReturnType<typeof findLowerThan>);
     case '$lt':
-      return findLowerThan.call(this, value, false);
+      return (findLowerThan.call(this, value, false) as ReturnType<typeof findLowerThan>);
     case '$gt':
-      return findGreaterThan.call(this, value, false);
+      return (findGreaterThan.call(this, value, false) as ReturnType<typeof findGreaterThan>);
     case '$gte':
-      return findGreaterThan.call(this, value, true);
+      return (findGreaterThan.call(this, value, true) as ReturnType<typeof findGreaterThan>);
     case '$in':
       if (!Array.isArray(value))
         throw new Error('$in operator expect key to be an array');

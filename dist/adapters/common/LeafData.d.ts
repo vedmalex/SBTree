@@ -1,7 +1,8 @@
+export declare type LeafDataProps = {
+    keys: Array<number | string | boolean>;
+};
 export default class LeafData {
-    keys: Array<string>;
-    constructor(props?: {
-        keys: Array<string>;
-    });
+    keys: Array<number | string | boolean>;
+    constructor(props?: LeafDataProps);
 }
 //# sourceMappingURL=LeafData.d.ts.map

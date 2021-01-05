@@ -65,28 +65,28 @@ export class SBFTree {
   }
 
   createRoot(root = null){
-    return createRoot.call(this,root = null)
+    return (createRoot.call(this,root) as ReturnType<typeof createRoot>)
   }
 
 async find(value, operator){
-  return find.call(this,value, operator)
+  return (find.call(this,value, operator) as ReturnType<typeof find>)
 }
 
 async  get(identifier) {
-  return get.call(this,identifier)
+  return (get.call(this,identifier) as ReturnType<typeof get>)
 }
 
 async insert(identifier, value){
-  return insert.call(this,identifier, value)
+  return (insert.call(this,identifier, value) as ReturnType<typeof insert>)
 }
 async  remove(remCmd){
-  return remove.call(this,remCmd)
+  return (remove.call(this,remCmd) as ReturnType<typeof remove>)
 }
 async  replace(identifier, value){
-  return replace.call(this,identifier, value)
+  return (replace.call(this,identifier, value) as ReturnType<typeof replace>)
 }
 toJSON(){
-  return toJSON.call(this)
+  return (toJSON.call(this) as ReturnType<typeof toJSON>)
 }
 };
 

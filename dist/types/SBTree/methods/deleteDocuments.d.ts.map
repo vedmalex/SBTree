@@ -1,1 +1,1 @@
-{"version":3,"file":"deleteDocuments.d.ts","sourceRoot":"","sources":["../../../../src/types/SBTree/methods/deleteDocuments.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,MAAM,EAAE,MAAM,WAAW,CAAC;AAEnC,wBAAsB,eAAe,CAAC,IAAI,EAAE,MAAM,EAAE,KAAK,KAAA,gBAUxD"}
+{"version":3,"file":"deleteDocuments.d.ts","sourceRoot":"","sources":["../../../../src/types/SBTree/methods/deleteDocuments.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,MAAM,EAAE,MAAM,WAAW,CAAC;AAEnC,wBAAsB,eAAe,CAAC,IAAI,EAAE,MAAM,EAAE,KAAK,KAAA,uDAUxD"}

@@ -13,5 +13,5 @@ export async function replaceDocuments(this: SBTree, documents) {
   }
 
   const currentDocument = await this.getDocument(documents._id);
-  return ([await replace.call(this, currentDocument, documents)]);
+  return ([await (replace.call(this, currentDocument, documents) as ReturnType<typeof replace>)]);
 }

@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.start = void 0;
 const SBTree_1 = require("../types/SBTree/SBTree");
 const time_1 = __importDefault(require("../utils/time"));
-const tree = new SBTree_1.SBTree({ order: 3, uniques: ["email"] });
+const tree = new SBTree_1.SBTree({ order: 3 });
 const timer = new time_1.default();
 const start = async function () {
     timer.start();
@@ -23,9 +23,14 @@ const start = async function () {
     await tree.insertDocuments({
         age: 22, country: 'United Kingdom', email: 'zack@valjean.fr', _id: '5d6dc94e3c7734812f051duk',
     });
-    await tree.insertDocuments({
-        age: 43, country: 'United States', email: 'bob@valjean.fr', _id: '5d6dc94e3c7734812f051d7b',
-    });
+    try {
+        await tree.insertDocuments({
+            age: 43, country: 'United States', email: 'bob@valjean.fr', _id: '5d6dc94e3c7734812f051d7c',
+        });
+    }
+    catch (e) {
+        console.log(e.message);
+    }
     await tree.insertDocuments({
         age: 29, country: 'Belgium', email: 'patrick@valjean.fr', _id: '5d6dc94e3c7734812f051bel',
     });

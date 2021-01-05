@@ -1,3 +1,4 @@
 import { SBTree } from '../SBTree/SBTree';
-export declare function query(this: SBTree, query: any): Promise<any>;
+import { Document } from '../common/Document';
+export declare function query(this: SBTree, query: any): Promise<Array<Document>>;
 //# sourceMappingURL=query.d.ts.map

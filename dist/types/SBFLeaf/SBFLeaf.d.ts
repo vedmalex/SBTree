@@ -7,9 +7,9 @@ export declare class SBFLeaf {
     fieldName: string;
     get type(): string;
     constructor(props: any);
-    getParent(): SBFNode | SBFRoot;
+    getParent(): SBFRoot | SBFNode;
     setParent(parent: any): void;
-    insert(identifier: any, value: any): Promise<any>;
+    insert(identifier: any, value: any): Promise<void>;
     find(value: any): Promise<any>;
     getAll(): Promise<any>;
     getFillStatus(): Promise<FillStatus>;
@@ -17,13 +17,17 @@ export declare class SBFLeaf {
     getRight(): Promise<any>;
     findLowerThan(value: any, includeKey?: boolean): Promise<any>;
     findGreaterThan(value: any, includeKey?: boolean): Promise<any>;
-    isFillFactorFilled(): Promise<any>;
-    isFull(): Promise<any>;
-    mergeWithSiblings(): Promise<any>;
-    redistribute(): Promise<any>;
-    remove(remCmd: any): Promise<any>;
-    replace(identifier: any, value: any): Promise<any>;
-    split(): Promise<any>;
-    toJSON(): any;
+    isFillFactorFilled(): any;
+    isFull(): any;
+    mergeWithSiblings(): Promise<boolean>;
+    redistribute(): Promise<true>;
+    remove(remCmd: any): Promise<boolean>;
+    replace(identifier: any, value: any): Promise<void>;
+    split(): Promise<void>;
+    toJSON(): {
+        fieldName: string;
+        id: string;
+        type: string;
+    };
 }
 //# sourceMappingURL=SBFLeaf.d.ts.map

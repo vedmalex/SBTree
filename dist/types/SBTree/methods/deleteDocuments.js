@@ -9,7 +9,7 @@ async function deleteDocuments(query) {
     if (!this.state.isReady) {
         await this.isReady();
     }
-    return (await remove_1.remove.call(this, query));
+    return await (remove_1.remove.call(this, query));
 }
 exports.deleteDocuments = deleteDocuments;
 //# sourceMappingURL=deleteDocuments.js.map

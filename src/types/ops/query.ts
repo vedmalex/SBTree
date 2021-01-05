@@ -1,6 +1,7 @@
 import intersection from 'lodash.intersection';
 import { SBTree } from '../SBTree/SBTree';
 import {getFieldNamesFromQuery} from '../utils/getFieldNamesFromQuery';
+import {Document} from '../common/Document'
 
 import { get } from './get';
 
@@ -28,7 +29,7 @@ const findIntersectingIdentifiers = (listOfListOfIdentifiers) => {
  * @param query
  * @returns {Promise<[]>}
  */
-export async function query(this: SBTree, query) {
+export async function query(this: SBTree, query):Promise<Array<Document>> {
   const findNested = async (_promises, _queryFieldName, _queryFieldValue)=> {
     for (const nestedQueryFieldName in _queryFieldValue) {
       const nestedQueryFieldValue = _queryFieldValue[nestedQueryFieldName];
@@ -53,7 +54,7 @@ export async function query(this: SBTree, query) {
 
   // When our search is based on _id and only _id, we can just get document.
   if (fields.length === 1 && fields.indexOf('_id') > -1) {
-    return [await get.call(this, query._id)];
+    return [await (get.call(this, query._id) as ReturnType<typeof get>)];
   }
 
   const promises = [];
@@ -120,6 +121,6 @@ export async function query(this: SBTree, query) {
       });
 
   const matchingObjectIds = findIntersectingIdentifiers(intermediateIdentifiers);
-  return resolveDocuments.call(this, matchingObjectIds);
+  return (resolveDocuments.call(this, matchingObjectIds) as ReturnType<typeof resolveDocuments>);
 }
 

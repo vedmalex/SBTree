@@ -1,7 +1,7 @@
 import cloneDeep from 'lodash.clonedeep';
 import ObjectId from 'mongo-objectid';
 import { insert } from '../../ops/insert';
-import { Document } from '../Document';
+import { Document } from '../../common/Document';
 import { SBTree } from '../SBTree';
 
 /**
@@ -29,7 +29,7 @@ export async function insertDocuments(this: SBTree, documents: Partial<Document>
     if (!document._id) {
       document._id = new ObjectId().toString();
     }
-    await insert.call(this, document);
+    await (insert.call(this, document) as ReturnType<typeof insert>);
 
     this.size += 1;
 

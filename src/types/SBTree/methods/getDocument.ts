@@ -6,5 +6,5 @@ export async function getDocument(this: SBTree, identifier) {
     await this.isReady();
   }
 
-  return (await get.call(this, identifier));
+  return (await (get.call(this, identifier)) as ReturnType<typeof get>);
 }

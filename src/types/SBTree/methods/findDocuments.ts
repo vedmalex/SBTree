@@ -6,5 +6,5 @@ export async function findDocuments(this: SBTree, params) {
     await this.isReady();
   }
 
-  return (await query.call(this, params));
+  return (await query.call(this, params) as ReturnType<typeof query>) ;
 }

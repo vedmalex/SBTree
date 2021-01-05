@@ -47,7 +47,7 @@ class SBFTree {
         };
     }
     createRoot(root = null) {
-        return createRoot_1.createRoot.call(this, root = null);
+        return createRoot_1.createRoot.call(this, root);
     }
     async find(value, operator) {
         return find_1.find.call(this, value, operator);

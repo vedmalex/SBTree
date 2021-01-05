@@ -1,1 +1,1 @@
-{"version":3,"file":"isFull.d.ts","sourceRoot":"","sources":["../../../../src/types/SBFLeaf/methods/isFull.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,MAAM,YAAY,CAAC;AAErC,wBAAsB,MAAM,CAAC,IAAI,EAAE,OAAO,gBAczC"}
+{"version":3,"file":"isFull.d.ts","sourceRoot":"","sources":["../../../../src/types/SBFLeaf/methods/isFull.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,MAAM,YAAY,CAAC;AAErC,wBAAsB,MAAM,CAAC,IAAI,EAAE,OAAO,OAczC"}

@@ -6,6 +6,13 @@ export declare function toJSON(this: SBFTree): {
     isUnique: boolean;
     verbose: boolean;
     order: number;
-    root: any;
+    root: {
+        type: string;
+        id: string;
+        fieldName: string;
+        identifiers: string[];
+        keys: string[];
+        children: any[];
+    };
 };
 //# sourceMappingURL=toJSON.d.ts.map

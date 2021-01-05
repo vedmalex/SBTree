@@ -10,5 +10,5 @@ export async function deleteDocuments(this: SBTree, query) {
     await this.isReady();
   }
 
-  return (await remove.call(this, query));
+  return (await (remove.call(this, query)) as ReturnType<typeof remove>);
 }

@@ -2,7 +2,7 @@
 import { SBTree } from '../types/SBTree/SBTree';
 import Timer from '../utils/time';
 
-const tree = new SBTree({ order: 3, uniques:["email"]});
+const tree = new SBTree({ order: 3/* , uniques:["email"] */});
 const timer = new Timer();
 
 export const start = async function () {
@@ -21,10 +21,14 @@ export const start = async function () {
     age: 22, country: 'United Kingdom', email: 'zack@valjean.fr', _id: '5d6dc94e3c7734812f051duk',
   });
 
-  // Duplicate do not get added
-  await tree.insertDocuments({
-    age: 43, country: 'United States', email: 'bob@valjean.fr', _id: '5d6dc94e3c7734812f051d7b',
-  });
+  try{
+    // Duplicate do isAdded added
+    await tree.insertDocuments({
+      age: 43, country: 'United States', email: 'bob@valjean.fr', _id: '5d6dc94e3c7734812f051d7c',
+    });
+  } catch(e){
+    console.log(e.message)
+  }
 
   await tree.insertDocuments({
     age: 29, country: 'Belgium', email: 'patrick@valjean.fr', _id: '5d6dc94e3c7734812f051bel',

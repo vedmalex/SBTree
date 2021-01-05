@@ -12,18 +12,33 @@ export declare class SBFTree {
     isUnique: boolean;
     root: SBFRoot;
     constructor(props: SBFTreeOptions);
-    getAdapter(): FsAdapter | MemoryAdapter;
+    getAdapter(): MemoryAdapter | FsAdapter;
     getOptions(): {
         order: number;
         fillFactor: number;
         verbose: boolean;
     };
-    createRoot(root?: any): any;
+    createRoot(root?: any): void;
     find(value: any, operator: any): Promise<any>;
     get(identifier: any): Promise<any>;
-    insert(identifier: any, value: any): Promise<any>;
-    remove(remCmd: any): Promise<any>;
-    replace(identifier: any, value: any): Promise<any>;
-    toJSON(): any;
+    insert(identifier: any, value: any): Promise<void>;
+    remove(remCmd: any): Promise<void>;
+    replace(identifier: any, value: any): Promise<boolean>;
+    toJSON(): {
+        fieldName: string;
+        id: string;
+        fillFactor: number;
+        isUnique: boolean;
+        verbose: boolean;
+        order: number;
+        root: {
+            type: string;
+            id: string;
+            fieldName: string;
+            identifiers: string[];
+            keys: string[];
+            children: any[];
+        };
+    };
 }
 //# sourceMappingURL=SBFTree.d.ts.map

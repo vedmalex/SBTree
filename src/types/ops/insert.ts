@@ -1,7 +1,8 @@
 import { validTypes } from '../../constants';
 import { SBTree } from '../SBTree/SBTree';
+import {Document} from '../common/Document'
 
-export async function insert(this: SBTree, document) {
+export async function insert(this: SBTree, document:Document) {
   if (!document) {
     throw new Error('Cannot insert empty document');
   }

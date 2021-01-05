@@ -4,6 +4,7 @@ import FsAdapter from '../../adapters/FsAdapter/FsAdapter';
 import { Emittable } from '../../adapters/common/Emittable';
 import { SBTreeState } from './SBTreeState';
 import { SBTreeOptions } from './SBTreeOptions';
+import { Document } from '../common/Document';
 export declare class SBTree extends Emittable {
     state: SBTreeState;
     adapter: MemoryAdapter | FsAdapter;
@@ -23,20 +24,20 @@ export declare class SBTree extends Emittable {
         fillFactor: number;
         verbose: boolean;
     };
-    getAdapter(): FsAdapter | MemoryAdapter;
+    getAdapter(): MemoryAdapter | FsAdapter;
     isReady(): Promise<unknown>;
     setFieldTree(_fieldTreeOpts: {
         fieldName: any;
         id?: any;
         root?: any;
-    }): any;
-    deleteDocuments(query: any): Promise<any>;
-    findDocuments(params: any): Promise<any>;
+    }): void;
+    deleteDocuments(query: any): Promise<Document[]>;
+    findDocuments(params: any): Promise<Document[]>;
     getDocument(identifier: any): Promise<any>;
-    getFieldTree(fieldName: any): any;
-    insertDocuments(documents: any): Promise<any>;
-    replaceDocuments(documents: any): Promise<any>;
-    loadState(state: any): any;
+    getFieldTree(fieldName: any): SBFTree;
+    insertDocuments(documents: any): Promise<Document[]>;
+    replaceDocuments(documents: any): Promise<any[]>;
+    loadState(state: any): boolean;
     toJSON(): any;
 }
 //# sourceMappingURL=SBTree.d.ts.map

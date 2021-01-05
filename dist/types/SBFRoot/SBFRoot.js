@@ -60,8 +60,8 @@ class SBFRoot {
     async replace(identifier, value) {
         return replace_1.replace.call(this, identifier, value);
     }
-    async insert(identifier, value = null) {
-        return insert_1.insert.call(this, identifier, value = null);
+    async insert(identifier, value) {
+        return insert_1.insert.call(this, identifier, value);
     }
     async insertReferenceKey(value) {
         return insertReferenceKey_1.insertReferenceKey.call(this, value);

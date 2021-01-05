@@ -16,6 +16,7 @@ const replaceInLeaf_1 = require("./methods/replaceInLeaf");
 const replaceDocument_1 = require("./methods/replaceDocument");
 const saveDocument_1 = require("./methods/saveDocument");
 const splitLeaf_1 = require("./methods/splitLeaf");
+const removeInLeaf_1 = require("./methods/removeInLeaf");
 class MemoryAdapter extends Emittable_1.Emittable {
     constructor(props) {
         super();
@@ -55,7 +56,7 @@ class MemoryAdapter extends Emittable_1.Emittable {
         return removeDocument_1.removeDocument.call(this, identifier);
     }
     removeInLeaf(leafId, identifier) {
-        return this.removeInLeaf.call(this, leafId, identifier);
+        return removeInLeaf_1.removeInLeaf.call(this, leafId, identifier);
     }
     replaceDocument(doc) {
         return replaceDocument_1.replaceDocument.call(this, doc);

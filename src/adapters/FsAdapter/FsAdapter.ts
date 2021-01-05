@@ -30,6 +30,7 @@ import { FsAdaptepOptions } from './FsAdaptepOptions';
 import { FsAdapterOptionAutoLoadCallback } from './FsAdapterOptionAutoLoadCallback';
 import { FsAdapterLeafs } from './FsAdapterLeafs';
 import { Emittable } from '../common/Emittable';
+import { removeInLeaf } from './methods/removeInLeaf';
 
 export const defaultFsProps: FsAdaptepOptions = {
     path: '.db',
@@ -92,94 +93,77 @@ export default class FsAdapter extends Emittable{
   }
 
   async attachParent(parent: SBTree) {
-    return attachParent.call(this, parent)
+    return (attachParent.call(this, parent) as ReturnType<typeof attachParent>)
   }
 
   async addInLeaf(leafName, identifier, value) {
-    return addInLeaf.call(this, leafName, identifier, value);
+    return (addInLeaf.call(this, leafName, identifier, value) as ReturnType<typeof addInLeaf>);
   }
 
   async createLeaf(leafId) {
-    return createLeaf.call(this, leafId);
+    return (createLeaf.call(this, leafId) as ReturnType<typeof createLeaf>);
   }
 
 async findInLeaf(leafId, value, op = '$eq'): Promise<{ identifiers:Array<any>; keys:Array<any> }> {
-  return findInLeaf.call(this, leafId, value, op);
+  return (findInLeaf.call(this, leafId, value, op) as ReturnType<typeof findInLeaf>);
 }
 
 async getAllInLeaf(leafId) {
-  return getAllInLeaf.call(this,leafId);
+  return (getAllInLeaf.call(this,leafId) as ReturnType<typeof getAllInLeaf>);
 }
 
 async getLeftInLeaf(leafId) {
-  return getLeftInLeaf.call(this,leafId)
+  return (getLeftInLeaf.call(this,leafId) as ReturnType<typeof getLeftInLeaf>)
 }
 async getRightInLeaf (leadId){
-  return getRightInLeaf.call(this,leadId)
+  return (getRightInLeaf.call(this,leadId) as ReturnType<typeof getRightInLeaf>)
 }
 async getDocument(identifier) {
-  return getDocument.call(this,identifier)
+  return (getDocument.call(this,identifier) as ReturnType<typeof getDocument>)
 }
 async insertSortedInLeaf(leafId, value){
-  return insertSortedInLeaf.call(this,leafId, value)
+  return (insertSortedInLeaf.call(this,leafId, value) as ReturnType<typeof insertSortedInLeaf>)
 }
 async loadDatabase (){
-  return loadDatabase.call(this,)
+  return (loadDatabase.call(this,) as ReturnType<typeof loadDatabase>)
 }
 async openDocument(identifer) {
-  return openDocument.call(this,identifer)
+  return (openDocument.call(this,identifer) as ReturnType<typeof openDocument>)
 }
 async openLeaf(leafName){
-  return openLeaf.call(this,leafName)
+  return (openLeaf.call(this,leafName) as ReturnType<typeof openLeaf>)
 }
 async removeDocument(identifier){
-  return removeDocument.call(this,identifier)
+  return (removeDocument.call(this,identifier) as ReturnType<typeof removeDocument>)
 }
 async openLeafData(leafName){
-  return openLeafData.call(this,leafName)
+  return (openLeafData.call(this,leafName) as ReturnType<typeof openLeafData>)
 }
 async replaceDocument(doc){
-  return replaceDocument.call(this,doc)
+  return (replaceDocument.call(this,doc) as ReturnType<typeof replaceDocument>)
 }
 async replaceInLeaf(leafId, identifier, value){
-  return replaceInLeaf.call(this,leafId, identifier, value)
+  return (replaceInLeaf.call(this,leafId, identifier, value) as ReturnType<typeof replaceInLeaf>)
 }
 async saveDatabase (){
-return saveDatabase.call(this,)
+return (saveDatabase.call(this,) as ReturnType<typeof saveDatabase>)
 }
 async saveDocument(doc){
-return saveDocument.call(this,doc)
+return (saveDocument.call(this,doc) as ReturnType<typeof saveDocument>)
 }
 async saveLeafData(leafName:string, data:LeafData){
-return saveLeafData.call(this,leafName, data)
+return (saveLeafData.call(this,leafName, data) as ReturnType<typeof saveLeafData>)
 }
 async splitLeaf(sourceLeaf, siblingLeaf) {
-return splitLeaf.call(this,sourceLeaf, siblingLeaf)
+return (splitLeaf.call(this,sourceLeaf, siblingLeaf) as ReturnType<typeof splitLeaf>)
 }
 async updateDocument(_doc){
-return updateDocument.call(this,_doc)
+return (updateDocument.call(this,_doc) as ReturnType<typeof updateDocument>)
 }
 
 async removeInLeaf(leafId, identifier) {
-  const identifiers = [];
-  if (!this.leafs[leafId]) {
-    throw new Error('Trying to remove in unknown leaf id');
-  }
-  const { meta } = this.leafs[leafId];
-  const data = await this.openLeafData(leafId);
-  const index = this.leafs[leafId].meta.identifiers.indexOf(identifier);
-  if (index >= 0) {
-    meta.size -= 1;
-    meta.identifiers.splice(index, 1);
-    data.keys.splice(index, 1);
-    await this.saveLeafData(leafId, data);
-    identifiers.push({ identifier, index });
-  }
-
-  return identifiers;
+  return (removeInLeaf.call(this, leafId, identifier) as ReturnType<typeof removeInLeaf>)
 }
 
 }
 
-//TODO : Optimization possible by just removing the LeafMeta from memory for disk instead, but existance search will be slower.
-//TODO : LRU Cache

@@ -11,24 +11,37 @@ export declare class SBFNode {
     identifiers: Array<string>;
     get type(): string;
     constructor(props: any);
-    getParent(): SBFNode | SBFRoot;
+    getParent(): SBFRoot | SBFNode;
     setParent(parent: any): void;
     getTree(): SBFTree;
-    getAdapter(): import("../../adapters").FsAdapter | import("../../adapters").MemoryAdapter;
-    attachLeaf(index: any, leaf: any): Promise<any>;
-    find(value: any): Promise<any>;
-    findLowerThan(value: any, includeKey?: boolean): Promise<any>;
-    findGreaterThan(value: any, includeKey?: boolean): Promise<any>;
-    getAll(): Promise<any>;
+    getAdapter(): import("../../adapters").MemoryAdapter | import("../../adapters").FsAdapter;
+    attachLeaf(index: any, leaf: any): Promise<void>;
+    find(value: any): Promise<{
+        identifiers: any[];
+        keys: any[];
+    }>;
+    findLowerThan(value: any, includeKey?: boolean): Promise<{
+        identifiers: any[];
+        keys: any[];
+    }>;
+    findGreaterThan(value: any, includeKey?: boolean): Promise<{
+        identifiers: any[];
+        keys: any[];
+    }>;
+    getAll(): Promise<unknown>;
     getFillStatus(): Promise<FillStatus>;
-    getTreeOptions(): any;
-    insert(identifier: any, value: any): Promise<any>;
-    insertReferenceKey(value: any): Promise<any>;
-    isFull(): any;
-    mergeUp(): Promise<any>;
-    remove(remCmd: any): Promise<any>;
-    replace(identifier: any, value: any): Promise<any>;
-    split(): Promise<any>;
+    getTreeOptions(): {
+        order: number;
+        fillFactor: number;
+        verbose: boolean;
+    };
+    insert(identifier: any, value: any): Promise<void>;
+    insertReferenceKey(value: any): Promise<number>;
+    isFull(): boolean;
+    mergeUp(): Promise<void>;
+    remove(remCmd: any): Promise<void>;
+    replace(identifier: any, value: any): Promise<void>;
+    split(): Promise<void>;
     toJSON(): any;
 }
 //# sourceMappingURL=SBFNode.d.ts.map

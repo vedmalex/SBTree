@@ -27,6 +27,7 @@ const saveLeafData_1 = __importDefault(require("./methods/saveLeafData"));
 const splitLeaf_1 = __importDefault(require("./methods/splitLeaf"));
 const updateDocument_1 = __importDefault(require("./methods/updateDocument"));
 const Emittable_1 = require("../common/Emittable");
+const removeInLeaf_1 = require("./methods/removeInLeaf");
 exports.defaultFsProps = {
     path: '.db',
     autoSave: true,
@@ -129,21 +130,7 @@ class FsAdapter extends Emittable_1.Emittable {
         return updateDocument_1.default.call(this, _doc);
     }
     async removeInLeaf(leafId, identifier) {
-        const identifiers = [];
-        if (!this.leafs[leafId]) {
-            throw new Error('Trying to remove in unknown leaf id');
-        }
-        const { meta } = this.leafs[leafId];
-        const data = await this.openLeafData(leafId);
-        const index = this.leafs[leafId].meta.identifiers.indexOf(identifier);
-        if (index >= 0) {
-            meta.size -= 1;
-            meta.identifiers.splice(index, 1);
-            data.keys.splice(index, 1);
-            await this.saveLeafData(leafId, data);
-            identifiers.push({ identifier, index });
-        }
-        return identifiers;
+        return removeInLeaf_1.removeInLeaf.call(this, leafId, identifier);
     }
 }
 exports.default = FsAdapter;

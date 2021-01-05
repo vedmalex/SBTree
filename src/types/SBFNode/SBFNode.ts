@@ -71,49 +71,49 @@ export class SBFNode {
 
 
 async  attachLeaf(index, leaf) {
-  return attachLeaf.call(this, index, leaf)
+  return (attachLeaf.call(this, index, leaf) as ReturnType<typeof attachLeaf>)
 }
 async find(value){
-  return find.call(this, value)
+  return (find.call(this, value) as ReturnType<typeof find>)
 }
 async  findLowerThan(value, includeKey = false){
-  return findLowerThan.call(this, value, includeKey = false)
+  return (findLowerThan.call(this, value, includeKey = false) as ReturnType<typeof findLowerThan>)
 }
 async findGreaterThan(value, includeKey = false){
-  return findGreaterThan.call(this, value, includeKey = false)
+  return (findGreaterThan.call(this, value, includeKey = false) as ReturnType<typeof findGreaterThan>)
 }
 async  getAll(){
-  return getAll.call(this )
+  return (getAll.call(this ) as ReturnType<typeof getAll>)
 }
 async getFillStatus():Promise<FillStatus>{
-  return getFillStatus.call(this)
+  return (getFillStatus.call(this) as ReturnType<typeof getFillStatus>)
 }
 getTreeOptions(){
-  return getTreeOptions.call(this, )
+  return (getTreeOptions.call(this, ) as ReturnType<typeof getTreeOptions>)
 }
 async insert(identifier, value){
-  return insert.call(this, identifier, value)
+  return (insert.call(this, identifier, value) as ReturnType<typeof insert>)
 }
 async  insertReferenceKey(value){
-  return insertReferenceKey.call(this, value)
+  return (insertReferenceKey.call(this, value) as ReturnType<typeof insertReferenceKey>)
 }
 isFull(){
-  return isFull.call(this, )
+  return (isFull.call(this, ) as ReturnType<typeof isFull>)
 }
 async mergeUp  (){
-  return mergeUp.call  (this)
+  return (mergeUp.call  (this) as ReturnType<typeof mergeUp>)
 }
 async remove(remCmd){
-  return remove.call(this, remCmd)
+  return (remove.call(this, remCmd) as ReturnType<typeof remove>)
 }
 async replace(identifier, value) {
-  return replace.call(this, identifier, value)
+  return (replace.call(this, identifier, value) as ReturnType<typeof replace>)
 }
 async split(){
-  return split.call(this, )
+  return (split.call(this, ) as ReturnType<typeof split>)
 }
 toJSON(){
-  return toJSON.call(this, )
+  return (toJSON.call(this, ) as ReturnType<typeof toJSON>)
 }
 
 }

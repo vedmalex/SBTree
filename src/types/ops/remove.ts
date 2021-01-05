@@ -26,7 +26,7 @@ export async function remove(this: SBTree, _query) {
       throw new Error(`Unsupported type ${_fieldValueType}`);
     }
   };
-  const results = await query.call(this, _query);
+  const results = await (query.call(this, _query) as ReturnType<typeof query>);
   if(results !== null){
     for (const result of results) {
       // TODO : This can be improved.

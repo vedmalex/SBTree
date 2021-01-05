@@ -62,40 +62,40 @@ getTreeOptions() {
 };
 
 async attachLeaf(index, leaf){
-  return attachLeaf.call(this,index, leaf)
+  return (attachLeaf.call(this,index, leaf) as ReturnType<typeof attachLeaf>)
 }
 async  find(value, operator = '$eq') {
-  return find.call(this,value, operator = '$eq')
+  return (find.call(this,value, operator = '$eq') as ReturnType<typeof find>)
 }
 async  getAll():Promise<{identifiers:Array<string>; keys: Array<string>}>{
-  return getAll.call(this)
+  return (getAll.call(this) as ReturnType<typeof getAll>)
 }
 async get(identifier) {
-  return get.call(this,identifier)
+  return (get.call(this,identifier) as ReturnType<typeof get>)
 }
 async getFillStatus ():Promise<FillStatus>{
-  return getFillStatus.call (this)
+  return (getFillStatus.call (this) as ReturnType<typeof getFillStatus>)
 }
 async remove(remCmd){
-  return remove.call(this,remCmd)
+  return (remove.call(this,remCmd) as ReturnType<typeof remove>)
 }
 async replace(identifier, value){
-  return replace.call(this,identifier, value)
+  return (replace.call(this,identifier, value) as ReturnType<typeof replace>)
 }
-async insert(identifier, value = null){
-  return insert.call(this,identifier, value = null)
+async insert(identifier, value){
+  return (insert.call(this,identifier, value) as ReturnType<typeof insert>)
 }
 async insertReferenceKey(value) {
-  return insertReferenceKey.call(this,value)
+  return (insertReferenceKey.call(this,value) as ReturnType<typeof insertReferenceKey>)
 }
 isFull(){
-  return isFull.call(this,)
+  return (isFull.call(this,) as ReturnType<typeof isFull>)
 }
 async split(){
-  return split.call(this,)
+  return (split.call(this,) as ReturnType<typeof split>)
 }
 toJSON(){
-  return toJSON.call(this,)
+  return (toJSON.call(this,) as ReturnType<typeof toJSON>)
 }
 
 };
