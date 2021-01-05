@@ -1,7 +1,8 @@
 import { SBFNode } from '../SBFNode';
+import { OperationResult } from '../../common/OperationResult';
 
 export async function findLowerThan(this: SBFNode, value, includeKey = false) {
-  const result = { identifiers: [], keys: [] };
+  const result:OperationResult = { identifiers: [], keys: [] };
   const { children, keys } = this;
   let leafIndex = 0;
   const p = [];

@@ -3,10 +3,6 @@ import {generateTreeId} from '../../utils/crypto';
 import each from 'lodash.foreach';
 import { SBFTree } from '../SBFTree/SBFTree';
 
-import FsAdapter from '../../adapters/FsAdapter/FsAdapter';
-import { Emittable } from '../../adapters/common/Emittable';
-import { parseAdapter } from './methods/parseAdapter';
-import { SBTreeState } from './SBTreeState';
 import { SBTreeOptions } from './SBTreeOptions';
 import { setFieldTree } from './methods/setFieldTree';
 import { deleteDocuments } from './methods/deleteDocuments';
@@ -17,7 +13,7 @@ import { insertDocuments } from './methods/insertDocuments';
 import { replaceDocuments } from './methods/replaceDocuments';
 import { loadState } from './methods/loadState';
 import { toJSON } from './methods/toJSON';
-import { Document } from '../common/Document';
+import { PersistenceAdapter } from '../../adapters/MemoryAdapter/MemoryAdapter';
 
 type toJSONReturn = ReturnType<typeof findDocuments>
 
@@ -36,10 +32,8 @@ const defaultProps = {
  * SBTree
  *
  */
-export class SBTree extends Emittable{
-
-  public state: SBTreeState;
-  public adapter: MemoryAdapter | FsAdapter;
+export class SBTree{
+  public adapter: PersistenceAdapter;
   public order: number;
   public fillFactor: number;
   public size: number;
@@ -48,20 +42,17 @@ export class SBTree extends Emittable{
   public verbose: boolean;
   public id: string;
   public fieldTrees: {[key:string]:SBFTree}
+  protected isReady: Promise<boolean>;
+
+  public async onReady( process?:()=> any ) {
+    await this.isReady;
+    return await process?.();
+  }
 
   constructor(props: Partial<SBTreeOptions>) {
-    super()
     const self = this;
-    this.state = {
-      isReady: true
-    }
-    this.adapter = (props?.adapter) ? parseAdapter(props?.adapter) : new MemoryAdapter();
 
-    if(this.adapter.name !== 'MemoryAdapter'){
-      // We will need to sync up first
-      this.state.isReady = false;
-      self.adapter.once('ready', ()=> self.state.isReady = true);
-    }
+    this.adapter = props?.adapter ?? new MemoryAdapter();
 
     this.order= (props.order) ? props.order : defaultProps.order;
     this.fillFactor= (props.fillFactor) ? props.fillFactor : defaultProps.fillFactor;
@@ -79,16 +70,7 @@ export class SBTree extends Emittable{
         this.setFieldTree(_fieldTree);
       })
     }
-    if(this.adapter.attachParent){
-      this.adapter.attachParent(this).then(()=>{
-        this.emit('ready');
-      })
-    }else{
-      setTimeout(()=>{
-        this.emit('ready');
-      },10)
-    }
-
+    this.isReady = this.adapter.initWith(this)
   }
 
   getOptions(){
@@ -98,21 +80,13 @@ export class SBTree extends Emittable{
     }
   }
 
-
-
 getAdapter() {
   return this.adapter;
 }
-async isReady() {
-    return new Promise((resolve) => {
-      if (this.state.isReady) return resolve(true);
-      this.once('ready', () => resolve(true));
-    });
-  }
 
- setFieldTree(_fieldTreeOpts:{fieldName, id?, root?}){
-   return (setFieldTree.call(this,_fieldTreeOpts) as ReturnType<typeof setFieldTree>)
- }
+setFieldTree(_fieldTreeOpts:{fieldName, id?, root?}){
+  return (setFieldTree.call(this,_fieldTreeOpts) as ReturnType<typeof setFieldTree>)
+}
 async  deleteDocuments(query){
   return (deleteDocuments.call(this,query) as ReturnType<typeof deleteDocuments>)
 }

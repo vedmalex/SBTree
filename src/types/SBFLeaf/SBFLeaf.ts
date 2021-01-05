@@ -54,7 +54,7 @@ async find(value) {
   return (find.call(this, value) as ReturnType<typeof find>)
 };
 
-async  getAll() {
+async getAll() {
   return (getAll.call(this) as ReturnType<typeof getAll>)
 };
 

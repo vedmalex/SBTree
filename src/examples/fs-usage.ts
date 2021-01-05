@@ -64,7 +64,6 @@ export const start = async function () {
   const inserted = await tree.insertDocuments({ age: 42, email: 'jean.paul@valjean.fr' });
 
   console.log('-- Get doc _id : 5d6dc94e3c7734812f051d7b');
-
   console.log(await tree.getDocument('5d6dc94e3c7734812f051d7b'));
   console.log('-- Find : {age:33}');
   console.log(await tree.findDocuments({ age: 33 }));
@@ -112,4 +111,4 @@ export const start = async function () {
   console.log(timer.duration.s, 'seconds');
 };
 
-tree.once('ready', start);
+tree.onReady(start);

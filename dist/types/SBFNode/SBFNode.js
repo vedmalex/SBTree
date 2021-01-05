@@ -50,7 +50,7 @@ class SBFNode {
         return this.parent.getTree() || this.parent.getParent().getTree();
     }
     getAdapter() {
-        return this.getTree().getAdapter();
+        return this.getTree().root.getAdapter();
     }
     ;
     async attachLeaf(index, leaf) {

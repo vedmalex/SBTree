@@ -1,7 +1,5 @@
 import {generateFieldTreeId} from '../../utils/crypto';
 import { SBFRoot } from '../SBFRoot/SBFRoot';
-import { MemoryAdapter } from '../../adapters/MemoryAdapter/MemoryAdapter';
-import FsAdapter from '../../adapters/FsAdapter/FsAdapter';
 import { createRoot } from './methods/createRoot';
 import { find } from './methods/find';
 import { get } from './methods/get';
@@ -10,6 +8,7 @@ import { remove } from './methods/remove';
 import { replace } from './methods/replace';
 import { toJSON } from './methods/toJSON';
 import { SBFTreeOptions } from './SBFTreeOptions';
+import { PersistenceAdapter } from '../../adapters/MemoryAdapter/MemoryAdapter';
 
   const defaultOpts: Partial<SBFTreeOptions> = {
     order: 511,
@@ -23,7 +22,10 @@ import { SBFTreeOptions } from './SBFTreeOptions';
  *
  */
 export class SBFTree {
-  private adapter: MemoryAdapter | FsAdapter
+  private _adapter: PersistenceAdapter
+  public get adapter(): PersistenceAdapter{
+    return this._adapter
+  }
   public order: number;
   public verbose: boolean;
   public id: string;
@@ -32,6 +34,7 @@ export class SBFTree {
   public isUnique: boolean;
   public root: SBFRoot;
   constructor(props:SBFTreeOptions){
+    this._adapter = props.adapter;
     this.id = (props?.id) ? props?.id : generateFieldTreeId();
     this.order= (props.order) ? props.order : defaultOpts.order;
     this.verbose= (props.verbose) ? props.verbose : defaultOpts.verbose;
@@ -47,14 +50,6 @@ export class SBFTree {
     }else{
       this.root = null;
     }
-    if(!props.adapter){
-      throw new Error(`SBFTree expect an adapter to be initialized`);
-    }
-    this.adapter = props.adapter;
-  }
-
-  getAdapter(){
-    return this.adapter;
   }
 
   getOptions(){

@@ -15,7 +15,6 @@ const getRightInLeaf_1 = __importDefault(require("./methods/getRightInLeaf"));
 const getDocument_1 = __importDefault(require("./methods/getDocument"));
 const insertSortedInLeaf_1 = __importDefault(require("./methods/insertSortedInLeaf"));
 const loadDatabase_1 = __importDefault(require("./methods/loadDatabase"));
-const openDocument_1 = __importDefault(require("./methods/openDocument"));
 const openLeaf_1 = __importDefault(require("./methods/openLeaf"));
 const removeDocument_1 = __importDefault(require("./methods/removeDocument"));
 const openLeafData_1 = __importDefault(require("./methods/openLeafData"));
@@ -38,6 +37,7 @@ exports.defaultFsProps = {
 class FsAdapter extends Emittable_1.Emittable {
     constructor(props) {
         super();
+        this.isReady = false;
         if (props?.parent) {
             this.setParent(props.parent);
         }
@@ -57,6 +57,11 @@ class FsAdapter extends Emittable_1.Emittable {
         if (props.leafs) {
             this.isReady = false;
         }
+    }
+    async initWith(tree) {
+        await this.attachParent(tree);
+        this.isReady = true;
+        return true;
     }
     get name() { return 'FsAdapter'; }
     ;
@@ -95,9 +100,6 @@ class FsAdapter extends Emittable_1.Emittable {
     }
     async loadDatabase() {
         return loadDatabase_1.default.call(this);
-    }
-    async openDocument(identifer) {
-        return openDocument_1.default.call(this, identifer);
     }
     async openLeaf(leafName) {
         return openLeaf_1.default.call(this, leafName);

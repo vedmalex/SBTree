@@ -1,7 +1,9 @@
 import { SBFRoot } from '../SBFRoot';
+import { OperationResult } from '../../common/OperationResult';
+import { PossibleKeys } from '../../../adapters/MemoryAdapter/MemoryAdapter';
 
-export async function getAll(this: SBFRoot): Promise<{ identifiers: Array<string>; keys: Array<string>; }> {
-  const result = { identifiers: [], keys: [] };
+export async function getAll(this: SBFRoot): Promise<{ identifiers: Array<string>; keys: Array<PossibleKeys>; }> {
+  const result:OperationResult = { identifiers: [], keys: [] };
 
   const p = [];
   this.children.forEach((child) => {

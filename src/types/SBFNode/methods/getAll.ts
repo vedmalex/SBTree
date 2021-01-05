@@ -1,7 +1,8 @@
 import { SBFNode } from '../SBFNode';
+import { OperationResult } from '../../common/OperationResult';
 
 export async function getAll(this: SBFNode) {
-  const result = { identifiers: [], keys: [] };
+  const result:OperationResult = { identifiers: [], keys: [] };
 
   const p = [];
   this.children.forEach((child) => {
@@ -27,6 +28,6 @@ export async function getAll(this: SBFNode) {
         });
         resolve(result);
       });
-  });
+  }) as Promise<OperationResult>;
 
 }

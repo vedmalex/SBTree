@@ -1,7 +1,8 @@
 import { MemoryAdapter } from '../MemoryAdapter';
+import { RemoveInLeafResult } from '../../common/RemoveInLeafResult';
 
 export async function removeInLeaf(this: MemoryAdapter, leafId, identifier) {
-  const identifiers = [];
+  const identifiers: Array<RemoveInLeafResult> = [];
   if (!this.leafs[leafId]) {
     throw new Error('Trying to remove in unknown leaf id');
   }

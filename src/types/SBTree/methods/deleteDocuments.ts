@@ -6,8 +6,8 @@ export async function deleteDocuments(this: SBTree, query) {
     // this would cause to delete all as we would query all.
     throw new Error('Invalid query');
   }
-  if (!this.state.isReady) {
-    await this.isReady();
+  if (!this.isReady) {
+    await this.onReady();
   }
 
   return (await (remove.call(this, query)) as ReturnType<typeof remove>);

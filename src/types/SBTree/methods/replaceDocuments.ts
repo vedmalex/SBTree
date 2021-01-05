@@ -2,8 +2,8 @@ import { replace } from '../../ops/replace';
 import { SBTree } from '../SBTree';
 
 export async function replaceDocuments(this: SBTree, documents) {
-  if (!this.state.isReady) {
-    await this.isReady();
+  if (!this.isReady) {
+    await this.onReady();
   }
   if (Array.isArray(documents)) {
     for (const document of documents) {

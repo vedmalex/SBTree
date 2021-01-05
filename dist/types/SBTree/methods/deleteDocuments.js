@@ -6,8 +6,8 @@ async function deleteDocuments(query) {
     if (!query || query === {}) {
         throw new Error('Invalid query');
     }
-    if (!this.state.isReady) {
-        await this.isReady();
+    if (!this.isReady) {
+        await this.onReady();
     }
     return await (remove_1.remove.call(this, query));
 }

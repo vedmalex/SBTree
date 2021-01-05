@@ -11,6 +11,7 @@ function replaceInLeaf(leafId, identifier, value) {
     }
     const index = meta.identifiers.indexOf(identifier);
     data.keys[index] = value;
+    return Promise.resolve(index);
 }
 exports.replaceInLeaf = replaceInLeaf;
 //# sourceMappingURL=replaceInLeaf.js.map

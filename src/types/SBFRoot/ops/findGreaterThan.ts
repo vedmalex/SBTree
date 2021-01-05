@@ -1,7 +1,8 @@
 import { SBFRoot } from '../SBFRoot';
+import { OperationResult } from '../../common/OperationResult';
 
 export async function findGreaterThan(this: SBFRoot, key, includeKey = false) {
-  const result = { identifiers: [], keys: [] };
+  const result:OperationResult = { identifiers: [], keys: [] };
   const { children, identifiers, keys } = this;
   // We first see where our key is located;
   let leafIndex = 0;

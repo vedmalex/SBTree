@@ -13,7 +13,6 @@ export const start = async function () {
 
   timer.stop();
   console.log(timer.duration.s, 'seconds');
-  tree.close()
 };
 
-tree.once('ready', ()=> start().then(_=>"closed"));
+tree.onReady( ()=> start().then(_=>"closed"));

@@ -7,8 +7,6 @@ exports.SBTree = void 0;
 const adapters_1 = require("../../adapters");
 const crypto_1 = require("../../utils/crypto");
 const lodash_foreach_1 = __importDefault(require("lodash.foreach"));
-const Emittable_1 = require("../../adapters/common/Emittable");
-const parseAdapter_1 = require("./methods/parseAdapter");
 const setFieldTree_1 = require("./methods/setFieldTree");
 const deleteDocuments_1 = require("./methods/deleteDocuments");
 const findDocuments_1 = require("./methods/findDocuments");
@@ -27,18 +25,10 @@ const defaultProps = {
     exclude: [],
     uniques: [],
 };
-class SBTree extends Emittable_1.Emittable {
+class SBTree {
     constructor(props) {
-        super();
         const self = this;
-        this.state = {
-            isReady: true
-        };
-        this.adapter = (props?.adapter) ? parseAdapter_1.parseAdapter(props?.adapter) : new adapters_1.MemoryAdapter();
-        if (this.adapter.name !== 'MemoryAdapter') {
-            this.state.isReady = false;
-            self.adapter.once('ready', () => self.state.isReady = true);
-        }
+        this.adapter = props?.adapter ?? new adapters_1.MemoryAdapter();
         this.order = (props.order) ? props.order : defaultProps.order;
         this.fillFactor = (props.fillFactor) ? props.fillFactor : defaultProps.fillFactor;
         this.verbose = (props.verbose) ? props.verbose : defaultProps.verbose;
@@ -52,16 +42,11 @@ class SBTree extends Emittable_1.Emittable {
                 this.setFieldTree(_fieldTree);
             });
         }
-        if (this.adapter.attachParent) {
-            this.adapter.attachParent(this).then(() => {
-                this.emit('ready');
-            });
-        }
-        else {
-            setTimeout(() => {
-                this.emit('ready');
-            }, 10);
-        }
+        this.isReady = this.adapter.initWith(this);
+    }
+    async onReady(process) {
+        await this.isReady;
+        return await process?.();
     }
     getOptions() {
         const { order, fillFactor, verbose } = this;
@@ -71,13 +56,6 @@ class SBTree extends Emittable_1.Emittable {
     }
     getAdapter() {
         return this.adapter;
-    }
-    async isReady() {
-        return new Promise((resolve) => {
-            if (this.state.isReady)
-                return resolve(true);
-            this.once('ready', () => resolve(true));
-        });
     }
     setFieldTree(_fieldTreeOpts) {
         return setFieldTree_1.setFieldTree.call(this, _fieldTreeOpts);

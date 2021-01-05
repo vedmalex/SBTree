@@ -1,9 +1,9 @@
 import { SBFRoot } from '../SBFRoot/SBFRoot';
-import { MemoryAdapter } from '../../adapters/MemoryAdapter/MemoryAdapter';
-import FsAdapter from '../../adapters/FsAdapter/FsAdapter';
 import { SBFTreeOptions } from './SBFTreeOptions';
+import { PersistenceAdapter } from '../../adapters/MemoryAdapter/MemoryAdapter';
 export declare class SBFTree {
-    private adapter;
+    private _adapter;
+    get adapter(): PersistenceAdapter;
     order: number;
     verbose: boolean;
     id: string;
@@ -12,7 +12,6 @@ export declare class SBFTree {
     isUnique: boolean;
     root: SBFRoot;
     constructor(props: SBFTreeOptions);
-    getAdapter(): MemoryAdapter | FsAdapter;
     getOptions(): {
         order: number;
         fillFactor: number;
@@ -20,7 +19,7 @@ export declare class SBFTree {
     };
     createRoot(root?: any): void;
     find(value: any, operator: any): Promise<any>;
-    get(identifier: any): Promise<any>;
+    get(identifier: any): Promise<import("../common/Document").Document>;
     insert(identifier: any, value: any): Promise<void>;
     remove(remCmd: any): Promise<void>;
     replace(identifier: any, value: any): Promise<boolean>;
@@ -36,7 +35,7 @@ export declare class SBFTree {
             id: string;
             fieldName: string;
             identifiers: string[];
-            keys: string[];
+            keys: import("../../adapters/MemoryAdapter/MemoryAdapter").PossibleKeys[];
             children: any[];
         };
     };

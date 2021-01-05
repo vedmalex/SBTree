@@ -13,6 +13,7 @@ async function addInLeaf(leafName, identifier, value) {
     const index = array_1.insertSorted(data.keys, value);
     meta.size += 1;
     meta.identifiers.splice(index, 0, identifier);
+    return index;
 }
 exports.addInLeaf = addInLeaf;
 //# sourceMappingURL=addInLeaf.js.map

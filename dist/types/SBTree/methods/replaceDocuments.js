@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.replaceDocuments = void 0;
 const replace_1 = require("../../ops/replace");
 async function replaceDocuments(documents) {
-    if (!this.state.isReady) {
-        await this.isReady();
+    if (!this.isReady) {
+        await this.onReady();
     }
     if (Array.isArray(documents)) {
         for (const document of documents) {

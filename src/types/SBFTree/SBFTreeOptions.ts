@@ -1,9 +1,8 @@
 import { SBFRoot } from '../SBFRoot/SBFRoot';
-import { MemoryAdapter } from '../../adapters/MemoryAdapter/MemoryAdapter';
-import FsAdapter from '../../adapters/FsAdapter/FsAdapter';
-
+import { PersistenceAdapter } from '../../adapters/MemoryAdapter/MemoryAdapter';
 
 export type SBFTreeOptions = {
+  adapter: PersistenceAdapter,
   id: string;
   order: number;
   root: SBFRoot;
@@ -11,5 +10,4 @@ export type SBFTreeOptions = {
   fillFactor: number;
   verbose: boolean;
   isUnique: boolean;
-  adapter: MemoryAdapter | FsAdapter;
 };

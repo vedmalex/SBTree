@@ -17,6 +17,7 @@ const defaultOpts = {
 };
 class SBFTree {
     constructor(props) {
+        this._adapter = props.adapter;
         this.id = (props?.id) ? props?.id : crypto_1.generateFieldTreeId();
         this.order = (props.order) ? props.order : defaultOpts.order;
         this.verbose = (props.verbose) ? props.verbose : defaultOpts.verbose;
@@ -32,13 +33,9 @@ class SBFTree {
         else {
             this.root = null;
         }
-        if (!props.adapter) {
-            throw new Error(`SBFTree expect an adapter to be initialized`);
-        }
-        this.adapter = props.adapter;
     }
-    getAdapter() {
-        return this.adapter;
+    get adapter() {
+        return this._adapter;
     }
     getOptions() {
         const { order, fillFactor, verbose } = this;

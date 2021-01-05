@@ -1,6 +1,3 @@
 import FsAdapter from '../FsAdapter';
-export default function openLeaf(this: FsAdapter, leafName: any): Promise<{
-    id: string;
-    meta: import("../../common/LeafMeta").default;
-}>;
+export default function openLeaf(this: FsAdapter, leafName: any): Promise<import("../../MemoryAdapter/MemoryAdapterLeafs").AdapterLeaf>;
 //# sourceMappingURL=openLeaf.d.ts.map

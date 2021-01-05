@@ -10,6 +10,7 @@ async function addInLeaf(leafName, identifier, value) {
     const index = await this.insertSortedInLeaf(leafName, value);
     this.leafs[leafName].meta.size += 1;
     this.leafs[leafName].meta.identifiers.splice(index, 0, identifier);
+    return index;
 }
 exports.default = addInLeaf;
 //# sourceMappingURL=addInLeaf.js.map

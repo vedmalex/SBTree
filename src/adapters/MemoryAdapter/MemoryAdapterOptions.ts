@@ -1,8 +1,8 @@
 import { MemoryAdapterDocuments } from './MemoryAdapter';
-import { MemoryAdapterLeafs } from "./MemoryAdapterLeafs";
+import { AdapterLeafs } from "./MemoryAdapterLeafs";
 
 
 export type MemoryAdapterOptions = {
-  leafs: MemoryAdapterLeafs;
+  leafs: AdapterLeafs;
   documents: MemoryAdapterDocuments;
 };

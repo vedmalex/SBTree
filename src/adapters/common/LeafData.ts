@@ -1,8 +1,9 @@
+import { PossibleKeys } from '../MemoryAdapter/MemoryAdapter';
 export type LeafDataProps = {
-  keys:Array<number|string|boolean>
+  keys:Array<PossibleKeys>
 }
 export default class LeafData {
-  public keys:Array<number|string|boolean>
+  public keys:Array<PossibleKeys>
   constructor(props?:LeafDataProps) {
     this.keys = props?.keys ?? [];
   }

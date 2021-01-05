@@ -10,7 +10,9 @@ async function getDocument(identifier) {
     if (!doc) {
         return null;
     }
-    return lodash_clonedeep_1.default(doc);
+    else {
+        return lodash_clonedeep_1.default(doc);
+    }
 }
 exports.getDocument = getDocument;
 //# sourceMappingURL=getDocument.js.map

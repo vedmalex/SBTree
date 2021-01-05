@@ -32,7 +32,7 @@ class SBFRoot {
         return (this.tree);
     }
     getAdapter() {
-        return this.getTree().getAdapter();
+        return this.tree.adapter;
     }
     ;
     getTreeOptions() {

@@ -4,7 +4,7 @@ export declare function toJSON(this: SBFRoot): {
     id: string;
     fieldName: string;
     identifiers: string[];
-    keys: string[];
+    keys: import("../../../adapters/MemoryAdapter/MemoryAdapter").PossibleKeys[];
     children: any[];
 };
 //# sourceMappingURL=toJSON.d.ts.map

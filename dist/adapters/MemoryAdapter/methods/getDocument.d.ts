@@ -1,3 +1,4 @@
 import { MemoryAdapter } from '../MemoryAdapter';
-export declare function getDocument(this: MemoryAdapter, identifier: any): Promise<any>;
+import { Document } from '../../../types/common/Document';
+export declare function getDocument(this: MemoryAdapter, identifier: string): Promise<Document>;
 //# sourceMappingURL=getDocument.d.ts.map

@@ -1,4 +1,5 @@
-export const comparatorString = function (a:boolean|number|string, b:boolean|number|string) {
+import { PossibleKeys } from '../adapters/MemoryAdapter/MemoryAdapter';
+export const comparatorString = function (a:PossibleKeys, b:PossibleKeys) {
   if (typeof a !== 'string') a = String(a);
   if (typeof b !== 'string') b = String(b);
   return (a > b ? 1 : (a < b ? -1 : 0));

@@ -15,8 +15,7 @@ const start = async function () {
     console.log(await tree.findDocuments({ age: { $gt: 60 } }));
     timer.stop();
     console.log(timer.duration.s, 'seconds');
-    tree.close();
 };
 exports.start = start;
-tree.once('ready', () => exports.start().then(_ => "closed"));
+tree.onReady(() => exports.start().then(_ => "closed"));
 //# sourceMappingURL=fs-reusage.js.map

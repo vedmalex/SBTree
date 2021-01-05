@@ -2,33 +2,31 @@ import { SBFLeaf } from '../SBFLeaf/SBFLeaf';
 import { SBFRoot } from '../SBFRoot/SBFRoot';
 import { SBFTree } from '../SBFTree/SBFTree';
 import { FillStatus } from '../common/FillStatus';
+import { PossibleKeys } from '../../adapters/MemoryAdapter/MemoryAdapter';
 export declare class SBFNode {
     private parent;
     id: string;
     fieldName: string;
-    keys: Array<string>;
+    keys: Array<PossibleKeys>;
     children: Array<SBFLeaf | SBFNode>;
     identifiers: Array<string>;
     get type(): string;
     constructor(props: any);
-    getParent(): SBFRoot | SBFNode;
+    getParent(): SBFNode | SBFRoot;
     setParent(parent: any): void;
     getTree(): SBFTree;
-    getAdapter(): import("../../adapters").MemoryAdapter | import("../../adapters").FsAdapter;
+    getAdapter(): import("../../adapters/MemoryAdapter/MemoryAdapter").PersistenceAdapter;
     attachLeaf(index: any, leaf: any): Promise<void>;
     find(value: any): Promise<{
         identifiers: any[];
         keys: any[];
     }>;
-    findLowerThan(value: any, includeKey?: boolean): Promise<{
-        identifiers: any[];
-        keys: any[];
-    }>;
+    findLowerThan(value: any, includeKey?: boolean): Promise<import("../common/OperationResult").OperationResult>;
     findGreaterThan(value: any, includeKey?: boolean): Promise<{
         identifiers: any[];
         keys: any[];
     }>;
-    getAll(): Promise<unknown>;
+    getAll(): Promise<import("../common/OperationResult").OperationResult>;
     getFillStatus(): Promise<FillStatus>;
     getTreeOptions(): {
         order: number;

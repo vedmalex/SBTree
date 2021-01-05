@@ -1,6 +1,13 @@
 import { SBFNode } from '../../SBFNode/SBFNode';
 import { SBFLeaf } from '../SBFLeaf';
 
+export type Siblings = {
+    left?: SBFLeaf|SBFNode;
+    right?: SBFLeaf|SBFNode;
+    leftStatus?;
+    rightStatus?;
+}
+
 export async function mergeWithSiblings(this: SBFLeaf) {
   const parent = this.getParent();
 
@@ -8,12 +15,7 @@ export async function mergeWithSiblings(this: SBFLeaf) {
   const selfPos = parent.children.findIndex((el) => el.id === selfId);
   let hasMerged = false;
 
-  const siblings: {
-    left?: SBFLeaf | SBFNode;
-    right?: SBFLeaf | SBFNode;
-    leftStatus?;
-    rightStatus?;
-  } = {};
+  const siblings: Siblings = {};
 
   if (selfPos >= 0)
     siblings.left = parent.children[selfPos - 1];

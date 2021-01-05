@@ -2,11 +2,12 @@ import { findEquals } from '../ops/findEquals';
 import { findGreaterThan } from '../ops/findGreaterThan';
 import { findLowerThan } from '../ops/findLowerThan';
 import { SBFRoot } from '../SBFRoot';
+import { OperationResult } from '../../common/OperationResult';
 
 export async function find(this: SBFRoot, value, operator = '$eq') {
   const self = this;
   const p = [];
-  const results = { identifiers: [], keys: [] };
+  const results: OperationResult = { identifiers: [], keys: [] };
 
   const valueKeys = Object.keys(value);
   if (valueKeys.includes('$in')) {

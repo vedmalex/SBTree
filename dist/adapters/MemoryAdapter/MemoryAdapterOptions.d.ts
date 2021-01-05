@@ -1,7 +1,7 @@
 import { MemoryAdapterDocuments } from './MemoryAdapter';
-import { MemoryAdapterLeafs } from "./MemoryAdapterLeafs";
+import { AdapterLeafs } from "./MemoryAdapterLeafs";
 export declare type MemoryAdapterOptions = {
-    leafs: MemoryAdapterLeafs;
+    leafs: AdapterLeafs;
     documents: MemoryAdapterDocuments;
 };
 //# sourceMappingURL=MemoryAdapterOptions.d.ts.map

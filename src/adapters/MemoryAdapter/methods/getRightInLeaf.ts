@@ -1,5 +1,6 @@
 import cloneDeep from 'lodash.clonedeep';
 import { MemoryAdapter } from '../MemoryAdapter';
+import { SiblingsResult } from '../../common/SiblingsResult';
 
 export async function getRightInLeaf(this: MemoryAdapter, leafId) {
   const leaf = this.leafs[leafId];
@@ -11,5 +12,5 @@ export async function getRightInLeaf(this: MemoryAdapter, leafId) {
   const identifier = identifiers[len - 1];
   const key = data.keys[len - 1];
 
-  return cloneDeep({ identifier, key });
+  return cloneDeep({ identifier, key }) as SiblingsResult;
 }

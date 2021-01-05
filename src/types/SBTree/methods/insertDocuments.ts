@@ -13,8 +13,8 @@ import { SBTree } from '../SBTree';
 export async function insertDocuments(this: SBTree, documents: Partial<Document> | Partial<Document>[]): Promise<Document[]> {
   // This will wait for SBTree to have isReady = true.
   // When so, it will then perform the insertion.
-  if (!this.state.isReady) {
-    await this.isReady();
+  if (!this.isReady) {
+    await this.onReady();
   }
 
   if (Array.isArray(documents)) {

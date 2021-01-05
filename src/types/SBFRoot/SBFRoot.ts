@@ -18,6 +18,18 @@ import { insertReferenceKey } from './methods/insertReferenceKey';
 import { isFull } from './methods/isFull';
 import { split } from './methods/split';
 import { toJSON } from './methods/toJSON';
+import { PersistenceAdapter, PossibleKeys } from '../../adapters/MemoryAdapter/MemoryAdapter';
+import { OperationResult } from '../common/OperationResult';
+
+export type SBFRootOptions = {
+  id?: string;
+  tree: SBFTree
+  fieldName:string
+  keys: Array<PossibleKeys>
+  identifiers?: Array<string>
+  children?: Array<SBFLeaf|SBFNode>
+}
+
 
 /**
  * SBFRoot
@@ -28,13 +40,13 @@ export class SBFRoot {
   public get type(){ return 'root'}
   public id: string;
   public fieldName: string;
-  public keys: Array<string>
+  public keys: Array<PossibleKeys>
   /**
    * Used when SBFRoot holds value (when size = 0)
    *  */
   public identifiers: Array<string>
   public children: Array<SBFLeaf|SBFNode>
-  constructor(props) {
+  constructor(props: SBFRootOptions) {
     if (!props.tree) {
       throw new Error(`SBFRoot is initialized without any tree referenced`);
     }
@@ -53,8 +65,8 @@ export class SBFRoot {
   getTree() {
     return (this.tree);
   }
-getAdapter() {
-  return this.getTree().getAdapter();
+getAdapter(): PersistenceAdapter {
+  return this.tree.adapter;
 };
 
 getTreeOptions() {
@@ -67,7 +79,7 @@ async attachLeaf(index, leaf){
 async  find(value, operator = '$eq') {
   return (find.call(this,value, operator = '$eq') as ReturnType<typeof find>)
 }
-async  getAll():Promise<{identifiers:Array<string>; keys: Array<string>}>{
+async  getAll():Promise<OperationResult>{
   return (getAll.call(this) as ReturnType<typeof getAll>)
 }
 async get(identifier) {

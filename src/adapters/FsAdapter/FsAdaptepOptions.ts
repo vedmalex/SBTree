@@ -1,5 +1,5 @@
-import { FsAdapterLeafs } from "./FsAdapterLeafs";
 import { FsAdapterOptionAutoLoadCallback } from "./FsAdapterOptionAutoLoadCallback";
+import { AdapterLeafs } from '../MemoryAdapter/MemoryAdapterLeafs';
 
 export type FsAdaptepOptions = {
   path: string;
@@ -9,5 +9,5 @@ export type FsAdaptepOptions = {
   autoLoad?: boolean;
   autoLoadCallback?: FsAdapterOptionAutoLoadCallback;
   parent?: unknown;
-  leafs?: FsAdapterLeafs;
+  leafs?: AdapterLeafs;
 };

@@ -1,6 +1,7 @@
 import { greaterThanKeys } from '../../common/ops/greaterThanKeys';
 import { lowerThanKeys } from '../../common/ops/lowerThanKeys';
 import { MemoryAdapter } from '../MemoryAdapter';
+import { OperationResult } from '../../../types/common/OperationResult';
 
 export async function findInLeaf(this: MemoryAdapter, leafId, value, op = '$eq') {
   const leaf = this.leafs[leafId];
@@ -8,7 +9,7 @@ export async function findInLeaf(this: MemoryAdapter, leafId, value, op = '$eq')
   if (!leaf) {
     throw new Error(`Trying to search in non-existing leafId ${leafId}`);
   }
-  const result = {
+  const result: OperationResult  = {
     identifiers: [],
     keys: [],
   };
@@ -25,8 +26,6 @@ export async function findInLeaf(this: MemoryAdapter, leafId, value, op = '$eq')
       if (!strictMatchingKeysLen) {
         return result;
       }
-      // const start = strictMatchingKeys[0];
-      // const end = strictMatchingKeys[0] + strictMatchingKeysLen;
       result.identifiers.push(...identifiers.slice(firstIdx, lastIdx + 1));
       result.keys.push(...keys.slice(firstIdx, lastIdx + 1));
       return result;

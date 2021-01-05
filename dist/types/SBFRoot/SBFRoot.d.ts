@@ -2,17 +2,27 @@ import { SBFLeaf } from '../SBFLeaf/SBFLeaf';
 import { SBFNode } from '../SBFNode/SBFNode';
 import { SBFTree } from '../SBFTree/SBFTree';
 import { FillStatus } from '../common/FillStatus';
+import { PersistenceAdapter, PossibleKeys } from '../../adapters/MemoryAdapter/MemoryAdapter';
+import { OperationResult } from '../common/OperationResult';
+export declare type SBFRootOptions = {
+    id?: string;
+    tree: SBFTree;
+    fieldName: string;
+    keys: Array<PossibleKeys>;
+    identifiers?: Array<string>;
+    children?: Array<SBFLeaf | SBFNode>;
+};
 export declare class SBFRoot {
     private tree;
     get type(): string;
     id: string;
     fieldName: string;
-    keys: Array<string>;
+    keys: Array<PossibleKeys>;
     identifiers: Array<string>;
     children: Array<SBFLeaf | SBFNode>;
-    constructor(props: any);
+    constructor(props: SBFRootOptions);
     getTree(): SBFTree;
-    getAdapter(): import("../../adapters").MemoryAdapter | import("../../adapters").FsAdapter;
+    getAdapter(): PersistenceAdapter;
     getTreeOptions(): {
         order: number;
         fillFactor: number;
@@ -20,11 +30,8 @@ export declare class SBFRoot {
     };
     attachLeaf(index: any, leaf: any): Promise<void>;
     find(value: any, operator?: string): Promise<any>;
-    getAll(): Promise<{
-        identifiers: Array<string>;
-        keys: Array<string>;
-    }>;
-    get(identifier: any): Promise<any>;
+    getAll(): Promise<OperationResult>;
+    get(identifier: any): Promise<import("../common/Document").Document>;
     getFillStatus(): Promise<FillStatus>;
     remove(remCmd: any): Promise<void>;
     replace(identifier: any, value: any): Promise<void>;
@@ -37,7 +44,7 @@ export declare class SBFRoot {
         id: string;
         fieldName: string;
         identifiers: string[];
-        keys: string[];
+        keys: PossibleKeys[];
         children: any[];
     };
 }

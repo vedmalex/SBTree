@@ -1,9 +1,8 @@
-import { MemoryAdapter } from '../../adapters';
 import { SBFTree } from '../SBFTree/SBFTree';
-import FsAdapter from '../../adapters/FsAdapter/FsAdapter';
+import { PersistenceAdapter } from '../../adapters/MemoryAdapter/MemoryAdapter';
 export declare type SBTreeOptions = {
     id: string;
-    adapter: MemoryAdapter | FsAdapter;
+    adapter: PersistenceAdapter;
     order: number;
     fillFactor: number;
     verbose: boolean;

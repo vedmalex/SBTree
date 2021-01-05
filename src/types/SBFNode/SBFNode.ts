@@ -18,6 +18,7 @@ import { remove } from './methods/remove';
 import { replace } from './methods/replace';
 import { split } from './methods/split';
 import { toJSON } from './methods/toJSON';
+import { PossibleKeys } from '../../adapters/MemoryAdapter/MemoryAdapter';
 
 /**
  * SBFTree
@@ -27,7 +28,7 @@ export class SBFNode {
   private parent: SBFRoot | SBFNode
   public id: string;
   public fieldName: string;
-  public keys:Array<string>;
+  public keys:Array<PossibleKeys>;
   public children: Array<SBFLeaf|SBFNode>
   public identifiers: Array<string>
   public get type(){ return 'node';}
@@ -66,7 +67,7 @@ export class SBFNode {
     return (this.parent as SBFRoot).getTree() || (this.parent as SBFNode).getParent().getTree();
   }
   getAdapter() {
-  return this.getTree().getAdapter();
+  return this.getTree().root.getAdapter();
   };
 
 

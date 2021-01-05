@@ -1,30 +1,55 @@
 import { MemoryAdapterOptions } from './MemoryAdapterOptions';
-import { MemoryAdapterLeafs } from './MemoryAdapterLeafs';
+import { AdapterLeafs, AdapterLeaf } from './MemoryAdapterLeafs';
 import { Emittable } from '../common/Emittable';
-export declare type MemoryAdapterDocuments = unknown;
-export declare class MemoryAdapter extends Emittable {
-    leafs: MemoryAdapterLeafs;
+import { Document } from '../../types/common/Document';
+import { SBTree } from '../../types/SBTree/SBTree';
+import { OperationResult } from '../../types/common/OperationResult';
+import { SiblingsResult } from '../common/SiblingsResult';
+import { RemoveInLeafResult } from '../common/RemoveInLeafResult';
+import { SBFLeaf } from '../../types/SBFLeaf/SBFLeaf';
+export declare type MemoryAdapterDocuments = {
+    [key: string]: Document;
+};
+export declare type PossibleKeys = string | number | boolean;
+export declare type QueryOperations = "$eq" | "$in" | "$nin" | "$gte" | "$lte" | "$gt" | "$lt";
+export interface PersistenceAdapter {
+    readonly isReady: boolean;
+    initWith: (tree: SBTree) => Promise<boolean>;
+    getDocument(identifier: string): Promise<Document>;
+    removeDocument(identifier: string): Promise<void>;
+    replaceDocument(doc: Document): Promise<void>;
+    saveDocument(doc: Document): Promise<void>;
+    openLeaf(leafName: any): Promise<AdapterLeaf>;
+    addInLeaf(leafName: string, identifier: string, value: PossibleKeys): Promise<number>;
+    replaceInLeaf(leafId: string, identifier: string, value: PossibleKeys): Promise<number>;
+    createLeaf(leafName: string): Promise<void>;
+    splitLeaf(sourceLeaf: SBFLeaf, siblingLeaf: SBFLeaf): Promise<PossibleKeys>;
+    getRightInLeaf(leafId: string): Promise<SiblingsResult>;
+    getLeftInLeaf(leafId: string): Promise<SiblingsResult>;
+    findInLeaf(leafId: string, value: PossibleKeys, op?: QueryOperations): Promise<OperationResult>;
+    getAllInLeaf(leafId: string): Promise<OperationResult>;
+    removeInLeaf(leafId: any, identifier: any): Promise<Array<RemoveInLeafResult>>;
+}
+export declare class MemoryAdapter extends Emittable implements PersistenceAdapter {
+    leafs: AdapterLeafs;
     documents: MemoryAdapterDocuments;
+    tree: SBTree;
     isReady: boolean;
-    get name(): string;
-    attachParent: false;
+    initWith(tree: SBTree): Promise<boolean>;
     constructor(props?: MemoryAdapterOptions);
-    addInLeaf(leafName: any, identifier: any, value: any): Promise<void>;
+    addInLeaf(leafName: any, identifier: any, value: any): Promise<number>;
     createLeaf(leafName: any): Promise<void>;
-    getAllInLeaf(leafId: any): Promise<any>;
-    getLeftInLeaf(leafId: any): Promise<any>;
-    getRightInLeaf(leafId: any): Promise<any>;
+    getAllInLeaf(leafId: any): Promise<OperationResult>;
+    getLeftInLeaf(leafId: any): Promise<SiblingsResult>;
+    getRightInLeaf(leafId: any): Promise<SiblingsResult>;
     findInLeaf(leafId: any, value: any, op?: string): any;
-    getDocument(identifier: any): Promise<any>;
-    openLeaf(leafName: any): Promise<{
-        meta: import("../common/LeafMeta").default;
-        data: import("../common/LeafData").default;
-    }>;
-    removeDocument(identifier: any): void;
-    removeInLeaf(leafId: any, identifier: any): Promise<any[]>;
-    replaceDocument(doc: any): void;
-    replaceInLeaf(leafId: any, identifier: any, value: any): void;
-    saveDocument(doc: any): void;
-    splitLeaf(sourceLeaf: any, siblingLeaf: any): Promise<string | number | boolean>;
+    getDocument(identifier: any): Promise<Document>;
+    openLeaf(leafName: any): Promise<AdapterLeaf>;
+    removeDocument(identifier: any): Promise<void>;
+    removeInLeaf(leafId: any, identifier: any): Promise<RemoveInLeafResult[]>;
+    replaceDocument(doc: any): Promise<void>;
+    replaceInLeaf(leafId: any, identifier: any, value: any): Promise<number>;
+    saveDocument(doc: any): Promise<void>;
+    splitLeaf(sourceLeaf: any, siblingLeaf: any): Promise<PossibleKeys>;
 }
 //# sourceMappingURL=MemoryAdapter.d.ts.map

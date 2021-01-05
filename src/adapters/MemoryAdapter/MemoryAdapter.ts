@@ -1,9 +1,7 @@
 
-import {EventEmitter} from 'events';
-import { EventListeners } from '../common/EventListeners';
 import { parseLeafs } from './methods/parseLeafs';
 import { MemoryAdapterOptions } from './MemoryAdapterOptions';
-import { MemoryAdapterLeafs } from './MemoryAdapterLeafs';
+import { AdapterLeafs, AdapterLeaf } from './MemoryAdapterLeafs';
 import { Emittable } from '../common/Emittable';
 import { addInLeaf } from './methods/addInLeaf';
 import { createLeaf } from './methods/createLeaf';
@@ -19,16 +17,53 @@ import { replaceDocument } from './methods/replaceDocument';
 import { saveDocument } from './methods/saveDocument';
 import { splitLeaf } from './methods/splitLeaf';
 import { removeInLeaf } from './methods/removeInLeaf';
+import { Document } from '../../types/common/Document';
+import { SBTree } from '../../types/SBTree/SBTree';
+import { OperationResult } from '../../types/common/OperationResult';
+import { SiblingsResult } from '../common/SiblingsResult';
+import { RemoveInLeafResult } from '../common/RemoveInLeafResult';
+import { SBFLeaf } from '../../types/SBFLeaf/SBFLeaf';
 
-export type MemoryAdapterDocuments = unknown
-export class MemoryAdapter extends Emittable{
-  public leafs:MemoryAdapterLeafs;
+export type MemoryAdapterDocuments = {[key:string]: Document}
+export type PossibleKeys = string | number | boolean;
+export type QueryOperations = "$eq"|"$in"|"$nin"|"$gte"|"$lte"|"$gt"|"$lt";
+export interface PersistenceAdapter {
+  readonly isReady:boolean;
+  initWith:(tree: SBTree)=> Promise<boolean>
+  // CRUD
+  getDocument(identifier: string):Promise<Document>
+  removeDocument(identifier: string ):Promise<void>
+  replaceDocument(doc: Document):Promise<void>
+  saveDocument(doc: Document): Promise<void>
+  //
+  openLeaf(leafName): Promise<AdapterLeaf>
+  addInLeaf(leafName:string, identifier: string, value:PossibleKeys): Promise<number>
+  replaceInLeaf(leafId:string, identifier: string, value:PossibleKeys): Promise<number>
+  createLeaf(leafName:string): Promise<void>
+  splitLeaf(sourceLeaf:SBFLeaf, siblingLeaf:SBFLeaf): Promise<PossibleKeys>
+  getRightInLeaf(leafId:string): Promise<SiblingsResult>
+  getLeftInLeaf(leafId:string): Promise<SiblingsResult>
+  findInLeaf(leafId:string, value: PossibleKeys, op?:QueryOperations): Promise<OperationResult>
+  getAllInLeaf(leafId:string):Promise<OperationResult>
+  removeInLeaf(leafId, identifier):Promise<Array<RemoveInLeafResult>>
+}
+
+export class MemoryAdapter extends Emittable implements PersistenceAdapter{
+  public leafs:AdapterLeafs;
   public documents: MemoryAdapterDocuments
-  public isReady: boolean = true;
-  public get name() { return 'MemoryAdapter';};
+  public tree: SBTree
+  isReady: boolean = false
+  async initWith(tree: SBTree){
+    if (!this.isReady) {
+      this.tree = tree;
+      this.isReady = true;
+      return true;
+    } else {
+      return true
+    };
+  }
 
   // TODO: fix when will user interfaces for
-  public attachParent: false
 
   constructor(props?: MemoryAdapterOptions) {
     super()
@@ -68,24 +103,24 @@ async openLeaf(leafName) {
   return (openLeaf.call(this,leafName) as ReturnType<typeof openLeaf>)
 }
 
-removeDocument(identifier) {
-  return (removeDocument.call(this, identifier) as ReturnType<typeof removeDocument>)
+async removeDocument(identifier) {
+  return await (removeDocument.call(this, identifier) as ReturnType<typeof removeDocument>)
 }
 
-removeInLeaf(leafId, identifier) {
+async removeInLeaf(leafId, identifier) {
   return (removeInLeaf.call(this, leafId, identifier) as ReturnType<typeof removeInLeaf>)
 }
 
-replaceDocument(doc) {
-  return (replaceDocument.call(this,doc) as ReturnType<typeof replaceDocument>)
+async replaceDocument(doc) {
+  return (await replaceDocument.call(this,doc) as ReturnType<typeof replaceDocument>)
 }
 
 replaceInLeaf(leafId, identifier, value) {
   return (replaceInLeaf.call(this, leafId, identifier, value) as ReturnType<typeof replaceInLeaf>)
 }
 
-saveDocument(doc) {
-  return (saveDocument.call(this, doc) as ReturnType<typeof saveDocument>)
+async saveDocument(doc) {
+  return (await saveDocument.call(this, doc) as ReturnType<typeof saveDocument>)
 }
 
 async splitLeaf(sourceLeaf, siblingLeaf) {

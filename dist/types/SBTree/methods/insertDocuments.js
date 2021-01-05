@@ -8,8 +8,8 @@ const lodash_clonedeep_1 = __importDefault(require("lodash.clonedeep"));
 const mongo_objectid_1 = __importDefault(require("mongo-objectid"));
 const insert_1 = require("../../ops/insert");
 async function insertDocuments(documents) {
-    if (!this.state.isReady) {
-        await this.isReady();
+    if (!this.isReady) {
+        await this.onReady();
     }
     if (Array.isArray(documents)) {
         let insertedDocumentsResultats = [];

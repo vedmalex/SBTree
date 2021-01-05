@@ -11,7 +11,7 @@ export declare function toJSON(this: SBFTree): {
         id: string;
         fieldName: string;
         identifiers: string[];
-        keys: string[];
+        keys: import("../../../adapters/MemoryAdapter/MemoryAdapter").PossibleKeys[];
         children: any[];
     };
 };

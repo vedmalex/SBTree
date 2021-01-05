@@ -1,3 +1,4 @@
 import { MemoryAdapter } from '../MemoryAdapter';
-export declare function removeInLeaf(this: MemoryAdapter, leafId: any, identifier: any): Promise<any[]>;
+import { RemoveInLeafResult } from '../../common/RemoveInLeafResult';
+export declare function removeInLeaf(this: MemoryAdapter, leafId: any, identifier: any): Promise<RemoveInLeafResult[]>;
 //# sourceMappingURL=removeInLeaf.d.ts.map

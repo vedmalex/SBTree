@@ -14,7 +14,6 @@ import getRightInLeaf from './methods/getRightInLeaf';
 import getDocument from './methods/getDocument';
 import insertSortedInLeaf from './methods/insertSortedInLeaf';
 import loadDatabase from './methods/loadDatabase';
-import openDocument from './methods/openDocument';
 import openLeaf from './methods/openLeaf';
 import removeDocument from './methods/removeDocument';
 import openLeafData from './methods/openLeafData';
@@ -28,9 +27,10 @@ import updateDocument from './methods/updateDocument';
 import { EventListeners } from '../common/EventListeners';
 import { FsAdaptepOptions } from './FsAdaptepOptions';
 import { FsAdapterOptionAutoLoadCallback } from './FsAdapterOptionAutoLoadCallback';
-import { FsAdapterLeafs } from './FsAdapterLeafs';
 import { Emittable } from '../common/Emittable';
 import { removeInLeaf } from './methods/removeInLeaf';
+import { PersistenceAdapter } from '../MemoryAdapter/MemoryAdapter';
+import { AdapterLeafs } from '../MemoryAdapter/MemoryAdapterLeafs';
 
 export const defaultFsProps: FsAdaptepOptions = {
     path: '.db',
@@ -45,19 +45,26 @@ export type LeafId = string
 export type FsAdapterLastChange = number;
 export type FsAdapterLastSave = number;
 
-export default class FsAdapter extends Emittable{
+
+export default class FsAdapter extends Emittable implements PersistenceAdapter{
   private parent: SBTree;
   public queue: FSLock;
-  public leafs:FsAdapterLeafs;
+  public leafs:AdapterLeafs;
   public path: string;
   public autoSave: boolean;
   public autoSaveInterval: number;
   public autoLoad: boolean;
   public autoLoadCallback: FsAdapterOptionAutoLoadCallback
   public autoLoadForceOverwrite: boolean;
-  public isReady: boolean;
   public lastChange:FsAdapterLastChange;
   public lastSave:FsAdapterLastSave;
+
+  public isReady: boolean = false
+  async initWith(tree: SBTree) {
+    await this.attachParent(tree);
+    this.isReady = true;
+    return true;
+  }
 
   public get name() { return 'FsAdapter';};
 
@@ -126,9 +133,6 @@ async insertSortedInLeaf(leafId, value){
 }
 async loadDatabase (){
   return (loadDatabase.call(this,) as ReturnType<typeof loadDatabase>)
-}
-async openDocument(identifer) {
-  return (openDocument.call(this,identifer) as ReturnType<typeof openDocument>)
 }
 async openLeaf(leafName){
   return (openLeaf.call(this,leafName) as ReturnType<typeof openLeaf>)

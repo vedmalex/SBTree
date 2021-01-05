@@ -96,5 +96,5 @@ const start = async function () {
     console.log(timer.duration.s, 'seconds');
 };
 exports.start = start;
-tree.once('ready', exports.start);
+tree.onReady(exports.start);
 //# sourceMappingURL=fs-usage.js.map

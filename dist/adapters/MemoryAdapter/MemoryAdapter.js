@@ -20,12 +20,21 @@ const removeInLeaf_1 = require("./methods/removeInLeaf");
 class MemoryAdapter extends Emittable_1.Emittable {
     constructor(props) {
         super();
-        this.isReady = true;
+        this.isReady = false;
         this.leafs = (props?.leafs) ? parseLeafs_1.parseLeafs(props.leafs) : {};
         this.documents = (props?.documents) ? props?.documents : {};
     }
-    get name() { return 'MemoryAdapter'; }
-    ;
+    async initWith(tree) {
+        if (!this.isReady) {
+            this.tree = tree;
+            this.isReady = true;
+            return true;
+        }
+        else {
+            return true;
+        }
+        ;
+    }
     async addInLeaf(leafName, identifier, value) {
         return addInLeaf_1.addInLeaf.call(this, leafName, identifier, value);
     }
@@ -52,20 +61,20 @@ class MemoryAdapter extends Emittable_1.Emittable {
     async openLeaf(leafName) {
         return openLeaf_1.openLeaf.call(this, leafName);
     }
-    removeDocument(identifier) {
-        return removeDocument_1.removeDocument.call(this, identifier);
+    async removeDocument(identifier) {
+        return await removeDocument_1.removeDocument.call(this, identifier);
     }
-    removeInLeaf(leafId, identifier) {
+    async removeInLeaf(leafId, identifier) {
         return removeInLeaf_1.removeInLeaf.call(this, leafId, identifier);
     }
-    replaceDocument(doc) {
-        return replaceDocument_1.replaceDocument.call(this, doc);
+    async replaceDocument(doc) {
+        return await replaceDocument_1.replaceDocument.call(this, doc);
     }
     replaceInLeaf(leafId, identifier, value) {
         return replaceInLeaf_1.replaceInLeaf.call(this, leafId, identifier, value);
     }
-    saveDocument(doc) {
-        return saveDocument_1.saveDocument.call(this, doc);
+    async saveDocument(doc) {
+        return await saveDocument_1.saveDocument.call(this, doc);
     }
     async splitLeaf(sourceLeaf, siblingLeaf) {
         return splitLeaf_1.splitLeaf.call(this, sourceLeaf, siblingLeaf);

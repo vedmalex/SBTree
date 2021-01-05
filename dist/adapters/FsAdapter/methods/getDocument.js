@@ -1,11 +1,12 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const lodash_clonedeep_1 = __importDefault(require("lodash.clonedeep"));
 async function getDocument(identifier) {
-    return lodash_clonedeep_1.default(await this.openDocument(identifier));
+    const job = await this.queue.add('File.read', `${this.path}/d/${identifier}.json`).execution();
+    let data = null;
+    if (!(job.result instanceof Error)) {
+        data = job.result;
+    }
+    return data;
 }
 exports.default = getDocument;
 //# sourceMappingURL=getDocument.js.map

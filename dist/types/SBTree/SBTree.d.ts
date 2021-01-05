@@ -1,13 +1,8 @@
-import { MemoryAdapter } from '../../adapters';
 import { SBFTree } from '../SBFTree/SBFTree';
-import FsAdapter from '../../adapters/FsAdapter/FsAdapter';
-import { Emittable } from '../../adapters/common/Emittable';
-import { SBTreeState } from './SBTreeState';
 import { SBTreeOptions } from './SBTreeOptions';
-import { Document } from '../common/Document';
-export declare class SBTree extends Emittable {
-    state: SBTreeState;
-    adapter: MemoryAdapter | FsAdapter;
+import { PersistenceAdapter } from '../../adapters/MemoryAdapter/MemoryAdapter';
+export declare class SBTree {
+    adapter: PersistenceAdapter;
     order: number;
     fillFactor: number;
     size: number;
@@ -18,24 +13,25 @@ export declare class SBTree extends Emittable {
     fieldTrees: {
         [key: string]: SBFTree;
     };
+    protected isReady: Promise<boolean>;
+    onReady(process?: () => any): Promise<any>;
     constructor(props: Partial<SBTreeOptions>);
     getOptions(): {
         order: number;
         fillFactor: number;
         verbose: boolean;
     };
-    getAdapter(): MemoryAdapter | FsAdapter;
-    isReady(): Promise<unknown>;
+    getAdapter(): PersistenceAdapter;
     setFieldTree(_fieldTreeOpts: {
         fieldName: any;
         id?: any;
         root?: any;
     }): void;
-    deleteDocuments(query: any): Promise<Document[]>;
-    findDocuments(params: any): Promise<Document[]>;
+    deleteDocuments(query: any): Promise<import("../common/Document").Document[]>;
+    findDocuments(params: any): Promise<import("../common/Document").Document[]>;
     getDocument(identifier: any): Promise<any>;
     getFieldTree(fieldName: any): SBFTree;
-    insertDocuments(documents: any): Promise<Document[]>;
+    insertDocuments(documents: any): Promise<import("../common/Document").Document[]>;
     replaceDocuments(documents: any): Promise<any[]>;
     loadState(state: any): boolean;
     toJSON(): any;
