@@ -1,10 +1,9 @@
 import { MemoryAdapterOptions } from './MemoryAdapterOptions';
 import { AdapterLeafs } from './MemoryAdapterLeafs';
-import { Emittable } from '../common/Emittable';
 import { SBTree } from '../../types/SBTree/SBTree';
 import { MemoryAdapterDocuments } from './MemoryAdapterDocuments';
 import { PersistenceAdapter } from '../common/PersistenceAdapter';
-export declare class MemoryAdapter extends Emittable implements PersistenceAdapter {
+export declare class MemoryAdapter implements PersistenceAdapter {
     leafs: AdapterLeafs;
     documents: MemoryAdapterDocuments;
     tree: SBTree;

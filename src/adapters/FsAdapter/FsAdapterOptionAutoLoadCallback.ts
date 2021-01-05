@@ -1,2 +1,1 @@
-
-export type FsAdapterOptionAutoLoadCallback = () => void;
+export type FsAdapterOptionAutoLoadCallback = () => Promise<void>

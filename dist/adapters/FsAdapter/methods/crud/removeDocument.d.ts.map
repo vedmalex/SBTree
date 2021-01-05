@@ -1,1 +1,1 @@
-{"version":3,"file":"removeDocument.d.ts","sourceRoot":"","sources":["../../../../../src/adapters/FsAdapter/methods/crud/removeDocument.ts"],"names":[],"mappings":"AAAA,OAAO,SAAS,MAAM,iBAAiB,CAAC;AAExC,wBAA8B,cAAc,CAAC,IAAI,EAAC,SAAS,EAAE,UAAU,KAAA,iBAMtE"}
+{"version":3,"file":"removeDocument.d.ts","sourceRoot":"","sources":["../../../../../src/adapters/FsAdapter/methods/crud/removeDocument.ts"],"names":[],"mappings":"AAAA,OAAO,SAAS,MAAM,iBAAiB,CAAA;AAEvC,wBAA8B,cAAc,CAAC,IAAI,EAAE,SAAS,EAAE,UAAU,KAAA,iBAQvE"}

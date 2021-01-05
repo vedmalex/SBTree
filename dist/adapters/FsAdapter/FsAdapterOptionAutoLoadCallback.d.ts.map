@@ -1,1 +1,1 @@
-{"version":3,"file":"FsAdapterOptionAutoLoadCallback.d.ts","sourceRoot":"","sources":["../../../src/adapters/FsAdapter/FsAdapterOptionAutoLoadCallback.ts"],"names":[],"mappings":"AACA,oBAAY,+BAA+B,GAAG,MAAM,IAAI,CAAC"}
+{"version":3,"file":"FsAdapterOptionAutoLoadCallback.d.ts","sourceRoot":"","sources":["../../../src/adapters/FsAdapter/FsAdapterOptionAutoLoadCallback.ts"],"names":[],"mappings":"AAAA,oBAAY,+BAA+B,GAAG,MAAM,OAAO,CAAC,IAAI,CAAC,CAAA"}

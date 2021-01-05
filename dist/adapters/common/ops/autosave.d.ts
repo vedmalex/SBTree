@@ -1,3 +1,3 @@
-import { PersistentStore } from '../PersistentStore';
-export default function autosave(self: PersistentStore): Promise<void>;
+import { DataStore } from '../DataStore';
+export default function autosave(self: DataStore): Promise<void>;
 //# sourceMappingURL=autosave.d.ts.map

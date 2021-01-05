@@ -4,8 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const autosave_1 = __importDefault(require("../../common/ops/autosave"));
-async function attachParent(parent) {
-    this.setParent(parent);
+async function attachParent(source) {
+    this.datasource = source;
     if (this.autoLoad) {
         try {
             await this.loadDatabase();

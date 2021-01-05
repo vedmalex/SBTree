@@ -19,14 +19,12 @@ const getLeftInLeaf_1 = __importDefault(require("./methods/tree/getLeftInLeaf"))
 const findInLeaf_1 = __importDefault(require("./methods/tree/findInLeaf"));
 const getAllInLeaf_1 = __importDefault(require("./methods/tree/getAllInLeaf"));
 const removeInLeaf_1 = require("./methods/tree/removeInLeaf");
-const attachParent_1 = __importDefault(require("./methods/attachParent"));
+const saveDatabase_1 = __importDefault(require("../common/data/saveDatabase"));
+const loadDatabase_1 = __importDefault(require("../common/data/loadDatabase"));
+const attachParent_1 = __importDefault(require("../common/data/attachParent"));
 const insertSortedInLeaf_1 = __importDefault(require("./methods/insertSortedInLeaf"));
-const loadDatabase_1 = __importDefault(require("./methods/loadDatabase"));
 const openLeafData_1 = __importDefault(require("./methods/openLeafData"));
-const saveDatabase_1 = __importDefault(require("./methods/saveDatabase"));
 const saveLeafData_1 = __importDefault(require("./methods/saveLeafData"));
-const updateDocument_1 = __importDefault(require("./methods/updateDocument"));
-const Emittable_1 = require("../common/Emittable");
 exports.defaultFsProps = {
     path: '.db',
     autoSave: true,
@@ -34,19 +32,23 @@ exports.defaultFsProps = {
     autoLoad: true,
     autoLoadCallback: null,
 };
-class FsAdapter extends Emittable_1.Emittable {
+class FsAdapter {
     constructor(props) {
-        super();
         this.isReady = false;
-        if (props?.parent) {
-            this.setParent(props.parent);
-        }
-        this.leafs = (props?.leafs) ? props.leafs : {};
-        this.path = (props.path) ? (props.path) : exports.defaultFsProps.path;
-        this.autoSave = (props.autoSave !== undefined) ? (props.autoSave) : exports.defaultFsProps.autoSave;
-        this.autoSaveInterval = (props.autoSaveInterval !== undefined) ? (props.autoSaveInterval) : exports.defaultFsProps.autoSaveInterval;
-        this.autoLoad = (props.autoLoad !== undefined) ? (props.autoLoad) : exports.defaultFsProps.autoLoad;
-        this.autoLoadCallback = (props.autoLoadCallback !== undefined) ? (props.autoLoadCallback) : exports.defaultFsProps.autoLoadCallback;
+        this.leafs = props?.leafs ? props.leafs : {};
+        this.path = props.path ? props.path : exports.defaultFsProps.path;
+        this.autoSave =
+            props.autoSave !== undefined ? props.autoSave : exports.defaultFsProps.autoSave;
+        this.autoSaveInterval =
+            props.autoSaveInterval !== undefined
+                ? props.autoSaveInterval
+                : exports.defaultFsProps.autoSaveInterval;
+        this.autoLoad =
+            props.autoLoad !== undefined ? props.autoLoad : exports.defaultFsProps.autoLoad;
+        this.autoLoadCallback =
+            props.autoLoadCallback !== undefined
+                ? props.autoLoadCallback
+                : exports.defaultFsProps.autoLoadCallback;
         if (!this.autoLoad && this.autoLoadForceOverwrite === undefined) {
             throw new Error('Not implemented : Overwrite graceful handle. Pass autoLoadForceOverwrite to force.');
         }
@@ -57,19 +59,17 @@ class FsAdapter extends Emittable_1.Emittable {
         if (props.leafs) {
             this.isReady = false;
         }
+        if (props?.parent) {
+            attachParent_1.default.call(this, props.parent);
+        }
     }
     async initWith(tree) {
         await this.attachParent(tree);
         this.isReady = true;
         return true;
     }
-    get name() { return 'FsAdapter'; }
-    ;
-    setParent(parent) {
-        this.parent = parent;
-    }
-    getParent() {
-        return this.parent;
+    get name() {
+        return 'FsAdapter';
     }
     async attachParent(parent) {
         return attachParent_1.default.call(this, parent);
@@ -127,9 +127,6 @@ class FsAdapter extends Emittable_1.Emittable {
     }
     async splitLeaf(sourceLeaf, siblingLeaf) {
         return splitLeaf_1.default.call(this, sourceLeaf, siblingLeaf);
-    }
-    async updateDocument(_doc) {
-        return updateDocument_1.default.call(this, _doc);
     }
     async removeInLeaf(leafId, identifier) {
         return removeInLeaf_1.removeInLeaf.call(this, leafId, identifier);

@@ -5,8 +5,9 @@ async function saveDocument(doc) {
         console.error(doc);
         throw new Error('Cannot save document, expected id');
     }
-    await this.queue.add('File.create', `${this.path}/d/${doc._id}.json`, doc).execution();
+    await this.queue
+        .add('File.create', `${this.path}/d/${doc._id}.json`, doc)
+        .execution();
 }
 exports.default = saveDocument;
-;
 //# sourceMappingURL=saveDocument.js.map

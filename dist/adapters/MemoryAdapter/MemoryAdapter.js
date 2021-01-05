@@ -16,13 +16,11 @@ const findInLeaf_1 = require("./methods/tree/findInLeaf");
 const getAllInLeaf_1 = require("./methods/tree/getAllInLeaf");
 const removeInLeaf_1 = require("./methods/tree/removeInLeaf");
 const parseLeafs_1 = require("./methods/parseLeafs");
-const Emittable_1 = require("../common/Emittable");
-class MemoryAdapter extends Emittable_1.Emittable {
+class MemoryAdapter {
     constructor(props) {
-        super();
         this.isReady = false;
-        this.leafs = (props?.leafs) ? parseLeafs_1.parseLeafs(props.leafs) : {};
-        this.documents = (props?.documents) ? props?.documents : {};
+        this.leafs = props?.leafs ? parseLeafs_1.parseLeafs(props.leafs) : {};
+        this.documents = props?.documents ? props?.documents : {};
     }
     async initWith(tree) {
         if (!this.isReady) {
@@ -33,7 +31,6 @@ class MemoryAdapter extends Emittable_1.Emittable {
         else {
             return true;
         }
-        ;
     }
     async addInLeaf(leafName, identifier, value) {
         return addInLeaf_1.addInLeaf.call(this, leafName, identifier, value);
@@ -47,11 +44,9 @@ class MemoryAdapter extends Emittable_1.Emittable {
     async getLeftInLeaf(leafId) {
         return getLeftInLeaf_1.getLeftInLeaf.call(this, leafId);
     }
-    ;
     async getRightInLeaf(leafId) {
         return getRightInLeaf_1.getRightInLeaf.call(this, leafId);
     }
-    ;
     async findInLeaf(leafId, value, op = '$eq') {
         return findInLeaf_1.findInLeaf.call(this, leafId, value, op);
     }
@@ -68,18 +63,17 @@ class MemoryAdapter extends Emittable_1.Emittable {
         return removeInLeaf_1.removeInLeaf.call(this, leafId, identifier);
     }
     async replaceDocument(doc) {
-        return await replaceDocument_1.replaceDocument.call(this, doc);
+        return (await replaceDocument_1.replaceDocument.call(this, doc));
     }
     replaceInLeaf(leafId, identifier, value) {
         return replaceInLeaf_1.replaceInLeaf.call(this, leafId, identifier, value);
     }
     async saveDocument(doc) {
-        return await saveDocument_1.saveDocument.call(this, doc);
+        return (await saveDocument_1.saveDocument.call(this, doc));
     }
     async splitLeaf(sourceLeaf, siblingLeaf) {
         return splitLeaf_1.splitLeaf.call(this, sourceLeaf, siblingLeaf);
     }
-    ;
 }
 exports.MemoryAdapter = MemoryAdapter;
 //# sourceMappingURL=MemoryAdapter.js.map

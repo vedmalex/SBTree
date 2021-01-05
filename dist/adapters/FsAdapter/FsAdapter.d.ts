@@ -3,16 +3,15 @@ import LeafData from '../common/LeafData';
 import { SBTree } from '../../types/SBTree/SBTree';
 import { FsAdaptepOptions } from './FsAdaptepOptions';
 import { FsAdapterOptionAutoLoadCallback } from './FsAdapterOptionAutoLoadCallback';
-import { Emittable } from '../common/Emittable';
-import { PersistenceAdapter } from "../common/PersistenceAdapter";
+import { PersistenceAdapter } from '../common/PersistenceAdapter';
 import { AdapterLeafs } from '../MemoryAdapter/MemoryAdapterLeafs';
-import { PersistentStore } from '../common/PersistentStore';
+import { DataStore } from '../common/data/DataStore';
 export declare const defaultFsProps: FsAdaptepOptions;
 export declare type LeafId = string;
 export declare type FsAdapterLastChange = number;
 export declare type FsAdapterLastSave = number;
-export default class FsAdapter extends Emittable implements PersistenceAdapter, PersistentStore {
-    private parent;
+export default class FsAdapter implements PersistenceAdapter, DataStore {
+    datasource: SBTree;
     queue: FSLock;
     leafs: AdapterLeafs;
     path: string;
@@ -27,8 +26,6 @@ export default class FsAdapter extends Emittable implements PersistenceAdapter, 
     initWith(tree: SBTree): Promise<boolean>;
     get name(): string;
     constructor(props?: FsAdaptepOptions);
-    setParent(parent: any): void;
-    getParent(): SBTree;
     attachParent(parent: SBTree): Promise<void>;
     addInLeaf(leafName: any, identifier: any, value: any): Promise<any>;
     createLeaf(leafId: any): Promise<void>;
@@ -51,7 +48,6 @@ export default class FsAdapter extends Emittable implements PersistenceAdapter, 
     saveDocument(doc: any): Promise<void>;
     saveLeafData(leafName: string, data: LeafData): Promise<{}>;
     splitLeaf(sourceLeaf: any, siblingLeaf: any): Promise<import("../common/PossibleKeys").PossibleKeys>;
-    updateDocument(_doc: any): Promise<{}>;
     removeInLeaf(leafId: any, identifier: any): Promise<any[]>;
 }
 //# sourceMappingURL=FsAdapter.d.ts.map

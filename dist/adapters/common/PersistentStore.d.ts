@@ -1,4 +1,4 @@
-export interface PersistentStore {
+export interface DataStore {
     saveDatabase(): Promise<void>;
     loadDatabase(): Promise<void>;
     readonly autoSave: boolean;

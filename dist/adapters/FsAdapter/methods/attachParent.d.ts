@@ -1,3 +1,4 @@
 import FsAdapter from '../FsAdapter';
-export default function attachParent(this: FsAdapter, parent: any): Promise<void>;
+import { SBTree } from '../../../types/SBTree/SBTree';
+export default function attachParent(this: FsAdapter, source: SBTree): Promise<void>;
 //# sourceMappingURL=attachParent.d.ts.map

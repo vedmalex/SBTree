@@ -5,8 +5,9 @@ async function replaceDocument(doc) {
         console.error(doc);
         throw new Error('Cannot replace document, expected id');
     }
-    await this.queue.add('File.create', `${this.path}/d/${doc._id}.json`, doc).execution();
+    await this.queue
+        .add('File.create', `${this.path}/d/${doc._id}.json`, doc)
+        .execution();
 }
 exports.default = replaceDocument;
-;
 //# sourceMappingURL=replaceDocument.js.map
