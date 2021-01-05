@@ -1,3 +1,4 @@
 import { SBTree } from '../SBTree/SBTree';
-export declare function get(this: SBTree, identifier: any): Promise<any>;
+import { Document } from '../common/Document';
+export declare function get(this: SBTree, identifier: any): Promise<Document>;
 //# sourceMappingURL=get.d.ts.map

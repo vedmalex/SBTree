@@ -503,7 +503,7 @@
       },
       "./src/utils/comparators.ts": {
         "version": "f8938b4de174129a6740559222da5e3f7ab9150018fe0379a7b585aae98ed5d7",
-        "signature": "a441fa04727491af31ba5a3e33f00b9427a55def4d947fc197f852683e8fb983",
+        "signature": "77362def72177f96b28ea32e043654dfa84918234464662032c7c2094b4e2c40",
         "affectsGlobalScope": false
       },
       "./src/utils/array.ts": {
@@ -822,7 +822,7 @@
         "affectsGlobalScope": false
       },
       "./src/types/sbfnode/methods/tojson.ts": {
-        "version": "5c7fe11e36a06b75bdf3a19c2812275691f0420e7c303a04119ed377d614ba6f",
+        "version": "bb2178c354508319b31035502dee2b16655535ee9534c2693a14faf5756c9fd0",
         "signature": "9408b6882acf4abb2c6a97a2787215ae0334c008c24b02dd7d740ab908addd51",
         "affectsGlobalScope": false
       },
@@ -1072,8 +1072,8 @@
         "affectsGlobalScope": false
       },
       "./src/types/ops/get.ts": {
-        "version": "6dccab03c6cc68dca8e49d2ba9866f23c750b1369682ffba84ebc2735e6ffe31",
-        "signature": "ed99785956ee74cf29831bb715044c3d490bb577b64447dff8177747b88d9b18",
+        "version": "bdb2444df165cafa2c47d46a1bdc2caaa92145b84ae670eed648e155ce6ad918",
+        "signature": "7898819196eb01b71c4c33aad159cbcf5f98ff07769cdaf17904e30349dbe161",
         "affectsGlobalScope": false
       },
       "./src/types/ops/query.ts": {
@@ -1103,7 +1103,7 @@
       },
       "./src/types/sbtree/methods/getdocument.ts": {
         "version": "1b0ca42bf3bc76ffbc9642d26d967265046851124bce4c3de2574fb4b7e2eb10",
-        "signature": "a28fff496ae69957033edf1c712c1a350d993daf22cd1582bf0ab379b5c2f82a",
+        "signature": "d87b33a2c2d40ae2071fdd401977db325582c725dadb247fe2c9e15938ba5b3d",
         "affectsGlobalScope": false
       },
       "./src/types/sbtree/methods/getfieldtree.ts": {
@@ -1182,7 +1182,7 @@
         "affectsGlobalScope": false
       },
       "./src/examples/fs-usage.ts": {
-        "version": "a95bcd2246f07bb7862f306482bec007ec2b1433dbbd6eb946299fc79f7f856b",
+        "version": "0b362b52fac8b1e288057d37ce63e0c53945cd4f882f39c7ec5556c35e4daba4",
         "signature": "076ad42ead6e705bb40144d453391ad0c9395b7daafdf825c79ec7ea48676bcf",
         "affectsGlobalScope": false
       }
@@ -1656,6 +1656,7 @@
         "./src/adapters/memoryadapter/memoryadapter.ts"
       ],
       "./src/types/ops/get.ts": [
+        "./src/types/common/document.ts",
         "./src/types/sbtree/sbtree.ts"
       ],
       "./src/types/ops/insert.ts": [
@@ -2378,6 +2379,7 @@
         "./src/adapters/memoryadapter/memoryadapter.ts"
       ],
       "./src/types/ops/get.ts": [
+        "./src/types/common/document.ts",
         "./src/types/sbtree/sbtree.ts"
       ],
       "./src/types/ops/insert.ts": [
@@ -2615,6 +2617,7 @@
         "./src/types/sbtree/sbtree.ts"
       ],
       "./src/types/sbtree/methods/getdocument.ts": [
+        "./src/types/common/document.ts",
         "./src/types/sbtree/sbtree.ts"
       ],
       "./src/types/sbtree/methods/getfieldtree.ts": [

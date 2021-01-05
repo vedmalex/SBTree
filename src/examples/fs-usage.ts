@@ -8,6 +8,9 @@ const timer = new Timer();
 export const start = async function () {
   timer.start();
   console.log('-- Inserting...');
+   let inserted;
+  try{
+
   await tree.insertDocuments({
     age: 43, country: 'United States', email: 'bob@valjean.fr', _id: '5d6dc94e3c7734812f051d7a',
   });
@@ -24,7 +27,7 @@ export const start = async function () {
   try{
     // Duplicate do isAdded added
     await tree.insertDocuments({
-      age: 43, country: 'United States', email: 'bob@valjean.fr', _id: '5d6dc94e3c7734812f051d7c',
+      age: 43, country: 'United States', email: 'bob@valjean.fr', _id: '5d6dc94e3c7734812f051d7d',
     });
   } catch(e){
     console.log(e.message)
@@ -61,7 +64,10 @@ export const start = async function () {
 
   await tree.insertDocuments({ age: 26, country: 'Greenland', email: 'lisa@lesmund.gl', canDeliver: true });
   // // If you don't have any _i attach, it will create one for you
-  const inserted = await tree.insertDocuments({ age: 42, email: 'jean.paul@valjean.fr' });
+  inserted = await tree.insertDocuments({ age: 42, email: 'jean.paul@valjean.fr' });
+  } catch(e){
+    console.log(e.messsage)
+  }
 
   console.log('-- Get doc _id : 5d6dc94e3c7734812f051d7b');
   console.log(await tree.getDocument('5d6dc94e3c7734812f051d7b'));
@@ -70,12 +76,14 @@ export const start = async function () {
   console.log('-- Find : {email:goptnik@dourak.ru}');
 
   console.log(await tree.findDocuments({ email: 'goptnik@dourak.ru' }));
-  console.log('-- Find : {_id:inserted._id}');
-  console.log(await tree.findDocuments({ _id: inserted[0]._id }));
+  if(inserted){
+    console.log('-- Find : {_id:inserted._id}');
+    console.log(await tree.findDocuments({ _id: inserted[0]._id }));
+  }
   //
-  console.log('-- Find : {age:{$gte:44}}');
+  console.log('-- Find : {age:{$gte:25}}');
 
-  console.log(await tree.findDocuments({ age: { $gte: 44 } }));
+  console.log(await tree.findDocuments({ age: { $gte: 25 } }));
   console.log('-- Find : {country:{$nin:["France","Belgium", "Russia"]}}');
   console.log(await tree.findDocuments({ country: { $nin: ['France', 'Belgium', 'Russia'] } }));
 
@@ -90,13 +98,15 @@ export const start = async function () {
 
   console.log('-- Find : {canDeliver:true}');
   const [lisa] = await tree.findDocuments({canDeliver:true});
-  console.log(lisa);
-  lisa.age = 27;
-  delete lisa.canDeliver;
-  lisa.isPending = true;
+  if(lisa){
+    console.log(lisa);
+    lisa.age = 27;
+    delete lisa.canDeliver;
+    lisa.isPending = true;
 
-  console.log('-- Replace lisa');
-  console.log(await tree.replaceDocuments(lisa));
+    console.log('-- Replace lisa');
+    console.log(await tree.replaceDocuments(lisa));
+  }
 
   console.log('-- Find : {isPending:true}');
   console.log(await tree.findDocuments({ isPending: true }));

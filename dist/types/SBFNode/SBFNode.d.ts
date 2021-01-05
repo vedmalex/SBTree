@@ -12,7 +12,7 @@ export declare class SBFNode {
     identifiers: Array<string>;
     get type(): string;
     constructor(props: any);
-    getParent(): SBFNode | SBFRoot;
+    getParent(): SBFRoot | SBFNode;
     setParent(parent: any): void;
     getTree(): SBFTree;
     getAdapter(): import("../../adapters/MemoryAdapter/MemoryAdapter").PersistenceAdapter;

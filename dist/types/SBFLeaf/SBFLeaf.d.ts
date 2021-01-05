@@ -7,7 +7,7 @@ export declare class SBFLeaf {
     fieldName: string;
     get type(): string;
     constructor(props: any);
-    getParent(): SBFNode | SBFRoot;
+    getParent(): SBFRoot | SBFNode;
     setParent(parent: any): void;
     insert(identifier: any, value: any): Promise<void>;
     find(value: any): Promise<import("../common/OperationResult").OperationResult>;

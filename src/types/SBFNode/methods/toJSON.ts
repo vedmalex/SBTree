@@ -6,7 +6,6 @@ export function toJSON(this: SBFNode) {
     children,
     type,
     id,
-    // identifiers,
     keys,
 
   } = this;
@@ -14,7 +13,6 @@ export function toJSON(this: SBFNode) {
     id,
     type,
     fieldName,
-    // identifiers:[...identifiers],
     keys: [...keys],
     children: children.map(c => c.toJSON())
   };
