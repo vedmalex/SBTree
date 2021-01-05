@@ -1,19 +1,12 @@
-import { SBFNode } from '../SBFNode';
+import { SBFNode } from '../SBFNode'
 
 export function toJSON(this: SBFNode) {
-  const {
-    fieldName,
-    children,
-    type,
-    id,
-    keys,
-
-  } = this;
+  const { fieldName, children, type, id, keys } = this
   return {
     id,
     type,
     fieldName,
     keys: [...keys],
-    children: children.map(c => c.toJSON())
-  };
+    children: children.map((c) => c.toJSON()),
+  }
 }

@@ -1,44 +1,44 @@
-import { SBFLeaf } from '../SBFLeaf';
+import { SBFLeaf } from '../SBFLeaf'
 
 export async function remove(this: SBFLeaf, remCmd) {
-  const parent = this.getParent();
-  const adapter = parent.getAdapter();
+  const parent = this.getParent()
+  const adapter = parent.getAdapter()
 
   // const value = remCmd.query[this.fieldName];
-  const identifier = remCmd._id;
-  const selfPos = parent.children.findIndex((el) => el.id === this.id);
+  const identifier = remCmd._id
+  const selfPos = parent.children.findIndex((el) => el.id === this.id)
 
-  const removed = await adapter.removeInLeaf(this.id, identifier);
+  const removed = await adapter.removeInLeaf(this.id, identifier)
   if (removed.length === 0) {
-    return false;
+    return false
   }
   if (removed.length > 1)
-    throw new Error('Unexpected amount of removed entities in same leaf');
+    throw new Error('Unexpected amount of removed entities in same leaf')
 
   if (removed[0].index === 0) {
-    const newLeft = await adapter.getLeftInLeaf(this.id);
+    const newLeft = await adapter.getLeftInLeaf(this.id)
 
     if (newLeft.key) {
-      parent.keys.splice(selfPos - 1, 1, newLeft.key);
+      parent.keys.splice(selfPos - 1, 1, newLeft.key)
     } else {
-      parent.keys.splice(selfPos - 1, 1);
+      parent.keys.splice(selfPos - 1, 1)
     }
   }
 
-  const fillFactorFilled = await this.isFillFactorFilled();
+  const fillFactorFilled = await this.isFillFactorFilled()
   if (fillFactorFilled) {
-    return true;
+    return true
   }
   try {
-    await this.redistribute();
+    await this.redistribute()
   } catch (e) {
     try {
-      await this.mergeWithSiblings();
+      await this.mergeWithSiblings()
     } catch (e) {
       // This is done to be valid with https://www.cs.csubak.edu/~msarr/visualizations/BPlusTree.html
       // but BPlusTree.js line 1289 has a discrepenties (comment says inverse of code).
       // So FIXME with real research on what is advised perf-wise TODO
-      return true;
+      return true
     }
   }
 }

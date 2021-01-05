@@ -1,1 +1,1 @@
-{"version":3,"file":"createRoot.d.ts","sourceRoot":"","sources":["../../../../src/types/SBFTree/methods/createRoot.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,OAAO,EAAE,MAAM,YAAY,CAAC;AAErC,wBAAgB,UAAU,CAAC,IAAI,EAAE,OAAO,EAAE,IAAI,MAAO,QA2BpD"}
+{"version":3,"file":"createRoot.d.ts","sourceRoot":"","sources":["../../../../src/types/SBFTree/methods/createRoot.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,OAAO,EAAE,MAAM,YAAY,CAAA;AAEpC,wBAAgB,UAAU,CAAC,IAAI,EAAE,OAAO,EAAE,IAAI,MAAO,QA2BpD"}

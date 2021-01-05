@@ -40,14 +40,14 @@ async function find(value, operator = '$eq') {
             for (const el of value) {
                 p.push(self.find(el));
             }
-            await Promise
-                .all(p)
+            await Promise.all(p)
                 .then((resolvedP) => {
                 resolvedP.forEach((p) => {
                     results.identifiers.push(...p.identifiers);
                     results.keys.push(...p.keys);
                 });
-            }).catch((err) => {
+            })
+                .catch((err) => {
                 console.error('err', err);
             });
             return results;

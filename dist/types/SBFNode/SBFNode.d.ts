@@ -2,7 +2,7 @@ import { SBFLeaf } from '../SBFLeaf/SBFLeaf';
 import { SBFRoot } from '../SBFRoot/SBFRoot';
 import { SBFTree } from '../SBFTree/SBFTree';
 import { FillStatus } from '../common/FillStatus';
-import { PossibleKeys } from "../../adapters/common/PossibleKeys";
+import { PossibleKeys } from '../../adapters/common/PossibleKeys';
 export declare class SBFNode {
     private parent;
     id: string;

@@ -40,7 +40,8 @@ async function remove(_query) {
                         const fieldNode = this.getFieldTree(_fieldName);
                         await fieldNode.remove(remCmd);
                     }
-                    else if (_fieldValType === 'object' && !Array.isArray(_fieldValue)) {
+                    else if (_fieldValType === 'object' &&
+                        !Array.isArray(_fieldValue)) {
                         for (const _nestedFieldName in _fieldValue) {
                             const _nestedFieldValue = _fieldValue[_nestedFieldName];
                             try {
@@ -50,7 +51,8 @@ async function remove(_query) {
                                 switch (e.message) {
                                     case 'Field do not exist':
                                         break;
-                                    default: throw e;
+                                    default:
+                                        throw e;
                                 }
                             }
                         }
@@ -58,7 +60,7 @@ async function remove(_query) {
                     else {
                         throw new Error(`Unsupported type ${_fieldValType}`);
                     }
-                    await (this.getAdapter()).removeDocument(remCmd._id);
+                    await this.getAdapter().removeDocument(remCmd._id);
                 }
             }
         }

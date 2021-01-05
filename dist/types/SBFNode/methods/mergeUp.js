@@ -8,8 +8,9 @@ async function mergeUp() {
     if (children.length !== 1) {
         throw new Error('We did not tought about resolving this case. ');
     }
-    if (parent.children.length === 2 && !(await parent.getFillStatus()).fillFactorFilled) {
-        const siblingPos = (selfPos === 1) ? 0 : 1;
+    if (parent.children.length === 2 &&
+        !(await parent.getFillStatus()).fillFactorFilled) {
+        const siblingPos = selfPos === 1 ? 0 : 1;
         const sibling = parent.children[siblingPos];
         parent.keys.splice(siblingPos, 0, ...sibling.keys);
         parent.children = [...sibling.children, ...children];

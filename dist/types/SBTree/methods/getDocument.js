@@ -6,7 +6,7 @@ async function getDocument(identifier) {
     if (!this.isReady) {
         await this.onReady();
     }
-    return await (get_1.get.call(this, identifier));
+    return (await get_1.get.call(this, identifier));
 }
 exports.getDocument = getDocument;
 //# sourceMappingURL=getDocument.js.map

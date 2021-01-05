@@ -1,18 +1,22 @@
-import { FsAdapter } from '../adapters';
-import { SBTree } from '../types/SBTree/SBTree';
-import Timer from '../utils/time';
+import { FsAdapter } from '../adapters'
+import { SBTree } from '../types/SBTree/SBTree'
+import Timer from '../utils/time'
 
-const tree = new SBTree({ adapter:new FsAdapter({ path: '.db', autoSave: false }), order: 3, uniques:["email"] });
-const timer = new Timer();
+const tree = new SBTree({
+  adapter: new FsAdapter({ path: '.db', autoSave: false }),
+  order: 3,
+  uniques: ['email'],
+})
+const timer = new Timer()
 
 export const start = async function () {
-  timer.start();
+  timer.start()
 
-  console.log('-- Find : {country:{$in:[\'Greenland\']}}');
-  console.log(await tree.findDocuments({ age:{$gt:60}}));
+  console.log("-- Find : {country:{$in:['Greenland']}}")
+  console.log(await tree.findDocuments({ age: { $gt: 60 } }))
 
-  timer.stop();
-  console.log(timer.duration.s, 'seconds');
-};
+  timer.stop()
+  console.log(timer.duration.s, 'seconds')
+}
 
-tree.onReady( ()=> start().then(_=>"closed"));
+tree.onReady(() => start().then((_) => 'closed'))

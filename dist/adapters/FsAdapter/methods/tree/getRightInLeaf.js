@@ -18,5 +18,4 @@ async function getRightInLeaf(leafId) {
     return lodash_clonedeep_1.default({ identifier, key });
 }
 exports.default = getRightInLeaf;
-;
 //# sourceMappingURL=getRightInLeaf.js.map

@@ -62,12 +62,12 @@ async function draw(fieldNode, preventConsole = false) {
     const biggestChildLen = rows[rows.length - 1].length;
     const biggestRepeatTimes = biggestChildLen * spanVal;
     rows.forEach((row, i) => {
-        const calc = biggestRepeatTimes - (i * spanVal * 2);
-        const repeatTimes = (calc > 0) ? calc : 0;
-        !preventConsole && console.log(`${' '.repeat(repeatTimes)}${JSON.stringify(row)}`);
+        const calc = biggestRepeatTimes - i * spanVal * 2;
+        const repeatTimes = calc > 0 ? calc : 0;
+        !preventConsole &&
+            console.log(`${' '.repeat(repeatTimes)}${JSON.stringify(row)}`);
     });
     return rows;
 }
-;
 exports.default = { draw };
 //# sourceMappingURL=ascii.js.map

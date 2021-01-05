@@ -14,7 +14,10 @@ async function getFillStatus() {
         const leaf = await adapter.openLeaf(this.id);
         const { size } = leaf.meta;
         return {
-            fillFactor, order, leafSize: size, fillFactorFilled: size >= minKeys,
+            fillFactor,
+            order,
+            leafSize: size,
+            fillFactorFilled: size >= minKeys,
         };
     }
     catch (e) {

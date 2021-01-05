@@ -13,20 +13,23 @@ const defaultOpts = {
     order: 511,
     fillFactor: 0.5,
     verbose: false,
-    isUnique: false
+    isUnique: false,
 };
 class SBFTree {
     constructor(props) {
         this._adapter = props.adapter;
-        this.id = (props?.id) ? props?.id : crypto_1.generateFieldTreeId();
-        this.order = (props.order) ? props.order : defaultOpts.order;
-        this.verbose = (props.verbose) ? props.verbose : defaultOpts.verbose;
-        this.fillFactor = (props.fillFactor) ? props.fillFactor : defaultOpts.fillFactor;
+        this.id = props?.id ? props?.id : crypto_1.generateFieldTreeId();
+        this.order = props.order ? props.order : defaultOpts.order;
+        this.verbose = props.verbose ? props.verbose : defaultOpts.verbose;
+        this.fillFactor = props.fillFactor
+            ? props.fillFactor
+            : defaultOpts.fillFactor;
         if (!props.fieldName) {
             throw new Error(`SBFTree expect a fieldName to be initialized`);
         }
-        this.fieldName = (props.fieldName) ? props.fieldName : null;
-        this.isUnique = (props.isUnique !== undefined) ? props.isUnique : defaultOpts.isUnique;
+        this.fieldName = props.fieldName ? props.fieldName : null;
+        this.isUnique =
+            props.isUnique !== undefined ? props.isUnique : defaultOpts.isUnique;
         if (props.root) {
             this.createRoot(props.root);
         }
@@ -40,7 +43,9 @@ class SBFTree {
     getOptions() {
         const { order, fillFactor, verbose } = this;
         return {
-            order, fillFactor, verbose
+            order,
+            fillFactor,
+            verbose,
         };
     }
     createRoot(root = null) {
@@ -66,5 +71,4 @@ class SBFTree {
     }
 }
 exports.SBFTree = SBFTree;
-;
 //# sourceMappingURL=SBFTree.js.map

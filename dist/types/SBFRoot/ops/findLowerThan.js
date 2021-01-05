@@ -38,12 +38,14 @@ async function findLowerThan(key, includeKey = false) {
         if (keys.includes(key)) {
             p.push(await children[leafIndex + 1].findLowerThan(key, includeKey));
         }
-        await Promise.all(p).then((res) => {
+        await Promise.all(p)
+            .then((res) => {
             res.forEach((p) => {
                 result.identifiers.push(...p.identifiers);
                 result.keys.push(...p.keys);
             });
-        }).catch((err) => {
+        })
+            .catch((err) => {
             console.error('err', err);
         });
     }

@@ -24,5 +24,4 @@ async function splitLeaf(sourceLeaf, siblingLeaf) {
     return midKey;
 }
 exports.default = splitLeaf;
-;
 //# sourceMappingURL=splitLeaf.js.map

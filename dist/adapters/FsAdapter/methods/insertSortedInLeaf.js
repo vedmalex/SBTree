@@ -13,5 +13,4 @@ async function insertSortedInLeaf(leafId, value) {
     return index;
 }
 exports.default = insertSortedInLeaf;
-;
 //# sourceMappingURL=insertSortedInLeaf.js.map

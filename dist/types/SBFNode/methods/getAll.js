@@ -8,9 +8,7 @@ async function getAll() {
         p.push(child.getAll());
     });
     return new Promise((resolve) => {
-        Promise
-            .all(p)
-            .then((res) => {
+        Promise.all(p).then((res) => {
             res.forEach((resolvedP) => {
                 if (resolvedP.identifiers) {
                     result.identifiers.push(...resolvedP.identifiers);

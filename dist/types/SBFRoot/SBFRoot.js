@@ -21,24 +21,24 @@ class SBFRoot {
             throw new Error(`SBFRoot is initialized without any tree referenced`);
         }
         this.tree = props.tree;
-        this.id = (props.id) ? props.id : crypto_1.generateRootId();
-        this.fieldName = (props.tree.fieldName) ? props.tree.fieldName : null;
-        this.keys = (props.keys) ? props.keys : [];
-        this.identifiers = (props.identifiers) ? props.identifiers : [];
-        this.children = (props.children) ? parseChildren_1.parseChildren(props.children, this) : [];
+        this.id = props.id ? props.id : crypto_1.generateRootId();
+        this.fieldName = props.tree.fieldName ? props.tree.fieldName : null;
+        this.keys = props.keys ? props.keys : [];
+        this.identifiers = props.identifiers ? props.identifiers : [];
+        this.children = props.children ? parseChildren_1.parseChildren(props.children, this) : [];
     }
-    get type() { return 'root'; }
+    get type() {
+        return 'root';
+    }
     getTree() {
-        return (this.tree);
+        return this.tree;
     }
     getAdapter() {
         return this.tree.adapter;
     }
-    ;
     getTreeOptions() {
         return this.getTree().getOptions();
     }
-    ;
     async attachLeaf(index, leaf) {
         return attachLeaf_1.attachLeaf.call(this, index, leaf);
     }
@@ -77,5 +77,4 @@ class SBFRoot {
     }
 }
 exports.SBFRoot = SBFRoot;
-;
 //# sourceMappingURL=SBFRoot.js.map

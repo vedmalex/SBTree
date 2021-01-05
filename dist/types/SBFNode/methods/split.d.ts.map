@@ -1,1 +1,1 @@
-{"version":3,"file":"split.d.ts","sourceRoot":"","sources":["../../../../src/types/SBFNode/methods/split.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,MAAM,YAAY,CAAC;AAErC,wBAAsB,KAAK,CAAC,IAAI,EAAE,OAAO,iBAkCxC"}
+{"version":3,"file":"split.d.ts","sourceRoot":"","sources":["../../../../src/types/SBFNode/methods/split.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,MAAM,YAAY,CAAA;AAEpC,wBAAsB,KAAK,CAAC,IAAI,EAAE,OAAO,iBAkCxC"}

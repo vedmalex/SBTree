@@ -6,11 +6,11 @@ const comparatorString = function (a, b) {
         a = String(a);
     if (typeof b !== 'string')
         b = String(b);
-    return (a > b ? 1 : (a < b ? -1 : 0));
+    return a > b ? 1 : a < b ? -1 : 0;
 };
 exports.comparatorString = comparatorString;
 const comparatorNum = function (a, b) {
-    return (a > b ? 1 : (a < b ? -1 : 0));
+    return a > b ? 1 : a < b ? -1 : 0;
 };
 exports.comparatorNum = comparatorNum;
 //# sourceMappingURL=comparators.js.map

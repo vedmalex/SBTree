@@ -1,5 +1,5 @@
 import { SBFRoot } from '../SBFRoot/SBFRoot';
-import { PersistenceAdapter } from "../../adapters/common/PersistenceAdapter";
+import { PersistenceAdapter } from '../../adapters/common/PersistenceAdapter';
 export declare type SBFTreeOptions = {
     adapter: PersistenceAdapter;
     id: string;

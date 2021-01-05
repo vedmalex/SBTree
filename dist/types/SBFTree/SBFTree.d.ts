@@ -1,6 +1,6 @@
 import { SBFRoot } from '../SBFRoot/SBFRoot';
 import { SBFTreeOptions } from './SBFTreeOptions';
-import { PersistenceAdapter } from "../../adapters/common/PersistenceAdapter";
+import { PersistenceAdapter } from '../../adapters/common/PersistenceAdapter';
 export declare class SBFTree {
     private _adapter;
     get adapter(): PersistenceAdapter;

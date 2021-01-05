@@ -10,13 +10,12 @@ class Timer {
             s: 0,
         };
     }
-    ;
     start() {
         this.startTs = process.hrtime();
     }
     stop() {
         this.endTs = process.hrtime(this.startTs);
-        this.duration.nano = (this.endTs[0] * 1e9) + this.endTs[1];
+        this.duration.nano = this.endTs[0] * 1e9 + this.endTs[1];
         this.duration.ms = this.duration.nano / 1e6;
         this.duration.s = this.duration.nano / 1e9;
     }

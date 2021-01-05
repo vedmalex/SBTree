@@ -1,1 +1,1 @@
-export const validTypes= ['string', 'number', 'boolean', 'object']
+export const validTypes = ['string', 'number', 'boolean', 'object']

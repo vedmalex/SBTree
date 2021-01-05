@@ -1,5 +1,4 @@
-
 export type RemoveInLeafResult = {
-  identifier: string;
-  index: number;
-};
+  identifier: string
+  index: number
+}

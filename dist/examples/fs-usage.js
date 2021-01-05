@@ -7,7 +7,11 @@ exports.start = void 0;
 const adapters_1 = require("../adapters");
 const SBTree_1 = require("../types/SBTree/SBTree");
 const time_1 = __importDefault(require("../utils/time"));
-const tree = new SBTree_1.SBTree({ adapter: new adapters_1.FsAdapter({ path: '.db', autoSave: true }), order: 3, uniques: ["email"] });
+const tree = new SBTree_1.SBTree({
+    adapter: new adapters_1.FsAdapter({ path: '.db', autoSave: true }),
+    order: 3,
+    uniques: ['email'],
+});
 const timer = new time_1.default();
 const start = async function () {
     timer.start();
@@ -15,53 +19,100 @@ const start = async function () {
     let inserted;
     try {
         await tree.insertDocuments({
-            age: 43, country: 'United States', email: 'bob@valjean.fr', _id: '5d6dc94e3c7734812f051d7a',
+            age: 43,
+            country: 'United States',
+            email: 'bob@valjean.fr',
+            _id: '5d6dc94e3c7734812f051d7a',
         });
         await tree.insertDocuments({
-            age: 43, country: 'United States', email: 'ben@valjean.fr', _id: '5d6dc94e3c7734812f051d7b',
+            age: 43,
+            country: 'United States',
+            email: 'ben@valjean.fr',
+            _id: '5d6dc94e3c7734812f051d7b',
         });
         await tree.insertDocuments({
-            age: 21, country: 'Russia', email: 'julia@valjean.fr', _id: '5d6dc94e3c7734812f051d7c',
+            age: 21,
+            country: 'Russia',
+            email: 'julia@valjean.fr',
+            _id: '5d6dc94e3c7734812f051d7c',
         });
         await tree.insertDocuments({
-            age: 22, country: 'United Kingdom', email: 'zack@valjean.fr', _id: '5d6dc94e3c7734812f051duk',
+            age: 22,
+            country: 'United Kingdom',
+            email: 'zack@valjean.fr',
+            _id: '5d6dc94e3c7734812f051duk',
         });
         try {
             await tree.insertDocuments({
-                age: 43, country: 'United States', email: 'bob@valjean.fr', _id: '5d6dc94e3c7734812f051d7d',
+                age: 43,
+                country: 'United States',
+                email: 'bob@valjean.fr',
+                _id: '5d6dc94e3c7734812f051d7d',
             });
         }
         catch (e) {
             console.log(e.message);
         }
         await tree.insertDocuments({
-            age: 29, country: 'Belgium', email: 'patrick@valjean.fr', _id: '5d6dc94e3c7734812f051bel',
+            age: 29,
+            country: 'Belgium',
+            email: 'patrick@valjean.fr',
+            _id: '5d6dc94e3c7734812f051bel',
         });
         await tree.insertDocuments({
-            age: 27, country: 'France', email: 'valentin@valjean.fr', _id: '5d6dc94e3c7734812f051df4',
+            age: 27,
+            country: 'France',
+            email: 'valentin@valjean.fr',
+            _id: '5d6dc94e3c7734812f051df4',
         });
         await tree.insertDocuments({
-            age: 33, email: 'goptnik@dourak.ru', country: 'Russia', _id: '5d6dc93f6059937716f41eed',
+            age: 33,
+            email: 'goptnik@dourak.ru',
+            country: 'Russia',
+            _id: '5d6dc93f6059937716f41eed',
         });
         await tree.insertDocuments([
             {
-                age: 33, email: 'basil@valjean.fr', country: 'France', _id: '5d6dc93a34d1cfc2c45fdc09',
+                age: 33,
+                email: 'basil@valjean.fr',
+                country: 'France',
+                _id: '5d6dc93a34d1cfc2c45fdc09',
             },
             {
-                age: 11, email: 'jean@valjean.fr', country: 'France', _id: '5d6dc077e27058fb6c7d8592',
+                age: 11,
+                email: 'jean@valjean.fr',
+                country: 'France',
+                _id: '5d6dc077e27058fb6c7d8592',
             },
             {
-                age: 18, email: 'luc@valjean.fr', country: 'France', _id: '5d6ded39ea07d9b4c062b744',
+                age: 18,
+                email: 'luc@valjean.fr',
+                country: 'France',
+                _id: '5d6ded39ea07d9b4c062b744',
             },
             {
-                age: 86, email: 'charles@valjean.fr', country: 'France', _id: '5d6ded52666c83c63210d55f',
+                age: 86,
+                email: 'charles@valjean.fr',
+                country: 'France',
+                _id: '5d6ded52666c83c63210d55f',
             },
             {
-                age: 44, email: 'phillipe@valjean.fr', country: 'France', _id: '5d6ded6fcb8d55944c7fc5e6',
+                age: 44,
+                email: 'phillipe@valjean.fr',
+                country: 'France',
+                _id: '5d6ded6fcb8d55944c7fc5e6',
             },
         ]);
-        await tree.insertDocuments({ age: 26, country: 'Greenland', email: 'lisa@lesmund.gl', canDeliver: true });
-        inserted = await tree.insertDocuments({ age: 42, email: 'jean.paul@valjean.fr' });
+        await tree.insertDocuments({
+            age: 26,
+            country: 'Greenland',
+            email: 'lisa@lesmund.gl',
+            canDeliver: true,
+        });
+        inserted = await tree.insertDocuments({
+            age: 42,
+            email: 'jean.paul@valjean.fr',
+        });
     }
     catch (e) {
         console.log(e.messsage);
@@ -79,12 +130,14 @@ const start = async function () {
     console.log('-- Find : {age:{$gte:25}}');
     console.log(await tree.findDocuments({ age: { $gte: 25 } }));
     console.log('-- Find : {country:{$nin:["France","Belgium", "Russia"]}}');
-    console.log(await tree.findDocuments({ country: { $nin: ['France', 'Belgium', 'Russia'] } }));
-    console.log('-- Find : {country:{$in:[\'Belgium\']}}');
+    console.log(await tree.findDocuments({
+        country: { $nin: ['France', 'Belgium', 'Russia'] },
+    }));
+    console.log("-- Find : {country:{$in:['Belgium']}}");
     console.log(await tree.findDocuments({ country: { $in: ['Belgium'] } }));
-    console.log('-- Delete : {country:{$in:[\'Belgium\']}');
+    console.log("-- Delete : {country:{$in:['Belgium']}");
     console.log(await tree.deleteDocuments({ country: { $in: ['Belgium'] } }));
-    console.log('-- Find : {country:{$in:[\'Belgium\']}}');
+    console.log("-- Find : {country:{$in:['Belgium']}}");
     console.log(await tree.findDocuments({ country: { $in: ['Belgium'] } }));
     console.log('-- Find : {canDeliver:true}');
     const [lisa] = await tree.findDocuments({ canDeliver: true });
@@ -100,7 +153,7 @@ const start = async function () {
     console.log(await tree.findDocuments({ isPending: true }));
     console.log('-- Find : {canDeliver:true}');
     console.log(await tree.findDocuments({ canDeliver: true }));
-    console.log('-- Find : {country:{$in:[\'Greenland\']}}');
+    console.log("-- Find : {country:{$in:['Greenland']}}");
     console.log(await tree.findDocuments({ country: { $in: ['Greenland'] } }));
     timer.stop();
     console.log(timer.duration.s, 'seconds');

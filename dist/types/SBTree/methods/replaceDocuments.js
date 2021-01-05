@@ -13,7 +13,9 @@ async function replaceDocuments(documents) {
         return documents;
     }
     const currentDocument = await this.getDocument(documents._id);
-    return ([await replace_1.replace.call(this, currentDocument, documents)]);
+    return [
+        await replace_1.replace.call(this, currentDocument, documents),
+    ];
 }
 exports.replaceDocuments = replaceDocuments;
 //# sourceMappingURL=replaceDocuments.js.map

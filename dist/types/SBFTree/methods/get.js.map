@@ -1,1 +1,1 @@
-{"version":3,"file":"get.js","sourceRoot":"","sources":["../../../../src/types/SBFTree/methods/get.ts"],"names":[],"mappings":";;;AAEO,KAAK,UAAU,GAAG,CAAgB,UAAU;IACjD,OAAO,MAAM,IAAI,CAAC,IAAI,CAAC,GAAG,CAAC,UAAU,CAAC,CAAC;AACzC,CAAC;AAFD,kBAEC"}
+{"version":3,"file":"get.js","sourceRoot":"","sources":["../../../../src/types/SBFTree/methods/get.ts"],"names":[],"mappings":";;;AAEO,KAAK,UAAU,GAAG,CAAgB,UAAU;IACjD,OAAO,MAAM,IAAI,CAAC,IAAI,CAAC,GAAG,CAAC,UAAU,CAAC,CAAA;AACxC,CAAC;AAFD,kBAEC"}

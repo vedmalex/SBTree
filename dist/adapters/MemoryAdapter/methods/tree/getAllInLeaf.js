@@ -7,7 +7,10 @@ exports.getAllInLeaf = void 0;
 const lodash_clonedeep_1 = __importDefault(require("lodash.clonedeep"));
 async function getAllInLeaf(leafId) {
     const leaf = this.leafs[leafId];
-    return lodash_clonedeep_1.default({ identifiers: leaf.meta.identifiers, keys: leaf.data.keys });
+    return lodash_clonedeep_1.default({
+        identifiers: leaf.meta.identifiers,
+        keys: leaf.data.keys,
+    });
 }
 exports.getAllInLeaf = getAllInLeaf;
 //# sourceMappingURL=getAllInLeaf.js.map

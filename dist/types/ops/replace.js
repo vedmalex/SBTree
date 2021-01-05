@@ -15,7 +15,10 @@ function findChangedFields(object, base) {
     function changes(object, base) {
         return lodash_transform_1.default(object, (result, value, key) => {
             if (base[key] !== undefined && !lodash_isequal_1.default(value, base[key])) {
-                result[key] = (lodash_isobject_1.default(value) && lodash_isobject_1.default(base[key])) ? changes(value, base[key]) : value;
+                result[key] =
+                    lodash_isobject_1.default(value) && lodash_isobject_1.default(base[key])
+                        ? changes(value, base[key])
+                        : value;
             }
         });
     }
@@ -25,7 +28,10 @@ function findAddedFields(object, base) {
     function addedChanges(object, base) {
         return lodash_transform_1.default(object, (result, value, key) => {
             if (base[key] === undefined) {
-                result[key] = (lodash_isobject_1.default(value) && lodash_isobject_1.default(base[key])) ? addedChanges(value, base[key]) : value;
+                result[key] =
+                    lodash_isobject_1.default(value) && lodash_isobject_1.default(base[key])
+                        ? addedChanges(value, base[key])
+                        : value;
             }
         });
     }
@@ -57,7 +63,8 @@ async function replace(currentDocument, newDocument) {
             }
         }
         else {
-            this.verbose && console.log(`No index for ${_addedFieldName} : Typeof ${_addedFieldType} : ${JSON.stringify(_addedFieldValue)}`);
+            this.verbose &&
+                console.log(`No index for ${_addedFieldName} : Typeof ${_addedFieldType} : ${JSON.stringify(_addedFieldValue)}`);
         }
     }
     const remCmd = new RemoveCommand_1.RemoveCommand({
@@ -80,7 +87,8 @@ async function replace(currentDocument, newDocument) {
             }
         }
         else {
-            this.verbose && console.log(`No index for ${_deletedFieldName} : Typeof ${_deletedFieldType} : ${JSON.stringify(_deletedFieldValue)}`);
+            this.verbose &&
+                console.log(`No index for ${_deletedFieldName} : Typeof ${_deletedFieldType} : ${JSON.stringify(_deletedFieldValue)}`);
         }
     }
     const replaceProp = async (_fieldName, _fieldValue) => {
@@ -115,7 +123,8 @@ async function replace(currentDocument, newDocument) {
             await replaceProp(_changedFieldName, _changedFieldValue);
         }
         else {
-            this.verbose && console.log(`No index for ${_changedFieldName} : Typeof ${_changedFieldType} : ${JSON.stringify(_changedFieldValue)}`);
+            this.verbose &&
+                console.log(`No index for ${_changedFieldName} : Typeof ${_changedFieldType} : ${JSON.stringify(_changedFieldValue)}`);
         }
     }
     await this.adapter.replaceDocument(newDocument);

@@ -1,14 +1,7 @@
-import { SBFRoot } from '../SBFRoot';
+import { SBFRoot } from '../SBFRoot'
 
 export function toJSON(this: SBFRoot) {
-  const {
-    type,
-    id,
-    fieldName,
-    identifiers,
-    keys,
-    children,
-  } = this;
+  const { type, id, fieldName, identifiers, keys, children } = this
 
   return {
     type,
@@ -16,6 +9,6 @@ export function toJSON(this: SBFRoot) {
     fieldName,
     identifiers: [...identifiers],
     keys: [...keys],
-    children: children.map(c => c.toJSON())
-  };
+    children: children.map((c) => c.toJSON()),
+  }
 }

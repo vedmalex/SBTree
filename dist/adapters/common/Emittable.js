@@ -12,7 +12,7 @@ class Emittable {
         this.listeners.push({
             event,
             listener,
-            type: 'on'
+            type: 'on',
         });
     }
     once(event, listener) {
@@ -20,7 +20,7 @@ class Emittable {
         this.listeners.push({
             event,
             listener,
-            type: 'once'
+            type: 'once',
         });
     }
     close() {

@@ -11,8 +11,10 @@ async function getAllInLeaf(leafId) {
         await this.createLeaf(leafId);
         return this.getAllInLeaf(leafId);
     }
-    return lodash_clonedeep_1.default({ identifiers: this.leafs[leafId].meta.identifiers, keys });
+    return lodash_clonedeep_1.default({
+        identifiers: this.leafs[leafId].meta.identifiers,
+        keys,
+    });
 }
 exports.default = getAllInLeaf;
-;
 //# sourceMappingURL=getAllInLeaf.js.map

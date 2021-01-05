@@ -1,1 +1,1 @@
-{"version":3,"file":"removeDocument.d.ts","sourceRoot":"","sources":["../../../../../src/adapters/MemoryAdapter/methods/crud/removeDocument.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,MAAM,qBAAqB,CAAC;AAEpD,wBAAgB,cAAc,CAAC,IAAI,EAAE,aAAa,EAAE,UAAU,KAAA,QAI7D"}
+{"version":3,"file":"removeDocument.d.ts","sourceRoot":"","sources":["../../../../../src/adapters/MemoryAdapter/methods/crud/removeDocument.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,MAAM,qBAAqB,CAAA;AAEnD,wBAAgB,cAAc,CAAC,IAAI,EAAE,aAAa,EAAE,UAAU,KAAA,QAI7D"}

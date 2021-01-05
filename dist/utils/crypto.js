@@ -25,7 +25,7 @@ function browserRandomBytes() {
     return randomBytes;
 }
 const isWindowContext = globalThis.window?.crypto?.getRandomValues;
-const randomBytes = (isWindowContext) ? browserRandomBytes : getRandomBytes();
+const randomBytes = isWindowContext ? browserRandomBytes : getRandomBytes();
 const generateRandId = (prefix = '') => prefix + (Date.now().toString(16) + randomBytes(4).toString('hex'));
 exports.generateRandId = generateRandId;
 const generateLeafId = () => exports.generateRandId('l');

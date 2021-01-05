@@ -24,9 +24,9 @@ class SBFNode {
             throw new Error(`SBFNode initialized without parent reference`);
         }
         this.parent = props.parent;
-        this.id = (props.id) ? props.id : crypto_1.generateNodeId();
-        this.fieldName = (props.parent.fieldName) ? props.parent.fieldName : null;
-        this.keys = (props.keys) ? props.keys : [];
+        this.id = props.id ? props.id : crypto_1.generateNodeId();
+        this.fieldName = props.parent.fieldName ? props.parent.fieldName : null;
+        this.keys = props.keys ? props.keys : [];
         this.children = [];
         if (props.children) {
             props.children.forEach((child) => {
@@ -39,7 +39,9 @@ class SBFNode {
             });
         }
     }
-    get type() { return 'node'; }
+    get type() {
+        return 'node';
+    }
     getParent() {
         return this.parent;
     }
@@ -47,12 +49,12 @@ class SBFNode {
         this.parent = parent;
     }
     getTree() {
-        return this.parent.getTree() || this.parent.getParent().getTree();
+        return (this.parent.getTree() ||
+            this.parent.getParent().getTree());
     }
     getAdapter() {
         return this.getTree().root.getAdapter();
     }
-    ;
     async attachLeaf(index, leaf) {
         return attachLeaf_1.attachLeaf.call(this, index, leaf);
     }

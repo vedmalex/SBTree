@@ -24,10 +24,12 @@ class SBFLeaf {
             throw new Error(`SFBLeaf initialized without parent reference`);
         }
         this.parent = props.parent;
-        this.id = (props.id) ? props.id : crypto_1.generateLeafId();
-        this.fieldName = (props.parent.fieldName) ? props.parent.fieldName : null;
+        this.id = props.id ? props.id : crypto_1.generateLeafId();
+        this.fieldName = props.parent.fieldName ? props.parent.fieldName : null;
     }
-    get type() { return 'leaf'; }
+    get type() {
+        return 'leaf';
+    }
     getParent() {
         return this.parent;
     }
@@ -40,30 +42,24 @@ class SBFLeaf {
     async find(value) {
         return find_1.find.call(this, value);
     }
-    ;
     async getAll() {
         return getAll_1.getAll.call(this);
     }
-    ;
     async getFillStatus() {
         return getFillStatus_1.getFillStatus.call(this);
     }
     async getLeft() {
         return getLeft_1.getLeft.call(this);
     }
-    ;
     async getRight() {
         return getRight_1.getRight.call(this);
     }
-    ;
     async findLowerThan(value, includeKey = false) {
         return findLowerThan_1.findLowerThan.call(this, value, includeKey);
     }
-    ;
     async findGreaterThan(value, includeKey = false) {
         return findGreaterThan_1.findGreaterThan.call(this, value, includeKey);
     }
-    ;
     async isFillFactorFilled() {
         return isFillFactorFilled_1.isFillFactorFilled.call(this);
     }
@@ -90,5 +86,4 @@ class SBFLeaf {
     }
 }
 exports.SBFLeaf = SBFLeaf;
-;
 //# sourceMappingURL=SBFLeaf.js.map

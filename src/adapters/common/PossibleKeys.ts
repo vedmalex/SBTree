@@ -1,2 +1,1 @@
-
-export type PossibleKeys = string | number | boolean;
+export type PossibleKeys = string | number | boolean

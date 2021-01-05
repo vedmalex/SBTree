@@ -7,5 +7,4 @@ async function openLeaf(leafName) {
     return this.leafs[leafName];
 }
 exports.default = openLeaf;
-;
 //# sourceMappingURL=openLeaf.js.map

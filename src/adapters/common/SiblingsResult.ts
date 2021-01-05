@@ -1,6 +1,6 @@
-import { PossibleKeys } from "./PossibleKeys";
+import { PossibleKeys } from './PossibleKeys'
 
 export type SiblingsResult = {
-  identifier: string;
-  key: PossibleKeys;
-};
+  identifier: string
+  key: PossibleKeys
+}

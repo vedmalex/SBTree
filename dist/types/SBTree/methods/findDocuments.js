@@ -6,7 +6,7 @@ async function findDocuments(params) {
     if (!this.isReady) {
         await this.onReady();
     }
-    return await query_1.query.call(this, params);
+    return (await query_1.query.call(this, params));
 }
 exports.findDocuments = findDocuments;
 //# sourceMappingURL=findDocuments.js.map

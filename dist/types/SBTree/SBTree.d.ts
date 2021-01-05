@@ -1,6 +1,6 @@
 import { SBFTree } from '../SBFTree/SBFTree';
 import { SBTreeOptions } from './SBTreeOptions';
-import { PersistenceAdapter } from "../../adapters/common/PersistenceAdapter";
+import { PersistenceAdapter } from '../../adapters/common/PersistenceAdapter';
 export declare class SBTree {
     adapter: PersistenceAdapter;
     order: number;

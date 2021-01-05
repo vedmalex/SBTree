@@ -10,7 +10,10 @@ async function getFillStatus() {
     const minKeys = Math.floor(maxKeys * fillFactor);
     const size = this.keys.length;
     return {
-        fillFactor, order, leafSize: size, fillFactorFilled: size >= minKeys,
+        fillFactor,
+        order,
+        leafSize: size,
+        fillFactorFilled: size >= minKeys,
     };
 }
 exports.getFillStatus = getFillStatus;

@@ -28,14 +28,17 @@ const defaultProps = {
 class SBTree {
     constructor(props) {
         this.adapter = props?.adapter ?? new adapters_1.MemoryAdapter();
-        this.order = (props.order) ? props.order : defaultProps.order;
-        this.fillFactor = (props.fillFactor) ? props.fillFactor : defaultProps.fillFactor;
-        this.verbose = (props.verbose) ? props.verbose : defaultProps.verbose;
-        this.id = (props.id) ? props.id : crypto_1.generateTreeId();
-        this.uniques = (props.uniques) ? props.uniques : defaultProps.uniques;
-        this.exclude = (props.exclude) ? props.exclude : defaultProps.exclude;
-        this.size = (props.size !== undefined) ? props.size : defaultProps.size;
-        this.fieldTrees = (props.fieldTrees !== undefined) ? {} : defaultProps.fieldTrees;
+        this.order = props.order ? props.order : defaultProps.order;
+        this.fillFactor = props.fillFactor
+            ? props.fillFactor
+            : defaultProps.fillFactor;
+        this.verbose = props.verbose ? props.verbose : defaultProps.verbose;
+        this.id = props.id ? props.id : crypto_1.generateTreeId();
+        this.uniques = props.uniques ? props.uniques : defaultProps.uniques;
+        this.exclude = props.exclude ? props.exclude : defaultProps.exclude;
+        this.size = props.size !== undefined ? props.size : defaultProps.size;
+        this.fieldTrees =
+            props.fieldTrees !== undefined ? {} : defaultProps.fieldTrees;
         if (props.fieldTrees) {
             lodash_foreach_1.default(props.fieldTrees, (_fieldTree, _fieldTreeName) => {
                 this.setFieldTree(_fieldTree);
@@ -50,7 +53,9 @@ class SBTree {
     getOptions() {
         const { order, fillFactor, verbose } = this;
         return {
-            order, fillFactor, verbose
+            order,
+            fillFactor,
+            verbose,
         };
     }
     getAdapter() {

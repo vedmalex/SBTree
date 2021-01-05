@@ -1,4 +1,4 @@
 export type Document = {
-  _id: string;
-  [key: string]: any;
-};
+  _id: string
+  [key: string]: any
+}

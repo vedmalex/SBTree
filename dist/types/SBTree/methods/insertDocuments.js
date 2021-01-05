@@ -14,7 +14,7 @@ async function insertDocuments(documents) {
     if (Array.isArray(documents)) {
         let insertedDocumentsResultats = [];
         for (const document of documents) {
-            insertedDocumentsResultats.push(...await this.insertDocuments(document));
+            insertedDocumentsResultats.push(...(await this.insertDocuments(document)));
         }
         return insertedDocumentsResultats;
     }

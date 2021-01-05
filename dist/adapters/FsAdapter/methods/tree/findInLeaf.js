@@ -17,7 +17,7 @@ async function findInLeaf(leafId, value, op = '$eq') {
     }
     const firstIdx = keys.indexOf(value);
     const lastIdx = keys.lastIndexOf(value);
-    const strictMatchingKeysLen = (firstIdx > -1) ? 1 + (lastIdx - firstIdx) : 0;
+    const strictMatchingKeysLen = firstIdx > -1 ? 1 + (lastIdx - firstIdx) : 0;
     switch (op) {
         case '$eq':
             if (!strictMatchingKeysLen) {
@@ -31,7 +31,7 @@ async function findInLeaf(leafId, value, op = '$eq') {
             const eq = await this.findInLeaf(leafId, value, '$eq');
             return {
                 identifiers: lt.identifiers.concat(eq.identifiers),
-                keys: lt.keys.concat(eq.keys)
+                keys: lt.keys.concat(eq.keys),
             };
         }
         case '$gte': {
@@ -39,7 +39,7 @@ async function findInLeaf(leafId, value, op = '$eq') {
             const eq = await this.findInLeaf(leafId, value, '$eq');
             return {
                 identifiers: gt.identifiers.concat(eq.identifiers),
-                keys: gt.keys.concat(eq.keys)
+                keys: gt.keys.concat(eq.keys),
             };
         }
         case '$lt':
@@ -78,5 +78,4 @@ async function findInLeaf(leafId, value, op = '$eq') {
     }
 }
 exports.default = findInLeaf;
-;
 //# sourceMappingURL=findInLeaf.js.map

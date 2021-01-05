@@ -18,7 +18,7 @@
     "compile": "tsc --build tsconfig.json",
     "compile:clean": "tsc --build tsconfig.json --clean",
     "watch": "tsc --build tsconfig.json --watch",
-    "format": "prettier --write \"**/*.ts\""
+    "format": "prettier --write \"src/**/*.ts\""
   },
   "engines": {
     "node": ">= 14.0.0"

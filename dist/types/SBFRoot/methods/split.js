@@ -5,7 +5,7 @@ const array_1 = require("../../../utils/array");
 const SBFLeaf_1 = require("../../SBFLeaf/SBFLeaf");
 const SBFNode_1 = require("../../SBFNode/SBFNode");
 async function split() {
-    const { children, identifiers, keys, fieldName, } = this;
+    const { children, identifiers, keys, fieldName } = this;
     const midIndex = ~~(keys.length / 2);
     const rightKeys = keys.splice(midIndex);
     const leftKeys = keys.splice(0);

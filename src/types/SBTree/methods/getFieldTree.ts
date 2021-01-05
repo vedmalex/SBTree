@@ -1,14 +1,13 @@
-import { SBTree } from '../SBTree';
+import { SBTree } from '../SBTree'
 
 export function getFieldTree(this: SBTree, fieldName) {
-  let isExcluded = this.exclude.includes(fieldName);
+  let isExcluded = this.exclude.includes(fieldName)
 
-  const splittedByDot = fieldName.split('.');
+  const splittedByDot = fieldName.split('.')
   if (splittedByDot.length > 1 && !isExcluded) {
-    isExcluded = this.exclude.includes(splittedByDot[0]);
+    isExcluded = this.exclude.includes(splittedByDot[0])
   }
-  if (isExcluded)
-    return;
+  if (isExcluded) return
 
-  return this.fieldTrees[fieldName];
+  return this.fieldTrees[fieldName]
 }

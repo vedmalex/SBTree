@@ -33,7 +33,8 @@ async function query(query) {
                     _promises.push(fTree.find(nestedQueryFieldValue, '$eq'));
                 }
             }
-            else if (nestedQueryFieldType === 'object' && !Array.isArray(nestedQueryFieldValue)) {
+            else if (nestedQueryFieldType === 'object' &&
+                !Array.isArray(nestedQueryFieldValue)) {
                 await findNested(_promises, `${_queryFieldName}.${nestedQueryFieldName}`, nestedQueryFieldValue);
             }
             else {
@@ -51,9 +52,10 @@ async function query(query) {
     fields.forEach((queryFieldName) => {
         let queryFieldValue;
         queryFieldName.split('.').forEach((subFieldName) => {
-            queryFieldValue = (queryFieldValue && queryFieldValue[subFieldName])
-                ? queryFieldValue[subFieldName]
-                : query[subFieldName];
+            queryFieldValue =
+                queryFieldValue && queryFieldValue[subFieldName]
+                    ? queryFieldValue[subFieldName]
+                    : query[subFieldName];
         });
         const queryFieldType = typeof queryFieldValue;
         let fieldTree;
@@ -89,9 +91,7 @@ async function query(query) {
         }
     });
     let intermediateIdentifiers = [];
-    await Promise
-        .all(promises)
-        .then((pResults) => {
+    await Promise.all(promises).then((pResults) => {
         for (const pResult of pResults) {
             if (pResult.identifiers.length === 0) {
                 intermediateIdentifiers = [];

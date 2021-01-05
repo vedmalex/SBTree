@@ -1,16 +1,16 @@
-import { SBFTree } from '../SBFTree';
+import { SBFTree } from '../SBFTree'
 
 export async function replace(this: SBFTree, identifier, value) {
-  let { root } = this;
+  let { root } = this
   if (!root) {
-    this.createRoot();
-    root = this.root;
+    this.createRoot()
+    root = this.root
   }
   if (this.isUnique) {
-    const get = await this.find(value, '$eq');
+    const get = await this.find(value, '$eq')
     if (get.identifiers.length > 0) {
-      return false;
+      return false
     }
   }
-  await root.replace(identifier, value);
+  await root.replace(identifier, value)
 }

@@ -1,1 +1,1 @@
-{"version":3,"file":"isFull.d.ts","sourceRoot":"","sources":["../../../../src/types/SBFRoot/methods/isFull.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,MAAM,YAAY,CAAC;AAErC,wBAAgB,MAAM,CAAC,IAAI,EAAE,OAAO,WAKnC"}
+{"version":3,"file":"isFull.d.ts","sourceRoot":"","sources":["../../../../src/types/SBFRoot/methods/isFull.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,MAAM,YAAY,CAAA;AAEpC,wBAAgB,MAAM,CAAC,IAAI,EAAE,OAAO,WAKnC"}

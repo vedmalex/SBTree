@@ -1,8 +1,8 @@
-import FsAdapter from '../../FsAdapter';
+import FsAdapter from '../../FsAdapter'
 
-export default async function openLeaf(this:FsAdapter, leafName) {
+export default async function openLeaf(this: FsAdapter, leafName) {
   if (!this.leafs[leafName]) {
-    throw new Error('Leaf do not exist');
+    throw new Error('Leaf do not exist')
   }
-  return this.leafs[leafName];
-};
+  return this.leafs[leafName]
+}

@@ -1,4 +1,4 @@
-import { PossibleKeys } from "../../adapters/common/PossibleKeys";
+import { PossibleKeys } from '../../adapters/common/PossibleKeys';
 export declare type OperationResult = {
     identifiers: Array<string>;
     keys: Array<PossibleKeys>;

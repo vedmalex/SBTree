@@ -1,4 +1,4 @@
-import { PossibleKeys } from "./PossibleKeys";
+import { PossibleKeys } from './PossibleKeys';
 export declare type LeafDataProps = {
     keys: Array<PossibleKeys>;
 };

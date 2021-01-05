@@ -1,4 +1,4 @@
-import { SBTree } from '../SBTree';
+import { SBTree } from '../SBTree'
 
 export function toJSON(this: SBTree) {
   const {
@@ -10,21 +10,23 @@ export function toJSON(this: SBTree) {
     uniques,
     exclude,
     fieldTrees,
-  } = this;
+  } = this
 
   const f = Object.keys(fieldTrees).reduce((res, cur) => {
-    res[cur] = fieldTrees[cur].toJSON();
-    return res;
-  }, {});
+    res[cur] = fieldTrees[cur].toJSON()
+    return res
+  }, {})
 
-  return JSON.parse(JSON.stringify({
-    order,
-    fillFactor,
-    verbose,
-    id,
-    size,
-    uniques,
-    exclude,
-    fieldTrees: f,
-  }));
+  return JSON.parse(
+    JSON.stringify({
+      order,
+      fillFactor,
+      verbose,
+      id,
+      size,
+      uniques,
+      exclude,
+      fieldTrees: f,
+    }),
+  )
 }

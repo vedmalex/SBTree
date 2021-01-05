@@ -7,7 +7,7 @@ function insertSorted(arr, item) {
     if (!constants_1.validTypes.includes(typeof item)) {
         throw new Error(`Unsupported type typeof ${typeof item}`);
     }
-    const comparator = (typeof item == 'string') ? comparators_1.comparatorString : comparators_1.comparatorNum;
+    const comparator = typeof item == 'string' ? comparators_1.comparatorString : comparators_1.comparatorNum;
     let min = 0;
     let max = arr.length;
     let index = Math.floor((min + max) / 2);

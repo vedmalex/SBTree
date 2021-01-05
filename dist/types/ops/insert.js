@@ -23,7 +23,8 @@ async function insert(document) {
                         }
                         const fieldTree = self.getFieldTree(`${_fieldName}.${_propName}`);
                         if (fieldTree) {
-                            if (typeof _fieldValue[_propName] === 'object' && !Array.isArray(_fieldValue)) {
+                            if (typeof _fieldValue[_propName] === 'object' &&
+                                !Array.isArray(_fieldValue)) {
                                 for (const _childPropName in _fieldValue[_propName]) {
                                     if (Array.isArray(_fieldValue[_propName])) {
                                         if (_childPropName === '0') {
@@ -54,7 +55,8 @@ async function insert(document) {
             }
         }
         else {
-            this.verbose && console.log(`No index for ${_fieldName} : Typeof ${_fieldType} : ${JSON.stringify(_fieldValue)}`);
+            this.verbose &&
+                console.log(`No index for ${_fieldName} : Typeof ${_fieldType} : ${JSON.stringify(_fieldValue)}`);
         }
     }
     await this.adapter.saveDocument(document);

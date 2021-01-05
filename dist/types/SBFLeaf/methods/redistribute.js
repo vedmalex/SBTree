@@ -13,7 +13,8 @@ async function redistribute() {
         siblings.right = parent.children[selfPos + 1];
     const borrowFromRight = async () => {
         const rightStatus = await siblings.right.getFillStatus();
-        if (rightStatus.fillFactorFilled && (rightStatus.leafSize > Math.trunc(rightStatus.order / 2))) {
+        if (rightStatus.fillFactorFilled &&
+            rightStatus.leafSize > Math.trunc(rightStatus.order / 2)) {
             redistributed += 1;
             throw new Error('Missing implementation of actually redistribute');
         }
@@ -22,7 +23,8 @@ async function redistribute() {
     };
     const borrowFromLeft = async () => {
         const leftStatus = await siblings.left.getFillStatus();
-        if (leftStatus.fillFactorFilled && (leftStatus.leafSize > Math.trunc(leftStatus.order / 2))) {
+        if (leftStatus.fillFactorFilled &&
+            leftStatus.leafSize > Math.trunc(leftStatus.order / 2)) {
             redistributed += 1;
             throw new Error('Missing implementation of actually redistribute');
         }

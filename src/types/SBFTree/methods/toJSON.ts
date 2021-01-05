@@ -1,15 +1,7 @@
-import { SBFTree } from '../SBFTree';
+import { SBFTree } from '../SBFTree'
 
 export function toJSON(this: SBFTree) {
-  const {
-    fieldName,
-    id,
-    fillFactor,
-    isUnique,
-    verbose,
-    order,
-    root,
-  } = this;
+  const { fieldName, id, fillFactor, isUnique, verbose, order, root } = this
   return {
     fieldName,
     id,
@@ -17,6 +9,6 @@ export function toJSON(this: SBFTree) {
     isUnique,
     verbose,
     order,
-    root: root.toJSON()
-  };
+    root: root.toJSON(),
+  }
 }

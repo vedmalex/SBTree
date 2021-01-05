@@ -1,6 +1,6 @@
-import { SBFRoot } from '../SBFRoot';
+import { SBFRoot } from '../SBFRoot'
 
 export async function get(this: SBFRoot, identifier) {
-  const adapter = this.getAdapter();
-  return await adapter.getDocument(identifier);
+  const adapter = this.getAdapter()
+  return await adapter.getDocument(identifier)
 }

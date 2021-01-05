@@ -7,13 +7,13 @@ function createRoot(root = null) {
         throw new Error('Already existing root.');
     }
     if (root) {
-        const _root = (root.root) ? root.root : root;
+        const _root = root.root ? root.root : root;
         _root.tree = this;
         this.root = new SBFRoot_1.SBFRoot(_root);
     }
     else {
         const { fieldName } = this;
-        const keys = (root && root.keys) ? root.keys : null;
+        const keys = root && root.keys ? root.keys : null;
         this.root = new SBFRoot_1.SBFRoot({ tree: this, keys, fieldName });
     }
 }

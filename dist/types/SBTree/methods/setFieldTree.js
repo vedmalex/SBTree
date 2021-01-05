@@ -25,7 +25,7 @@ function setFieldTree(_fieldTreeOpts) {
         ...this.getOptions(),
         isUnique,
         id: _fieldTreeOpts.id,
-        root: _fieldTreeOpts.root
+        root: _fieldTreeOpts.root,
     };
     const fieldTree = new SBFTree_1.SBFTree(fieldTreeOpts);
     this.fieldTrees[fieldName] = fieldTree;
