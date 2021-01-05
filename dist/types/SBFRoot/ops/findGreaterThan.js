@@ -32,7 +32,7 @@ async function findGreaterThan(key, includeKey = false) {
             start += 1;
         }
         if (leafIndex < children.length - 1) {
-            children.slice(start).forEach((child, i) => {
+            children.slice(start).forEach((child) => {
                 p.push(child.getAll());
             });
         }

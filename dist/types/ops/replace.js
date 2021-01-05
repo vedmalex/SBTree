@@ -101,7 +101,6 @@ async function replace(currentDocument, newDocument) {
         }
         else if (_fieldType === 'object' && !Array.isArray(_fieldType)) {
             for (const _nestedFieldName in _fieldValue) {
-                const _nestedFieldValue = _fieldValue[_nestedFieldName];
                 await replaceProp(`${_fieldName}.${_nestedFieldName}`, _fieldValue[_nestedFieldName]);
             }
         }

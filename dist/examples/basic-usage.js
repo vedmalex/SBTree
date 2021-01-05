@@ -24,7 +24,6 @@ const start = async function () {
         age: 22, country: 'United Kingdom', email: 'zack@valjean.fr', _id: '5d6dc94e3c7734812f051duk',
     });
     try {
-        const doc = await tree.getDocument('5d6dc94e3c7734812f051d7d');
         await tree.insertDocuments({
             age: 43, country: 'United States', email: 'bob@valjean.fr', _id: '5d6dc94e3c7734812f051d7d',
         });

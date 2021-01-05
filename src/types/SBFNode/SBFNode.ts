@@ -78,10 +78,10 @@ async find(value){
   return (find.call(this, value) as ReturnType<typeof find>)
 }
 async  findLowerThan(value, includeKey = false){
-  return (findLowerThan.call(this, value, includeKey = false) as ReturnType<typeof findLowerThan>)
+  return (findLowerThan.call(this, value, includeKey) as ReturnType<typeof findLowerThan>)
 }
 async findGreaterThan(value, includeKey = false){
-  return (findGreaterThan.call(this, value, includeKey = false) as ReturnType<typeof findGreaterThan>)
+  return (findGreaterThan.call(this, value, includeKey) as ReturnType<typeof findGreaterThan>)
 }
 async  getAll(){
   return (getAll.call(this ) as ReturnType<typeof getAll>)

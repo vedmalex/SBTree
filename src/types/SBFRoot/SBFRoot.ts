@@ -3,7 +3,6 @@ import  {generateRootId} from '../../utils/crypto';
 import { SBFLeaf } from '../SBFLeaf/SBFLeaf';
 import  { SBFNode } from '../SBFNode/SBFNode';
 import { SBFTree } from '../SBFTree/SBFTree';
-import { SBTree } from '../SBTree/SBTree';
 import { FillStatus } from '../common/FillStatus';
 import { parseChildren } from './ops/parseChildren';
 import { attachLeaf } from './methods/attachLeaf';
@@ -77,7 +76,7 @@ async attachLeaf(index, leaf){
   return (attachLeaf.call(this,index, leaf) as ReturnType<typeof attachLeaf>)
 }
 async  find(value, operator = '$eq') {
-  return (find.call(this,value, operator = '$eq') as ReturnType<typeof find>)
+  return (find.call(this,value, operator) as ReturnType<typeof find>)
 }
 async  getAll():Promise<OperationResult>{
   return (getAll.call(this) as ReturnType<typeof getAll>)

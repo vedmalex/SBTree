@@ -23,7 +23,6 @@ export const start = async function () {
 
   try{
     // Duplicate do isAdded added
-    const doc = await tree.getDocument('5d6dc94e3c7734812f051d7d');
     await tree.insertDocuments({
       age: 43, country: 'United States', email: 'bob@valjean.fr', _id: '5d6dc94e3c7734812f051d7d',
     });

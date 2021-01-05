@@ -4,6 +4,7 @@ import {getFieldNamesFromQuery} from '../utils/getFieldNamesFromQuery';
 import {Document} from '../common/Document'
 
 import { get } from './get';
+import { SBFTree } from '../SBFTree/SBFTree';
 
 async function resolveDocuments(this:SBTree, objectIds) {
   const documents = [];
@@ -70,7 +71,7 @@ export async function query(this: SBTree, query):Promise<Array<Document>> {
     })
 
     const queryFieldType = typeof queryFieldValue;
-    let fieldTree;
+    let fieldTree:SBFTree;
 
     switch (queryFieldType) {
       case 'number':

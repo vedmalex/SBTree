@@ -53,7 +53,7 @@ class MemoryAdapter extends Emittable_1.Emittable {
     }
     ;
     async findInLeaf(leafId, value, op = '$eq') {
-        return findInLeaf_1.findInLeaf.call(this, leafId, value, op = '$eq');
+        return findInLeaf_1.findInLeaf.call(this, leafId, value, op);
     }
     async getDocument(identifier) {
         return getDocument_1.getDocument.call(this, identifier);

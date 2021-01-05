@@ -1,6 +1,5 @@
 import cloneDeep from 'lodash.clonedeep';
 import { MemoryAdapter } from '../MemoryAdapter';
-import { AdapterLeaf } from '../MemoryAdapterLeafs';
 import { OperationResult } from '../../../types/common/OperationResult';
 
 export async function getAllInLeaf(this: MemoryAdapter, leafId) {

@@ -15,8 +15,6 @@ import { loadState } from './methods/loadState';
 import { toJSON } from './methods/toJSON';
 import { PersistenceAdapter } from '../../adapters/MemoryAdapter/MemoryAdapter';
 
-type toJSONReturn = ReturnType<typeof findDocuments>
-
 const defaultProps = {
   order: 511,
   // FillFactor should not be less than half.
@@ -50,8 +48,6 @@ export class SBTree{
   }
 
   constructor(props: Partial<SBTreeOptions>) {
-    const self = this;
-
     this.adapter = props?.adapter ?? new MemoryAdapter();
 
     this.order= (props.order) ? props.order : defaultProps.order;

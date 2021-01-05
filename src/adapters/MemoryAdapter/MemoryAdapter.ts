@@ -92,7 +92,7 @@ async  getRightInLeaf(leafId) {
 };
 
 async findInLeaf(leafId, value, op = '$eq') {
-  return (findInLeaf.call(this, leafId, value, op = '$eq') as ReturnType<typeof findInLeaf>)
+  return (findInLeaf.call(this, leafId, value, op) as ReturnType<typeof findInLeaf>)
 }
 
 async getDocument(identifier) {

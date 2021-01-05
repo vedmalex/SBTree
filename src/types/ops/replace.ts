@@ -120,7 +120,7 @@ export async function replace(this: SBTree, currentDocument, newDocument) {
       await fieldTree.insert(id, get(newDocument, `${_fieldName}`));
     } else if (_fieldType === 'object' && !Array.isArray(_fieldType)) {
       for (const _nestedFieldName in _fieldValue) {
-        const _nestedFieldValue = _fieldValue[_nestedFieldName];
+        // const _nestedFieldValue = _fieldValue[_nestedFieldName];
         await replaceProp(`${_fieldName}.${_nestedFieldName}`, _fieldValue[_nestedFieldName]);
       }
     } else {

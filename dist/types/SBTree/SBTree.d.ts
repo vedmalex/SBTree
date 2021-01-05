@@ -29,7 +29,7 @@ export declare class SBTree {
     }): void;
     deleteDocuments(query: any): Promise<import("../common/Document").Document[]>;
     findDocuments(params: any): Promise<import("../common/Document").Document[]>;
-    getDocument(identifier: any): Promise<any>;
+    getDocument(identifier: any): Promise<import("../common/Document").Document>;
     getFieldTree(fieldName: any): SBFTree;
     insertDocuments(documents: any): Promise<import("../common/Document").Document[]>;
     replaceDocuments(documents: any): Promise<any[]>;

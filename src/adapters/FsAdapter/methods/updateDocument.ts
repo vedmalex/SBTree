@@ -1,4 +1,3 @@
-import { Job } from 'fslockjs';
 import FsAdapter from '../FsAdapter';
 
 export default async function updateDocument(this:FsAdapter, _doc) {

@@ -1,5 +1,4 @@
 import  { FSLock } from 'fslockjs';
-import {EventEmitter} from 'events';
 
 import LeafData from '../common/LeafData';
 import { SBTree } from '../../types/SBTree/SBTree';
@@ -24,7 +23,6 @@ import saveDocument from './methods/saveDocument';
 import saveLeafData from './methods/saveLeafData';
 import splitLeaf from './methods/splitLeaf';
 import updateDocument from './methods/updateDocument';
-import { EventListeners } from '../common/EventListeners';
 import { FsAdaptepOptions } from './FsAdaptepOptions';
 import { FsAdapterOptionAutoLoadCallback } from './FsAdapterOptionAutoLoadCallback';
 import { Emittable } from '../common/Emittable';

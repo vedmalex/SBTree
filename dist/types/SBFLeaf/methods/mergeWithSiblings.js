@@ -27,7 +27,6 @@ async function mergeWithSiblings() {
         await Promise.all(p);
         delete parent.children[rightSibPos];
         parent.children.splice(rightSibPos, 1);
-        const parentKeys = parent.keys;
         parent.keys.splice(Math.trunc(selfPos / 2), 1);
         if (parent.keys.length === 0) {
             await parent.mergeUp();
@@ -46,7 +45,6 @@ async function mergeWithSiblings() {
         await Promise.all(p);
         delete parent.children[leftSibPos];
         parent.children.splice(leftSibPos, 1);
-        const parentKeys = parent.keys;
         parent.keys.splice(Math.trunc(selfPos / 2), 1);
         if (parent.keys.length === 0) {
             await parent.mergeUp();

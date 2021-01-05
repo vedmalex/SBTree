@@ -47,7 +47,7 @@ export async function mergeWithSiblings(this: SBFLeaf) {
     parent.children.splice(rightSibPos, 1);
 
     //TODO: Repair parent keys FIXME
-    const parentKeys = parent.keys;
+    // const parentKeys = parent.keys;
 
     // We remove the children reference in keys
     parent.keys.splice(Math.trunc(selfPos / 2), 1);
@@ -76,7 +76,7 @@ export async function mergeWithSiblings(this: SBFLeaf) {
     parent.children.splice(leftSibPos, 1);
 
     // Repair parent keys TODO FIXME
-    const parentKeys = parent.keys;
+    // const parentKeys = parent.keys;
 
     // We remove the children reference in keys
     parent.keys.splice(Math.trunc(selfPos / 2), 1);

@@ -43,7 +43,7 @@ class SBFRoot {
         return attachLeaf_1.attachLeaf.call(this, index, leaf);
     }
     async find(value, operator = '$eq') {
-        return find_1.find.call(this, value, operator = '$eq');
+        return find_1.find.call(this, value, operator);
     }
     async getAll() {
         return getAll_1.getAll.call(this);

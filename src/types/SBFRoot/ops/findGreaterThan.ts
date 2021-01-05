@@ -41,7 +41,7 @@ export async function findGreaterThan(this: SBFRoot, key, includeKey = false) {
 
     // All bigger leaf that our leafIndex needs to be included
     if (leafIndex < children.length - 1) {
-      children.slice(start).forEach((child, i) => {
+      children.slice(start).forEach((child) => {
         p.push(child.getAll());
       });
     }

@@ -27,7 +27,6 @@ const defaultProps = {
 };
 class SBTree {
     constructor(props) {
-        const self = this;
         this.adapter = props?.adapter ?? new adapters_1.MemoryAdapter();
         this.order = (props.order) ? props.order : defaultProps.order;
         this.fillFactor = (props.fillFactor) ? props.fillFactor : defaultProps.fillFactor;

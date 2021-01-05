@@ -60,10 +60,10 @@ class SBFNode {
         return find_1.find.call(this, value);
     }
     async findLowerThan(value, includeKey = false) {
-        return findLowerThan_1.findLowerThan.call(this, value, includeKey = false);
+        return findLowerThan_1.findLowerThan.call(this, value, includeKey);
     }
     async findGreaterThan(value, includeKey = false) {
-        return findGreaterThan_1.findGreaterThan.call(this, value, includeKey = false);
+        return findGreaterThan_1.findGreaterThan.call(this, value, includeKey);
     }
     async getAll() {
         return getAll_1.getAll.call(this);
