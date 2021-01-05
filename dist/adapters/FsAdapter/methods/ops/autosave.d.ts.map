@@ -1,1 +1,1 @@
-{"version":3,"file":"autosave.d.ts","sourceRoot":"","sources":["../../../../../src/adapters/FsAdapter/methods/ops/autosave.ts"],"names":[],"mappings":"AAAA,OAAO,SAAS,MAAM,iBAAiB,CAAC;AACxC,wBAA8B,QAAQ,CAAC,IAAI,EAAC,SAAS,iBAYpD"}
+{"version":3,"file":"autosave.d.ts","sourceRoot":"","sources":["../../../../../src/adapters/FsAdapter/methods/ops/autosave.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,eAAe,EAAE,MAAM,iCAAiC,CAAC;AAClE,wBAA8B,QAAQ,CAAC,IAAI,EAAC,eAAe,iBAY1D"}

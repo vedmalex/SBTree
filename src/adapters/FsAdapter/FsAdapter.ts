@@ -2,33 +2,36 @@ import  { FSLock } from 'fslockjs';
 
 import LeafData from '../common/LeafData';
 import { SBTree } from '../../types/SBTree/SBTree';
-
+// adapter CRUD
+import getDocument from './methods/crud/getDocument';
+import removeDocument from './methods/crud/removeDocument';
+import replaceDocument from './methods/crud/replaceDocument';
+import saveDocument from './methods/crud/saveDocument';
+// adapter tree operations
+import openLeaf from './methods/tree/openLeaf';
+import addInLeaf from './methods/tree/addInLeaf';
+import replaceInLeaf from './methods/tree/replaceInLeaf';
+import createLeaf from './methods/tree/createLeaf';
+import splitLeaf from './methods/tree/splitLeaf';
+import getRightInLeaf from './methods/tree/getRightInLeaf';
+import getLeftInLeaf from './methods/tree/getLeftInLeaf';
+import findInLeaf from './methods/tree/findInLeaf';
+import getAllInLeaf from './methods/tree/getAllInLeaf';
+import { removeInLeaf } from './methods/tree/removeInLeaf';
+// adapter specific
 import attachParent from './methods/attachParent';
-import addInLeaf from './methods/addInLeaf';
-import createLeaf from './methods/createLeaf';
-import findInLeaf from './methods/findInLeaf';
-import getAllInLeaf from './methods/getAllInLeaf';
-import getLeftInLeaf from './methods/getLeftInLeaf';
-import getRightInLeaf from './methods/getRightInLeaf';
-import getDocument from './methods/getDocument';
 import insertSortedInLeaf from './methods/insertSortedInLeaf';
 import loadDatabase from './methods/loadDatabase';
-import openLeaf from './methods/openLeaf';
-import removeDocument from './methods/removeDocument';
 import openLeafData from './methods/openLeafData';
-import replaceDocument from './methods/replaceDocument';
-import replaceInLeaf from './methods/replaceInLeaf';
 import saveDatabase from './methods/saveDatabase';
-import saveDocument from './methods/saveDocument';
 import saveLeafData from './methods/saveLeafData';
-import splitLeaf from './methods/splitLeaf';
 import updateDocument from './methods/updateDocument';
 import { FsAdaptepOptions } from './FsAdaptepOptions';
 import { FsAdapterOptionAutoLoadCallback } from './FsAdapterOptionAutoLoadCallback';
 import { Emittable } from '../common/Emittable';
-import { removeInLeaf } from './methods/removeInLeaf';
-import { PersistenceAdapter } from '../MemoryAdapter/MemoryAdapter';
+import { PersistenceAdapter } from "../common/PersistenceAdapter";
 import { AdapterLeafs } from '../MemoryAdapter/MemoryAdapterLeafs';
+import { PersistentStore } from '../common/PersistentStore';
 
 export const defaultFsProps: FsAdaptepOptions = {
     path: '.db',
@@ -43,8 +46,7 @@ export type LeafId = string
 export type FsAdapterLastChange = number;
 export type FsAdapterLastSave = number;
 
-
-export default class FsAdapter extends Emittable implements PersistenceAdapter{
+export default class FsAdapter extends Emittable implements PersistenceAdapter, PersistentStore{
   private parent: SBTree;
   public queue: FSLock;
   public leafs:AdapterLeafs;

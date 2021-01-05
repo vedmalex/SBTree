@@ -1,4 +1,4 @@
-import { PossibleKeys } from '../../adapters/MemoryAdapter/MemoryAdapter';
+import { PossibleKeys } from "../../adapters/common/PossibleKeys";
 
 export type OperationResult = {
   identifiers: Array<string>;

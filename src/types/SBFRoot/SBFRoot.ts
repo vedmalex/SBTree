@@ -17,7 +17,8 @@ import { insertReferenceKey } from './methods/insertReferenceKey';
 import { isFull } from './methods/isFull';
 import { split } from './methods/split';
 import { toJSON } from './methods/toJSON';
-import { PersistenceAdapter, PossibleKeys } from '../../adapters/MemoryAdapter/MemoryAdapter';
+import { PersistenceAdapter } from "../../adapters/common/PersistenceAdapter";
+import { PossibleKeys } from "../../adapters/common/PossibleKeys";
 import { OperationResult } from '../common/OperationResult';
 
 export type SBFRootOptions = {

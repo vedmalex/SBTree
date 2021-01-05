@@ -8,7 +8,7 @@ import { remove } from './methods/remove';
 import { replace } from './methods/replace';
 import { toJSON } from './methods/toJSON';
 import { SBFTreeOptions } from './SBFTreeOptions';
-import { PersistenceAdapter } from '../../adapters/MemoryAdapter/MemoryAdapter';
+import { PersistenceAdapter } from "../../adapters/common/PersistenceAdapter";
 
   const defaultOpts: Partial<SBFTreeOptions> = {
     order: 511,

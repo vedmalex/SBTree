@@ -13,7 +13,7 @@ import { insertDocuments } from './methods/insertDocuments';
 import { replaceDocuments } from './methods/replaceDocuments';
 import { loadState } from './methods/loadState';
 import { toJSON } from './methods/toJSON';
-import { PersistenceAdapter } from '../../adapters/MemoryAdapter/MemoryAdapter';
+import { PersistenceAdapter } from "../../adapters/common/PersistenceAdapter";
 
 const defaultProps = {
   order: 511,

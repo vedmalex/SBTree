@@ -1,0 +1,1 @@
+{"version":3,"file":"removeDocument.js","sourceRoot":"","sources":["../../../../../src/adapters/MemoryAdapter/methods/crud/removeDocument.ts"],"names":[],"mappings":";;;AAEA,SAAgB,cAAc,CAAsB,UAAU;IAC5D,IAAI,IAAI,CAAC,SAAS,CAAC,UAAU,CAAC,EAAE;QAC9B,OAAO,IAAI,CAAC,SAAS,CAAC,UAAU,CAAC,CAAC;KACnC;AACH,CAAC;AAJD,wCAIC"}

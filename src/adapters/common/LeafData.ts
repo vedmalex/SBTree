@@ -1,4 +1,4 @@
-import { PossibleKeys } from '../MemoryAdapter/MemoryAdapter';
+import { PossibleKeys } from "./PossibleKeys";
 export type LeafDataProps = {
   keys:Array<PossibleKeys>
 }

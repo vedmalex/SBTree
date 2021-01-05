@@ -18,7 +18,7 @@ import { remove } from './methods/remove';
 import { replace } from './methods/replace';
 import { split } from './methods/split';
 import { toJSON } from './methods/toJSON';
-import { PossibleKeys } from '../../adapters/MemoryAdapter/MemoryAdapter';
+import { PossibleKeys } from "../../adapters/common/PossibleKeys";
 
 /**
  * SBFTree

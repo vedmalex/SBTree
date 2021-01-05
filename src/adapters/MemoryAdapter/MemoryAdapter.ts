@@ -1,52 +1,28 @@
+// adapter crud
+import { getDocument } from './methods/crud/getDocument';
+import { removeDocument } from './methods/crud/removeDocument';
+import { replaceDocument } from './methods/crud/replaceDocument';
+import { saveDocument } from './methods/crud/saveDocument';
+// adapter tree
+import { openLeaf } from './methods/tree/openLeaf';
+import { addInLeaf } from './methods/tree/addInLeaf';
+import { replaceInLeaf } from './methods/tree/replaceInLeaf';
+import { createLeaf } from './methods/tree/createLeaf';
+import { splitLeaf } from './methods/tree/splitLeaf';
+import { getRightInLeaf } from './methods/tree/getRightInLeaf';
+import { getLeftInLeaf } from './methods/tree/getLeftInLeaf';
+import { findInLeaf } from './methods/tree/findInLeaf';
+import { getAllInLeaf } from './methods/tree/getAllInLeaf';
+import { removeInLeaf } from './methods/tree/removeInLeaf';
 
 import { parseLeafs } from './methods/parseLeafs';
-import { MemoryAdapterOptions } from './MemoryAdapterOptions';
-import { AdapterLeafs, AdapterLeaf } from './MemoryAdapterLeafs';
-import { Emittable } from '../common/Emittable';
-import { addInLeaf } from './methods/addInLeaf';
-import { createLeaf } from './methods/createLeaf';
-import { getAllInLeaf } from './methods/getAllInLeaf';
-import { getLeftInLeaf } from './methods/getLeftInLeaf';
-import { getRightInLeaf } from './methods/getRightInLeaf';
-import { findInLeaf } from './methods/findInLeaf';
-import { getDocument } from './methods/getDocument';
-import { openLeaf } from './methods/openLeaf';
-import { removeDocument } from './methods/removeDocument';
-import { replaceInLeaf } from './methods/replaceInLeaf';
-import { replaceDocument } from './methods/replaceDocument';
-import { saveDocument } from './methods/saveDocument';
-import { splitLeaf } from './methods/splitLeaf';
-import { removeInLeaf } from './methods/removeInLeaf';
-import { Document } from '../../types/common/Document';
-import { SBTree } from '../../types/SBTree/SBTree';
-import { OperationResult } from '../../types/common/OperationResult';
-import { SiblingsResult } from '../common/SiblingsResult';
-import { RemoveInLeafResult } from '../common/RemoveInLeafResult';
-import { SBFLeaf } from '../../types/SBFLeaf/SBFLeaf';
 
-export type MemoryAdapterDocuments = {[key:string]: Document}
-export type PossibleKeys = string | number | boolean;
-export type QueryOperations = "$eq"|"$in"|"$nin"|"$gte"|"$lte"|"$gt"|"$lt";
-export interface PersistenceAdapter {
-  readonly isReady:boolean;
-  initWith:(tree: SBTree)=> Promise<boolean>
-  // CRUD
-  getDocument(identifier: string):Promise<Document>
-  removeDocument(identifier: string ):Promise<void>
-  replaceDocument(doc: Document):Promise<void>
-  saveDocument(doc: Document): Promise<void>
-  //
-  openLeaf(leafName): Promise<AdapterLeaf>
-  addInLeaf(leafName:string, identifier: string, value:PossibleKeys): Promise<number>
-  replaceInLeaf(leafId:string, identifier: string, value:PossibleKeys): Promise<number>
-  createLeaf(leafName:string): Promise<void>
-  splitLeaf(sourceLeaf:SBFLeaf, siblingLeaf:SBFLeaf): Promise<PossibleKeys>
-  getRightInLeaf(leafId:string): Promise<SiblingsResult>
-  getLeftInLeaf(leafId:string): Promise<SiblingsResult>
-  findInLeaf(leafId:string, value: PossibleKeys, op?:QueryOperations): Promise<OperationResult>
-  getAllInLeaf(leafId:string):Promise<OperationResult>
-  removeInLeaf(leafId, identifier):Promise<Array<RemoveInLeafResult>>
-}
+import { MemoryAdapterOptions } from './MemoryAdapterOptions';
+import { AdapterLeafs } from './MemoryAdapterLeafs';
+import { Emittable } from '../common/Emittable';
+import { SBTree } from '../../types/SBTree/SBTree';
+import { MemoryAdapterDocuments } from './MemoryAdapterDocuments';
+import { PersistenceAdapter } from '../common/PersistenceAdapter';
 
 export class MemoryAdapter extends Emittable implements PersistenceAdapter{
   public leafs:AdapterLeafs;

@@ -2,7 +2,7 @@ import { SBFLeaf } from '../SBFLeaf/SBFLeaf';
 import { SBFRoot } from '../SBFRoot/SBFRoot';
 import { SBFTree } from '../SBFTree/SBFTree';
 import { FillStatus } from '../common/FillStatus';
-import { PossibleKeys } from '../../adapters/MemoryAdapter/MemoryAdapter';
+import { PossibleKeys } from "../../adapters/common/PossibleKeys";
 export declare class SBFNode {
     private parent;
     id: string;
@@ -15,7 +15,7 @@ export declare class SBFNode {
     getParent(): SBFRoot | SBFNode;
     setParent(parent: any): void;
     getTree(): SBFTree;
-    getAdapter(): import("../../adapters/MemoryAdapter/MemoryAdapter").PersistenceAdapter;
+    getAdapter(): import("../../adapters/common/PersistenceAdapter").PersistenceAdapter;
     attachLeaf(index: any, leaf: any): Promise<void>;
     find(value: any): Promise<{
         identifiers: any[];

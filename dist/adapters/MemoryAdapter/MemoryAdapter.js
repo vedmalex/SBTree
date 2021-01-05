@@ -1,22 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MemoryAdapter = void 0;
+const getDocument_1 = require("./methods/crud/getDocument");
+const removeDocument_1 = require("./methods/crud/removeDocument");
+const replaceDocument_1 = require("./methods/crud/replaceDocument");
+const saveDocument_1 = require("./methods/crud/saveDocument");
+const openLeaf_1 = require("./methods/tree/openLeaf");
+const addInLeaf_1 = require("./methods/tree/addInLeaf");
+const replaceInLeaf_1 = require("./methods/tree/replaceInLeaf");
+const createLeaf_1 = require("./methods/tree/createLeaf");
+const splitLeaf_1 = require("./methods/tree/splitLeaf");
+const getRightInLeaf_1 = require("./methods/tree/getRightInLeaf");
+const getLeftInLeaf_1 = require("./methods/tree/getLeftInLeaf");
+const findInLeaf_1 = require("./methods/tree/findInLeaf");
+const getAllInLeaf_1 = require("./methods/tree/getAllInLeaf");
+const removeInLeaf_1 = require("./methods/tree/removeInLeaf");
 const parseLeafs_1 = require("./methods/parseLeafs");
 const Emittable_1 = require("../common/Emittable");
-const addInLeaf_1 = require("./methods/addInLeaf");
-const createLeaf_1 = require("./methods/createLeaf");
-const getAllInLeaf_1 = require("./methods/getAllInLeaf");
-const getLeftInLeaf_1 = require("./methods/getLeftInLeaf");
-const getRightInLeaf_1 = require("./methods/getRightInLeaf");
-const findInLeaf_1 = require("./methods/findInLeaf");
-const getDocument_1 = require("./methods/getDocument");
-const openLeaf_1 = require("./methods/openLeaf");
-const removeDocument_1 = require("./methods/removeDocument");
-const replaceInLeaf_1 = require("./methods/replaceInLeaf");
-const replaceDocument_1 = require("./methods/replaceDocument");
-const saveDocument_1 = require("./methods/saveDocument");
-const splitLeaf_1 = require("./methods/splitLeaf");
-const removeInLeaf_1 = require("./methods/removeInLeaf");
 class MemoryAdapter extends Emittable_1.Emittable {
     constructor(props) {
         super();

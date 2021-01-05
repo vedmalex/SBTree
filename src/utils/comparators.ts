@@ -1,4 +1,4 @@
-import { PossibleKeys } from '../adapters/MemoryAdapter/MemoryAdapter';
+import { PossibleKeys } from "../adapters/common/PossibleKeys";
 export const comparatorString = function (a:PossibleKeys, b:PossibleKeys) {
   if (typeof a !== 'string') a = String(a);
   if (typeof b !== 'string') b = String(b);

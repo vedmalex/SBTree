@@ -1,6 +1,6 @@
 import { SBFRoot } from '../SBFRoot/SBFRoot';
 import { SBFTreeOptions } from './SBFTreeOptions';
-import { PersistenceAdapter } from '../../adapters/MemoryAdapter/MemoryAdapter';
+import { PersistenceAdapter } from "../../adapters/common/PersistenceAdapter";
 export declare class SBFTree {
     private _adapter;
     get adapter(): PersistenceAdapter;
@@ -35,7 +35,7 @@ export declare class SBFTree {
             id: string;
             fieldName: string;
             identifiers: string[];
-            keys: import("../../adapters/MemoryAdapter/MemoryAdapter").PossibleKeys[];
+            keys: import("../../adapters/common/PossibleKeys").PossibleKeys[];
             children: any[];
         };
     };

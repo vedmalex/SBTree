@@ -2,7 +2,8 @@ import { SBFLeaf } from '../SBFLeaf/SBFLeaf';
 import { SBFNode } from '../SBFNode/SBFNode';
 import { SBFTree } from '../SBFTree/SBFTree';
 import { FillStatus } from '../common/FillStatus';
-import { PersistenceAdapter, PossibleKeys } from '../../adapters/MemoryAdapter/MemoryAdapter';
+import { PersistenceAdapter } from "../../adapters/common/PersistenceAdapter";
+import { PossibleKeys } from "../../adapters/common/PossibleKeys";
 import { OperationResult } from '../common/OperationResult';
 export declare type SBFRootOptions = {
     id?: string;

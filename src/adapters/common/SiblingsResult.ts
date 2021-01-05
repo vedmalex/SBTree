@@ -1,4 +1,4 @@
-import { PossibleKeys } from '../MemoryAdapter/MemoryAdapter';
+import { PossibleKeys } from "./PossibleKeys";
 
 export type SiblingsResult = {
   identifier: string;

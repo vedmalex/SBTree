@@ -1,5 +1,5 @@
 import { SBFTree } from '../SBFTree/SBFTree';
-import { PersistenceAdapter } from '../../adapters/MemoryAdapter/MemoryAdapter';
+import { PersistenceAdapter } from "../../adapters/common/PersistenceAdapter";
 
 export type SBTreeOptions = {
   id: string;
