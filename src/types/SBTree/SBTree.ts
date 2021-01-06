@@ -114,7 +114,7 @@ export class SBTree {
       typeof replaceDocuments
     >
   }
-  loadState(state) {
+  loadState(state: ReturnType<typeof SBTree.prototype.toJSON>) {
     return loadState.call(this, state) as ReturnType<typeof loadState>
   }
   toJSON() {

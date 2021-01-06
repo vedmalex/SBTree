@@ -3,7 +3,7 @@ import { LeafDataProps } from '../../common/LeafData'
 
 export default async function openLeafData(
   this: FsAdapter,
-  leafName,
+  leafName: string,
 ): Promise<LeafDataProps> {
   const job = await this.queue
     .add('File.read', `${this.path}/l/${leafName}.json`, {})

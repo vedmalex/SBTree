@@ -15,34 +15,38 @@ import { findInLeaf } from './methods/tree/findInLeaf'
 import { getAllInLeaf } from './methods/tree/getAllInLeaf'
 import { removeInLeaf } from './methods/tree/removeInLeaf'
 
-import { parseLeafs } from './methods/parseLeafs'
+import { initWith, parseDocments, parseLeafs } from '../common/data/parseLeafs'
 
-import { MemoryAdapterOptions } from './MemoryAdapterOptions'
-import { AdapterLeafs } from './MemoryAdapterLeafs'
+import { MemoryAdapterOptions } from '../common/data/MemoryAdapterOptions'
+import { AdapterLeafs } from '../common/data/AdapterLeafs'
 import { SBTree } from '../../types/SBTree/SBTree'
-import { MemoryAdapterDocuments } from './MemoryAdapterDocuments'
+import { AdapterDocuments } from '../common/data/AdapterDocuments'
 import { PersistenceAdapter } from '../common/PersistenceAdapter'
 
-export class MemoryAdapter implements PersistenceAdapter {
+export interface AdapterLeafStorage {
+  isReady: boolean
+  leafs: AdapterLeafs
+}
+export interface AdapterDocumentStorage {
+  isReady: boolean
+  documents: AdapterDocuments
+}
+export class MemoryAdapter
+  implements PersistenceAdapter, AdapterLeafStorage, AdapterDocumentStorage {
   public leafs: AdapterLeafs
-  public documents: MemoryAdapterDocuments
+  public documents: AdapterDocuments
   public tree: SBTree
   isReady: boolean = false
+
   async initWith(tree: SBTree) {
-    if (!this.isReady) {
-      this.tree = tree
-      this.isReady = true
-      return true
-    } else {
-      return true
-    }
+    return initWith.call(this, tree)
   }
 
   // TODO: fix when will user interfaces for
 
   constructor(props?: MemoryAdapterOptions) {
-    this.leafs = props?.leafs ? parseLeafs(props.leafs) : {}
-    this.documents = props?.documents ? props?.documents : {}
+    parseLeafs.call(this, props)
+    parseDocments.call(this, props)
   }
 
   async addInLeaf(leafName, identifier, value) {

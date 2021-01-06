@@ -32,7 +32,7 @@ export declare class SBFRoot {
     attachLeaf(index: any, leaf: any): Promise<void>;
     find(value: any, operator?: string): Promise<any>;
     getAll(): Promise<OperationResult>;
-    get(identifier: any): Promise<import("../common/Document").Document>;
+    get(identifier: any): Promise<import("../../adapters/common/data/Document").Document>;
     getFillStatus(): Promise<FillStatus>;
     remove(remCmd: any): Promise<void>;
     replace(identifier: any, value: any): Promise<void>;

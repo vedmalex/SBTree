@@ -1,1 +1,1 @@
-{"version":3,"file":"getDocument.d.ts","sourceRoot":"","sources":["../../../../src/types/SBTree/methods/getDocument.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,MAAM,EAAE,MAAM,WAAW,CAAA;AAElC,wBAAsB,WAAW,CAAC,IAAI,EAAE,MAAM,EAAE,UAAU,KAAA,qDAMzD"}
+{"version":3,"file":"getDocument.d.ts","sourceRoot":"","sources":["../../../../src/types/SBTree/methods/getDocument.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,MAAM,EAAE,MAAM,WAAW,CAAA;AAElC,wBAAsB,WAAW,CAAC,IAAI,EAAE,MAAM,EAAE,UAAU,KAAA,sEAMzD"}

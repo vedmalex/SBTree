@@ -1,1 +1,1 @@
-{"version":3,"file":"loadState.d.ts","sourceRoot":"","sources":["../../../../src/types/SBTree/methods/loadState.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,MAAM,EAAE,MAAM,WAAW,CAAA;AAElC,wBAAgB,SAAS,CAAC,IAAI,EAAE,MAAM,EAAE,KAAK,KAAA,WAgB5C"}
+{"version":3,"file":"loadState.d.ts","sourceRoot":"","sources":["../../../../src/types/SBTree/methods/loadState.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,MAAM,EAAE,MAAM,WAAW,CAAA;AAElC,wBAAgB,SAAS,CACvB,IAAI,EAAE,MAAM,EACZ,KAAK,EAAE,UAAU,CAAC,OAAO,MAAM,CAAC,SAAS,CAAC,MAAM,CAAC,WAiBlD"}

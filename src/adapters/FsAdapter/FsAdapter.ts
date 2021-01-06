@@ -23,24 +23,15 @@ import saveDatabase from '../common/data/saveDatabase'
 import loadDatabase from '../common/data/loadDatabase'
 
 // adapter specific
-import attachDataSource from '../common/data/attachParent'
 import insertSortedInLeaf from './methods/insertSortedInLeaf'
 import openLeafData from './methods/openLeafData'
 import saveLeafData from './methods/saveLeafData'
-import { FsAdaptepOptions } from './FsAdaptepOptions'
-import { FsAdapterOptionAutoLoadCallback } from './FsAdapterOptionAutoLoadCallback'
+import { FsAdaptepOptions } from '../common/data/FsAdaptepOptions'
 import { PersistenceAdapter } from '../common/PersistenceAdapter'
-import { AdapterLeafs } from '../MemoryAdapter/MemoryAdapterLeafs'
+import { AdapterLeafs } from '../common/data/AdapterLeafs'
 import { DataStore } from '../common/data/DataStore'
-
-export const defaultFsProps: FsAdaptepOptions = {
-  path: '.db',
-  //TODO : Ideally, when false, we keep a set of deferred job that we execute once saveDatabase is called.
-  autoSave: true,
-  autoSaveInterval: 5000,
-  autoLoad: true,
-  autoLoadCallback: null,
-}
+import { FsAdapterOptionAutoLoadCallback } from '../common/data/DataStoreOptions'
+import { initWith, parseDataStore, parseLeafs } from '../common/data/parseLeafs'
 
 export type LeafId = string
 export type FsAdapterLastChange = number
@@ -60,53 +51,14 @@ export default class FsAdapter implements PersistenceAdapter, DataStore {
   public lastSave: FsAdapterLastSave
 
   public isReady: boolean = false
-  async initWith(tree: SBTree) {
-    await this.attachParent(tree)
-    this.isReady = true
-    return true
-  }
 
-  public get name() {
-    return 'FsAdapter'
+  async initWith(tree: SBTree) {
+    return initWith.call(this, tree)
   }
 
   constructor(props?: FsAdaptepOptions) {
-    this.leafs = props?.leafs ? props.leafs : {}
-    this.path = props.path ? props.path : defaultFsProps.path
-    this.autoSave =
-      props.autoSave !== undefined ? props.autoSave : defaultFsProps.autoSave
-    this.autoSaveInterval =
-      props.autoSaveInterval !== undefined
-        ? props.autoSaveInterval
-        : defaultFsProps.autoSaveInterval
-    this.autoLoad =
-      props.autoLoad !== undefined ? props.autoLoad : defaultFsProps.autoLoad
-    this.autoLoadCallback =
-      props.autoLoadCallback !== undefined
-        ? props.autoLoadCallback
-        : defaultFsProps.autoLoadCallback
-
-    if (!this.autoLoad && this.autoLoadForceOverwrite === undefined) {
-      throw new Error(
-        'Not implemented : Overwrite graceful handle. Pass autoLoadForceOverwrite to force.',
-      )
-    }
-    this.lastChange = null
-    this.lastSave = null
-    this.queue = new FSLock()
-    this.isReady = true
-    if (props.leafs) {
-      this.isReady = false
-    }
-    if (props?.parent) {
-      attachDataSource.call(this, props.parent)
-    }
-  }
-
-  async attachParent(parent: SBTree) {
-    return attachDataSource.call(this, parent) as ReturnType<
-      typeof attachDataSource
-    >
+    parseLeafs.call(this, props)
+    parseDataStore.call(this, props)
   }
 
   async addInLeaf(leafName, identifier, value) {

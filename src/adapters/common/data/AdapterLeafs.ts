@@ -1,5 +1,5 @@
-import LeafData from '../common/LeafData'
-import LeafMeta from '../common/LeafMeta'
+import LeafData from '../LeafData'
+import LeafMeta from '../LeafMeta'
 
 export type AdapterLeaf = {
   meta: LeafMeta

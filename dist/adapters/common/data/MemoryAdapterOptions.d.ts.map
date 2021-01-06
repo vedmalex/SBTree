@@ -1,0 +1,1 @@
+{"version":3,"file":"MemoryAdapterOptions.d.ts","sourceRoot":"","sources":["../../../../src/adapters/common/data/MemoryAdapterOptions.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,uBAAuB,EAAE,MAAM,2BAA2B,CAAA;AACnE,OAAO,EAAE,mBAAmB,EAAE,MAAM,uBAAuB,CAAA;AAC3D,OAAO,EAAE,gBAAgB,EAAE,MAAM,oBAAoB,CAAC;AAEtD,oBAAY,oBAAoB,GAAG,gBAAgB,GAAG,uBAAuB,GAAG,mBAAmB,CAAA"}

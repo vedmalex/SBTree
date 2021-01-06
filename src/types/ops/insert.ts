@@ -1,6 +1,6 @@
 import { validTypes } from '../../constants'
 import { SBTree } from '../SBTree/SBTree'
-import { Document } from '../common/Document'
+import { Document } from '../../adapters/common/data/Document'
 
 export async function insert(this: SBTree, document: Document) {
   if (!document) {

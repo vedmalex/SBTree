@@ -1,5 +1,5 @@
-import { AdapterLeaf } from '../MemoryAdapter/MemoryAdapterLeafs';
-import { Document } from '../../types/common/Document';
+import { AdapterLeaf } from './data/AdapterLeafs';
+import { Document } from './data/Document';
 import { SBTree } from '../../types/SBTree/SBTree';
 import { OperationResult } from '../../types/common/OperationResult';
 import { SiblingsResult } from './SiblingsResult';

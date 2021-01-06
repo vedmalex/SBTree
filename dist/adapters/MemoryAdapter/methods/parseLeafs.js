@@ -12,7 +12,8 @@ function parseLeafs(_leafs) {
     lodash_foreach_1.default(_leafs, (_leaf, _leafId) => {
         leafs[_leafId] = {
             meta: new LeafMeta_1.default(_leaf.meta),
-            data: new LeafData_1.default(_leaf.data),
+            data: _leaf.data ? new LeafData_1.default(_leaf.data) : undefined,
+            id: _leaf.id ? _leaf.id : undefined,
         };
     });
     return leafs;

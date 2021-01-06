@@ -1,6 +1,6 @@
 import cloneDeep from 'lodash.clonedeep'
 import { SBTree } from '../SBTree/SBTree'
-import { Document } from '../common/Document'
+import { Document } from '../../adapters/common/data/Document'
 
 export async function get(this: SBTree, identifier) {
   if (!identifier) throw new Error('Expected an objectid')

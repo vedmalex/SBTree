@@ -19,7 +19,7 @@ export declare class SBFTree {
     };
     createRoot(root?: any): void;
     find(value: any, operator: any): Promise<any>;
-    get(identifier: any): Promise<import("../common/Document").Document>;
+    get(identifier: any): Promise<import("../../adapters/common/data/Document").Document>;
     insert(identifier: any, value: any): Promise<void>;
     remove(remCmd: any): Promise<void>;
     replace(identifier: any, value: any): Promise<boolean>;

@@ -1,7 +1,7 @@
 import cloneDeep from 'lodash.clonedeep'
 import ObjectId from 'mongo-objectid'
 import { insert } from '../../ops/insert'
-import { Document } from '../../common/Document'
+import { Document } from '../../../adapters/common/data/Document'
 import { SBTree } from '../SBTree'
 
 /**

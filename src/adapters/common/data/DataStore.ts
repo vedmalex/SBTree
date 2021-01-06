@@ -1,18 +1,19 @@
 import { FSLock } from 'fslockjs'
-import { AdapterLeafs } from '../../MemoryAdapter/MemoryAdapterLeafs'
+import { AdapterLeafs } from './AdapterLeafs'
 import { SBTree } from '../../../types/SBTree/SBTree'
 
 export interface DataStore {
   datasource: SBTree
-  readonly queue: FSLock
-  readonly leafs: AdapterLeafs
+  queue: FSLock
+  leafs: AdapterLeafs
   saveDatabase(): Promise<void>
   loadDatabase(): Promise<void>
-  readonly autoSave: boolean
-  readonly autoLoad: boolean
-  readonly autoLoadCallback: () => Promise<void>
-  readonly path: string
+  autoSave: boolean
+  autoLoad: boolean
+  autoLoadCallback: () => Promise<void>
+  path: string
   lastSave: number
   lastChange: number
-  readonly autoSaveInterval: number
+  autoSaveInterval: number
+  autoLoadForceOverwrite: boolean
 }

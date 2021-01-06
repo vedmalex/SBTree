@@ -1,5 +1,5 @@
 import FsAdapter from '../../FsAdapter'
-import { Document } from '../../../../types/common/Document'
+import { Document } from '../../../common/data/Document'
 export default async function getDocument(this: FsAdapter, identifier) {
   const job = await this.queue
     .add('File.read', `${this.path}/d/${identifier}.json`)

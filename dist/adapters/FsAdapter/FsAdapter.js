@@ -3,8 +3,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.defaultFsProps = void 0;
-const fslockjs_1 = require("fslockjs");
 const getDocument_1 = __importDefault(require("./methods/crud/getDocument"));
 const removeDocument_1 = __importDefault(require("./methods/crud/removeDocument"));
 const replaceDocument_1 = __importDefault(require("./methods/crud/replaceDocument"));
@@ -21,58 +19,18 @@ const getAllInLeaf_1 = __importDefault(require("./methods/tree/getAllInLeaf"));
 const removeInLeaf_1 = require("./methods/tree/removeInLeaf");
 const saveDatabase_1 = __importDefault(require("../common/data/saveDatabase"));
 const loadDatabase_1 = __importDefault(require("../common/data/loadDatabase"));
-const attachParent_1 = __importDefault(require("../common/data/attachParent"));
 const insertSortedInLeaf_1 = __importDefault(require("./methods/insertSortedInLeaf"));
 const openLeafData_1 = __importDefault(require("./methods/openLeafData"));
 const saveLeafData_1 = __importDefault(require("./methods/saveLeafData"));
-exports.defaultFsProps = {
-    path: '.db',
-    autoSave: true,
-    autoSaveInterval: 5000,
-    autoLoad: true,
-    autoLoadCallback: null,
-};
+const parseLeafs_1 = require("../common/data/parseLeafs");
 class FsAdapter {
     constructor(props) {
         this.isReady = false;
-        this.leafs = props?.leafs ? props.leafs : {};
-        this.path = props.path ? props.path : exports.defaultFsProps.path;
-        this.autoSave =
-            props.autoSave !== undefined ? props.autoSave : exports.defaultFsProps.autoSave;
-        this.autoSaveInterval =
-            props.autoSaveInterval !== undefined
-                ? props.autoSaveInterval
-                : exports.defaultFsProps.autoSaveInterval;
-        this.autoLoad =
-            props.autoLoad !== undefined ? props.autoLoad : exports.defaultFsProps.autoLoad;
-        this.autoLoadCallback =
-            props.autoLoadCallback !== undefined
-                ? props.autoLoadCallback
-                : exports.defaultFsProps.autoLoadCallback;
-        if (!this.autoLoad && this.autoLoadForceOverwrite === undefined) {
-            throw new Error('Not implemented : Overwrite graceful handle. Pass autoLoadForceOverwrite to force.');
-        }
-        this.lastChange = null;
-        this.lastSave = null;
-        this.queue = new fslockjs_1.FSLock();
-        this.isReady = true;
-        if (props.leafs) {
-            this.isReady = false;
-        }
-        if (props?.parent) {
-            attachParent_1.default.call(this, props.parent);
-        }
+        parseLeafs_1.parseLeafs.call(this, props);
+        parseLeafs_1.parseDataStore.call(this, props);
     }
     async initWith(tree) {
-        await this.attachParent(tree);
-        this.isReady = true;
-        return true;
-    }
-    get name() {
-        return 'FsAdapter';
-    }
-    async attachParent(parent) {
-        return attachParent_1.default.call(this, parent);
+        return parseLeafs_1.initWith.call(this, tree);
     }
     async addInLeaf(leafName, identifier, value) {
         return addInLeaf_1.default.call(this, leafName, identifier, value);

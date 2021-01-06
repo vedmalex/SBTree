@@ -7,7 +7,7 @@ function toJSON() {
         res[cur] = fieldTrees[cur].toJSON();
         return res;
     }, {});
-    return JSON.parse(JSON.stringify({
+    return {
         order,
         fillFactor,
         verbose,
@@ -16,7 +16,7 @@ function toJSON() {
         uniques,
         exclude,
         fieldTrees: f,
-    }));
+    };
 }
 exports.toJSON = toJSON;
 //# sourceMappingURL=toJSON.js.map

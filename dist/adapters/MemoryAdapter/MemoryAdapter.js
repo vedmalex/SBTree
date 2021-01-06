@@ -15,22 +15,15 @@ const getLeftInLeaf_1 = require("./methods/tree/getLeftInLeaf");
 const findInLeaf_1 = require("./methods/tree/findInLeaf");
 const getAllInLeaf_1 = require("./methods/tree/getAllInLeaf");
 const removeInLeaf_1 = require("./methods/tree/removeInLeaf");
-const parseLeafs_1 = require("./methods/parseLeafs");
+const parseLeafs_1 = require("../common/data/parseLeafs");
 class MemoryAdapter {
     constructor(props) {
         this.isReady = false;
-        this.leafs = props?.leafs ? parseLeafs_1.parseLeafs(props.leafs) : {};
-        this.documents = props?.documents ? props?.documents : {};
+        parseLeafs_1.parseLeafs.call(this, props);
+        parseLeafs_1.parseDocments.call(this, props);
     }
     async initWith(tree) {
-        if (!this.isReady) {
-            this.tree = tree;
-            this.isReady = true;
-            return true;
-        }
-        else {
-            return true;
-        }
+        return parseLeafs_1.initWith.call(this, tree);
     }
     async addInLeaf(leafName, identifier, value) {
         return addInLeaf_1.addInLeaf.call(this, leafName, identifier, value);

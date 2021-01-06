@@ -1,3 +1,4 @@
 import FsAdapter from '../FsAdapter';
-export default function saveLeafData(this: FsAdapter, leafName: any, data: any): Promise<{}>;
+import { LeafDataProps } from '../../common/LeafData';
+export default function saveLeafData(this: FsAdapter, leafName: string, data: LeafDataProps): Promise<{}>;
 //# sourceMappingURL=saveLeafData.d.ts.map

@@ -1,12 +1,11 @@
 import { FSLock } from 'fslockjs';
 import LeafData from '../common/LeafData';
 import { SBTree } from '../../types/SBTree/SBTree';
-import { FsAdaptepOptions } from './FsAdaptepOptions';
-import { FsAdapterOptionAutoLoadCallback } from './FsAdapterOptionAutoLoadCallback';
+import { FsAdaptepOptions } from '../common/data/FsAdaptepOptions';
 import { PersistenceAdapter } from '../common/PersistenceAdapter';
-import { AdapterLeafs } from '../MemoryAdapter/MemoryAdapterLeafs';
+import { AdapterLeafs } from '../common/data/AdapterLeafs';
 import { DataStore } from '../common/data/DataStore';
-export declare const defaultFsProps: FsAdaptepOptions;
+import { FsAdapterOptionAutoLoadCallback } from '../common/data/DataStoreOptions';
 export declare type LeafId = string;
 export declare type FsAdapterLastChange = number;
 export declare type FsAdapterLastSave = number;
@@ -23,10 +22,8 @@ export default class FsAdapter implements PersistenceAdapter, DataStore {
     lastChange: FsAdapterLastChange;
     lastSave: FsAdapterLastSave;
     isReady: boolean;
-    initWith(tree: SBTree): Promise<boolean>;
-    get name(): string;
+    initWith(tree: SBTree): Promise<any>;
     constructor(props?: FsAdaptepOptions);
-    attachParent(parent: SBTree): Promise<void>;
     addInLeaf(leafName: any, identifier: any, value: any): Promise<any>;
     createLeaf(leafId: any): Promise<void>;
     findInLeaf(leafId: any, value: any, op?: string): Promise<{
@@ -36,10 +33,10 @@ export default class FsAdapter implements PersistenceAdapter, DataStore {
     getAllInLeaf(leafId: any): any;
     getLeftInLeaf(leafId: any): any;
     getRightInLeaf(leadId: any): Promise<any>;
-    getDocument(identifier: any): Promise<import("../../types/common/Document").Document>;
+    getDocument(identifier: any): Promise<import("../common/data/Document").Document>;
     insertSortedInLeaf(leafId: any, value: any): any;
     loadDatabase(): Promise<void>;
-    openLeaf(leafName: any): Promise<import("../MemoryAdapter/MemoryAdapterLeafs").AdapterLeaf>;
+    openLeaf(leafName: any): Promise<import("../common/data/AdapterLeafs").AdapterLeaf>;
     removeDocument(identifier: any): Promise<void>;
     openLeafData(leafName: any): Promise<import("../common/LeafData").LeafDataProps>;
     replaceDocument(doc: any): Promise<void>;

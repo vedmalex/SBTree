@@ -481,14 +481,14 @@
         "signature": "428b10a0d2e879021d8cae53733af81ff9511571652d41238c74cd15ead13d35",
         "affectsGlobalScope": false
       },
-      "./src/types/common/document.ts": {
+      "./src/adapters/common/data/document.ts": {
         "version": "f18891d106f12087627b7fd7e60a3f599a9a653c83b09a4d4c0356c7d6f31ec0",
         "signature": "e67c9a6c082c91e03dcfcc100b558d23b925c26997d0a5ed278d1067c2b6e86d",
         "affectsGlobalScope": false
       },
       "./src/adapters/fsadapter/methods/crud/getdocument.ts": {
-        "version": "8f41a4e76de138a02926e9d0dda439b50792b2c21d2d34950c3520750e218481",
-        "signature": "d0732db81979fd050e91d0b17a5c6faa3cb45fe6b469a680f2edcc8e6891fab9",
+        "version": "09aebc5db7b4480f5872eecd7b79a722830c11eea2c76931ef267a676b591927",
+        "signature": "e16063361f70dba12ed9599439a514e0a77b9228ed104d266bd9a61a680a92df",
         "affectsGlobalScope": false
       },
       "./src/adapters/fsadapter/methods/crud/removedocument.ts": {
@@ -508,7 +508,7 @@
       },
       "./src/adapters/fsadapter/methods/tree/openleaf.ts": {
         "version": "b6b6d3b015e84290fdac909687a2d6db6f5bca94a861487fde892212d0018bdd",
-        "signature": "4d56728328b7dcf511cd80aba5ffe884b5c88147c8268817a13b2f69fb6ca278",
+        "signature": "edc93124298f61aab0b821061d87527671ab87bdcf761f00e01f26466edd2bd1",
         "affectsGlobalScope": false
       },
       "./src/adapters/fsadapter/methods/tree/addinleaf.ts": {
@@ -576,14 +576,14 @@
         "signature": "4843e14ad492424747949f4d6d4357ae7dae2b4e1c06cd51be6c44f56fb4a862",
         "affectsGlobalScope": false
       },
-      "./src/adapters/memoryadapter/memoryadapterleafs.ts": {
-        "version": "abb896916013f45c1ca2e31a8eaba093878ea9269e904fbf5fe56138060a24e8",
-        "signature": "01e88f763b14fb8ef20bcdaa01c8ab9b88f75f9e3c07557f04c57b5aa911296b",
+      "./src/adapters/common/data/adapterleafs.ts": {
+        "version": "37c617addeeb07a7b244b2f43a83f1e88b4d1f783b75af74dc315eae7a8c997a",
+        "signature": "0dc52a17a65d53332be03edc645b3cbdd9446ad4e9841a5da69b3121a37bd766",
         "affectsGlobalScope": false
       },
       "./src/adapters/common/data/datastore.ts": {
-        "version": "f8c8db5cc5cbc398488b7ded2a9b3c668763333ca9e7c7abfe253a7668974db4",
-        "signature": "a3143c31847b5ace3c9074eb941d666386dcb08d343c9eb727284e0097c96937",
+        "version": "79a44c87d46b27c7d60bd4149e35637f392e89f7dd02406e4d7eaf13313993a6",
+        "signature": "4289e1c6208a747a5dbac66981025b5cfd543360c1749685cbbde44085a42b96",
         "affectsGlobalScope": false
       },
       "./src/adapters/common/data/savedatabase.ts": {
@@ -594,16 +594,6 @@
       "./src/adapters/common/data/loaddatabase.ts": {
         "version": "766366c2c6ea867ee1d999a330844c9e5e0d15bfef3a36a14911c91683b68997",
         "signature": "dff94678c684e66caea7cb1b261f69fae2e0cb826336f2351f0b97ce07dc6380",
-        "affectsGlobalScope": false
-      },
-      "./src/adapters/common/data/autosave.ts": {
-        "version": "5ce4982c0e7e0a1f75fd65030ae5c3a97e17924ddb0698d96ab89d6247dfbac0",
-        "signature": "aa6475fa6f47df5bf61e6764fedbd197c61f3e3e83edd32737f196a7c1d4aee5",
-        "affectsGlobalScope": false
-      },
-      "./src/adapters/common/data/attachparent.ts": {
-        "version": "93eca66322c135f2c3a66bc0601d6c30874bc10094c780fdeb4f3ade0563187e",
-        "signature": "8fdad4cf858d04287197f85814bfbbcef92f7fab5adca5f35a4f9d2c58c74ef6",
         "affectsGlobalScope": false
       },
       "./src/utils/comparators.ts": {
@@ -622,23 +612,28 @@
         "affectsGlobalScope": false
       },
       "./src/adapters/fsadapter/methods/openleafdata.ts": {
-        "version": "e2da4ee7a752171e04b9c071c9c1e83c61981fdbf0844f4c9a55bce546f2a044",
-        "signature": "0f5f5217792d3a8b2113876571619898f01af2ea9b7d132107d1d96a8f30fd07",
+        "version": "68d616bba1b742a6d057ce72d7e9db704c2a921670777f8d8f84aaf67c00cd80",
+        "signature": "a7b0ceadfb8fb5d43350cf2fd4dfdba5210023400832e0c945bc4b48b994ea7b",
         "affectsGlobalScope": false
       },
       "./src/adapters/fsadapter/methods/saveleafdata.ts": {
-        "version": "7765706ceeb659963ab23e8693f3c7d7adcd90974c41ae57af4be5f3f70452ec",
-        "signature": "2211ccf4b544f47c7d04c099471bb4bcc149df842ed4ac5d209e8568d4f772de",
+        "version": "01ddac5381fb10f09d6404ac1cc94fc9176ea606253c0010588344ee0ca35123",
+        "signature": "2aac098584d8efe03fcb6f1774e1af07686b4ee61a10d5edd39e5beda8579bee",
         "affectsGlobalScope": false
       },
-      "./src/adapters/fsadapter/fsadapteroptionautoloadcallback.ts": {
-        "version": "15d1a63924844e720713b72537de3ad8952ac89ea2aaf9e01795dbd7974f2472",
-        "signature": "c526709d848ade0b3bb081a66053ab96f186ffb85d837cc1edc55c506da67021",
+      "./src/adapters/common/data/adapteroptionsleafs.ts": {
+        "version": "a1a9d426f275f0a1a3e37f7045c877a4826a0bdf542266fe527658c13f76cf80",
+        "signature": "e3e5642717e05df72c6cf2b353f026060ab3af088d54662808a78d447b7c06fa",
         "affectsGlobalScope": false
       },
-      "./src/adapters/fsadapter/fsadaptepoptions.ts": {
-        "version": "5ec457b2f79f758894ff5a99ec0d6599fa57381d3052fd6368bbb7f66852443a",
-        "signature": "335bce5f01d655eb027402a6f423d7794b7b276081945f9fcfd5bc6aef307524",
+      "./src/adapters/common/data/datastoreoptions.ts": {
+        "version": "dd69efdd69f7af4dd47546834cba186de3692e829f9344cc94d8f7e096fb41ce",
+        "signature": "c0972d0ca079532039304b597cd4e310c7c8af8c0c6be6186b8238a33f16ffb2",
+        "affectsGlobalScope": false
+      },
+      "./src/adapters/common/data/fsadaptepoptions.ts": {
+        "version": "f9c288559c04519bd8c3c4dbea164b9936d2694d18910f16a9a858981928bf99",
+        "signature": "3893f79105c4f063bd5412a3c81468dc3c1588b499c1d6ae7165537d07203d03",
         "affectsGlobalScope": false
       },
       "./src/adapters/common/siblingsresult.ts": {
@@ -668,7 +663,7 @@
       },
       "./src/types/sbftree/methods/get.ts": {
         "version": "8e3c2c2ad5d58ceb5e43216de5a27f3dd0587949ac03cf802062be0f1ba6c61e",
-        "signature": "30088ef88f55a6a430868bae700eed621f9bdbc09e512ee6f03c94c97d920176",
+        "signature": "195c2bb3bcaae6ec97dcff6c19d11eb9103383cb792a30ce26defd1d55be9f5f",
         "affectsGlobalScope": false
       },
       "./src/types/sbftree/methods/insert.ts": {
@@ -698,7 +693,7 @@
       },
       "./src/types/sbftree/sbftree.ts": {
         "version": "7eea575d4ec53d554b0f62445f67b72bcd72d2fbdb1be2d486eeda4d0d562795",
-        "signature": "2e7f53e11fe0c7d4504fa05332263020b3f89cc9c0e574c4e636629ac18f5959",
+        "signature": "968feb80c4e807d325751e5a855d1613d13562f74dda71f30504cdcf1779ff31",
         "affectsGlobalScope": false
       },
       "./src/types/common/fillstatus.ts": {
@@ -743,7 +738,7 @@
       },
       "./src/types/sbfroot/methods/get.ts": {
         "version": "6f11d9e74881414e8b1b19408b44f3f550c269057127e6024e9cd1d8d821c6dc",
-        "signature": "9dc2cc22824d5181d6fd1af11d0c21e0933c0eee350e8e0ac10d02c02fb09bc4",
+        "signature": "e6181d553097c217eaca478be1ef94f07d93789f603369972ebefb5a13b44a33",
         "affectsGlobalScope": false
       },
       "./src/types/sbfroot/methods/getfillstatus.ts": {
@@ -788,7 +783,7 @@
       },
       "./src/types/sbfroot/sbfroot.ts": {
         "version": "f19c7494676bcc5cce2c80f9a2c4245f17298bf986592b62bb8725f3658cc3fc",
-        "signature": "45ef736fee2d9291386da944885195610604add55261d1dd7320bf05d6accfd5",
+        "signature": "8511f601290f6feff4724b48e4f624cc77c2e450073648ba55da9831216ebb65",
         "affectsGlobalScope": false
       },
       "./src/types/sbfnode/methods/attachleaf.ts": {
@@ -962,18 +957,23 @@
         "affectsGlobalScope": false
       },
       "./src/adapters/common/persistenceadapter.ts": {
-        "version": "200bd7afc642dbd9d2cb504d43af72abecb9a0e999c060b5642d6a81fcd1ee20",
-        "signature": "6c51d9ebae6ee3d0800274a10ec3ff2939f36eb919311acd89e17109b7a6dae9",
+        "version": "7950f814353f610ca37da94de4a4aca7f00676035bb91b8c401dd12eeb082f51",
+        "signature": "3c5216d3debb48dbb8d9a07e49ca4a3d8bc1dd011cba4d664db5023701d83adb",
         "affectsGlobalScope": false
       },
-      "./src/adapters/fsadapter/fsadapter.ts": {
-        "version": "5aef2ec2c36e5d1c7e7e0cf2f01d49d1c11baa3d0211cc902b8ca0b6c0ccb803",
-        "signature": "e17848420b7cd4e26c49f00b08b4a28f0049c969bb3e93db425042a44cf9b6e7",
+      "./src/adapters/common/data/adapterdocuments.ts": {
+        "version": "5b3f3a6a0756165fb96e7a132cdf1e4704ad343876992d3cbd9d6b24f637020a",
+        "signature": "bf2d50a4b67e7040bccbb20eb38be0b31231f6475ad7d8c0f378adf05a4ee686",
+        "affectsGlobalScope": false
+      },
+      "./src/adapters/common/data/adapteroptionsdocuments.ts": {
+        "version": "63e99889d2d87177cb77f50316bccd40cf023d66f649dbf8bac0253e0be0b594",
+        "signature": "963335e56c87092cd8304ba38d702e517d3915c2e399a5bd9bd32ee78baa77fb",
         "affectsGlobalScope": false
       },
       "./src/adapters/memoryadapter/methods/crud/getdocument.ts": {
-        "version": "f361d1440e5d280ed538587219d96407a4729128a27444427333ee535e6d4a4e",
-        "signature": "f22afd2c0d1b8bbac0ae172128b2c8dd28f683cf3dfc08f7a9b3f73bb33305f9",
+        "version": "71346eb81af5cb0a9a64a0192d666c8016f10e90577134045478e32560085988",
+        "signature": "36de260eee36e3e94dd7be8a2c26d953d01b2b00bebebeaf730d72c8f1a30ad7",
         "affectsGlobalScope": false
       },
       "./src/adapters/memoryadapter/methods/crud/removedocument.ts": {
@@ -993,7 +993,7 @@
       },
       "./src/adapters/memoryadapter/methods/tree/openleaf.ts": {
         "version": "b421ec4bdc597641b1c4a35c11c10250b442554c416010308215f67d7cc631b1",
-        "signature": "578f346e2d407d28dd8960d52e58bf8c7eece384fe609b03843502e2dcd7f702",
+        "signature": "238971702169c8581b6e6797879c1551f20bf5c67770e22acf0e8ac971893d2b",
         "affectsGlobalScope": false
       },
       "./src/adapters/memoryadapter/methods/tree/addinleaf.ts": {
@@ -1041,24 +1041,34 @@
         "signature": "3f0a2c63302abce4cb9ed7d5045e1ee3f9d3089415c5bc6246361d562ee33dcf",
         "affectsGlobalScope": false
       },
-      "./src/adapters/memoryadapter/methods/parseleafs.ts": {
-        "version": "1f23b20ccaa1e958a63eea739a0ebc517897b905d88d3e4582ffb29a3bb581f8",
-        "signature": "f16c293b0c544a97665bdcea36e7d42c4e013dc38b33999cf9f4bf4b8f054391",
-        "affectsGlobalScope": false
-      },
-      "./src/adapters/memoryadapter/memoryadapterdocuments.ts": {
-        "version": "b71d15f5bc496f9c020cee54807c22e3c7bb4b72253f3ae98cc6fdaeb1b74d09",
-        "signature": "b593a272c4e8884eed0cbecf26524c7b0d4814e41e1ff71ca835e9436fc0535f",
-        "affectsGlobalScope": false
-      },
-      "./src/adapters/memoryadapter/memoryadapteroptions.ts": {
-        "version": "8c0ca442a920c7f4de360a40c198aeb094a3b358b90787f57b78b61b5751e9ff",
-        "signature": "d1d71475dc139abd56c7262057b0c3ddd4bdf57eed48b317b01df1c564c152b4",
+      "./src/adapters/common/data/memoryadapteroptions.ts": {
+        "version": "29278236ade24d3293d871e701003d72319b7f38b0933e84f0b342ea6508da27",
+        "signature": "77cf8d7f841dc2df487dff82af1ab9c179e40deed6ac371e81b077e0a19c0db9",
         "affectsGlobalScope": false
       },
       "./src/adapters/memoryadapter/memoryadapter.ts": {
-        "version": "ea95a8dd0815879079c73d2049439b1e4e0caed3ce5903d560947067719ce297",
-        "signature": "355563f67de969e62dfd8cb9fbafdcb22d3c2dc87152693daea73b25571d964a",
+        "version": "55c2da3ee835cb9c23d4b3b4fdb61ff3f684bc4482495b4de4fa236d9f5903a2",
+        "signature": "331bb3a8a23b0d5ec7ce7c90a9cc4d96d9e950ba2879f7f5e3bf4b211800e713",
+        "affectsGlobalScope": false
+      },
+      "./src/adapters/common/data/autosave.ts": {
+        "version": "5ce4982c0e7e0a1f75fd65030ae5c3a97e17924ddb0698d96ab89d6247dfbac0",
+        "signature": "aa6475fa6f47df5bf61e6764fedbd197c61f3e3e83edd32737f196a7c1d4aee5",
+        "affectsGlobalScope": false
+      },
+      "./src/adapters/common/data/attachdatasource.ts": {
+        "version": "93eca66322c135f2c3a66bc0601d6c30874bc10094c780fdeb4f3ade0563187e",
+        "signature": "a517e9a3a0acd7ad10285df73a5ae441d882f9669f443e943602cae5f63aec2b",
+        "affectsGlobalScope": false
+      },
+      "./src/adapters/common/data/parseleafs.ts": {
+        "version": "7adbd37f2ccd62cf7f8a0e8c8b3972a95e2bf6e33293a3a19de860dfda6e84bf",
+        "signature": "b70f825ebac5a50129eb9513a9ea5b7a0d6748a917849cfb2cd650be67414481",
+        "affectsGlobalScope": false
+      },
+      "./src/adapters/fsadapter/fsadapter.ts": {
+        "version": "dc599d693c29194dd169e83fbbc24555ef81fe8ae98cb07c3c717bf8ba870262",
+        "signature": "33d7e70d37547b29d1f528fde43a413bdf26f56f110925cd2eaf7e9cfed1b23b",
         "affectsGlobalScope": false
       },
       "./src/adapters/index.ts": {
@@ -1082,13 +1092,13 @@
         "affectsGlobalScope": false
       },
       "./src/types/ops/get.ts": {
-        "version": "ad8ce31882324101f03a3aafbf550db1dafd49843bc84b54995a509753f2447c",
-        "signature": "7898819196eb01b71c4c33aad159cbcf5f98ff07769cdaf17904e30349dbe161",
+        "version": "991ed3b788ce6c72cb6e119765348a46c3ea011b893dfe6627d9faff822a01d7",
+        "signature": "3ff13128042bb53594eed5b1666b0f8cfedb253a624277eb8d3c09ac54408ac2",
         "affectsGlobalScope": false
       },
       "./src/types/ops/query.ts": {
-        "version": "f3afb582b39da3d5c8c62976c54b36bad72271ee06c65c54b17899e4bce0c90c",
-        "signature": "a7708b16280d67a6967be3222dd1e783f802d211304f2e4ee8efb1c8baafe288",
+        "version": "a487b247d4768351f72b838168e52485c4a55d9864718ac4e4d59debbed242c7",
+        "signature": "4937c4da99109a7576365a8bf53653c42fa009252a3cfd18a0c42c2e8766f817",
         "affectsGlobalScope": false
       },
       "./src/types/ops/removecommand.ts": {
@@ -1098,22 +1108,22 @@
       },
       "./src/types/ops/remove.ts": {
         "version": "672f20d75e75a67009a502f1af260100998e436c5885c229c4a13fa80721995b",
-        "signature": "2771206a34be14e824e2ccb7745df1a3aa1f893746b476006d7449b0ea1fdd66",
+        "signature": "e7730e106f5bcebb6e88d83d1d9057b30832be161618b647887fc8519d53a384",
         "affectsGlobalScope": false
       },
       "./src/types/sbtree/methods/deletedocuments.ts": {
         "version": "c80101fe8de3824e202642e2af3cbd16caf55542ead711536361f01a180bd000",
-        "signature": "a853c6d1eb63e45cd3b77bc7330e8f2d7b838cd7898d2dd49aa87e2e81db4b1f",
+        "signature": "e81dd562cfa484c57e30691589392cc16a35dffe31b210a2ef116f37d55ecef1",
         "affectsGlobalScope": false
       },
       "./src/types/sbtree/methods/finddocuments.ts": {
         "version": "d66916c4c8a02cb13e5a0c16338bb9377e4867e14aaef41a83ad180129c67c62",
-        "signature": "a97ddc57d49ad93b3206b8f3c95d93d1cc8bb4c47d6d62b523869d5d8be5ed5b",
+        "signature": "4299f5a98155de7262a28cccdb6faff75c541d7b1a4b51d81eb95c1bfc740d8b",
         "affectsGlobalScope": false
       },
       "./src/types/sbtree/methods/getdocument.ts": {
         "version": "d90a1f112e9a76413f64683530b38d73fc29e51ae6d599d9a06d444b65058855",
-        "signature": "d87b33a2c2d40ae2071fdd401977db325582c725dadb247fe2c9e15938ba5b3d",
+        "signature": "25c41b246eec97eee19b0d41abe84b8893509786ead7a413386d6316a2a94152",
         "affectsGlobalScope": false
       },
       "./src/types/sbtree/methods/getfieldtree.ts": {
@@ -1122,13 +1132,13 @@
         "affectsGlobalScope": false
       },
       "./src/types/ops/insert.ts": {
-        "version": "f7a5c7e1e7829393c8b8d00c2e8d4b54566fd0ae018f54ed22654abccf0bf28a",
-        "signature": "eccb8c02f56e9bbb5bbc67afd524d869bb51ff59625cba341f953e837f37de32",
+        "version": "2a1423481a6d93ff29381ccf4dd9fc2edde15ab106970e04a121db73c4130e03",
+        "signature": "d5012599aeb2f1c79fcdd793f72bead44372f7cba53307a2835b74164381533a",
         "affectsGlobalScope": false
       },
       "./src/types/sbtree/methods/insertdocuments.ts": {
-        "version": "bef5a2947f2fb9599d3261b9a469072268041d27116d182981111b330e13cc56",
-        "signature": "851a19ffb44fcd953483386a1db3ad190833f6bea882e2a27a0d56e47afa0b12",
+        "version": "fc1426a7ccb5177e523a48ec9707189234084ee1b49bb199ef13ecc3762ea86f",
+        "signature": "ada26285f6f2b429a67d327cf63b658cd15946e05511d94b88a646d9c42e0ad0",
         "affectsGlobalScope": false
       },
       "./src/types/ops/replace.ts": {
@@ -1142,18 +1152,18 @@
         "affectsGlobalScope": false
       },
       "./src/types/sbtree/methods/loadstate.ts": {
-        "version": "8b0227baa04702bd986e27134aafe6aa57a8477dc8a8955073dc936837010d03",
-        "signature": "88524c4ff3c261090b78a981ba1ceb6f5c6439a7f8a14ec885cfa768440e2d63",
+        "version": "f022d6ce74bce4c6637173af469bfa764008d3d6a7c1472f55bb34fd2e0fa5af",
+        "signature": "1479b9c8da70ddbdf75239f9b949daef5c6f15aca3e24ffccba89c0257dee196",
         "affectsGlobalScope": false
       },
       "./src/types/sbtree/methods/tojson.ts": {
-        "version": "a949379e82105d6a09ddf2a3f78bf379c27ca17b0c526f4e53b2c2c6d0df90bc",
-        "signature": "c24ea264c8e2467d3d5c501c88240ac75c0004343f0e43ca193254655935686c",
+        "version": "ee708f8450674d9c342a341437a1e64845a438ed5ee9f0514fffb862bdd98b2f",
+        "signature": "ff1e534745f261edd7470d4b15a8dff61045552cfd180b500ef740b13890f4e8",
         "affectsGlobalScope": false
       },
       "./src/types/sbtree/sbtree.ts": {
-        "version": "3cf39cfffe1b6ea0e6f8be54edd1953c59b6bea09085be03798b0ed2dc76cf38",
-        "signature": "fed8f1fbd6f0252c416f2e3e813c656e9dd29a1d7c05c30e0c958b3a0db36261",
+        "version": "8105d4292a33a58538ce4a5f1a43df33ea594108ea2172c7c521532246860b8c",
+        "signature": "a44b5d2455d06f7b168e07360bf4a77b6ae82e06d7255f8ff908ff3442bdae64",
         "affectsGlobalScope": false
       },
       "./src/utils/ascii.ts": {
@@ -1174,6 +1184,11 @@
       "./src/index.ts": {
         "version": "67cd9846e50765dbbf52b8d5a9f84bbac556bcb1afb01073e184cf25c44dfdcb",
         "signature": "f667f6b1d66ba55f0dcd27f5ff050063fecfe289bad00e8c5d48344a775c1439",
+        "affectsGlobalScope": false
+      },
+      "./src/adapters/memoryadapter/memoryadapterwithstore.ts": {
+        "version": "be6a1b7f570ebe146965a5e852659357ad54713712b85971f7980d28899e348e",
+        "signature": "823ee740ef3f887836aaf6071734bc1e9e23a4370c44dd8da3949895cbf90201",
         "affectsGlobalScope": false
       },
       "./src/adapters/common/eventlisteners.ts": {
@@ -1204,6 +1219,11 @@
       "./src/examples/fs-usage.ts": {
         "version": "d54ce1112a7663f4c247c080f060ba63accb03f85049aa70e682bd4ac8ba8233",
         "signature": "076ad42ead6e705bb40144d453391ad0c9395b7daafdf825c79ec7ea48676bcf",
+        "affectsGlobalScope": false
+      },
+      "./src/examples/ms-usage.ts": {
+        "version": "5d712233afec88c06f62cbc2a50ee1c7accaea24eeac6f5a8ab4398924269262",
+        "signature": "fca5c501f9ba29da7e3f8d2f34a71672876ada569768ab752f37f58e0530a1b5",
         "affectsGlobalScope": false
       }
     },
@@ -1433,7 +1453,20 @@
       "./node_modules/@types/node/zlib.d.ts": [
         "./node_modules/@types/node/stream.d.ts"
       ],
-      "./src/adapters/common/data/attachparent.ts": [
+      "./src/adapters/common/data/adapterdocuments.ts": [
+        "./src/adapters/common/data/document.ts"
+      ],
+      "./src/adapters/common/data/adapterleafs.ts": [
+        "./src/adapters/common/leafdata.ts",
+        "./src/adapters/common/leafmeta.ts"
+      ],
+      "./src/adapters/common/data/adapteroptionsdocuments.ts": [
+        "./src/adapters/common/data/adapterdocuments.ts"
+      ],
+      "./src/adapters/common/data/adapteroptionsleafs.ts": [
+        "./src/adapters/common/data/adapterleafs.ts"
+      ],
+      "./src/adapters/common/data/attachdatasource.ts": [
         "./src/adapters/common/data/autosave.ts",
         "./src/adapters/common/data/datastore.ts",
         "./src/types/sbtree/sbtree.ts"
@@ -1443,12 +1476,38 @@
       ],
       "./src/adapters/common/data/datastore.ts": [
         "../fslockjs/dist/index.d.ts",
-        "./src/adapters/memoryadapter/memoryadapterleafs.ts",
+        "./src/adapters/common/data/adapterleafs.ts",
         "./src/types/sbtree/sbtree.ts"
+      ],
+      "./src/adapters/common/data/datastoreoptions.ts": [
+        "./src/types/sbtree/sbtree.ts"
+      ],
+      "./src/adapters/common/data/fsadaptepoptions.ts": [
+        "./src/adapters/common/data/adapteroptionsleafs.ts",
+        "./src/adapters/common/data/datastoreoptions.ts"
       ],
       "./src/adapters/common/data/loaddatabase.ts": [
         "./src/adapters/common/data/datastore.ts",
         "./src/adapters/common/leafmeta.ts"
+      ],
+      "./src/adapters/common/data/memoryadapteroptions.ts": [
+        "./src/adapters/common/data/adapteroptionsdocuments.ts",
+        "./src/adapters/common/data/adapteroptionsleafs.ts",
+        "./src/adapters/common/data/datastoreoptions.ts"
+      ],
+      "./src/adapters/common/data/parseleafs.ts": [
+        "../fslockjs/dist/index.d.ts",
+        "./src/adapters/common/data/adapterleafs.ts",
+        "./src/adapters/common/data/adapteroptionsdocuments.ts",
+        "./src/adapters/common/data/adapteroptionsleafs.ts",
+        "./src/adapters/common/data/attachdatasource.ts",
+        "./src/adapters/common/data/datastore.ts",
+        "./src/adapters/common/data/datastoreoptions.ts",
+        "./src/adapters/common/data/fsadaptepoptions.ts",
+        "./src/adapters/common/leafdata.ts",
+        "./src/adapters/common/leafmeta.ts",
+        "./src/adapters/memoryadapter/memoryadapter.ts",
+        "./src/types/sbtree/sbtree.ts"
       ],
       "./src/adapters/common/data/savedatabase.ts": [
         "./src/adapters/common/data/datastore.ts"
@@ -1464,12 +1523,12 @@
         "./src/adapters/common/possiblekeys.ts"
       ],
       "./src/adapters/common/persistenceadapter.ts": [
+        "./src/adapters/common/data/adapterleafs.ts",
+        "./src/adapters/common/data/document.ts",
         "./src/adapters/common/possiblekeys.ts",
         "./src/adapters/common/queryoperations.ts",
         "./src/adapters/common/removeinleafresult.ts",
         "./src/adapters/common/siblingsresult.ts",
-        "./src/adapters/memoryadapter/memoryadapterleafs.ts",
-        "./src/types/common/document.ts",
         "./src/types/common/operationresult.ts",
         "./src/types/sbfleaf/sbfleaf.ts",
         "./src/types/sbtree/sbtree.ts"
@@ -1477,21 +1536,17 @@
       "./src/adapters/common/siblingsresult.ts": [
         "./src/adapters/common/possiblekeys.ts"
       ],
-      "./src/adapters/fsadapter/fsadaptepoptions.ts": [
-        "./src/adapters/fsadapter/fsadapteroptionautoloadcallback.ts",
-        "./src/adapters/memoryadapter/memoryadapterleafs.ts",
-        "./src/types/sbtree/sbtree.ts"
-      ],
       "./src/adapters/fsadapter/fsadapter.ts": [
         "../fslockjs/dist/index.d.ts",
-        "./src/adapters/common/data/attachparent.ts",
+        "./src/adapters/common/data/adapterleafs.ts",
         "./src/adapters/common/data/datastore.ts",
+        "./src/adapters/common/data/datastoreoptions.ts",
+        "./src/adapters/common/data/fsadaptepoptions.ts",
         "./src/adapters/common/data/loaddatabase.ts",
+        "./src/adapters/common/data/parseleafs.ts",
         "./src/adapters/common/data/savedatabase.ts",
         "./src/adapters/common/leafdata.ts",
         "./src/adapters/common/persistenceadapter.ts",
-        "./src/adapters/fsadapter/fsadaptepoptions.ts",
-        "./src/adapters/fsadapter/fsadapteroptionautoloadcallback.ts",
         "./src/adapters/fsadapter/methods/crud/getdocument.ts",
         "./src/adapters/fsadapter/methods/crud/removedocument.ts",
         "./src/adapters/fsadapter/methods/crud/replacedocument.ts",
@@ -1509,12 +1564,11 @@
         "./src/adapters/fsadapter/methods/tree/removeinleaf.ts",
         "./src/adapters/fsadapter/methods/tree/replaceinleaf.ts",
         "./src/adapters/fsadapter/methods/tree/splitleaf.ts",
-        "./src/adapters/memoryadapter/memoryadapterleafs.ts",
         "./src/types/sbtree/sbtree.ts"
       ],
       "./src/adapters/fsadapter/methods/crud/getdocument.ts": [
-        "./src/adapters/fsadapter/fsadapter.ts",
-        "./src/types/common/document.ts"
+        "./src/adapters/common/data/document.ts",
+        "./src/adapters/fsadapter/fsadapter.ts"
       ],
       "./src/adapters/fsadapter/methods/crud/removedocument.ts": [
         "./src/adapters/fsadapter/fsadapter.ts"
@@ -1534,6 +1588,7 @@
         "./src/adapters/fsadapter/fsadapter.ts"
       ],
       "./src/adapters/fsadapter/methods/saveleafdata.ts": [
+        "./src/adapters/common/leafdata.ts",
         "./src/adapters/fsadapter/fsadapter.ts"
       ],
       "./src/adapters/fsadapter/methods/tree/addinleaf.ts": [
@@ -1577,15 +1632,15 @@
         "./src/adapters/memoryadapter/memoryadapter.ts"
       ],
       "./src/adapters/memoryadapter/memoryadapter.ts": [
+        "./src/adapters/common/data/adapterdocuments.ts",
+        "./src/adapters/common/data/adapterleafs.ts",
+        "./src/adapters/common/data/memoryadapteroptions.ts",
+        "./src/adapters/common/data/parseleafs.ts",
         "./src/adapters/common/persistenceadapter.ts",
-        "./src/adapters/memoryadapter/memoryadapterdocuments.ts",
-        "./src/adapters/memoryadapter/memoryadapterleafs.ts",
-        "./src/adapters/memoryadapter/memoryadapteroptions.ts",
         "./src/adapters/memoryadapter/methods/crud/getdocument.ts",
         "./src/adapters/memoryadapter/methods/crud/removedocument.ts",
         "./src/adapters/memoryadapter/methods/crud/replacedocument.ts",
         "./src/adapters/memoryadapter/methods/crud/savedocument.ts",
-        "./src/adapters/memoryadapter/methods/parseleafs.ts",
         "./src/adapters/memoryadapter/methods/tree/addinleaf.ts",
         "./src/adapters/memoryadapter/methods/tree/createleaf.ts",
         "./src/adapters/memoryadapter/methods/tree/findinleaf.ts",
@@ -1598,20 +1653,20 @@
         "./src/adapters/memoryadapter/methods/tree/splitleaf.ts",
         "./src/types/sbtree/sbtree.ts"
       ],
-      "./src/adapters/memoryadapter/memoryadapterdocuments.ts": [
-        "./src/types/common/document.ts"
-      ],
-      "./src/adapters/memoryadapter/memoryadapterleafs.ts": [
-        "./src/adapters/common/leafdata.ts",
-        "./src/adapters/common/leafmeta.ts"
-      ],
-      "./src/adapters/memoryadapter/memoryadapteroptions.ts": [
-        "./src/adapters/memoryadapter/memoryadapterdocuments.ts",
-        "./src/adapters/memoryadapter/memoryadapterleafs.ts"
+      "./src/adapters/memoryadapter/memoryadapterwithstore.ts": [
+        "../fslockjs/dist/index.d.ts",
+        "./src/adapters/common/data/adapterdocuments.ts",
+        "./src/adapters/common/data/adapterleafs.ts",
+        "./src/adapters/common/data/datastore.ts",
+        "./src/adapters/common/data/datastoreoptions.ts",
+        "./src/adapters/common/data/memoryadapteroptions.ts",
+        "./src/adapters/common/data/parseleafs.ts",
+        "./src/adapters/memoryadapter/memoryadapter.ts",
+        "./src/types/sbtree/sbtree.ts"
       ],
       "./src/adapters/memoryadapter/methods/crud/getdocument.ts": [
-        "./src/adapters/memoryadapter/memoryadapter.ts",
-        "./src/types/common/document.ts"
+        "./src/adapters/common/data/document.ts",
+        "./src/adapters/memoryadapter/memoryadapter.ts"
       ],
       "./src/adapters/memoryadapter/methods/crud/removedocument.ts": [
         "./src/adapters/memoryadapter/memoryadapter.ts"
@@ -1621,10 +1676,6 @@
       ],
       "./src/adapters/memoryadapter/methods/crud/savedocument.ts": [
         "./src/adapters/memoryadapter/memoryadapter.ts"
-      ],
-      "./src/adapters/memoryadapter/methods/parseleafs.ts": [
-        "./src/adapters/common/leafdata.ts",
-        "./src/adapters/common/leafmeta.ts"
       ],
       "./src/adapters/memoryadapter/methods/tree/addinleaf.ts": [
         "./src/adapters/memoryadapter/memoryadapter.ts",
@@ -1680,6 +1731,11 @@
         "./src/types/sbtree/sbtree.ts",
         "./src/utils/time.ts"
       ],
+      "./src/examples/ms-usage.ts": [
+        "./src/adapters/memoryadapter/memoryadapterwithstore.ts",
+        "./src/types/sbtree/sbtree.ts",
+        "./src/utils/time.ts"
+      ],
       "./src/index.ts": [
         "./src/adapters/index.ts",
         "./src/types/sbtree/sbtree.ts",
@@ -1689,16 +1745,16 @@
         "./src/adapters/common/possiblekeys.ts"
       ],
       "./src/types/ops/get.ts": [
-        "./src/types/common/document.ts",
+        "./src/adapters/common/data/document.ts",
         "./src/types/sbtree/sbtree.ts"
       ],
       "./src/types/ops/insert.ts": [
+        "./src/adapters/common/data/document.ts",
         "./src/constants.ts",
-        "./src/types/common/document.ts",
         "./src/types/sbtree/sbtree.ts"
       ],
       "./src/types/ops/query.ts": [
-        "./src/types/common/document.ts",
+        "./src/adapters/common/data/document.ts",
         "./src/types/ops/get.ts",
         "./src/types/sbftree/sbftree.ts",
         "./src/types/sbtree/sbtree.ts",
@@ -1999,7 +2055,7 @@
         "./src/types/sbtree/sbtree.ts"
       ],
       "./src/types/sbtree/methods/insertdocuments.ts": [
-        "./src/types/common/document.ts",
+        "./src/adapters/common/data/document.ts",
         "./src/types/ops/insert.ts",
         "./src/types/sbtree/sbtree.ts"
       ],
@@ -2016,6 +2072,7 @@
         "./src/types/sbtree/sbtree.ts"
       ],
       "./src/types/sbtree/methods/tojson.ts": [
+        "./src/types/sbftree/sbftree.ts",
         "./src/types/sbtree/sbtree.ts"
       ],
       "./src/types/sbtree/sbtree.ts": [
@@ -2247,7 +2304,20 @@
       "./node_modules/@types/node/zlib.d.ts": [
         "./node_modules/@types/node/stream.d.ts"
       ],
-      "./src/adapters/common/data/attachparent.ts": [
+      "./src/adapters/common/data/adapterdocuments.ts": [
+        "./src/adapters/common/data/document.ts"
+      ],
+      "./src/adapters/common/data/adapterleafs.ts": [
+        "./src/adapters/common/leafdata.ts",
+        "./src/adapters/common/leafmeta.ts"
+      ],
+      "./src/adapters/common/data/adapteroptionsdocuments.ts": [
+        "./src/adapters/common/data/adapterdocuments.ts"
+      ],
+      "./src/adapters/common/data/adapteroptionsleafs.ts": [
+        "./src/adapters/common/data/adapterleafs.ts"
+      ],
+      "./src/adapters/common/data/attachdatasource.ts": [
         "./src/adapters/common/data/datastore.ts",
         "./src/types/sbtree/sbtree.ts"
       ],
@@ -2256,11 +2326,32 @@
       ],
       "./src/adapters/common/data/datastore.ts": [
         "../fslockjs/dist/index.d.ts",
-        "./src/adapters/memoryadapter/memoryadapterleafs.ts",
+        "./src/adapters/common/data/adapterleafs.ts",
         "./src/types/sbtree/sbtree.ts"
+      ],
+      "./src/adapters/common/data/datastoreoptions.ts": [
+        "./src/types/sbtree/sbtree.ts"
+      ],
+      "./src/adapters/common/data/fsadaptepoptions.ts": [
+        "./src/adapters/common/data/adapteroptionsleafs.ts",
+        "./src/adapters/common/data/datastoreoptions.ts"
       ],
       "./src/adapters/common/data/loaddatabase.ts": [
         "./src/adapters/common/data/datastore.ts"
+      ],
+      "./src/adapters/common/data/memoryadapteroptions.ts": [
+        "./src/adapters/common/data/adapteroptionsdocuments.ts",
+        "./src/adapters/common/data/adapteroptionsleafs.ts",
+        "./src/adapters/common/data/datastoreoptions.ts"
+      ],
+      "./src/adapters/common/data/parseleafs.ts": [
+        "./src/adapters/common/data/adapteroptionsdocuments.ts",
+        "./src/adapters/common/data/adapteroptionsleafs.ts",
+        "./src/adapters/common/data/datastore.ts",
+        "./src/adapters/common/data/datastoreoptions.ts",
+        "./src/adapters/common/data/fsadaptepoptions.ts",
+        "./src/adapters/memoryadapter/memoryadapter.ts",
+        "./src/types/sbtree/sbtree.ts"
       ],
       "./src/adapters/common/data/savedatabase.ts": [
         "./src/adapters/common/data/datastore.ts"
@@ -2272,12 +2363,12 @@
         "./src/adapters/common/possiblekeys.ts"
       ],
       "./src/adapters/common/persistenceadapter.ts": [
+        "./src/adapters/common/data/adapterleafs.ts",
+        "./src/adapters/common/data/document.ts",
         "./src/adapters/common/possiblekeys.ts",
         "./src/adapters/common/queryoperations.ts",
         "./src/adapters/common/removeinleafresult.ts",
         "./src/adapters/common/siblingsresult.ts",
-        "./src/adapters/memoryadapter/memoryadapterleafs.ts",
-        "./src/types/common/document.ts",
         "./src/types/common/operationresult.ts",
         "./src/types/sbfleaf/sbfleaf.ts",
         "./src/types/sbtree/sbtree.ts"
@@ -2285,26 +2376,21 @@
       "./src/adapters/common/siblingsresult.ts": [
         "./src/adapters/common/possiblekeys.ts"
       ],
-      "./src/adapters/fsadapter/fsadaptepoptions.ts": [
-        "./src/adapters/fsadapter/fsadapteroptionautoloadcallback.ts",
-        "./src/adapters/memoryadapter/memoryadapterleafs.ts",
-        "./src/types/sbtree/sbtree.ts"
-      ],
       "./src/adapters/fsadapter/fsadapter.ts": [
         "../fslockjs/dist/index.d.ts",
+        "./src/adapters/common/data/adapterleafs.ts",
         "./src/adapters/common/data/datastore.ts",
+        "./src/adapters/common/data/datastoreoptions.ts",
+        "./src/adapters/common/data/document.ts",
+        "./src/adapters/common/data/fsadaptepoptions.ts",
         "./src/adapters/common/leafdata.ts",
         "./src/adapters/common/persistenceadapter.ts",
         "./src/adapters/common/possiblekeys.ts",
-        "./src/adapters/fsadapter/fsadaptepoptions.ts",
-        "./src/adapters/fsadapter/fsadapteroptionautoloadcallback.ts",
-        "./src/adapters/memoryadapter/memoryadapterleafs.ts",
-        "./src/types/common/document.ts",
         "./src/types/sbtree/sbtree.ts"
       ],
       "./src/adapters/fsadapter/methods/crud/getdocument.ts": [
-        "./src/adapters/fsadapter/fsadapter.ts",
-        "./src/types/common/document.ts"
+        "./src/adapters/common/data/document.ts",
+        "./src/adapters/fsadapter/fsadapter.ts"
       ],
       "./src/adapters/fsadapter/methods/crud/removedocument.ts": [
         "./src/adapters/fsadapter/fsadapter.ts"
@@ -2323,6 +2409,7 @@
         "./src/adapters/fsadapter/fsadapter.ts"
       ],
       "./src/adapters/fsadapter/methods/saveleafdata.ts": [
+        "./src/adapters/common/leafdata.ts",
         "./src/adapters/fsadapter/fsadapter.ts"
       ],
       "./src/adapters/fsadapter/methods/tree/addinleaf.ts": [
@@ -2344,8 +2431,8 @@
         "./src/adapters/fsadapter/fsadapter.ts"
       ],
       "./src/adapters/fsadapter/methods/tree/openleaf.ts": [
-        "./src/adapters/fsadapter/fsadapter.ts",
-        "./src/adapters/memoryadapter/memoryadapterleafs.ts"
+        "./src/adapters/common/data/adapterleafs.ts",
+        "./src/adapters/fsadapter/fsadapter.ts"
       ],
       "./src/adapters/fsadapter/methods/tree/removeinleaf.ts": [
         "./src/adapters/fsadapter/fsadapter.ts"
@@ -2363,31 +2450,30 @@
         "./src/adapters/memoryadapter/memoryadapter.ts"
       ],
       "./src/adapters/memoryadapter/memoryadapter.ts": [
+        "./src/adapters/common/data/adapterdocuments.ts",
+        "./src/adapters/common/data/adapterleafs.ts",
+        "./src/adapters/common/data/document.ts",
+        "./src/adapters/common/data/memoryadapteroptions.ts",
         "./src/adapters/common/persistenceadapter.ts",
         "./src/adapters/common/possiblekeys.ts",
         "./src/adapters/common/removeinleafresult.ts",
         "./src/adapters/common/siblingsresult.ts",
-        "./src/adapters/memoryadapter/memoryadapterdocuments.ts",
-        "./src/adapters/memoryadapter/memoryadapterleafs.ts",
-        "./src/adapters/memoryadapter/memoryadapteroptions.ts",
-        "./src/types/common/document.ts",
         "./src/types/common/operationresult.ts",
         "./src/types/sbtree/sbtree.ts"
       ],
-      "./src/adapters/memoryadapter/memoryadapterdocuments.ts": [
-        "./src/types/common/document.ts"
-      ],
-      "./src/adapters/memoryadapter/memoryadapterleafs.ts": [
-        "./src/adapters/common/leafdata.ts",
-        "./src/adapters/common/leafmeta.ts"
-      ],
-      "./src/adapters/memoryadapter/memoryadapteroptions.ts": [
-        "./src/adapters/memoryadapter/memoryadapterdocuments.ts",
-        "./src/adapters/memoryadapter/memoryadapterleafs.ts"
+      "./src/adapters/memoryadapter/memoryadapterwithstore.ts": [
+        "../fslockjs/dist/index.d.ts",
+        "./src/adapters/common/data/adapterdocuments.ts",
+        "./src/adapters/common/data/adapterleafs.ts",
+        "./src/adapters/common/data/datastore.ts",
+        "./src/adapters/common/data/datastoreoptions.ts",
+        "./src/adapters/common/data/memoryadapteroptions.ts",
+        "./src/adapters/memoryadapter/memoryadapter.ts",
+        "./src/types/sbtree/sbtree.ts"
       ],
       "./src/adapters/memoryadapter/methods/crud/getdocument.ts": [
-        "./src/adapters/memoryadapter/memoryadapter.ts",
-        "./src/types/common/document.ts"
+        "./src/adapters/common/data/document.ts",
+        "./src/adapters/memoryadapter/memoryadapter.ts"
       ],
       "./src/adapters/memoryadapter/methods/crud/removedocument.ts": [
         "./src/adapters/memoryadapter/memoryadapter.ts"
@@ -2420,8 +2506,8 @@
         "./src/adapters/memoryadapter/memoryadapter.ts"
       ],
       "./src/adapters/memoryadapter/methods/tree/openleaf.ts": [
-        "./src/adapters/memoryadapter/memoryadapter.ts",
-        "./src/adapters/memoryadapter/memoryadapterleafs.ts"
+        "./src/adapters/common/data/adapterleafs.ts",
+        "./src/adapters/memoryadapter/memoryadapter.ts"
       ],
       "./src/adapters/memoryadapter/methods/tree/removeinleaf.ts": [
         "./src/adapters/common/removeinleafresult.ts",
@@ -2438,19 +2524,19 @@
         "./src/adapters/common/possiblekeys.ts"
       ],
       "./src/types/ops/get.ts": [
-        "./src/types/common/document.ts",
+        "./src/adapters/common/data/document.ts",
         "./src/types/sbtree/sbtree.ts"
       ],
       "./src/types/ops/insert.ts": [
-        "./src/types/common/document.ts",
+        "./src/adapters/common/data/document.ts",
         "./src/types/sbtree/sbtree.ts"
       ],
       "./src/types/ops/query.ts": [
-        "./src/types/common/document.ts",
+        "./src/adapters/common/data/document.ts",
         "./src/types/sbtree/sbtree.ts"
       ],
       "./src/types/ops/remove.ts": [
-        "./src/types/common/document.ts",
+        "./src/adapters/common/data/document.ts",
         "./src/types/sbtree/sbtree.ts"
       ],
       "./src/types/ops/replace.ts": [
@@ -2583,7 +2669,7 @@
         "./src/types/sbfroot/sbfroot.ts"
       ],
       "./src/types/sbfroot/methods/get.ts": [
-        "./src/types/common/document.ts",
+        "./src/adapters/common/data/document.ts",
         "./src/types/sbfroot/sbfroot.ts"
       ],
       "./src/types/sbfroot/methods/getall.ts": [
@@ -2627,9 +2713,9 @@
         "./src/types/sbfroot/sbfroot.ts"
       ],
       "./src/types/sbfroot/sbfroot.ts": [
+        "./src/adapters/common/data/document.ts",
         "./src/adapters/common/persistenceadapter.ts",
         "./src/adapters/common/possiblekeys.ts",
-        "./src/types/common/document.ts",
         "./src/types/common/fillstatus.ts",
         "./src/types/common/operationresult.ts",
         "./src/types/sbfleaf/sbfleaf.ts",
@@ -2643,7 +2729,7 @@
         "./src/types/sbftree/sbftree.ts"
       ],
       "./src/types/sbftree/methods/get.ts": [
-        "./src/types/common/document.ts",
+        "./src/adapters/common/data/document.ts",
         "./src/types/sbftree/sbftree.ts"
       ],
       "./src/types/sbftree/methods/insert.ts": [
@@ -2660,9 +2746,9 @@
         "./src/types/sbftree/sbftree.ts"
       ],
       "./src/types/sbftree/sbftree.ts": [
+        "./src/adapters/common/data/document.ts",
         "./src/adapters/common/persistenceadapter.ts",
         "./src/adapters/common/possiblekeys.ts",
-        "./src/types/common/document.ts",
         "./src/types/sbfroot/sbfroot.ts",
         "./src/types/sbftree/sbftreeoptions.ts"
       ],
@@ -2671,15 +2757,15 @@
         "./src/types/sbfroot/sbfroot.ts"
       ],
       "./src/types/sbtree/methods/deletedocuments.ts": [
-        "./src/types/common/document.ts",
+        "./src/adapters/common/data/document.ts",
         "./src/types/sbtree/sbtree.ts"
       ],
       "./src/types/sbtree/methods/finddocuments.ts": [
-        "./src/types/common/document.ts",
+        "./src/adapters/common/data/document.ts",
         "./src/types/sbtree/sbtree.ts"
       ],
       "./src/types/sbtree/methods/getdocument.ts": [
-        "./src/types/common/document.ts",
+        "./src/adapters/common/data/document.ts",
         "./src/types/sbtree/sbtree.ts"
       ],
       "./src/types/sbtree/methods/getfieldtree.ts": [
@@ -2687,7 +2773,7 @@
         "./src/types/sbtree/sbtree.ts"
       ],
       "./src/types/sbtree/methods/insertdocuments.ts": [
-        "./src/types/common/document.ts",
+        "./src/adapters/common/data/document.ts",
         "./src/types/sbtree/sbtree.ts"
       ],
       "./src/types/sbtree/methods/loadstate.ts": [
@@ -2700,11 +2786,13 @@
         "./src/types/sbtree/sbtree.ts"
       ],
       "./src/types/sbtree/methods/tojson.ts": [
+        "./src/adapters/common/possiblekeys.ts",
         "./src/types/sbtree/sbtree.ts"
       ],
       "./src/types/sbtree/sbtree.ts": [
+        "./src/adapters/common/data/document.ts",
         "./src/adapters/common/persistenceadapter.ts",
-        "./src/types/common/document.ts",
+        "./src/adapters/common/possiblekeys.ts",
         "./src/types/sbftree/sbftree.ts",
         "./src/types/sbtree/sbtreeoptions.ts"
       ],
@@ -2817,10 +2905,19 @@
       "./node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts",
       "./node_modules/typescript/lib/lib.es5.d.ts",
       "./node_modules/typescript/lib/lib.esnext.intl.d.ts",
-      "./src/adapters/common/data/attachparent.ts",
+      "./src/adapters/common/data/adapterdocuments.ts",
+      "./src/adapters/common/data/adapterleafs.ts",
+      "./src/adapters/common/data/adapteroptionsdocuments.ts",
+      "./src/adapters/common/data/adapteroptionsleafs.ts",
+      "./src/adapters/common/data/attachdatasource.ts",
       "./src/adapters/common/data/autosave.ts",
       "./src/adapters/common/data/datastore.ts",
+      "./src/adapters/common/data/datastoreoptions.ts",
+      "./src/adapters/common/data/document.ts",
+      "./src/adapters/common/data/fsadaptepoptions.ts",
       "./src/adapters/common/data/loaddatabase.ts",
+      "./src/adapters/common/data/memoryadapteroptions.ts",
+      "./src/adapters/common/data/parseleafs.ts",
       "./src/adapters/common/data/savedatabase.ts",
       "./src/adapters/common/emittable.ts",
       "./src/adapters/common/eventlisteners.ts",
@@ -2834,9 +2931,7 @@
       "./src/adapters/common/queryoperations.ts",
       "./src/adapters/common/removeinleafresult.ts",
       "./src/adapters/common/siblingsresult.ts",
-      "./src/adapters/fsadapter/fsadaptepoptions.ts",
       "./src/adapters/fsadapter/fsadapter.ts",
-      "./src/adapters/fsadapter/fsadapteroptionautoloadcallback.ts",
       "./src/adapters/fsadapter/methods/crud/getdocument.ts",
       "./src/adapters/fsadapter/methods/crud/removedocument.ts",
       "./src/adapters/fsadapter/methods/crud/replacedocument.ts",
@@ -2856,14 +2951,11 @@
       "./src/adapters/fsadapter/methods/tree/splitleaf.ts",
       "./src/adapters/index.ts",
       "./src/adapters/memoryadapter/memoryadapter.ts",
-      "./src/adapters/memoryadapter/memoryadapterdocuments.ts",
-      "./src/adapters/memoryadapter/memoryadapterleafs.ts",
-      "./src/adapters/memoryadapter/memoryadapteroptions.ts",
+      "./src/adapters/memoryadapter/memoryadapterwithstore.ts",
       "./src/adapters/memoryadapter/methods/crud/getdocument.ts",
       "./src/adapters/memoryadapter/methods/crud/removedocument.ts",
       "./src/adapters/memoryadapter/methods/crud/replacedocument.ts",
       "./src/adapters/memoryadapter/methods/crud/savedocument.ts",
-      "./src/adapters/memoryadapter/methods/parseleafs.ts",
       "./src/adapters/memoryadapter/methods/tree/addinleaf.ts",
       "./src/adapters/memoryadapter/methods/tree/createleaf.ts",
       "./src/adapters/memoryadapter/methods/tree/findinleaf.ts",
@@ -2878,8 +2970,8 @@
       "./src/examples/basic-usage.ts",
       "./src/examples/fs-reusage.ts",
       "./src/examples/fs-usage.ts",
+      "./src/examples/ms-usage.ts",
       "./src/index.ts",
-      "./src/types/common/document.ts",
       "./src/types/common/fillstatus.ts",
       "./src/types/common/operationresult.ts",
       "./src/types/ops/get.ts",

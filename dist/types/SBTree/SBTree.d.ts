@@ -27,13 +27,39 @@ export declare class SBTree {
         id?: any;
         root?: any;
     }): void;
-    deleteDocuments(query: any): Promise<import("../common/Document").Document[]>;
-    findDocuments(params: any): Promise<import("../common/Document").Document[]>;
-    getDocument(identifier: any): Promise<import("../common/Document").Document>;
+    deleteDocuments(query: any): Promise<import("../../adapters/common/data/Document").Document[]>;
+    findDocuments(params: any): Promise<import("../../adapters/common/data/Document").Document[]>;
+    getDocument(identifier: any): Promise<import("../../adapters/common/data/Document").Document>;
     getFieldTree(fieldName: any): SBFTree;
-    insertDocuments(documents: any): Promise<import("../common/Document").Document[]>;
+    insertDocuments(documents: any): Promise<import("../../adapters/common/data/Document").Document[]>;
     replaceDocuments(documents: any): Promise<any[]>;
-    loadState(state: any): boolean;
-    toJSON(): any;
+    loadState(state: ReturnType<typeof SBTree.prototype.toJSON>): boolean;
+    toJSON(): {
+        order: number;
+        fillFactor: number;
+        verbose: boolean;
+        id: string;
+        size: number;
+        uniques: string[];
+        exclude: string[];
+        fieldTrees: {
+            [key: string]: {
+                fieldName: string;
+                id: string;
+                fillFactor: number;
+                isUnique: boolean;
+                verbose: boolean;
+                order: number;
+                root: {
+                    type: string;
+                    id: string;
+                    fieldName: string;
+                    identifiers: string[];
+                    keys: import("../../adapters/common/PossibleKeys").PossibleKeys[];
+                    children: any[];
+                };
+            };
+        };
+    };
 }
 //# sourceMappingURL=SBTree.d.ts.map
