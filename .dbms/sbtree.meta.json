@@ -1,0 +1,864 @@
+{
+  "leafs": {
+    "l176e3987f3fd68dcbec": {
+      "meta": {
+        "size": 1,
+        "identifiers": [
+          "5d6dc94e3c7734812f051d7a"
+        ]
+      },
+      "data": {
+        "keys": [
+          43
+        ]
+      }
+    },
+    "l176e3987f41dcdc0425": {
+      "meta": {
+        "size": 1,
+        "identifiers": [
+          "5d6dc077e27058fb6c7d8592"
+        ]
+      },
+      "data": {
+        "keys": [
+          11
+        ]
+      }
+    },
+    "l176e3987f41f08a0909": {
+      "meta": {
+        "size": 2,
+        "identifiers": [
+          "5d6dc94e3c7734812f051d7a",
+          "5d6dc94e3c7734812f051d7b"
+        ]
+      },
+      "data": {
+        "keys": [
+          "United States",
+          "United States"
+        ]
+      }
+    },
+    "l176e3987f41c9d21efb": {
+      "meta": {
+        "size": 1,
+        "identifiers": [
+          "5d6ded6fcb8d55944c7fc5e6"
+        ]
+      },
+      "data": {
+        "keys": [
+          "France"
+        ]
+      }
+    },
+    "l176e3987f41f5ac4e6a": {
+      "meta": {
+        "size": 2,
+        "identifiers": [
+          "5d6dc94e3c7734812f051d7a",
+          "5d6ded52666c83c63210d55f"
+        ]
+      },
+      "data": {
+        "keys": [
+          "bob@valjean.fr",
+          "charles@valjean.fr"
+        ]
+      }
+    },
+    "l176e3987f418f484c29": {
+      "meta": {
+        "size": 1,
+        "identifiers": [
+          "5d6dc93a34d1cfc2c45fdc09"
+        ]
+      },
+      "data": {
+        "keys": [
+          "basil@valjean.fr"
+        ]
+      }
+    },
+    "l176e3987f423303a889": {
+      "meta": {
+        "size": 1,
+        "identifiers": [
+          "5d6dc94e3c7734812f051d7c"
+        ]
+      },
+      "data": {
+        "keys": [
+          "julia@valjean.fr"
+        ]
+      }
+    },
+    "l176e3987f43d7333703": {
+      "meta": {
+        "size": 2,
+        "identifiers": [
+          "5d6dc94e3c7734812f051duk",
+          "5ff8ba7e9e97b1008f1d1076"
+        ]
+      },
+      "data": {
+        "keys": [
+          22,
+          27
+        ]
+      }
+    },
+    "l176e3987f43ab3febcc": {
+      "meta": {
+        "size": 2,
+        "identifiers": [
+          "5d6dc94e3c7734812f051duk",
+          "5d6dc94e3c7734812f051d7d"
+        ]
+      },
+      "data": {
+        "keys": [
+          "United Kingdom",
+          "United States"
+        ]
+      }
+    },
+    "l176e3987f43ea46ed41": {
+      "meta": {
+        "size": 1,
+        "identifiers": [
+          "5d6dc93a34d1cfc2c45fdc09"
+        ]
+      },
+      "data": {
+        "keys": [
+          33
+        ]
+      }
+    },
+    "l176e3987f44054c0cb2": {
+      "meta": {
+        "size": 1,
+        "identifiers": [
+          "5d6ded6fcb8d55944c7fc5e6"
+        ]
+      },
+      "data": {
+        "keys": [
+          "phillipe@valjean.fr"
+        ]
+      }
+    },
+    "l176e3987f45b6dddc1e": {
+      "meta": {
+        "size": 1,
+        "identifiers": [
+          "5d6dc94e3c7734812f051df4"
+        ]
+      },
+      "data": {
+        "keys": [
+          "France"
+        ]
+      }
+    },
+    "l176e3987f468ac5e05b": {
+      "meta": {
+        "size": 2,
+        "identifiers": [
+          "5d6dc94e3c7734812f051df4",
+          "5d6dc94e3c7734812f051duk"
+        ]
+      },
+      "data": {
+        "keys": [
+          "valentin@valjean.fr",
+          "zack@valjean.fr"
+        ]
+      }
+    },
+    "l176e3987f46c28efcef": {
+      "meta": {
+        "size": 1,
+        "identifiers": [
+          "5d6dc93f6059937716f41eed"
+        ]
+      },
+      "data": {
+        "keys": [
+          33
+        ]
+      }
+    },
+    "l176e3987f46a3887124": {
+      "meta": {
+        "size": 2,
+        "identifiers": [
+          "5d6dc94e3c7734812f051d7c",
+          "5d6dc93f6059937716f41eed"
+        ]
+      },
+      "data": {
+        "keys": [
+          "Russia",
+          "Russia"
+        ]
+      }
+    },
+    "l176e3987f46e7dc9cdd": {
+      "meta": {
+        "size": 2,
+        "identifiers": [
+          "5d6dc94e3c7734812f051d7b",
+          "5d6dc94e3c7734812f051d7d"
+        ]
+      },
+      "data": {
+        "keys": [
+          "ben@valjean.fr",
+          "bob@valjean.fr"
+        ]
+      }
+    },
+    "l176e3987f468ee6f9d5": {
+      "meta": {
+        "size": 1,
+        "identifiers": [
+          "5d6dc93f6059937716f41eed"
+        ]
+      },
+      "data": {
+        "keys": [
+          "goptnik@dourak.ru"
+        ]
+      }
+    },
+    "l176e3987f47b0fdb4d8": {
+      "meta": {
+        "size": 1,
+        "identifiers": [
+          "5d6dc93a34d1cfc2c45fdc09"
+        ]
+      },
+      "data": {
+        "keys": [
+          "France"
+        ]
+      }
+    },
+    "l176e3987f479c2ac874": {
+      "meta": {
+        "size": 2,
+        "identifiers": [
+          "5d6ded39ea07d9b4c062b744",
+          "5d6dc94e3c7734812f051d7c"
+        ]
+      },
+      "data": {
+        "keys": [
+          18,
+          21
+        ]
+      }
+    },
+    "l176e3987f47837e67bf": {
+      "meta": {
+        "size": 1,
+        "identifiers": [
+          "5d6dc94e3c7734812f051d7b"
+        ]
+      },
+      "data": {
+        "keys": [
+          43
+        ]
+      }
+    },
+    "l176e3987f481e19f43a": {
+      "meta": {
+        "size": 2,
+        "identifiers": [
+          "5d6ded39ea07d9b4c062b744",
+          "5d6ded52666c83c63210d55f"
+        ]
+      },
+      "data": {
+        "keys": [
+          "France",
+          "France"
+        ]
+      }
+    },
+    "l176e3987f4897d90e82": {
+      "meta": {
+        "size": 2,
+        "identifiers": [
+          "5d6ded6fcb8d55944c7fc5e6",
+          "5d6ded52666c83c63210d55f"
+        ]
+      },
+      "data": {
+        "keys": [
+          44,
+          86
+        ]
+      }
+    },
+    "l176e3987f4dcee32a1e": {
+      "meta": {
+        "size": 1,
+        "identifiers": [
+          "5d6dc94e3c7734812f051df4"
+        ]
+      },
+      "data": {
+        "keys": [
+          27
+        ]
+      }
+    },
+    "l176e3987f4d88652ba5": {
+      "meta": {
+        "size": 2,
+        "identifiers": [
+          "5d6dc077e27058fb6c7d8592",
+          "5ff8ba7e9e97b1008f1d1076"
+        ]
+      },
+      "data": {
+        "keys": [
+          "France",
+          "Greenland"
+        ]
+      }
+    },
+    "l176e3987f4d3f4aa248": {
+      "meta": {
+        "size": 2,
+        "identifiers": [
+          "5ff8ba7e9e97b1008f1d1076",
+          "5d6ded39ea07d9b4c062b744"
+        ]
+      },
+      "data": {
+        "keys": [
+          "lisa@lesmund.gl",
+          "luc@valjean.fr"
+        ]
+      }
+    },
+    "l176e3987f4e096e9126": {
+      "meta": {
+        "size": 2,
+        "identifiers": [
+          "5ff8ba7e9e97b1008f183700",
+          "5d6dc94e3c7734812f051d7d"
+        ]
+      },
+      "data": {
+        "keys": [
+          42,
+          43
+        ]
+      }
+    },
+    "l176e3987f4eab5e0e64": {
+      "meta": {
+        "size": 2,
+        "identifiers": [
+          "5ff8ba7e9e97b1008f183700",
+          "5d6dc077e27058fb6c7d8592"
+        ]
+      },
+      "data": {
+        "keys": [
+          "jean.paul@valjean.fr",
+          "jean@valjean.fr"
+        ]
+      }
+    }
+  },
+  "tree": {
+    "order": 3,
+    "fillFactor": 0.5,
+    "verbose": false,
+    "id": "t176e3987f1978e29d7e",
+    "size": 15,
+    "uniques": [],
+    "exclude": [],
+    "fieldTrees": {
+      "age": {
+        "fieldName": "age",
+        "id": "f176e3987f3c9767f43b",
+        "fillFactor": 0.5,
+        "isUnique": false,
+        "verbose": false,
+        "order": 3,
+        "root": {
+          "type": "root",
+          "id": "r176e3987f3d386929b2",
+          "fieldName": "age",
+          "identifiers": [],
+          "keys": [
+            29
+          ],
+          "children": [
+            {
+              "id": "n176e3987f4d6e9099d9",
+              "type": "node",
+              "fieldName": "age",
+              "keys": [
+                22
+              ],
+              "children": [
+                {
+                  "id": "n176e3987f4df43bec38",
+                  "type": "node",
+                  "fieldName": "age",
+                  "keys": [
+                    18
+                  ],
+                  "children": [
+                    {
+                      "fieldName": "age",
+                      "id": "l176e3987f41dcdc0425",
+                      "type": "leaf"
+                    },
+                    {
+                      "fieldName": "age",
+                      "id": "l176e3987f479c2ac874",
+                      "type": "leaf"
+                    }
+                  ]
+                },
+                {
+                  "id": "n176e3987f4d3e79ecb5",
+                  "type": "node",
+                  "fieldName": "age",
+                  "keys": [
+                    27
+                  ],
+                  "children": [
+                    {
+                      "fieldName": "age",
+                      "id": "l176e3987f43d7333703",
+                      "type": "leaf"
+                    },
+                    {
+                      "fieldName": "age",
+                      "id": "l176e3987f4dcee32a1e",
+                      "type": "leaf"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "n176e3987f4d7980905b",
+              "type": "node",
+              "fieldName": "age",
+              "keys": [
+                43
+              ],
+              "children": [
+                {
+                  "id": "n176e3987f47744e105b",
+                  "type": "node",
+                  "fieldName": "age",
+                  "keys": [
+                    33,
+                    33
+                  ],
+                  "children": [
+                    {
+                      "fieldName": "age",
+                      "id": "l176e3987f43ea46ed41",
+                      "type": "leaf"
+                    },
+                    {
+                      "fieldName": "age",
+                      "id": "l176e3987f46c28efcef",
+                      "type": "leaf"
+                    },
+                    {
+                      "fieldName": "age",
+                      "id": "l176e3987f4e096e9126",
+                      "type": "leaf"
+                    }
+                  ]
+                },
+                {
+                  "id": "n176e3987f47eee025a3",
+                  "type": "node",
+                  "fieldName": "age",
+                  "keys": [
+                    43,
+                    44
+                  ],
+                  "children": [
+                    {
+                      "fieldName": "age",
+                      "id": "l176e3987f3fd68dcbec",
+                      "type": "leaf"
+                    },
+                    {
+                      "fieldName": "age",
+                      "id": "l176e3987f47837e67bf",
+                      "type": "leaf"
+                    },
+                    {
+                      "fieldName": "age",
+                      "id": "l176e3987f4897d90e82",
+                      "type": "leaf"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "country": {
+        "fieldName": "country",
+        "id": "f176e3987f3e8e6cbb9e",
+        "fillFactor": 0.5,
+        "isUnique": false,
+        "verbose": false,
+        "order": 3,
+        "root": {
+          "type": "root",
+          "id": "r176e3987f3eebd209f5",
+          "fieldName": "country",
+          "identifiers": [],
+          "keys": [
+            "France",
+            "United Kingdom"
+          ],
+          "children": [
+            {
+              "id": "n176e3987f47a5ee2f20",
+              "type": "node",
+              "fieldName": "country",
+              "keys": [
+                "France",
+                "France"
+              ],
+              "children": [
+                {
+                  "fieldName": "country",
+                  "id": "l176e3987f41c9d21efb",
+                  "type": "leaf"
+                },
+                {
+                  "fieldName": "country",
+                  "id": "l176e3987f45b6dddc1e",
+                  "type": "leaf"
+                },
+                {
+                  "fieldName": "country",
+                  "id": "l176e3987f481e19f43a",
+                  "type": "leaf"
+                }
+              ]
+            },
+            {
+              "id": "n176e3987f47716bc1e2",
+              "type": "node",
+              "fieldName": "country",
+              "keys": [
+                "France",
+                "Russia"
+              ],
+              "children": [
+                {
+                  "fieldName": "country",
+                  "id": "l176e3987f47b0fdb4d8",
+                  "type": "leaf"
+                },
+                {
+                  "fieldName": "country",
+                  "id": "l176e3987f4d88652ba5",
+                  "type": "leaf"
+                },
+                {
+                  "fieldName": "country",
+                  "id": "l176e3987f46a3887124",
+                  "type": "leaf"
+                }
+              ]
+            },
+            {
+              "id": "n176e3987f45c996acb4",
+              "type": "node",
+              "fieldName": "country",
+              "keys": [
+                "United States"
+              ],
+              "children": [
+                {
+                  "fieldName": "country",
+                  "id": "l176e3987f43ab3febcc",
+                  "type": "leaf"
+                },
+                {
+                  "fieldName": "country",
+                  "id": "l176e3987f41f08a0909",
+                  "type": "leaf"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "email": {
+        "fieldName": "email",
+        "id": "f176e3987f3e48ef535b",
+        "fillFactor": 0.5,
+        "isUnique": false,
+        "verbose": false,
+        "order": 3,
+        "root": {
+          "type": "root",
+          "id": "r176e3987f3e164a9f68",
+          "fieldName": "email",
+          "identifiers": [],
+          "keys": [
+            "julia@valjean.fr"
+          ],
+          "children": [
+            {
+              "id": "n176e3987f4d46e66218",
+              "type": "node",
+              "fieldName": "email",
+              "keys": [
+                "bob@valjean.fr"
+              ],
+              "children": [
+                {
+                  "id": "n176e3987f47214faf4b",
+                  "type": "node",
+                  "fieldName": "email",
+                  "keys": [
+                    "ben@valjean.fr"
+                  ],
+                  "children": [
+                    {
+                      "fieldName": "email",
+                      "id": "l176e3987f418f484c29",
+                      "type": "leaf"
+                    },
+                    {
+                      "fieldName": "email",
+                      "id": "l176e3987f46e7dc9cdd",
+                      "type": "leaf"
+                    }
+                  ]
+                },
+                {
+                  "id": "n176e3987f4723ce22a3",
+                  "type": "node",
+                  "fieldName": "email",
+                  "keys": [
+                    "goptnik@dourak.ru",
+                    "jean.paul@valjean.fr"
+                  ],
+                  "children": [
+                    {
+                      "fieldName": "email",
+                      "id": "l176e3987f41f5ac4e6a",
+                      "type": "leaf"
+                    },
+                    {
+                      "fieldName": "email",
+                      "id": "l176e3987f468ee6f9d5",
+                      "type": "leaf"
+                    },
+                    {
+                      "fieldName": "email",
+                      "id": "l176e3987f4eab5e0e64",
+                      "type": "leaf"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "n176e3987f4dc9d93e2d",
+              "type": "node",
+              "fieldName": "email",
+              "keys": [
+                "patrick@valjean.fr"
+              ],
+              "children": [
+                {
+                  "id": "n176e3987f4d8cb60937",
+                  "type": "node",
+                  "fieldName": "email",
+                  "keys": [
+                    "lisa@lesmund.gl"
+                  ],
+                  "children": [
+                    {
+                      "fieldName": "email",
+                      "id": "l176e3987f423303a889",
+                      "type": "leaf"
+                    },
+                    {
+                      "fieldName": "email",
+                      "id": "l176e3987f4d3f4aa248",
+                      "type": "leaf"
+                    }
+                  ]
+                },
+                {
+                  "id": "n176e3987f4d8d07965c",
+                  "type": "node",
+                  "fieldName": "email",
+                  "keys": [
+                    "phillipe@valjean.fr"
+                  ],
+                  "children": [
+                    {
+                      "fieldName": "email",
+                      "id": "l176e3987f44054c0cb2",
+                      "type": "leaf"
+                    },
+                    {
+                      "fieldName": "email",
+                      "id": "l176e3987f468ac5e05b",
+                      "type": "leaf"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "canDeliver": {
+        "fieldName": "canDeliver",
+        "id": "f176e3987f4d5e6e950a",
+        "fillFactor": 0.5,
+        "isUnique": false,
+        "verbose": false,
+        "order": 3,
+        "root": {
+          "type": "root",
+          "id": "r176e3987f4d0a32822d",
+          "fieldName": "canDeliver",
+          "identifiers": [],
+          "keys": [],
+          "children": []
+        }
+      },
+      "isPending": {
+        "fieldName": "isPending",
+        "id": "f176e3987f637f958afc",
+        "fillFactor": 0.5,
+        "isUnique": false,
+        "verbose": false,
+        "order": 3,
+        "root": {
+          "type": "root",
+          "id": "r176e3987f63927167f4",
+          "fieldName": "isPending",
+          "identifiers": [
+            "5ff8ba7e9e97b1008f1d1076"
+          ],
+          "keys": [
+            true
+          ],
+          "children": []
+        }
+      }
+    }
+  },
+  "documents": {
+    "5d6dc94e3c7734812f051d7a": {
+      "age": 43,
+      "country": "United States",
+      "email": "bob@valjean.fr",
+      "_id": "5d6dc94e3c7734812f051d7a"
+    },
+    "5d6dc94e3c7734812f051d7b": {
+      "age": 43,
+      "country": "United States",
+      "email": "ben@valjean.fr",
+      "_id": "5d6dc94e3c7734812f051d7b"
+    },
+    "5d6dc94e3c7734812f051d7c": {
+      "age": 21,
+      "country": "Russia",
+      "email": "julia@valjean.fr",
+      "_id": "5d6dc94e3c7734812f051d7c"
+    },
+    "5d6dc94e3c7734812f051duk": {
+      "age": 22,
+      "country": "United Kingdom",
+      "email": "zack@valjean.fr",
+      "_id": "5d6dc94e3c7734812f051duk"
+    },
+    "5d6dc94e3c7734812f051d7d": {
+      "age": 43,
+      "country": "United States",
+      "email": "bob@valjean.fr",
+      "_id": "5d6dc94e3c7734812f051d7d"
+    },
+    "5d6dc94e3c7734812f051df4": {
+      "age": 27,
+      "country": "France",
+      "email": "valentin@valjean.fr",
+      "_id": "5d6dc94e3c7734812f051df4"
+    },
+    "5d6dc93f6059937716f41eed": {
+      "age": 33,
+      "email": "goptnik@dourak.ru",
+      "country": "Russia",
+      "_id": "5d6dc93f6059937716f41eed"
+    },
+    "5d6dc93a34d1cfc2c45fdc09": {
+      "age": 33,
+      "email": "basil@valjean.fr",
+      "country": "France",
+      "_id": "5d6dc93a34d1cfc2c45fdc09"
+    },
+    "5d6dc077e27058fb6c7d8592": {
+      "age": 11,
+      "email": "jean@valjean.fr",
+      "country": "France",
+      "_id": "5d6dc077e27058fb6c7d8592"
+    },
+    "5d6ded39ea07d9b4c062b744": {
+      "age": 18,
+      "email": "luc@valjean.fr",
+      "country": "France",
+      "_id": "5d6ded39ea07d9b4c062b744"
+    },
+    "5d6ded52666c83c63210d55f": {
+      "age": 86,
+      "email": "charles@valjean.fr",
+      "country": "France",
+      "_id": "5d6ded52666c83c63210d55f"
+    },
+    "5d6ded6fcb8d55944c7fc5e6": {
+      "age": 44,
+      "email": "phillipe@valjean.fr",
+      "country": "France",
+      "_id": "5d6ded6fcb8d55944c7fc5e6"
+    },
+    "5ff8ba7e9e97b1008f1d1076": {
+      "age": 27,
+      "country": "Greenland",
+      "email": "lisa@lesmund.gl",
+      "_id": "5ff8ba7e9e97b1008f1d1076",
+      "isPending": true
+    },
+    "5ff8ba7e9e97b1008f183700": {
+      "age": 42,
+      "email": "jean.paul@valjean.fr",
+      "_id": "5ff8ba7e9e97b1008f183700"
+    }
+  }
+}

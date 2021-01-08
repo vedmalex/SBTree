@@ -10,6 +10,7 @@ const parseLeafs_1 = require("../common/data/parseLeafs");
 class MemoryAdapterWithStore extends MemoryAdapter_1.MemoryAdapter {
     constructor(props) {
         super(props);
+        parseLeafs_1.parseDataStore.call(this, props);
     }
     async saveDatabase() {
         const leafs = lodash_clonedeep_1.default(this.leafs);
@@ -39,6 +40,36 @@ class MemoryAdapterWithStore extends MemoryAdapter_1.MemoryAdapter {
                 }
             }
         }
+    }
+    async addInLeaf(leafName, identifier, value) {
+        const res = await super.addInLeaf(leafName, identifier, value);
+        this.lastChange = Date.now();
+        return res;
+    }
+    async removeInLeaf(leafId, identifier) {
+        const res = super.removeInLeaf(leafId, identifier);
+        this.lastChange = Date.now();
+        return res;
+    }
+    async replaceInLeaf(leafId, identifier, value) {
+        const res = await super.replaceInLeaf(leafId, identifier, value);
+        this.lastChange = Date.now();
+        return res;
+    }
+    async replaceDocument(doc) {
+        const res = await super.replaceDocument.call(this, doc);
+        this.lastChange = Date.now();
+        return res;
+    }
+    async removeDocument(identifier) {
+        const res = await super.removeDocument(identifier);
+        this.lastChange = Date.now();
+        return res;
+    }
+    async saveDocument(identifier) {
+        const res = await super.saveDocument(identifier);
+        this.lastChange = Date.now();
+        return res;
     }
 }
 exports.MemoryAdapterWithStore = MemoryAdapterWithStore;

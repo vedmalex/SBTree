@@ -58,7 +58,7 @@ class MemoryAdapter {
     async replaceDocument(doc) {
         return (await replaceDocument_1.replaceDocument.call(this, doc));
     }
-    replaceInLeaf(leafId, identifier, value) {
+    async replaceInLeaf(leafId, identifier, value) {
         return replaceInLeaf_1.replaceInLeaf.call(this, leafId, identifier, value);
     }
     async saveDocument(doc) {

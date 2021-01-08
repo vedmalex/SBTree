@@ -25,5 +25,11 @@ export declare class MemoryAdapterWithStore extends MemoryAdapter implements Dat
     lastChange: number;
     autoSaveInterval: number;
     autoLoadForceOverwrite: boolean;
+    addInLeaf(leafName: any, identifier: any, value: any): Promise<number>;
+    removeInLeaf(leafId: any, identifier: any): Promise<import("../common/RemoveInLeafResult").RemoveInLeafResult[]>;
+    replaceInLeaf(leafId: any, identifier: any, value: any): Promise<number>;
+    replaceDocument(doc: any): Promise<any>;
+    removeDocument(identifier: any): Promise<void>;
+    saveDocument(identifier: any): Promise<void>;
 }
 //# sourceMappingURL=MemoryAdapterWithStore.d.ts.map

@@ -5,7 +5,11 @@ import { MemoryAdapterOptions } from '../common/data/MemoryAdapterOptions'
 import { FSLock } from 'fslockjs'
 import cloneDeep from 'lodash.clonedeep'
 import { SBTree } from '../../types/SBTree/SBTree'
-import { parseLeafs, parseDocments } from '../common/data/parseLeafs'
+import {
+  parseLeafs,
+  parseDocments,
+  parseDataStore,
+} from '../common/data/parseLeafs'
 import { AdapterLeafs } from '../common/data/AdapterLeafs'
 import { AdapterDocuments } from '../common/data/AdapterDocuments'
 
@@ -18,6 +22,7 @@ export type PersisteMemory = {
 export class MemoryAdapterWithStore extends MemoryAdapter implements DataStore {
   constructor(props: MemoryAdapterOptions & DataStoreOptions) {
     super(props)
+    parseDataStore.call(this, props)
   }
   datasource: SBTree
   queue: FSLock
@@ -62,4 +67,35 @@ export class MemoryAdapterWithStore extends MemoryAdapter implements DataStore {
   lastChange: number
   autoSaveInterval: number
   autoLoadForceOverwrite: boolean
+
+  async addInLeaf(leafName, identifier, value) {
+    const res = await super.addInLeaf(leafName, identifier, value)
+    this.lastChange = Date.now()
+    return res
+  }
+  async removeInLeaf(leafId, identifier) {
+    const res = super.removeInLeaf(leafId, identifier)
+    this.lastChange = Date.now()
+    return res
+  }
+  async replaceInLeaf(leafId, identifier, value) {
+    const res = await super.replaceInLeaf(leafId, identifier, value)
+    this.lastChange = Date.now()
+    return res
+  }
+  async replaceDocument(doc) {
+    const res = await super.replaceDocument.call(this, doc)
+    this.lastChange = Date.now()
+    return res
+  }
+  async removeDocument(identifier) {
+    const res = await super.removeDocument(identifier)
+    this.lastChange = Date.now()
+    return res
+  }
+  async saveDocument(identifier) {
+    const res = await super.saveDocument(identifier)
+    this.lastChange = Date.now()
+    return res
+  }
 }

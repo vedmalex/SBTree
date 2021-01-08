@@ -105,7 +105,7 @@ export class MemoryAdapter
     >
   }
 
-  replaceInLeaf(leafId, identifier, value) {
+  async replaceInLeaf(leafId, identifier, value) {
     return replaceInLeaf.call(this, leafId, identifier, value) as ReturnType<
       typeof replaceInLeaf
     >

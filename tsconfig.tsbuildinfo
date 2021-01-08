@@ -1047,7 +1047,7 @@
         "affectsGlobalScope": false
       },
       "./src/adapters/memoryadapter/memoryadapter.ts": {
-        "version": "55c2da3ee835cb9c23d4b3b4fdb61ff3f684bc4482495b4de4fa236d9f5903a2",
+        "version": "52164c85c322b372c760784f513222bebc17271460b1fa74019982959a4cf9da",
         "signature": "331bb3a8a23b0d5ec7ce7c90a9cc4d96d9e950ba2879f7f5e3bf4b211800e713",
         "affectsGlobalScope": false
       },
@@ -1187,8 +1187,8 @@
         "affectsGlobalScope": false
       },
       "./src/adapters/memoryadapter/memoryadapterwithstore.ts": {
-        "version": "be6a1b7f570ebe146965a5e852659357ad54713712b85971f7980d28899e348e",
-        "signature": "823ee740ef3f887836aaf6071734bc1e9e23a4370c44dd8da3949895cbf90201",
+        "version": "0c60284b4aff0aafef1068afe459a3ce0d1b220a8c03496bb2ad9d1555086438",
+        "signature": "91e6d04f498398879ac47c4e61c48dbb67d699c515031a74e84446ccf7173e14",
         "affectsGlobalScope": false
       },
       "./src/adapters/common/eventlisteners.ts": {
@@ -1219,6 +1219,11 @@
       "./src/examples/fs-usage.ts": {
         "version": "d54ce1112a7663f4c247c080f060ba63accb03f85049aa70e682bd4ac8ba8233",
         "signature": "076ad42ead6e705bb40144d453391ad0c9395b7daafdf825c79ec7ea48676bcf",
+        "affectsGlobalScope": false
+      },
+      "./src/examples/ms-reusage.ts": {
+        "version": "bdc9f5e3fb6aebb2c0dff26e830b3fa798cb5d865e84b5c99cfefe500ff9cdac",
+        "signature": "46bfca76cb3461fe4d4f8665085c51e61b3786d7343274a7a7f6a4548a66a9d8",
         "affectsGlobalScope": false
       },
       "./src/examples/ms-usage.ts": {
@@ -1728,6 +1733,11 @@
       ],
       "./src/examples/fs-usage.ts": [
         "./src/adapters/index.ts",
+        "./src/types/sbtree/sbtree.ts",
+        "./src/utils/time.ts"
+      ],
+      "./src/examples/ms-reusage.ts": [
+        "./src/adapters/memoryadapter/memoryadapterwithstore.ts",
         "./src/types/sbtree/sbtree.ts",
         "./src/utils/time.ts"
       ],
@@ -2468,6 +2478,7 @@
         "./src/adapters/common/data/datastore.ts",
         "./src/adapters/common/data/datastoreoptions.ts",
         "./src/adapters/common/data/memoryadapteroptions.ts",
+        "./src/adapters/common/removeinleafresult.ts",
         "./src/adapters/memoryadapter/memoryadapter.ts",
         "./src/types/sbtree/sbtree.ts"
       ],
@@ -2970,6 +2981,7 @@
       "./src/examples/basic-usage.ts",
       "./src/examples/fs-reusage.ts",
       "./src/examples/fs-usage.ts",
+      "./src/examples/ms-reusage.ts",
       "./src/examples/ms-usage.ts",
       "./src/index.ts",
       "./src/types/common/fillstatus.ts",
